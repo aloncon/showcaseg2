@@ -39,8 +39,10 @@ const getParentElement = (function(){
     const parent = document.getElementById('wc-showcase-root');
     const script = getScriptElement();
     console.log("getParentElementtt")
-    if(typeof parent == 'undefined' && typeof script != 'undefined')
-     return function() {console.log("getParentElementtt NO parent" + script.getParentElement  ); return script.getParentElement  };    
+    if(parent == null && typeof script != 'undefined'){
+      console.log("getParentElementtt  parent NULL: " + script.parentNode  );
+      return function() { return script.parentNode  };    
+    } 
     
     return function() { return parent  };
 })();
