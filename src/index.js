@@ -50,7 +50,8 @@ const getParentElement = (function(){
 ReactDOM.render(
     <Provider store={store}>
     <HashRouter>
-      
+      <div id="wc-showcase-root" className="wc-showcase-root">
+        
         <div className="wcContainer">
 
            
@@ -71,7 +72,7 @@ ReactDOM.render(
         <basePath/>            
 
         </div>    
-     
+      </div>
     </HashRouter>    
     </Provider>
     , 
