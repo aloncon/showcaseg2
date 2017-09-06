@@ -38,11 +38,11 @@ const getParentElement = (function(){
     // myScript.parentElement
     const parent = document.getElementById('wc-showcase-root');
     const script = getScriptElement();
-    console.log("getParentElementtt" + parent.parentElement + parent )
-    if(!parent)
-     return function() {console.log("getParentElementtt NO parent" + script.getParentElement.className  ); return script.getParentElement  };    
+    console.log("getParentElementtt")
+    if(typeof parent == 'undefined' && typeof script != 'undefined')
+     return function() {console.log("getParentElementtt NO parent" + script.getParentElement  ); return script.getParentElement  };    
     
-    return function() { return document.getElementById('wc-showcase-root');  };
+    return function() { return parent  };
 })();
 
 ReactDOM.render(
