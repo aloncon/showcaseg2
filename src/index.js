@@ -11,6 +11,7 @@ import EndpointSolutions from './endpoint-solutions';
 import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
 import ProductListing1 from './product-listing1';
+import moduleInfo from './moduleInfo';
 
 import { Provider } from 'react-redux';
 import {
@@ -25,6 +26,24 @@ import store from './store';
 
 import { onProductsEnter } from './routers/route_callbacks';
 
+
+const getScriptElement = (function() {
+    const scripts = document.getElementsByTagName('script');
+    const index = scripts.length - 1;
+    const myScript = scripts[index];
+    return function() { return myScript; };
+})();
+
+const getParentElement = (function(){
+    // myScript.parentElement
+    const parent = document.getElementById('wc-showcase-root');
+    const script = getScriptElement();
+    console.log("getParentElementtt" + parent.parentElement + parent )
+    if(!parent)
+     return function() {console.log("getParentElementtt NO parent" + script.getParentElement.className  ); return script.getParentElement  };    
+    
+    return function() { return document.getElementById('wc-showcase-root');  };
+})();
 
 ReactDOM.render(
     <Provider store={store}>
@@ -54,6 +73,7 @@ ReactDOM.render(
     </HashRouter>    
     </Provider>
     , 
-    document.getElementById('root')
+    //document.getElementById('wc-showcase-root')
+    getParentElement()
 );
 registerServiceWorker();
