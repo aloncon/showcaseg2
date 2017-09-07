@@ -10,9 +10,8 @@ class ProductList extends Component {
 
   componentWillMount(){
       console.log("propsssssss willmount " + this.props.list);  
-      console.log("this .state " + this.state   );  
-      console.log(this.state);  
-      this.props.fetchProducts();
+      console.log("propsssssss willmount " + this._jsxFileName  );  
+      this.props.fetchProducts(this.props.list); 
   }  
 
   renderProducts() {

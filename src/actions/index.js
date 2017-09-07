@@ -1,5 +1,7 @@
 import axios from 'axios'
 import jsonpP from 'jsonp-p';
+import replace from 'react-string-replace';
+import * as moduleInfo from '../moduleInfo';
 
 //import fjsonp from 'fetch-jsonp';
 //import fjp from 'fetch-jsonp';
@@ -15,7 +17,14 @@ var xxx;
   console.log("sssssssssssssssssssssssssssss jsonCallback"+json);
 }
 
-export function fetchProducts() {
+export function getProductsUrl(wcpcs) {
+    wcpcs = wcpcs.replace(/\|/g,'&wcpc=')
+    wcpcs = wcpcs.replace(/^/g,'wcpc=')
+    let url = 'https://json-preview.webcollage.net/apps/json/' + moduleInfo.siteName + '/method/partner-products-data-by-wcpc?' + wcpcs + '&d=' + moduleInfo.id + '&moduleId=' + moduleInfo.moduleName;
+    return url;
+}
+
+export function fetchProducts(wcpcs) {
   //const request = axios.get('http://jsonplaceholder.typicode.com/photos?albumId=41');
   //const request = axios.get('http://json-preview.webcollage.net/apps/json/cdw/method/partner-products-data-by-wcpc?wcpc=1430315725083&wcpc=1430312432542&wcpc=1430312367318&wcpc=1430311989860&wcpc=1430312567373&wcpc=1430312143801&wcpc=1430312306400&wcpc=1430312637682&d=168262d34ae47d7642f15af14eb6c95d&moduleId=xerox&callback=jQuery1111024476525482347955_1501158065391');
 
@@ -23,7 +32,9 @@ export function fetchProducts() {
 
 let url2 = 'http://jsonplaceholder.typicode.com/photos?albumId=41';
 //let url = 'http://json-preview.webcollage.net/apps/json/cdw/method/partner-products-data-by-wcpc?wcpc=1430315725083&wcpc=1430312432542&wcpc=1430312367318&wcpc=1430311989860&wcpc=1430312567373&wcpc=1430312143801&wcpc=1430312306400&wcpc=1430312637682&d=168262d34ae47d7642f15af14eb6c95d&moduleId=xerox&callback=jsonCallback'
-let url = "http://json-preview.webcollage.net/apps/json/cdw/method/partner-products-data-by-wcpc?wcpc=1430315725083&wcpc=1430312432542&wcpc=1430312367318&wcpc=1430311989860&wcpc=1430312567373&wcpc=1430312143801&wcpc=1430312306400&wcpc=1430312637682&d=168262d34ae47d7642f15af14eb6c95d&moduleId=xerox";
+//let url = "http://json-preview.webcollage.net/apps/json/cdw/method/partner-products-data-by-wcpc?wcpc=1430315725083&wcpc=1430312432542&wcpc=1430312367318&wcpc=1430311989860&wcpc=1430312567373&wcpc=1430312143801&wcpc=1430312306400&wcpc=1430312637682&d=168262d34ae47d7642f15af14eb6c95d&moduleId=xerox";
+
+let url = getProductsUrl(wcpcs);
 
 let request = jsonpP(url);
 let request2 = jsonpP(url).promise

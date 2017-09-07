@@ -20,6 +20,7 @@
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
     "react-slick": "^0.14.11",
+    "react-string-replace": "^0.4.0",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
     "slick-carousel": "^1.7.1"
