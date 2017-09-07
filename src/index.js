@@ -25,6 +25,8 @@ import Products from './productlisting';
 import store from './store';
 
 import { onProductsEnter } from './routers/route_callbacks';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+ 
 
 
 const getScriptElement = (function() {

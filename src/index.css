@@ -1,0 +1,249 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  max-width: 1000px;
+}
+
+#wc-showcase-root .wcContainer{
+    width: 100% !important;
+    background-color: grey;
+}
+
+.ShowcaseBody .wc-announcments{
+    height: 180px;
+    overflow: hidden;
+}
+#wc-reset .Footer{
+    background-color: grey !important;
+    height: 40px;
+    padding:10px;
+ 
+} 
+
+#wc-reset .Footer .wc-powered-by{
+    
+    text-align: right !important;
+    float: right !important;
+    width: 150px !important;
+    height: 20px !important;
+    margin-right: 2px !important;
+}
+.showcase-header .wc-cus-header {
+    width: 100% !important;
+    text-align: right !important;
+    background-color: black !important;
+    border: 0px none black !important;
+}
+
+
+#wc-showcase-root .wcContainer .category-ul{
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    list-style-type: none !important;
+}
+#wc-showcase-root .wcContainer .category-li{
+    padding-top: 15px !important;
+    border-bottom: 1px solid #CBCBCB;
+    list-style-type: none !important;
+        background-color: transparent;
+    border: medium none black;
+    width: auto;
+    height: auto;    
+}
+#wc-showcase-root .wcContainer .category-li .centeredText{
+    float: left !important;
+    padding-right: 12px !important;
+}
+
+
+#wc-showcase-root .wcContainer .category-li .fiveCol{
+    
+}
+#wc-showcase-root .wcContainer .category-li .fiveCol p{
+    font-family: Arial !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    color: #5f5f5f !important;
+    margin-top: 5px !important;
+}
+#wc-showcase-root .wcContainer .clear{
+    clear:both !important;
+}
+
+/*  ********* React Slick Start **********  */
+#wc-showcase-root .slick-list{
+    height: 240px;
+}
+/*  ********* React Slick End **********  */
+/*********************************!!!Announcement!!!************************************/
+.wcan_ul{
+    list-style-type: none;
+    margin:0px 0 0 -40px;
+    cursor:pointer;
+}
+
+.wc-link{
+    text-decoration: none;
+}
+
+.wcan-play, .wcan-pause, .wcan-sb-item {
+  float:                  left !important;
+  font-size:              0px !important;
+  background-attachments: fixed !important;
+  background-repeat:      no-repeat !important;
+}
+
+.wcan-sb-item {
+  width:                  23px !important;
+  height:                 23px !important;
+  background-image:       url('./announcments/control-bar.png') !important;
+}
+
+.wcan-previous{
+    float:                  right !important;
+    background-image:       url('./announcments/prev.png') !important;
+    width:                  16px !important;
+    height:                 16px !important;
+}
+
+.wcan-next{
+    float:                  right !important;
+    background-image:       url('./announcments/next.png') !important;
+    width:                  16px !important;
+    height:                 16px !important;
+}
+
+.wcan-break {
+  clear: both !important;
+}
+
+.wcan-play {
+  background-position: 90% 0 !important;
+}
+
+.wcan-play:hover, .wcan-play:focus {
+  background-position: 90% 50% !important;
+}
+
+.wcan-pause {
+  background-position: 100% 0 !important;
+}
+
+.wcan-pause:hover, .wcan-pause:focus {
+  background-position: 100% 50% !important;
+}
+
+.wcan-1 {
+  background-position: 0 0 !important;
+}
+
+.wcan-2 {
+  background-position: 10% 0 !important;
+}
+
+.wcan-3 {
+  background-position: 20% 0 !important;
+}
+
+.wcan-4 {
+  background-position: 30% 0 !important;
+}
+
+.wcan-5 {
+  background-position: 40% 0 !important;
+}
+
+.wcan-6 {
+  background-position: 50% 0 !important;
+}
+
+.wcan-7 {
+  background-position: 60% 0 !important;
+}
+
+.wcan-8 {
+  background-position: 70% 0 !important;
+}
+
+.wcan-9 {
+  background-position: 80% 0 !important;
+}
+
+.wcan-1:hover, .wcan-1:focus {
+  background-position: 0 50% !important;
+}
+
+.wcan-2:hover, .wcan-2:focus {
+  background-position: 10% 50% !important;
+}
+
+.wcan-3:hover, .wcan-3:focus {
+  background-position: 20% 50% !important;
+}
+
+.wcan-4:hover, .wcan-4:focus {
+  background-position: 30% 50% !important;
+}
+
+.wcan-5:hover, .wcan-5:focus {
+  background-position: 40% 50% !important;
+}
+
+.wcan-6:hover, .wcan-6:focus {
+  background-position: 50% 50% !important;
+}
+
+.wcan-7:hover, .wcan-7:focus {
+  background-position: 60% 50% !important;
+}
+
+.wcan-8:hover, .wcan-8:focus {
+  background-position: 70% 50% !important;
+}
+
+.wcan-9:hover, .wcan-9:focus {
+  background-position: 80% 50% !important;
+}
+
+.wcan-1a {
+  background-position: 0 100%  !important;
+}
+
+.wcan-2a {
+  background-position: 10% 100% !important;
+}
+
+.wcan-3a {
+  background-position: 20% 100% !important;
+}
+
+.wcan-4a {
+  background-position: 30% 100% !important;
+}
+
+.wcan-5a {
+  background-position: 40% 100% !important;
+}
+
+.wcan-6a {
+  background-position: 50% 100% !important;
+}
+
+.wcan-7a {
+  background-position: 60% 100% !important;
+}
+
+.wcan-8a {
+  background-position: 70% 100% !important;
+}
+
+.wcan-9a {
+  background-position: 80% 100% !important;
+}
+/*********************************!!!Listing!!!************************************/
+
