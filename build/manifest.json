@@ -1,6 +1,6 @@
 {
-  "short_name": "Lexmark Showcase",
-  "name": "Webcollage Lexmark Showcase",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",

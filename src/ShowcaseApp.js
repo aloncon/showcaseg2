@@ -15,7 +15,7 @@ class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
       <div className="ShowcaseBody">
-            <h2>Lexmark Showcase</h2>
+            <h2>Webcollage (test) Showcase</h2>
             <center> 
             <Announcments />
             </center> 
