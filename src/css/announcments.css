@@ -1,6 +1,10 @@
 
 /*********************************!!!Announcement!!!************************************/
-.wcan_ul{
+
+.wc_main_slider .slick-initialized {
+   height: 240px !important; /* height of the banner image */
+}  
+.wcan_ul {
     list-style-type: none;
     margin:0px 0 0 -40px;
     cursor:pointer;

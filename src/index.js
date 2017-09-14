@@ -27,7 +27,7 @@ import store from './store';
 import { onProductsEnter } from './routers/route_callbacks';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
-const css = require('./App.css'); 
+//const css = require('./App.css'); 
 
 const getScriptElement = (function() {
     const scripts = document.getElementsByTagName('script');
@@ -52,7 +52,7 @@ const getParentElement = (function(){
 ReactDOM.render(
     <Provider store={store}>
     <HashRouter>
-      <div id="wc-showcase-root" className="wc-showcase-root">
+      <div id="wc_showcase_root" className="wc_showcase_root">
         
         <div className="wcContainer">
 

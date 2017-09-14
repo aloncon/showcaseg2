@@ -4,7 +4,13 @@ import Slider from 'react-slick';
 import WcResource from '../WcResource';
 import WcpcContent from '../WcpcContent';
 
+
 import '../css/announcments.css'
+//import "slick-carousel/slick/slick.css";
+//import "slick-carousel/slick/slick-theme.css";
+require("slick-carousel/slick/slick.css");
+require("slick-carousel/slick/slick-theme.css");
+
 
 
 
@@ -233,7 +239,7 @@ export default class Wcan extends React.Component {
 
         };
         return (
-          <div>
+          <div className="wc_main_slider">
             <Slider ref={ c => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
                 {this.state.slidesNew.map((slide, index) => (
                     <div key={index}>

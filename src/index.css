@@ -1,19 +1,25 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-
-
-body {
+#wc_showcase_root,
+.wc_showcase_root {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   max-width: 1000px;
+ 
+  background-color: #FFF; 
+
 }
 
-#wc-showcase-root .wcContainer{
+#wc_showcase_root .wcContainer{
     width: 100% !important;
     background-color: #FFF;
+    text-align: left !important;
 }
-
+.ShowcaseBody h2 {
+  color:red;
+  font-size:18px;
+}
 .ShowcaseBody .wc-announcments{
     height: 180px;
     overflow: hidden;
