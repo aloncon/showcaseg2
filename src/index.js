@@ -1,18 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; 
-import Navigation from './navigation';
-import ShowcaseHeader from './showcase-header';
-import ShowcaseFooter from './showcase-footer';
-import ShowcaseApp from './ShowcaseApp';
-import Page3 from './page3';
-import EndpointManagement from './endpoint-management';
-import EndpointSolutions from './endpoint-solutions';
-import registerServiceWorker from './registerServiceWorker';
-import basePath from './basePath';
-import ProductListing1 from './product-listing1';
-import moduleInfo from './moduleInfo';
-
 import { Provider } from 'react-redux';
 import {
     BrowserRouter as Router,
@@ -20,13 +7,28 @@ import {
     Route,
     NavLink
 } from 'react-router-dom';
-
-import Products from './productlisting';
+ 
+import registerServiceWorker from './registerServiceWorker';
+import basePath from './basePath';
+import moduleInfo from './moduleInfo';
 import store from './store';
 
-import { onProductsEnter } from './routers/route_callbacks';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import Navigation from './navigation';
+import ShowcaseHeader from './showcase-header';
+import ShowcaseFooter from './showcase-footer';
 
+import ProductListing1 from './custom_content/modules/product-listing1';
+import ShowcaseApp from './custom_content/modules/ShowcaseApp';
+import Page3 from './custom_content/modules/page3';
+import EndpointManagement from './custom_content/modules/endpoint-management';
+import EndpointSolutions from './custom_content/modules/endpoint-solutions';
+import Products from './custom_content/modules/productlisting';
+
+
+import { onProductsEnter } from './routers/route_callbacks';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import './css/index.css';
 //const css = require('./App.css'); 
 
 const getScriptElement = (function() {

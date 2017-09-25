@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import manufactorlogo from './SYM-BLK.png';
+import manufactorlogo from './resources/logo-ko.png';
 
 
 class ShowcaseHeader extends React.Component {
@@ -9,7 +9,7 @@ class ShowcaseHeader extends React.Component {
         <div className="showcase-header">
            <div className="wc-cus-header">
 					  <NavLink to="/">
-						<img alt="Showcase Symantec" src={manufactorlogo}/>
+						<img alt="Showcase Webcollage" src={manufactorlogo}/>
 					  </NavLink>
 			     </div>
         </div>

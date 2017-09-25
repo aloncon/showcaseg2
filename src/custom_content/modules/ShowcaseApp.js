@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './logo.svg';
-import manufactorlogo from './SYM-BLK.png';
-import './App.css';
+
+import '../../css/index.css';
 import Announcments from './Announcments';
 import Announcments2 from './announcment2';
 import ProductListing1 from './product-listing1';

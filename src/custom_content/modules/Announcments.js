@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
 
-import wcan1_asset from './announcments/assets/Kaspersky_Magic_Quadrant_2016.pdf';
-import wcan2_asset from './announcments/assets/Q4_16_KSV_New_Customer.pdf';
-import wcan3_asset from './announcments/assets/Q4_16_VSB_Customer_Provantage.pdf';
-import wcan4_asset from './announcments/assets/Kaspersky_Magic_Quadrant_2016.pdf';
-import wcan5_asset from './announcments/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan1_asset from '../../custom_content/announcments/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan2_asset from '../../custom_content/announcments/assets/Q4_16_KSV_New_Customer.pdf';
+import wcan3_asset from '../../custom_content/announcments/assets/Q4_16_VSB_Customer_Provantage.pdf';
+import wcan4_asset from '../../custom_content/announcments/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan5_asset from '../../custom_content/announcments/assets/Kaspersky_Magic_Quadrant_2016.pdf';
 
-import wcan1_img from './announcments/banners/1.jpg';
-import wcan2_img from './announcments/banners/2.jpg';
-import wcan3_img from './announcments/banners/3.jpg';
-import wcan4_img from './announcments/banners/4.jpg';
-import wcan5_img from './announcments/banners/5.jpg';
+import wcan1_img from '../../custom_content/announcments/banners/1.jpg';
+import wcan2_img from '../../custom_content/announcments/banners/2.jpg';
+import wcan3_img from '../../custom_content/announcments/banners/3.jpg';
+import wcan4_img from '../../custom_content/announcments/banners/4.jpg';
+import wcan5_img from '../../custom_content/announcments/banners/5.jpg';
 
-import wcan1_img_s from './announcments/banners/1-s.jpg';
-import wcan2_img_s from './announcments/banners/2-s.jpg';
-import wcan3_img_s from './announcments/banners/3-s.jpg';
-import wcan4_img_s from './announcments/banners/4-s.jpg';
-import wcan5_img_s from './announcments/banners/5-s.jpg';
+import wcan1_img_s from '../../custom_content/announcments/banners/1-s.jpg';
+import wcan2_img_s from '../../custom_content/announcments/banners/2-s.jpg';
+import wcan3_img_s from '../../custom_content/announcments/banners/3-s.jpg';
+import wcan4_img_s from '../../custom_content/announcments/banners/4-s.jpg';
+import wcan5_img_s from '../../custom_content/announcments/banners/5-s.jpg';
 
-import Announcments from './js/announcment-slider.js';
+import Announcments from '../../js/announcment-slider.js';
 /*
 ******Instruction to check in browser's console, don't forget to close email and chat and change the time-zone to Eastern Time(US&Canada):
       1)    Create a variable with the new Date (text date)

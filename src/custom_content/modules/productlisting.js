@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import { Link } from 'react-router';
-import * as actions from './actions'
+import * as actions from '../../actions'
 
 import jsonpP from 'jsonp-p';
 //import fjp from 'fetch-jsonp';

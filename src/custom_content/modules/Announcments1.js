@@ -1,5 +1,5 @@
 import React from 'react';
-import announcment1 from './office-365-hero-950x180_1.jpg';
+import announcment1 from '../custom_content/modules//office-365-hero-950x180_1.jpg';
 import announcment2 from './9b54e547-b5ae-43ca-950a-07b77bdc8ffe.png';
 import announcment3 from './SYM-BLK-wide.png';
 import announcment4 from './SYM-BLK.png';
