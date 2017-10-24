@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './logo.svg';
-import manufactorlogo from './SYM-BLK.png';
-import './App.css';
-import Announcments from './Announcments';
-import Announcments2 from './announcment2';
-import ProductListing1 from './product-listing1';
 
-
-
+import '../../system/style/index.css';
+import { Wcan } from '../modules/Announcments';
+import Announcments2 from '../modules/Announcment2';
 
 
 class ShowcaseBodyHeader extends React.Component{
@@ -17,7 +12,7 @@ class ShowcaseBodyHeader extends React.Component{
       <div className="ShowcaseBody">
             <h2>Webcollage (test) Showcase</h2>
             <center> 
-            <Announcments />
+            <Wcan />
             </center> 
             <br/>
             <p>

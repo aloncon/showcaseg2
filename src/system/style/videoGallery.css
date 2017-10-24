@@ -1,0 +1,375 @@
+
+.wcvg_galleryBox_wrap{
+    position: relative;
+    width: 162px;
+    height: 94px;
+    display: inline-block;
+    float: left;
+    margin: 20px 20px 0 0;
+    cursor: pointer;
+}
+
+.wc-play-list li.wc-play-list-item a:hover .wc-play,
+.wc-play-list li.wc-play-list-item a:focus .wc-play,
+.wc-play-list li.wc-play-list-item a:active .wc-play
+.wc-play-list li.wc-play-list-item a.wc-selected .wc-play {
+    opacity : 0.9;
+    filter: alpha(opacity=55);
+}
+
+
+
+/* **************************************************** */
+.wc-hidden {
+    display : none;
+}
+
+.gallery {
+    display: block;
+    position: relative;
+    max-width : 800px;
+}
+
+.gallery:after{
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.wc-center-video-gallery {
+    margin : auto;
+}
+
+.wc-player-outer-wrap {
+    margin-bottom : 5px;
+}
+
+.wc-play-list {
+  list-style: none;
+  margin : -5px 0 0 0;
+  padding : 0;
+}
+
+.wc-play-list .wc-play-list-item{
+    position : relative;
+    width : 162px;
+    height : 94px;
+    display : inline-block;
+    float : left;
+    margin : 20px 20px 0 0;
+    cursor : pointer;
+}
+
+.wc-items-has-caption li.wc-play-list-item,
+.wc-items-has-description li.wc-play-list-item {
+    height : 134px;
+}
+
+.wc-items-has-caption.wc-items-has-description li.wc-play-list-item {
+    height : 150px;
+}
+
+.wc-play-list .wc-thumbnail-wrap {
+    height : 94px;
+    margin-bottom : 5px;
+}
+
+.wc-play-list li .wc-thumbnail-wrap a {
+    /* since the bootstrap tooltip css set the box-sizing to box-content*/
+    -webkit-box-sizing: content-box; /* Android â‰¤ 2.3, iOS â‰¤ 4 */
+    -moz-box-sizing: content-box; /* Firefox â‰¤ 28 */
+    box-sizing: content-box; /* Chrome, Firefox 29+, IE 8+, Opera, Safari 5.1 */
+
+    display : block;
+    border: 1px solid #999999;
+    width : 160px;
+    height : 90px;
+    background : #000000;
+    top : 2px;
+    left : 2px;
+}
+
+.wc-play-list li.wc-play-list-item .wc-thumbnail-wrap a:hover,
+.wc-play-list li.wc-play-list-item .wc-thumbnail-wrap a:focus,
+.wc-play-list li.wc-play-list-item .wc-thumbnail-wrap a:active,
+.wc-play-list li.wc-play-list-item .wc-thumbnail-wrap a.wc-selected {
+    top : 1px;
+    left : 1px;
+    border: 2px solid #0066cc;
+}
+
+.wc-play-list li.wc-play-list-item img {
+    max-width : 100%;
+    max-height : 100%;
+}
+
+.wc-play-list li.wc-play-list-item img.wc-play {
+    width : auto;
+    height : auto;
+    opacity : 0.6;
+    filter: alpha(opacity=25);
+}
+
+
+.wc-play-list li.wc-play-list-item .wc-duration {
+    font-size : 10px;
+    background: #000000;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    right: 2px;
+}
+
+.wc-play-list li.wc-play-list-item a:hover .wc-duration,
+.wc-play-list li.wc-play-list-item a:focus .wc-duration,
+.wc-play-list li.wc-play-list-item.wc-play-list-item a:active .wc-duration,
+.wc-play-list li a.wc-selected .wc-duration {
+    background : #0066cc;
+}
+
+.wc-item-caption {
+    font-weight: bold;
+    font-style: normal;
+    color: #333333;
+}
+
+.wc-item-description {
+    margin : 0;
+    color: #333333;
+}
+
+a .wc-item-caption,
+a .wc-item-description {
+    cursor : pointer;
+}
+
+/************************************centeringg********************************/
+
+.wc-center-container {
+    position : relative;
+}
+
+.wc-center {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin: auto;
+}
+
+
+.wc-caption-description-wrap.ellipsis {
+    font-size: 13px;
+    line-height: 16px;
+    overflow: hidden;
+    display : block;
+    color :  #333333;
+}
+
+.wc-items-has-caption .wc-caption-description-wrap.ellipsis,
+.wc-items-has-description .wc-caption-description-wrap.ellipsis {
+    height : 32px;
+}
+
+.wc-current-media-caption-description {
+    display : none;
+    position : relative;
+    padding-right : 15px;
+}
+
+.wc-items-has-caption .wc-current-media-caption-description,
+.wc-items-has-description .wc-current-media-caption-description {
+    display : block;
+    height : 48px;
+}
+
+
+.wc-items-has-caption.wc-items-has-description .wc-caption-description-wrap.ellipsis,
+.wc-current-media-caption-description .ellipsis {
+    height : 48px;
+}
+
+.wc-current-media-caption-description.wc-expanded,
+.wc-current-media-caption-description.wc-expanded .ellipsis,
+.wc-current-media-caption-description.wc-expanded .ellipsis:before {
+    height : auto!important;
+}
+
+.wc-items-has-caption.wc-items-has-description .wc-caption-description-wrap.ellipsis:before {
+    width: 5px;
+    height: 48px;
+}
+
+.wc-caption-description-wrap.ellipsis:after {
+    top : -16px;
+}
+
+.wc-caption-description-wrap,
+.wc-caption-description-wrap:hover,
+a.wc-current-media-caption-description,
+a.wc-current-media-caption-description:hover {
+  text-decoration : none;
+  cursor : pointer;
+}
+
+.wc-current-media-caption-description .wc-caption-description-wrap {
+    padding-right : 10px;
+}
+
+.wc-single-video .wc-current-media-caption-description {
+    height : auto !important;
+}
+
+/******************************************ellipsis***********************************************************************/
+.ellipsis {
+    overflow: hidden;
+    height: 200px;
+    line-height: 25px;
+}
+
+.ellipsis:before {
+    content:"";
+    float: left;
+    width: 5px; height: 200px;
+}
+
+.ellipsis > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+}
+
+.ellipsis:after {
+    content: "\02026";
+
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+
+    float: right; position: relative;
+    top: -25px; left: 100%;
+    width: 3em; margin-left: -3em;
+    padding-right: 5px;
+
+    text-align: right;
+
+
+    background-size: 100% 100%;
+    /* 512x1 image, gradient for IE9. Transparent at 0% -> white at 50% -> white at 100%.*/
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAABCAMAAACfZeZEAAAABGdBTUEAALGPC/xhBQAAAwBQTFRF////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wDWRdwAAAP90Uk5TgsRjMZXhS30YrvDUP3Emow1YibnM9+ggOZxrBtpRRo94gxItwLOoX/vsHdA2yGgL8+TdKUK8VFufmHSGgAQWJNc9tk+rb5KMCA8aM0iwpWV6dwP9+fXuFerm3yMs0jDOysY8wr5FTldeoWKabgEJ8RATG+IeIdsn2NUqLjQ3OgBDumC3SbRMsVKsValZplydZpZpbJOQco2KdYeEe36BDAL8/vgHBfr2CvTyDu8R7esU6RcZ5ecc4+Af3iLcJSjZ1ivT0S/PMs3LNck4x8U7wz7Bv0G9RLtHuEq1TbJQr1OtVqqnWqRdoqBhnmSbZ5mXapRtcJGOc4t2eYiFfH9AS7qYlgAAARlJREFUKM9jqK9fEGS7VNrDI2+F/nyB1Z4Fa5UKN4TbbeLY7FW0Tatkp3jp7mj7vXzl+4yrDsYoVx+JYz7mXXNSp/a0RN25JMcLPP8umzRcTZW77tNyk63tdprzXdmO+2ZdD9MFe56Y9z3LUG96mcX02n/CW71JH6Qmf8px/cw77ZvVzB+BCj8D5vxhn/vXZh6D4uzf1rN+Cc347j79q/zUL25TPrJMfG/5LvuNZP8rixeZz/mf+vU+Vut+5NL5gPOeb/sd1dZbTs03hBuvmV5JuaRyMfk849nEM7qnEk6IHI8/qn049hB35QGHiv0yZXuMdkXtYC3ebrglcqvYxoj1muvC1nDlrzJYGbpcdHHIMo2FwYv+j3QAAOBSfkZYITwUAAAAAElFTkSuQmCC);
+
+    background: -webkit-gradient(linear, left top, right top,
+    from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
+    /* @alternate */background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    /* @alternate */background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    /* @alternate */background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+    /* @alternate */background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
+
+}
+
+
+#player {
+    display : block;
+    position : relative;
+    height : 0;
+    padding-bottom : 75%;
+    max-width : 100%;
+}
+object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wc-poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.wc-player-wrap {
+    position : relative;
+    background : black!important;
+    border : 1px solid #cccccc!important;
+    min-width : 260px;
+}
+
+.wc-movie-width-limiter {
+    margin : auto;
+    left : 0;
+    right : 0;
+}
+
+
+/***** Player Controls *************************************************************/
+.vjs-fullscreen {
+    padding-bottom : 0 !important;
+}
+
+.vjs-default-skin.vjs-paused .vjs-big-play-button {
+    display : block;
+}
+
+
+.vjs-default-skin.vjs-playing .vjs-big-play-button  {
+    display : none;
+}
+
+.vjs-default-skin .vjs-big-play-button {
+    top : 0;
+    bottom : 0;
+    left: 0;
+    right : 0;
+    margin : auto;
+    width : 2em;
+    height : 2em;
+    border-radius : 1.1em;
+}
+
+.vjs-default-skin .vjs-big-play-button:before {
+    content : "";
+    background : transparent url(../resources/videoGallery/play.png) no-repeat 50% 50%;
+}
+ .tooltip .wc-item-caption {
+    display : block;
+     margin-bottom : 5px;
+ }
+
+.tooltip-inner {
+    width: 240px;
+    color: #333333;
+    text-align: left;
+    border : 1px solid #666666;
+    padding : 10px;
+    -webkit-box-shadow: 2px 2px 2px 0px #999999; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
+    box-shadow: 2px 2px 2px 2px #999999; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
+}
+
+video {
+    -webkit-transform-style: preserve-3d;
+}
+
+.wc-idevice.wc-has-agegate video{
+    visibility : hidden;
+}
+
+.wc-video-gallery-container .vjs-default-skin .vjs-play-control {
+    width : 3em;
+}
+
+.wc-video-gallery-container .vjs-default-skin .vjs-live-controls {
+    width : 1em;
+}
+
+.wc-idevice.wc-has-agegate .vjs-poster {
+    display : block !important ;
+}
+
+body.wc-layout-phone {
+    padding-bottom : 10px;
+}

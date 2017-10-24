@@ -1,0 +1,103 @@
+import React from 'react'
+
+import wcan1_asset from '../announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan2_asset from '../announcements/assets/Q4_16_KSV_New_Customer.pdf';
+import wcan3_asset from '../announcements/assets/Q4_16_VSB_Customer_Provantage.pdf';
+import wcan4_asset from '../announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan5_asset from '../announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+
+import wcan1_img from '../announcements/banners/1.jpg';
+import wcan2_img from '../announcements/banners/2.jpg';
+import wcan3_img from '../announcements/banners/3.jpg';
+import wcan4_img from '../announcements/banners/4.jpg';
+import wcan5_img from '../announcements/banners/5.jpg';
+
+import wcan1_img_s from '../announcements/banners/1-s.jpg';
+import wcan2_img_s from '../announcements/banners/2-s.jpg';
+import wcan3_img_s from '../announcements/banners/3-s.jpg';
+import wcan4_img_s from '../announcements/banners/4-s.jpg';
+import wcan5_img_s from '../announcements/banners/5-s.jpg';
+
+import Announcments from '../../system/codes/announcment.js';
+/*
+******Instruction to check in browser's console, don't forget to close email and chat and change the time-zone to Eastern Time(US&Canada):
+      1)    Create a variable with the new Date (text date)
+      2)    Use the getTime function
+      3)    Create another variable with the result of (2)
+      4)    Check it the variable from (3) is correct.
+      For example:
+            var endDateNew = new Date('2017/04/28 23:59:59 GMT -0400');
+            endDateNew.getTime();
+            var date = new Date(1493438399000);
+            date
+
+********      Array Info:     ****************
+      [ string/number , component/'' , string , component , component ,    number/boolean , number/boolean  ]
+      [      id       , wcan_asset   , title  , wcan_img  , wcan_img_s ,     startDate     ,   endDate       ]
+
+      0)    id - a UNIQUE string/number.
+      1)    wcan_asset   -      the path for the asset location , if there is no asset , leave blank ('').
+      2)    title        -      title for the image/asset
+      3)    wcan_img     -      the path for the banner location.
+      4)    wcan1_img_s  -      the path for the small banner location , if there isn't one add false
+      5)    startDate    -      the start date (as instructed above) for this banner  , if there isn't add false
+      6)    endDate      -      the start date (as instructed above) for this banner  , if there isn't add false
+
+
+********      Add new Announcement:     ****************
+      1)    import  wcan_asset & wcan_img
+      2)    add the announcement info as a new array in the slides array below , with the following info: [id,wcan_asset,title,wcan_img,wcan_img_s,startDate,endDate]
+      //IF NEEDED MORE THEN ONE:
+      3)    add another class (For example Wcan1) with the required wcan_setting and wcan_slides.
+      4)    add Wcan1 to the export    
+
+********      Include the component at a page:     ****************
+      1)    import {Wcan} from './Announcment';
+      2)    put <Wcan /> where you want the announcment to show
+      //IF NEEDED MORE THEN ONE:
+      3)    import as needed (for example: 'import {Wcan , Wcan1} from './Announcment';' )
+      4)    put <Wcan1 /> as well where you want the announcment to show
+*/
+
+
+    /*    DO NOT CHANGE THE ORDER OF THE ARRAY!!!!!!    */
+    const wcan_slides = [
+        [0 , wcan1_asset , 'KSV 25% Discount'              , wcan1_img , wcan1_img_s , false , false],
+        [1 , wcan2_asset , 'Q4_16_KSV_New_Customer'        , wcan2_img , wcan2_img_s , false , false],
+        [2 , wcan3_asset , 'Q4_16_VSB_Customer_Provantage' , wcan3_img , wcan3_img_s , false , false],
+        [3 , wcan4_asset , 'KSV 25% Discount'              , wcan4_img , wcan4_img_s , false , false],
+        [4 , wcan5_asset , 'Q4_16_KSV_New_Customer'        , wcan5_img , wcan5_img_s , false , false]
+    ]
+
+    //********Slider Settings  CHANGE ONLY BY REQUEST!! ****************//
+    const wcan_setting = {
+        autoplay                :       false,          //  Should the scroller auto scroll?                (Boolean - False as Default)
+        autoplayArrows          :       false,          //  Should the Arrows turn on auto scroll?          (Boolean - False as Default)
+        autoplayPagination      :       false,          //  Should the Pagination turn on  auto scroll?     (Boolean - False as Default)
+        autoplaySpeed           :       3000,           //  Delay between each auto scoll. in ms            (Integer)        
+        infinite                :       true,           //  Should the gallery wrap around it's contents    (Boolean - True as Default)
+        speed                   :       500,            //  Speed of the autoplay                           (Integer)
+        slidesToShow            :       1,              //  Number of slides to be visible at a time        (Integer - True as Default)
+        changeImage             :       true,           //  Should change Image banner in specific width?   (Boolean)
+        changeImageWidth        :       700,            //  the width in which the second image will appear (Integer)
+        pauseOnHover            :       false,
+        //rtl                   :       false,          //  Reverses the slide order                        (Boolean - True as Default) - TODO
+        sliderWidth             :       'full'          //  give fixed width or 'full' for full screen      (Integer/String)  //TODO:  FINISH IT -FIX FULL      
+    }
+
+//********Do not touch - CHANGE ONLY IF NEEDED!! (for example: to add another announcment)****************//
+class Wcan extends React.Component {
+
+    render() {
+        return (
+            <Announcments data_setting={wcan_setting} data_slides={wcan_slides} />
+        )
+
+    }
+
+
+}
+
+export {
+    Wcan
+} 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as genericVars from './moduleInfo';
+import * as genericVars from '../../moduleInfo';
 
 class EndpointSolution extends React.Component {
     render() {

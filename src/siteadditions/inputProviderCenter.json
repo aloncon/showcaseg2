@@ -1,0 +1,11 @@
+{
+    "adobe":{
+        "mailto":{
+            "title"       :   "Email Software Questions field 3#",
+            "description" :   "Change Email Software Questions field 3#",
+            "group"       :   "adobe-bp-group-custom",
+            "defaultValue":   "mailto:adobeSupperEmailAddress@adobeSupperEmailAddress.com",
+            "value"       :   "angelika.yupatov@webcollage.com"
+        }
+    }
+}

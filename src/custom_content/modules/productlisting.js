@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import { Link } from 'react-router';
-import * as actions from './actions'
+import * as actions from '../../actions'
 
-import jsonpP from 'jsonp-p';
 //import fjp from 'fetch-jsonp';
 
 class ProductList extends Component {
 
   componentWillMount(){
-      console.log("propsssssss willmount " + this.props.list);  
-      console.log("propsssssss willmount " + this._jsxFileName  );  
+      //console.log("propsssssss willmount " + this.props.list);  
+      //console.log("propsssssss willmount " + this._jsxFileName  );  
       this.props.fetchProducts(this.props.list); 
   }  
 
   renderProducts() {
-    console.log("sssssssssss - renderProducts: " + this.props.products);  
-    console.log(this.props.products);  
+    //console.log("sssssssssss - renderProducts: " + this.props.products);  
+    //console.log(this.props.products);  
 
     //let xxx = JSON.stringify(this.props.products);
     
@@ -35,7 +34,7 @@ class ProductList extends Component {
                 
     })
     console.log("kkkkkkkey --: " + list);
-    var list = list.map( (item) => {
+    list = list.map( (item) => {
         console.log("kkkkkkkey --: " +item)
         return <li>product :  <b>{item.wcpc}</b>
                 <ul>                    
@@ -88,8 +87,8 @@ class ProductList extends Component {
 }
 
 function mapStateToProps({ products }) {
-  console.log("sssssssssss - mapstatetoProps: " + products)  
-  console.log(products)  
+ // console.log("sssssssssss - mapstatetoProps: " + products)  
+ // console.log(products)  
   return { products }
 }
 

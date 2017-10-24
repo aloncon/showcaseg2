@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import providedBy from './powered-by.png';
+import providedBy from './resources/powered-by.png';
 
 
 class ShowcaseFooter extends Component{

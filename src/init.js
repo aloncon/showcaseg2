@@ -16,28 +16,28 @@ const getScriptURL = (function() {
 
 function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('rawgit.com')) {
-            console.log('in git!')
+            //console.log('in git!')
             return `https://rawgit.com/aloncon/showcaseg2/master/build/`;             
     }
 
     if (scriptUrl.includes('media-preview.')) {
-            console.log('in stage!')
+            //console.log('in stage!')
             return `http://media-preview.webcollage.net/rwvfp/wc/live/99999991/module/webcollage/_wc/react_showcase/showcase-app-1/`; 
             //src = `http://media-preview.webcollage.net/rwvfp/wc/live/99999991/module/webcollage/_wc/react_showcase/showcase-app-1/${src}`;        
     }
 
     if (scriptUrl.includes('www.test.')) {
-            console.log('in test!')
+            //console.log('in test!')
             return `http://www.test.webcollage.webcollage.net/_wc/react_showcase/showcase-app-1/`;
     }
 
     if (scriptUrl.includes('localhost:')) {
-            console.log('in test!')
+            //console.log('in test!')
             return `http://localhost:3000`;
     }
     //for testing only on real site
     if (scriptUrl.includes('scontent.webcollage.net/')) {
-            console.log('in original site - testing only!!')
+            //console.log('in original site - testing only!!')
             return `https://rawgit.com/aloncon/showcaseg2/master/build/`;             
     }    
     
@@ -46,9 +46,9 @@ function getSrcBase(scriptUrl) {
 }
 
 const scriptUrl = getScriptURL();
-console.log('original JS src', scriptUrl);
+//console.log('original JS src', scriptUrl);
 const srcBase = getSrcBase(scriptUrl);
-console.log('base Src' + srcBase);
+//console.log('base Src' + srcBase);
 
 export default function getModuleInfo () {
     let id= '168262d34ae47d7642f15af14eb6c95d';
@@ -82,7 +82,7 @@ export default function getModuleInfo () {
 
     site = 'cdw';
 
-    console.log("default: module- " + module + " &&site- " + site);
+    //console.log("default: module- " + module + " &&site- " + site);
 
     return{
         module : module,
