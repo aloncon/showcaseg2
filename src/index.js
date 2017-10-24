@@ -2,33 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import {
-    BrowserRouter as Router,
     HashRouter,
     Route,
-    NavLink
 } from 'react-router-dom';
  
 import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
-import moduleInfo from './moduleInfo';
 import store from './store';
 
 import Navigation from './navigation';
-import ShowcaseHeader from './showcase-header';
-import ShowcaseFooter from './showcase-footer';
+import ShowcaseHeader from './custom_content/modules/showcase-header';
+import ShowcaseFooter from './custom_content/modules/showcase-footer';
+
 
 import ProductListing1 from './custom_content/modules/product-listing1';
-import ShowcaseApp from './custom_content/modules/ShowcaseApp';
-import Page3 from './custom_content/modules/page3';
-import EndpointManagement from './custom_content/modules/endpoint-management';
-import EndpointSolutions from './custom_content/modules/endpoint-solutions';
-import Products from './custom_content/modules/productlisting';
+
+import testingArea  from './custom_content/landing_pages/testingArea';
+import ShowcaseApp  from './custom_content/landing_pages/ShowcaseApp';
+import Page3        from './custom_content/landing_pages/page3';
+import EndpointManagement from './custom_content/landing_pages/endpoint-management';
+import EndpointSolutions from './custom_content/landing_pages/endpoint-solutions';
+import iframe from './custom_content/landing_pages/iframe';
 
 
 import { onProductsEnter } from './routers/route_callbacks';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './css/index.css';
+import './system/style/index.css';
 //const css = require('./App.css'); 
 
 const getScriptElement = (function() {
@@ -42,9 +42,9 @@ const getParentElement = (function(){
     // myScript.parentElement
     const parent = document.getElementById('wc-showcase-root');
     const script = getScriptElement();
-    console.log("getParentElementtt")
-    if(parent == null && typeof script != 'undefined'){
-      console.log("getParentElementtt  parent NULL: " + script.parentNode  );
+    //console.log("getParentElementtt")
+    if(parent == null && typeof script !== 'undefined'){
+      //console.log("getParentElementtt  parent NULL: " + script.parentNode  );
       return function() { return script.parentNode  };    
     } 
     
@@ -66,8 +66,9 @@ ReactDOM.render(
             <Route path="/ShowcaseApp" component={ShowcaseApp}/>
             <Route path="/EndpointManagement" component={EndpointManagement}/>
             <Route path="/EndpointSolutions" component={EndpointSolutions}/>
-            <Route path="/page3" component={Page3} onEnter={onProductsEnter}/>
-            
+            <Route path="/page3" component={Page3}/>
+            <Route path="/iframe" component={iframe}/>
+            <Route path="/testingArea" component={testingArea}/>
             <Route path="/ProductListing1" component={ProductListing1} onEnter={onProductsEnter}/>
             <hr/>
             <ShowcaseFooter/>

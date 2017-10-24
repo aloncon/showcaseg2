@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-
 
 
 class navBarHorizontal extends React.Component{
@@ -24,6 +23,8 @@ class navBarHorizontal extends React.Component{
                     <li><NavLink to="/EndpointManagement">Endpoint Management</NavLink></li>
                     <li><NavLink to="/page3">Page 3</NavLink></li>
                     <li><NavLink to="/EndpointSolutions">Endpoint Solutions</NavLink></li>
+                    <li><NavLink to="/iframe">iframe</NavLink></li>
+                    <li><NavLink to="/testingArea">testingArea</NavLink></li>
                   </ul>
                 </div>
                 </div>

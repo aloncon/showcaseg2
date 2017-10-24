@@ -1,0 +1,186 @@
+
+/*********************************!!!Announcement!!!************************************/
+.wcan_ul{
+    list-style-type: none;
+    margin:0px 0 0 -40px;
+    cursor:pointer;
+}
+
+.wcan_link{
+    text-decoration: none;
+}
+
+.wcan_play, .wcan_pause, .wcan_sb_item {
+  float:                  left !important;
+  font-size:              0px !important;
+  background-attachments: fixed !important;
+  background-repeat:      no-repeat !important;
+}
+
+.wcan_disable{
+  filter: alpha(opacity=35);
+  opacity:0.35;
+  cursor:default;
+}
+
+.wcan_previous , .wcan_next{
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button; /* for input */
+  -webkit-user-select: none; /* for button */
+    -moz-user-select: none;
+      -ms-user-select: none;
+}
+
+.wcan_previous:focus , .wcan_next:focus { outline: none; }
+
+.wcan_sb_item {
+  width:                  23px !important;
+  height:                 23px !important;
+  background-image:       url('../resources/announcement/control-bar.png') !important;
+}
+
+.wcan_previous{
+    float:                  right !important;
+    background-image:       url('../resources/announcement/prev.png') !important;
+    width:                  16px !important;
+    height:                 16px !important;
+}
+
+.wcan_next{
+    float:                  right !important;
+    background-image:       url('../resources/announcement/next.png') !important;
+    width:                  16px !important;
+    height:                 16px !important;
+}
+
+
+.wcan_play {
+  background-position: 90% 0 !important;
+}
+
+.wcan_play:hover, .wcan_play:focus {
+  background-position: 90% 50% !important;
+}
+
+.wcan_pause {
+  background-position: 100% 0 !important;
+}
+
+.wcan_pause:hover, .wcan_pause:focus {
+  background-position: 100% 50% !important;
+}
+
+.wcan_1 {
+  background-position: 0 0 !important;
+}
+
+.wcan_2 {
+  background-position: 10% 0 !important;
+}
+
+.wcan_3 {
+  background-position: 20% 0 !important;
+}
+
+.wcan_4 {
+  background-position: 30% 0 !important;
+}
+
+.wcan_5 {
+  background-position: 40% 0 !important;
+}
+
+.wcan_6 {
+  background-position: 50% 0 !important;
+}
+
+.wcan_7 {
+  background-position: 60% 0 !important;
+}
+
+.wcan_8 {
+  background-position: 70% 0 !important;
+}
+
+.wcan_9 {
+  background-position: 80% 0 !important;
+}
+
+.wcan_1:hover, .wcan_1:focus {
+  background-position: 0 50% !important;
+}
+
+.wcan_2:hover, .wcan_2:focus {
+  background-position: 10% 50% !important;
+}
+
+.wcan_3:hover, .wcan_3:focus {
+  background-position: 20% 50% !important;
+}
+
+.wcan_4:hover, .wcan_4:focus {
+  background-position: 30% 50% !important;
+}
+
+.wcan_5:hover, .wcan_5:focus {
+  background-position: 40% 50% !important;
+}
+
+.wcan_6:hover, .wcan_6:focus {
+  background-position: 50% 50% !important;
+}
+
+.wcan_7:hover, .wcan_7:focus {
+  background-position: 60% 50% !important;
+}
+
+.wcan_8:hover, .wcan_8:focus {
+  background-position: 70% 50% !important;
+}
+
+.wcan_9:hover, .wcan_9:focus {
+  background-position: 80% 50% !important;
+}
+
+.wcan_1a {
+  background-position: 0 100%  !important;
+}
+
+.wcan_2a {
+  background-position: 10% 100% !important;
+}
+
+.wcan_3a {
+  background-position: 20% 100% !important;
+}
+
+.wcan_4a {
+  background-position: 30% 100% !important;
+}
+
+.wcan_5a {
+  background-position: 40% 100% !important;
+}
+
+.wcan_6a {
+  background-position: 50% 100% !important;
+}
+
+.wcan_7a {
+  background-position: 60% 100% !important;
+}
+
+.wcan_8a {
+  background-position: 70% 100% !important;
+}
+
+.wcan_9a {
+  background-position: 80% 100% !important;
+}
