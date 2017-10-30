@@ -1,0 +1,234 @@
+/* USER CAROUSEL CLASSES */
+
+.WcCarousel{
+    background-image: url('http://www.test.electroluxus.webcollage.net/_wc/category-slider/images/Horizon_Middle.jpg');
+    background-position-y: '0%';    
+}
+.wc_carousel_2{
+    border-bottom: 1px solid lightgray!important;
+    border-top: 1px solid lightgray!important;    
+}
+/*******/
+.wcca_arrows_container_horizonal .slick-disabled{
+    filter: alpha(opacity=35);
+    opacity:0.35;
+    cursor:default;
+}
+.wcca_arrows_container_horizonal:hover{
+    filter: alpha(opacity=95);
+    opacity:0.95;    
+}
+
+.wcca_arrows_browse{
+    margin-top:50px !important;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.wcca_arrows_browse_horizonal .slick-next {
+    content: '';
+}
+.wcca_arrows_browse_horizonal{
+    position: absolute;
+    margin-top: -34px;
+    outline: 0;
+    width: 32px;
+    height: 100px;
+    z-index: 9999;
+    cursor: pointer;
+    background-color: #CCC;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    text-indent: 0!important;
+    line-height: 100px;
+    opacity: 0.8; 
+    filter: alpha(opacity=80);    
+}
+
+.wcca_wrap a.browse{
+    display: inline !important;
+    margin: 0px 10px !important;
+    font-size: 1px !important;
+    cursor:pointer !important;
+    border: 0px !important;
+ }
+
+ .wcca_wrap_vertical button {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+        -ms-user-select: none;
+}
+
+.wcca_wrap_vertical button:focus { outline: none; } 
+
+.wcca_wrap_vertical button.prev{
+    background: url('../resources/carousel/vertical-previous.jpg') no-repeat !important;
+    width: 30px !important;
+    height: 14px !important;
+    margin: 0px 10px !important;
+    font-size: 1px !important;
+    cursor:pointer !important;
+    border: 0px !important;
+    vertical-align: bottom ;
+}
+
+.wcca_wrap_vertical button.next{
+    background: url('../resources/carousel/vertical-next.jpg') no-repeat !important;
+    width: 30px !important;
+    height: 15px !important;
+    margin: 0px 10px !important;
+    font-size: 1px !important;
+    cursor:pointer !important;
+    border: 0px !important;
+}
+
+.wcca_wrap a.next{
+    background-position: 0 0 !important;
+    right: -25px;
+}
+
+.wcca_arrows_container_horizonal .slick-next:before {
+    content: ''!important;
+}
+
+.wcca_wrap a.next:active{ background-position: 0 -30px !important;}
+
+.wcca_wrap a.prev{
+    background-position: -30px 0 !important;
+    left: -45px;
+}
+
+.wcca_wrap a.prev:active{ background-position: -30px -30px !important;}
+
+.wcca_wrap a.right{background-position: 0 -30px !important;}
+
+.wcca_wrap a.right:active{ background-position:-60px -30px !important;}
+
+.wcca_wrap a.left{ background-position: 0 0 !important;}
+
+.wcca_wrap a.left:active{ background-position:-60px 0 !important;}
+
+.wcca_wrap a.browse div{
+  background: transparent !important;
+  display: inline !important;
+}
+
+.wcca_wrap a.disabled div.left{
+  background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
+  background-position:-90px 0 !important;
+  cursor:default !important;
+}
+
+.wcca_wrap a.disabled div.right{
+  background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
+  background-position:-90px -30px !important;
+  cursor:default !important;
+}
+
+
+.wcca_arrows_container_vertical .disabled{
+    opacity: 0.5;
+}
+
+
+.wcca_arrows_container_vertical{
+    width:100%;
+    text-align: center!important;
+}
+
+.wcca_arrows_browse_vertical{
+    display: inline-block!important;
+    margin: 0 auto!important;  
+}
+
+.wcca_slider_container_vertical{
+    display: table;
+    margin: 0 auto;    
+}
+.wcca_slider_container {
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+.wcca_product_container{
+    text-align: center!important;   
+}
+
+.wcca_product_browse_vertical{
+    margin: 0 auto!important;
+    display: table-cell;
+    vertical-align: middle;     
+}
+.wcca_product_browse{
+    margin: 0 auto!important;
+}
+
+.wcca_product_image img{
+    display: inline-block!important;
+    margin: 0 auto!important;   
+}
+
+.wcca_product_title{
+    margin: 0px !important;
+    padding: 0px !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    background-color: transparent !important;
+    border: 0px none black !important;
+    width: auto !important;
+    height: auto !important;
+        list-style-type: none !important;
+        list-style-position: inside !important;
+        clear: none !important;
+        float: none !important;
+        table-layout: auto !important;
+        border-collapse: collapse !important;
+        border-spacing: 0px !important;
+        empty-cells: show !important;
+            text-transform: none !important;
+            text-indent: 0px !important;
+            vertical-align: baseline !important;
+            letter-spacing: normal !important;
+            word-spacing: normal !important;
+            line-height: normal !important;
+}
+
+.wcca_product_title a{
+    font-weight: bold !important;
+    font-size: 12px !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    font-family: Verdana, Helvetica, Arial !important;
+    font-weight: bold !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    width: auto !important;
+    height: auto !important;
+}
