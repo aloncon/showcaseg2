@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import providedBy from '../../system/resources/powered-by.png';
-
+import configuration from '../configuration.js';
 
 class ShowcaseFooter extends Component{
 
-  
   render() {
+    let styleObj = {backgroundColor : configuration.footerDetails.backgroundColor};
+    let imgSrc = configuration.footerDetails.imgProvidedBy;
     return(
-      <span id="wc-reset"> 
-            <div className="Footer">
-                <div className="wc-powered-by"><img ref="pb" alt="Powered by Webcollage" height="20" src={providedBy} title="Powered by Webcollage" width="150"/></div>       
+      <span id="wc-reset" >
+            <div className="Footer" style={styleObj}>
+                <div className="wc-powered-by" ><img ref="pb" alt="Powered by Webcollage" src={imgSrc} title="Powered by Webcollage" /></div>
             </div>
         </span>
 
@@ -18,3 +18,5 @@ class ShowcaseFooter extends Component{
 }
 
 export default ShowcaseFooter;
+
+

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import VideoGallery from '../../system/codes/videoGalleryNew.js';
+import VideoGallery from '../../system/codes/videoGallery.js';
 
 const wcvg_info = [
     [   "1" , 

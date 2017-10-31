@@ -16,8 +16,18 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  * staticRoutes:: Hold the all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
  */
 const configuration = {
-  headerDetails: {},
-  footerDetails: {},
+  moduleName: 'Symantec',
+  moduleId: 'symantec',
+  headerDetails:{
+    headerTitle: 'Symantec',
+    textColor: 'white',
+    backgroundColor: 'black'
+   },
+   footerDetails:
+   {
+        imgProvidedBy: require('../system/resources/powered-by.png'),
+        backgroundColor: 'white'
+   },
   staticRoutes: [
     {
       path: '/',
