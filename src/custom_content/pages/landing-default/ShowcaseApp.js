@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import '../../system/style/index.css';
-import { Wcan } from '../modules/Announcments';
-import Announcments2 from '../modules/Announcment2';
+import '../../../system/style/index.css';
+import { Wcan } from '../../modules/Announcments';
+import Announcments2 from '../../modules/Announcment2';
 
 
 class ShowcaseBodyHeader extends React.Component{

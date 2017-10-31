@@ -1,9 +1,9 @@
-import ShowcaseApp from '../custom_content/landing_pages/ShowcaseApp';
-import EndpointManagement from '../custom_content/landing_pages/endpoint-management';
-import Page3 from '../custom_content/landing_pages/page3';
-import EndpointSolutions from '../custom_content/landing_pages/endpoint-solutions';
-import iframe from '../custom_content/landing_pages/iframe';
-import testingArea from '../custom_content/landing_pages/testingArea';
+import ShowcaseApp from '../custom_content/pages/landing-default/ShowcaseApp';
+import EndpointManagement from '../custom_content/pages/endpoint-management';
+import Page3 from '../custom_content/pages/page3';
+import EndpointSolutions from '../custom_content/pages/endpoint-solutions';
+import iframe from '../custom_content/pages/iframe';
+import testingArea from '../custom_content/pages/testingArea';
 import ProductListing1 from '../custom_content/modules/product-listing1';
 
 /**

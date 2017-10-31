@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick';
 
-import WcResource from '../../WcResource';
+import WcResource from './WcResource';
 import '../style/announcments.css'
 
 import { Link } from 'react-router-dom';

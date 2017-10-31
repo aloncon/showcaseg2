@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import WcResource from '../../WcResource';
+import WcResource from './WcResource';
 import'../style/carousel.css';
 
 

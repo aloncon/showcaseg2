@@ -5,7 +5,7 @@ import announcment1 from '../assets/images/office-365-hero-950x180_1.jpg';
 //import announcment4 from '../assets/images/SYM-BLK.png';
 //import announcment5 from '../assets/images/SYM-BLK-nerrow.png';
 //import SVG from '../assets/images/office-365-hero-950x180_1.svg';
-import WcResource from '../../WcResource';
+import WcResource from '../../system/codes/WcResource';
 
 export default () => (
     <div className="wc-top-announcments">

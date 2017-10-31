@@ -1,7 +1,7 @@
 import axios from 'axios'
 import jsonpP from 'jsonp-p';
 import replace from 'react-string-replace';
-import * as moduleInfo from '../moduleInfo';
+import * as moduleInfo from '../system/codes/moduleInfo';
 
 //import fjsonp from 'fetch-jsonp';
 //import fjp from 'fetch-jsonp';

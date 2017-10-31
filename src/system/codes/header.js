@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
-import WcResource from '../../WcResource';
+import WcResource from './WcResource';
 
 export default class Header extends Component {
 
