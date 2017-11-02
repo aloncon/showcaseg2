@@ -5,16 +5,16 @@
   - 📁[css](#css)
   - 📂[custom_content](#custom_content)
     - 📄 configuration.js
-    - 📁 announcements
     - 📂 assets
+        - 📁 announcements
         - 📁 images
         - 📁 videos
         - 📁 documents
         - 📁...
     - 📁 modules
     - 📂 [pages](#pages)
-      - 📄 ...
-      - 📁 landing-default
+        - 📄 ...
+        - 📁 landing-default
   - 📁[reducers](#reducers) - Alon
   - 📁[routers](#routers) - Alon
   - 📁[siteadditions](#siteadditions) - Angelika
@@ -32,7 +32,7 @@
 
 ## css
 
-Use to override the default CSS (default CSS is located in `system/style`). (❓❓)
+Styling for the showcase (let you overwrite the default CSS that located in `system/style`).
 
 ## custom_content
 
@@ -40,13 +40,10 @@ Use to override the default CSS (default CSS is located in `system/style`). (❓
 
   Showcase configuration (Header, Footer, Breadcrumbs, etc...).
 
-- **announcements** - Only when the module contains announcements.
-
-  This folder stores the announcements resources (assets and banners).
 
 - **assets**
 
-  All showcase assets (Images, Videos, etc...).
+  All showcase assets (Images, Videos, announcements etc...).
 
 - **modules**
 
