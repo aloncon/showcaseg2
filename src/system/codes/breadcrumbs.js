@@ -18,52 +18,33 @@ import '../style/breadcrumbs.css';
  *
  * TODO: Add the option to change the style for the breadcrumbs.
  */
-class Breadcrumbs extends React.Component {
+export default class Breadcrumbs extends React.Component {
   constructor(props) {
     super(props);
 
-    /**
-     * Extract the path and the name values from the static routes configuration.
-     *
-     * Return new JSON object.
-     *
-     * KEY= path , VALUE= name
-     */
-    this.getRoutesConfig = () => {
-      let newConfig = {};
-      Object.keys(props.config).forEach(route => {
-        const [path, name] = [props.config[route].path, props.config[route].name];
-        const displayHomeName = props.options.displayHomeName || false ;
-        if (path === '/' && displayHomeName) {
-          return;
-        }
-        newConfig[path] = name;
-      });
+    const { config, options } = props;
 
-      return newConfig;
-    };
-
-    this.state = {
-      breadcrumbConfiguration: {
-        staticRoutesMap: this.getRoutesConfig(),
-        isDisplayInHome: props.options.isDisplayBreadcrumbRoot || false,
-        containerProps: {
-          className: 'breadcrumbs',
-        },
-        itemRender: props.options.customRender || ((name, path) => (path ? <Link to={path}>{name}</Link> : `${name}`)),
+    const breadcrumbConfiguration = {
+      staticRoutesMap: getRoutesConfig(config, options),
+      isDisplayInHome: options.isDisplayBreadcrumbRoot || false,
+      containerProps: {
+        className: 'breadcrumbs',
       },
+      itemRender: options.customRender || ((name, path) => (path ? <Link to={path}>{name}</Link> : `${name}`)),
     };
 
-    this.BreadcrumbConfig = autoBreadcrumb(this.state.breadcrumbConfiguration);
+    this.BreadcrumbConfig = autoBreadcrumb(breadcrumbConfiguration);
   }
 
   render() {
+    const BreadcrumbConfig = this.BreadcrumbConfig;
+
     return (
       <Route
         render={({ location }) => {
           return (
             <div>
-              <this.BreadcrumbConfig pathname={location.pathname} />
+              <BreadcrumbConfig pathname={location.pathname} />
             </div>
           );
         }}
@@ -72,4 +53,23 @@ class Breadcrumbs extends React.Component {
   }
 }
 
-export default Breadcrumbs;
+/**
+     * Extract the path and the name values from the static routes configuration.
+     *
+     * Return new JSON object.
+     *
+     * KEY= path , VALUE= name
+     */
+const getRoutesConfig = (config, options) => {
+  let newConfig = {};
+  Object.keys(config).forEach(route => {
+    const [path, name] = [config[route].path, config[route].name];
+    const displayHomeName = options.displayHomeName || false;
+    if (path === '/' && displayHomeName) {
+      return;
+    }
+    newConfig[path] = name;
+  });
+
+  return newConfig;
+};

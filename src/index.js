@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import {
     HashRouter,
 } from 'react-router-dom';
- 
+
 import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
 import store from './store';
