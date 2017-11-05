@@ -2,6 +2,9 @@ import React from 'react';
 import RoutesGenerate from './routesGenerate';
 import Navigation from './navigation';
 import Breadcrumbs from './breadcrumbs';
+import configuration from '../../custom_content/configuration';
+
+const {staticRoutes, routesExclude} = configuration;
 
 /**
  * Component that hold the three components:
@@ -15,12 +18,12 @@ import Breadcrumbs from './breadcrumbs';
  * options (OPTIONAL):: Options for the Breadcrumbs component. Holds displayHomeName, isDisplayBreadcrumbRoot and customRender.
  *
  */
-const NavBreadcrumbsRoute = (props) => (
+const NavBreadcrumbsRoute = ({ options }) => (
   <div>
-    <Navigation config={props.config} routesExclude={props.options.routesExclude}/>
-    <Breadcrumbs config={props.config} options={props.options} />
+    <Navigation config={staticRoutes} routesExclude={routesExclude.length === 0 ? '.^' : routesExclude}/>
+    <Breadcrumbs config={staticRoutes} options={options} />
     <hr />
-    <RoutesGenerate config={props.config} />
+    <RoutesGenerate config={staticRoutes} />
   </div>
 );
 

@@ -18,6 +18,8 @@ class navBarHorizontal extends React.Component {
     const { config } = this.props;
     const routesExclude = new RegExp(this.props.routesExclude);
 
+    console.log({routesExclude});
+
     return (
       <div className="wcContainer">
         <nav className="navbar navbar-default">

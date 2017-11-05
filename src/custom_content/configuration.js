@@ -72,6 +72,7 @@ const configuration = {
       name: 'Product Listing1',
     },
   ],
+  "routesExclude": "(Product Listing1)", /* When there is no need for a value here, please use .^  */
 };
 
 export default configuration;
