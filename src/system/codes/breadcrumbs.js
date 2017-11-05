@@ -26,11 +26,11 @@ export default class Breadcrumbs extends React.Component {
 
     const breadcrumbConfiguration = {
       staticRoutesMap: getRoutesConfig(config, options),
-      isDisplayInHome: options.isDisplayBreadcrumbRoot || false,
+      isDisplayInHome: options && options.isDisplayBreadcrumbRoot || false,
       containerProps: {
         className: 'breadcrumbs',
       },
-      itemRender: options.customRender || ((name, path) => (path ? <Link to={path}>{name}</Link> : `${name}`)),
+      itemRender: options && options.customRender || ((name, path) => (path ? <Link to={path}>{name}</Link> : `${name}`)),
     };
 
     this.BreadcrumbConfig = autoBreadcrumb(breadcrumbConfiguration);
@@ -64,7 +64,7 @@ const getRoutesConfig = (config, options) => {
   let newConfig = {};
   Object.keys(config).forEach(route => {
     const [path, name] = [config[route].path, config[route].name];
-    const displayHomeName = options.displayHomeName || false;
+    const displayHomeName = options && options.displayHomeName || false;
     if (path === '/' && displayHomeName) {
       return;
     }
