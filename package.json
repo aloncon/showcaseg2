@@ -10,6 +10,8 @@
     "jasonp": "^1.0.0",
     "jquery": "^3.2.1",
     "jsonp-p": "^2.0.0",
+    "mobx": "^3.3.1",
+    "mobx-react": "^4.3.4",
     "nuka-carousel": "^2.0.4",
     "nuka-carousel-autoscroll": "^0.1.5",
     "react": "^15.6.2",

@@ -5,6 +5,7 @@ import EndpointSolutions from '../custom_content/pages/endpoint-solutions';
 import iframe from '../custom_content/pages/iframe';
 import testingArea from '../custom_content/pages/testingArea';
 import ProductListing1 from '../custom_content/modules/product-listing1';
+import { observable, action } from 'mobx';
 
 /**
  * Configuration data for the showcase.
@@ -17,9 +18,23 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  *
  * TODO: Change the 'staticRoutes' index to the route name
  */
-const configuration = {
+const configuration = observable({
+  setModuleName: action(name => {
+    configuration.moduleName = name;
+  }),
   moduleName: 'Symantec',
   moduleId: 'symantec',
+  getHeaderTitle(pathname) {
+    console.log("pathname", pathname);
+		const route = configuration.staticRoutes.find(route => route.path === pathname);
+		let title;
+		if (route) {
+			title = route.name;
+		} else {
+			title = configuration.headerDetails.headerTitle;
+		}
+		return title;
+  },
   headerDetails:{
     headerTitle: 'Symantec',
     textColor: 'white',
@@ -73,6 +88,8 @@ const configuration = {
     },
   ],
   "routesExclude": "(Product Listing1)", /* When there is no need for a value here, please use .^  */
-};
+});
 
 export default configuration;
+
+window.c = configuration;

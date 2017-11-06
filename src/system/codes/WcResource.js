@@ -7,6 +7,25 @@ export default ({children}) => (console.log(children), (
     </span>
 ));
 
+// const Img = (props) => absolutizeChildren(<img {...props}/>);
+// const Video = (props) => absolutizeChildren(<Player {...props}/>);
+
+
+
+const absolutizeComponent = (Comp) => ({ children, ...props}) => {
+  return absolutizeChildren(<Comp {...props}>{children}</Comp>);
+};
+
+
+
+const Img = absolutizeComponent(React.DOM.img);
+const Video = absolutizeComponent(Player);
+
+<Video src="http/....">
+    <Sources>{[]}</Sources>
+</Video>
+
+
 const absolutizeChildren = (child) => {
     let src = child.props.src;
     let srcBase = moduleInfo.showcaseprefix;    

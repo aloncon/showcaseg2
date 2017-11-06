@@ -4,6 +4,16 @@ import WcResource from './WcResource';
 
 export default class Header extends Component {
 
+    componentDidMount() {
+			this.refs.logo.addEventListener("mouseenter", function(e) {
+
+      });
+    }
+
+    componentWillUnmount() {
+
+    }
+
     render() { 
         const titleStyle = {color: this.props.textColor};
         const headerStyles = {backgroundColor: this.props.background};
@@ -19,7 +29,7 @@ export default class Header extends Component {
                     <div className="col-xs-6 header-title">
                         <h1 style={titleStyle}>{this.props.title}</h1>
                     </div>
-                    <div className="col-xs-6 header-logo">
+                    <div className="col-xs-6 header-logo" ref="logo">
                         <NavLink to="/">
                             <WcResource>
                                 <img alt={this.props.moduleName} src={hasLogo}/>

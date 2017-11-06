@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { observer } from 'mobx-react';
 import { Provider } from 'react-redux';
 import {
     HashRouter,
@@ -11,6 +12,7 @@ import store from './store';
 
 import ShowcaseHeader from './custom_content/modules/showcase-header';
 import ShowcaseFooter from './custom_content/modules/showcase-footer';
+import configuration from './custom_content/configuration';
 
 
 import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcrumbsRoute';
@@ -22,27 +24,36 @@ import './system/style/index.css';
 
 // import moduleAssortment from'./system/data/module-profiles/fromProviderCenter.json';
 import WcpcContent from './system/codes/WcpcContent';
-ReactDOM.render(
-    <Provider store={store}>
-    
+
+
+const Comp = observer(({ config }) => {
+  return     <Provider store={store}>
+
     <HashRouter>
       <div id="wc_showcase_root" className="wc_showcase_root">
 
         <div className="wcContainer">
 
-                <WcpcContent wc_section_code={'wc-header'} ><ShowcaseHeader/></WcpcContent>
-                <ModuleNavBreadcrumbsRoute />
+          <WcpcContent wc_section_code={'wc-header'} ><ShowcaseHeader /></WcpcContent>
+          <ModuleNavBreadcrumbsRoute />
 
-            <hr/>
-            <ShowcaseFooter/>
+          <hr/>
+          <ShowcaseFooter/>
 
 
-        <basePath/>
+          <basePath/>
 
         </div>
       </div>
     </HashRouter>
-    </Provider>
+  </Provider>
+
+});
+
+
+ReactDOM.render(
+    <Comp config={configuration}/>
+
     ,
     document.getElementById('wc-showcase-root')
     //getParentElement()
