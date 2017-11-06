@@ -1,26 +1,21 @@
 import React from 'react';
-
+import { withRouter } from 'react-router';
 import manufacturerLogo from '../assets/images/SYM-BLK.png';
 import Header from '../../system/codes/header.js';
+import { observer } from 'mobx-react';
 import configuration from '../configuration';
+
 
 
 class ShowcaseHeader extends React.Component {
 
 	render() {
-	  console.log("config", configuration);
+		// const { configuration } = this.props;
 		const pathname = this.props.location.pathname;
-		const route = configuration.staticRoutes.find(route => route.path === pathname);
-		let title;
-		if (route) {
-			title = route.name;
-		} else {
-			title = configuration.headerDetails.headerTitle;
-		}
 
 		return (
       <Header
-        title={title}
+        title={configuration.headerDetails.headerTitle}
         moduleName={configuration.moduleName}
         manufacturerLogo={manufacturerLogo}
         background={configuration.headerDetails.backgroundColor}
@@ -29,5 +24,5 @@ class ShowcaseHeader extends React.Component {
 	}
 }
 
-export default withRouter(ShowcaseHeader);
+export default withRouter(observer(ShowcaseHeader));
   
