@@ -24,6 +24,7 @@ import './system/style/index.css';
 import WcpcContent from './system/codes/WcpcContent';
 ReactDOM.render(
     <Provider store={store}>
+    
     <HashRouter>
       <div id="wc_showcase_root" className="wc_showcase_root">
 
