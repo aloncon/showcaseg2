@@ -3,6 +3,7 @@ import RoutesGenerate from './routesGenerate';
 import Navigation from './navigation';
 import Breadcrumbs from './breadcrumbs';
 import configuration from '../../custom_content/configuration';
+import WcpcContent from '../../system/codes/WcpcContent';
 
 const {staticRoutes, routesExclude} = configuration;
 
@@ -20,7 +21,9 @@ const {staticRoutes, routesExclude} = configuration;
  */
 const NavBreadcrumbsRoute = ({ options }) => (
   <div>
-    <Navigation config={staticRoutes} routesExclude={routesExclude.length === 0 ? '.^' : routesExclude}/>
+    <WcpcContent wc_section_code={'wc_navigation_bar'}>
+      <Navigation config={staticRoutes} routesExclude={routesExclude.length === 0 ? '.^' : routesExclude}/>
+    </WcpcContent>
     <Breadcrumbs config={staticRoutes} options={options} />
     <hr />
     <RoutesGenerate config={staticRoutes} />

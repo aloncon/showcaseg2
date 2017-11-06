@@ -10,7 +10,7 @@ import WcpcContent from '../../WcpcContent';
 
 export default () => (
     <div className="wc-top-announcments">
-    <WcpcContent wcpc="17"><div className="wc-announcments" id="announcment22"><WcResource><img src={require('./SYM-BLK-wide.png')}/></WcResource></div></WcpcContent>
+    <WcpcContent wc_product_code="17"><div className="wc-announcments" id="announcment22"><WcResource><img src={require('./SYM-BLK-wide.png')}/></WcResource></div></WcpcContent>
     
     <div className="wc-announcments" id="announcment33"><WcResource><img src={announcment3}/></WcResource></div>
     <div className="wc-announcments" id="announcment44"><WcResource><img src={announcment4}/></WcResource></div>

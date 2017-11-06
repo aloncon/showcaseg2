@@ -20,6 +20,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './system/style/index.css';
 //const css = require('./App.css');
 
+// import moduleAssortment from'./system/data/module-profiles/fromProviderCenter.json';
+import WcpcContent from './system/codes/WcpcContent';
 ReactDOM.render(
     <Provider store={store}>
     <HashRouter>
@@ -27,9 +29,9 @@ ReactDOM.render(
 
         <div className="wcContainer">
 
+                <WcpcContent wc_section_code={'wc-header'} ><ShowcaseHeader/></WcpcContent>
+                <ModuleNavBreadcrumbsRoute />
 
-            <ShowcaseHeader />
-            <ModuleNavBreadcrumbsRoute />
             <hr/>
             <ShowcaseFooter/>
 

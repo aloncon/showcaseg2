@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import InputProviderCenter from '../../siteadditions/inputProviderCenter.json'
+import FromProviderCenter from '../data/module-profiles/fromProviderCenter.json'
+// import ToProviderCenter from './toProviderCenter.json'
+// var fs = require("fs");
 
 
-class iframeConfig extends React.Component {
+
+class EntryPoint extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             iFrameHeight: '0px',
-            src: this.props.src,
-            answer: InputProviderCenter.adobe.mailto.value,
+            src: null,
+            answer: FromProviderCenter.adobe.mailto.value,
+            entryPointAssortment : this.props.config
         }
     }
 
@@ -18,9 +22,14 @@ class iframeConfig extends React.Component {
     componentDidMount() {
         console.log("AAAAAAAAAAAA"+document.getElementById("entryPoint").src);
         var domain = "domain=" + window.location.host + "-domain";
+        let k = encodeURI(this.state.answer);
         this.setState({
-            "src": this.state.src + '?'+ domain + "ismail=t-textmail=" + encodeURIComponent(this.state.answer)+"-endmail", 
+            "src": this.props.src + '?'+ domain + "ismail=t-textmail=" + k+"-endmail", 
         });
+        if(this.props.src.indexOf("http") !== -1){
+            //document.getElementById('entryPoint').style.height = data.resizeH + "px";
+        }
+        
     }
     componentWillUpdate() {
         // console.log('Component is about to update...');
@@ -37,6 +46,32 @@ class iframeConfig extends React.Component {
     }
 
     _updateIframe = () => {
+
+        if(this.props.src.indexOf("http") === -1){
+                    // write configuration to jason file for providerCenter
+
+                    if(FromProviderCenter["adobe"] != undefined){
+                        let tempModuleName = "adobe"
+                        // alert("Has the module" + this.state.entryPointAssortment.title)
+                        // FromProviderCenter[tempModuleName] = this.state.entryPointAssortment
+
+
+                        // var newName = FromProviderCenter,
+                        // xhr = new XMLHttpRequest();
+
+                        // xhr.open('POST', '/angelaserver');
+                        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                        // xhr.onload = function() {
+                        //     if (xhr.status === 200 && xhr.responseText !== newName) {
+                        //         alert('Something went wrong.  Name is now ' + xhr.responseText);
+                        //     }
+                        //     else if (xhr.status !== 200) {
+                        //         alert('Request failed.  Returned status of ' + xhr.status);
+                        //     }
+                        // };
+                        // xhr.send(encodeURI('name=' + this.state.entryPointAssortment));
+                    }
+
                     const obj = ReactDOM.findDOMNode(this);
                     console.log("location "+ (window.addEventListener ? "addEventListener" : "attachEvent"))
                     
@@ -63,28 +98,34 @@ class iframeConfig extends React.Component {
 
                     },false);
 
+                }
 
+                else{
+                    this.setState({
+                        src: this.props.src,
+                        iFrameHeight: '100%'
+                    })
+                }
                 }
      render() {
-         
+        
+        const {id , title} = this.props
+        const {iFrameHeight , src} = this.state
         return (
             <iframe 
-                style={{width:'100%', height:this.state.iFrameHeight, overflow:'visible'}}
+                style={{width:'100%', height:iFrameHeight, overflow:'visible'}}
                 onLoad={this._updateIframe}   
                 ref="iframe" 
-                src={this.state.src} 
-                width="100%" 
-                height={this.state.iFrameHeight} 
+                src={src}   
                 scrolling="no" 
                 frameBorder="0"
-                id={this.props.id}
-                title={this.props.title}
-            />
-            
+                id={id}
+                title={title}
+            /> 
         );
     }
 
 
 }
 
-export default iframeConfig;
+export default EntryPoint;
