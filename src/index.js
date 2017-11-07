@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
 import store from './store';
 
-import ShowcaseHeader from './custom_content/modules/showcase-header';
+import ShowcaseHeader from './custom_content/modules/ShowcaseHeader';
 import ShowcaseFooter from './custom_content/modules/showcase-footer';
 
 
