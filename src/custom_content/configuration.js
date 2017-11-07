@@ -14,7 +14,9 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  *
  * footerDetails:: Hold all the footer information (imgProvidedBy, backgroundColor)
  *
- * staticRoutes:: Hold all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
+ * staticRoutes:: Hold the all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
+ *
+ * TODO: Change the 'staticRoutes' index to the route name
  */
 const configuration = {
   moduleName: 'Symantec',
@@ -75,6 +77,7 @@ const configuration = {
       name: 'Product Listing1',
     },
   ],
+  "routesExclude": "(Product Listing1)", /* When there is no need for a value here, please use .^  */
 };
 
 export default configuration;

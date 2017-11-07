@@ -1,23 +1,23 @@
 import React from 'react'
 
-import wcan1_asset from '../announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
-import wcan2_asset from '../announcements/assets/Q4_16_KSV_New_Customer.pdf';
-import wcan3_asset from '../announcements/assets/Q4_16_VSB_Customer_Provantage.pdf';
-import wcan4_asset from '../announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
-//import wcan5_asset from '../announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan1_asset from '../assets/announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+import wcan2_asset from '../assets/announcements/assets/Q4_16_KSV_New_Customer.pdf';
+import wcan3_asset from '../assets/announcements/assets/Q4_16_VSB_Customer_Provantage.pdf';
+import wcan4_asset from '../assets/announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
+//import wcan5_asset from '../assets/announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
 
 
-import wcan1_img from '../announcements/banners/1.jpg';
-import wcan2_img from '../announcements/banners/2.jpg';
-import wcan3_img from '../announcements/banners/3.jpg';
-import wcan4_img from '../announcements/banners/4.jpg';
-import wcan5_img from '../announcements/banners/5.jpg';
+import wcan1_img from '../assets/announcements/banners/1.jpg';
+import wcan2_img from '../assets/announcements/banners/2.jpg';
+import wcan3_img from '../assets/announcements/banners/3.jpg';
+import wcan4_img from '../assets/announcements/banners/4.jpg';
+import wcan5_img from '../assets/announcements/banners/5.jpg';
 
-import wcan1_img_s from '../announcements/banners/1-s.jpg';
-import wcan2_img_s from '../announcements/banners/2-s.jpg';
-import wcan3_img_s from '../announcements/banners/3-s.jpg';
-import wcan4_img_s from '../announcements/banners/4-s.jpg';
-import wcan5_img_s from '../announcements/banners/5-s.jpg';
+import wcan1_img_s from '../assets/announcements/banners/1-s.jpg';
+import wcan2_img_s from '../assets/announcements/banners/2-s.jpg';
+import wcan3_img_s from '../assets/announcements/banners/3-s.jpg';
+import wcan4_img_s from '../assets/announcements/banners/4-s.jpg';
+import wcan5_img_s from '../assets/announcements/banners/5-s.jpg';
 
 import Announcments from '../../system/codes/announcment.js';
 /*
@@ -37,10 +37,10 @@ import Announcments from '../../system/codes/announcment.js';
       [      id       ,   wcan_asset   ,   wcan_asset_id    ,  title  , wcan_img  , wcan_img_s ,     startDate     ,   endDate       ]
 
       0)    id - a UNIQUE string/number.
-      1)    wcan_asset      -      if asset is local Link: string of the path for the destination as configue in configuration.js (For Example: '') 
+      1)    wcan_asset      -      if asset is local Link: string of the path for the destination as configue in configuration.js (For Example: '')
                                    if asset is External Link: string of the external Link (For Example: 'www.webcollage.com')
-                                   if asset is pdf/image: the name of the import you added (For Example: wcan_asset) 
-                                   if there is no asset , leave blank ('').         
+                                   if asset is pdf/image: the name of the import you added (For Example: wcan_asset)
+                                   if there is no asset , leave blank ('').
       2)    wcan_asset_id   -      what type the asset is? (LocalLink/Asset/ExternalLink).
       3)    title           -      title for the image/asset
       4)    wcan_img        -      the path for the banner location.
@@ -54,7 +54,7 @@ import Announcments from '../../system/codes/announcment.js';
       2)    add the announcement info as a new array in the slides array below , with the following info: [id,wcan_asset,title,wcan_img,wcan_img_s,startDate,endDate]
       //IF NEEDED MORE THEN ONE:
       3)    add another class (For example Wcan1) with the required wcan_setting and wcan_slides.
-      4)    add Wcan1 to the export    
+      4)    add Wcan1 to the export
 
 ********      Include the component at a page:     ****************
       1)    import {Wcan} from './Announcment';
@@ -79,7 +79,7 @@ import Announcments from '../../system/codes/announcment.js';
         autoplay                :       true,           //  Should the scroller auto scroll?                (Boolean - False as Default)
         autoplayArrows          :       false,          //  Should the Arrows turn on auto scroll?          (Boolean - False as Default)
         autoplayPagination      :       false,          //  Should the Pagination turn on  auto scroll?     (Boolean - False as Default)
-        autoplaySpeed           :       3000,           //  Delay between each auto scoll. in ms            (Integer)        
+        autoplaySpeed           :       3000,           //  Delay between each auto scoll. in ms            (Integer)
         infinite                :       true,           //  Should the gallery wrap around it's contents    (Boolean - True as Default)
         speed                   :       500,            //  Speed of the autoplay                           (Integer)
         slidesToShow            :       1,              //  Number of slides to be visible at a time        (Integer - True as Default)
@@ -87,7 +87,7 @@ import Announcments from '../../system/codes/announcment.js';
         changeImageWidth        :       700,            //  the width in which the second image will appear (Integer)
         pauseOnHover            :       false,
         //rtl                   :       false,          //  Reverses the slide order                        (Boolean - True as Default) - TODO
-        sliderWidth             :       'full'          //  give fixed width or 'full' for full screen      (Integer/String)  //TODO:  FINISH IT -FIX FULL      
+        sliderWidth             :       'full'          //  give fixed width or 'full' for full screen      (Integer/String)  //TODO:  FINISH IT -FIX FULL
     }
 
 //********Do not touch - CHANGE ONLY IF NEEDED!! (for example: to add another announcment)****************//
@@ -105,4 +105,4 @@ class Wcan extends React.Component {
 
 export {
     Wcan
-} 
+}

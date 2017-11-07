@@ -2,23 +2,26 @@
 
 - 📂 src
   - 📁[action](#action) - Alon
+  - 📁[css](#css)
   - 📂[custom_content](#custom_content)
-    -  📁 announcements
-    -  📂 assets
-        -  📁 images
-        -  📁 videos
-        -  📁 documents
-        -  📁...
-    - 📁 landing_pages
-    - 📁 modules
     - 📄 configuration.js
+    - 📂 assets
+        - 📁 announcements
+        - 📁 images
+        - 📁 videos
+        - 📁 documents
+        - 📁...
+    - 📁 modules
+    - 📂 [pages](#pages)
+        - 📄 ...
+        - 📁 landing-default
   - 📁[reducers](#reducers) - Alon
   - 📁[routers](#routers) - Alon
   - 📁[siteadditions](#siteadditions) - Angelika
   - 📂[system](#system)
     - 📁 codes
-    - 📁 style
     - 📁 resources
+    - 📁 style
 
 
 ------------------------------
@@ -27,18 +30,32 @@
 
 - Alon
 
+## css
+
+Styling for the showcase (let you overwrite the default CSS that located in `system/style`).
+
 ## custom_content
 
-- **announcements** - Only when the module contains announcements.
-- This folder stores the announcements resources (assets and banners).
-- **assets**
-- All showcase assets (Images, Videos, etc...).
-- **landing_pages**
-- Contains the landing pages code.
-- **modules**
-- Contains the showcase components settings.
 - **configuration.js**
-- Showcase configuration (Header, Footer, Breadcrumbs, etc...).
+
+  Showcase configuration (Header, Footer, Breadcrumbs, etc...).
+
+
+- **assets**
+
+  All showcase assets (Images, Videos, announcements etc...).
+
+- **modules**
+
+  Contains the showcase components settings.
+
+## pages
+
+  Contains the showcase pages.
+
+- **landing-default**
+
+  Contains the landing pages.
 
 ## reducers
 
@@ -55,11 +72,13 @@
 ## system
 
 - **codes**
--  Contains the showcase components codes.
-- **style**
--  Contains the showcase style (CSS ❓❓❓❓❓ , fonts, etc...).
-- **resources**
--  Contains webcollage resources.
 
-TESTING FOR PUSH 
-TESTING FOR PUSH 2
+  Contains the showcase components codes.
+
+- **resources**
+
+  Contains webcollage resources.
+
+- **style**
+
+  Contains the showcase style (CSS, fonts, etc...).

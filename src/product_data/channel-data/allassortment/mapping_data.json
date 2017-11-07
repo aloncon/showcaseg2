@@ -1,0 +1,113 @@
+{
+  "products": {
+    "module-id": "netgear",
+    "channel-id": "allassortment",
+    "product": [
+      {
+        "wcpc": "1460735235222",
+        "active": "true",
+        "channel-product-id": "cpi-1460735235222"
+      },
+      {
+        "wcpc": "1470064935512",
+        "active": "true",
+        "channel-product-id": "cpi-1470064935512"
+      },
+      {
+        "wcpc": "1470326372128",
+        "active": "true",
+        "channel-product-id": "cpi-1470326372128"
+      },
+      {
+        "wcpc": "1471365832116",
+        "active": "true",
+        "channel-product-id": "cpi-1471365832116"
+      },
+      {
+        "wcpc": "1471369776224",
+        "active": "true",
+        "channel-product-id": "cpi-1471369776224"
+      },
+      {
+        "wcpc": "1475950246236",
+        "active": "true",
+        "channel-product-id": "cpi-1475950246236"
+      },
+      {
+        "wcpc": "1476825042149",
+        "active": "true",
+        "channel-product-id": "cpi-1476825042149"
+      },
+      {
+        "wcpc": "1482949785381",
+        "active": "true",
+        "channel-product-id": "cpi-1482949785381"
+      },
+      {
+        "wcpc": "1482950347294",
+        "active": "true",
+        "channel-product-id": "cpi-1482950347294"
+      },
+      {
+        "wcpc": "1490633261455",
+        "active": "true",
+        "channel-product-id": "cpi-1490633261455"
+      },
+      {
+        "wcpc": "1490633507218",
+        "active": "true",
+        "channel-product-id": "cpi-1490633507218"
+      },
+      {
+        "wcpc": "1492820827292",
+        "active": "true",
+        "channel-product-id": "cpi-1492820827292"
+      },
+      {
+        "wcpc": "1495487337782",
+        "active": "true",
+        "channel-product-id": "cpi-1495487337782"
+      },
+      {
+        "wcpc": "1495487715739",
+        "active": "true",
+        "channel-product-id": "cpi-1495487715739"
+      },
+      {
+        "wcpc": "1503507508028",
+        "active": "true",
+        "primary": "false",
+        "channel-product-id": "cpi-1503507508028"
+      },
+      {
+        "wcpc": "1503507552722",
+        "active": "true",
+        "primary": "false",
+        "channel-product-id": "cpi-1503507552722"
+      },
+      {
+        "wcpc": "1503507883084",
+        "active": "true",
+        "primary": "false",
+        "channel-product-id": "cpi-1503507883084"
+      },
+      {
+        "wcpc": "1503507939088",
+        "active": "true",
+        "primary": "false",
+        "channel-product-id": "cpi-1503507939088"
+      },
+      {
+        "wcpc": "1503507983455",
+        "active": "true",
+        "primary": "false",
+        "channel-product-id": "cpi-1503507983455"
+      },
+      {
+        "wcpc": "gs108",
+        "active": "true",
+        "channel-product-id": "cpi-gs108"
+      }
+    ]
+  }
+}

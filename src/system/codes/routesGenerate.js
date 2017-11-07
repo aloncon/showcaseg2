@@ -8,29 +8,23 @@ import { Route } from 'react-router-dom';
  *
  * config (MANDATORY):: JSON object, holds the the static routes configuration.
  */
-class RoutesGenerate extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { routesConfig: props.config };
-  }
+const RoutesGenerate = ({ config }) => {
+  const routesConfig = config;
+  return (
+    <div>
+      {Object.keys(routesConfig).map(route => {
+        const propsRoutes = {
+          key: routesConfig[route].path,
+          path: routesConfig[route].path,
+          component: routesConfig[route].component,
+        };
 
-  render() {
-    return (
-      <div>
-        {Object.keys(this.state.routesConfig).map(route => {
-          const propsRoutes = {
-            key: this.state.routesConfig[route].path,
-            path: this.state.routesConfig[route].path,
-            component: this.state.routesConfig[route].component,
-          };
+        if (routesConfig[route].path === '/') propsRoutes['exact'] = true;
 
-          if (this.state.routesConfig[route].path === '/') propsRoutes['exact'] = true;
-
-          return <Route {...propsRoutes}/>;
-        })}
-      </div>
-    );
-  }
-}
+        return <Route {...propsRoutes} />;
+      })}
+    </div>
+  );
+};
 
 export default RoutesGenerate;

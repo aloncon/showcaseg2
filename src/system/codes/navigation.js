@@ -13,15 +13,13 @@ import { NavLink } from 'react-router-dom';
  * TODO: Add implementation to add li.className="active" to the active item.
  */
 class navBarHorizontal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      config: props.config,
-      routesExclude: new RegExp(props.routesExclude)
-    };
-  }
 
   render() {
+    const { config } = this.props;
+    const routesExclude = new RegExp(this.props.routesExclude);
+
+    console.log({routesExclude});
+
     return (
       <div className="wcContainer">
         <nav className="navbar navbar-default">
@@ -40,16 +38,16 @@ class navBarHorizontal extends React.Component {
             <div id="navbar" className="navbar-collapse collapse">
               <ul className="nav navbar-nav">
 
-                {Object.keys(this.state.config).map(route => {
+                {config.map(route => {
                   // Exclude routes from the navigation
-                  if (this.state.routesExclude.test(this.state.config[route].name)) return;
+                  if (routesExclude.test(route.name)) return;
 
                   // We handle the root path om the first NavLink above 'Home'
-                  if (this.state.config[route].path === '/') return;
+                  if (route.path === '/') return;
 
                   return (
-                    <li key={this.state.config[route].path}>
-                      <NavLink to={this.state.config[route].path}>{this.state.config[route].name}</NavLink>
+                    <li key={route.path}>
+                      <NavLink to={route.path}>{route.name}</NavLink>
                     </li>
                   );
                 })}

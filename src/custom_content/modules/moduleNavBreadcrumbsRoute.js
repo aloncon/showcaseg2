@@ -1,5 +1,4 @@
 import React from 'react';
-import configuration from '../../custom_content/configuration';
 import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
 
 /**
@@ -7,11 +6,7 @@ import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
  *
  * In order to change the navigation/breadcrumbs or the routes, you needed to change the configuration.js in the custom content.
  *
- * config (MANDATORY):: JSON object, holds the the static routes configuration.
- *
  * options::->
- *
- * routesExclude (OPTIONAL):: String of regex expression of routes you wish to exclude from the navigation for example: routesExclude=`(Product Listing1|Endpoint Solutions|iframe)`
  *
  * displayHomeName (OPTIONAL):: Boolean, true to display the word 'Home' when the path is: '/'. False by default.
  *
@@ -22,7 +17,7 @@ import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
  * For more information, please look in the component itself.
  */
 const ModuleNavBreadcrumbsRoute = () => (
-  <NavBreadcrumbsRoute config={configuration.staticRoutes} options={{displayHomeName: true, isDisplayBreadcrumbRoot: false, routesExclude: '(Product Listing1)'}} />
+  <NavBreadcrumbsRoute options={{displayHomeName: true, isDisplayBreadcrumbRoot: false}} />
 )
 
 export default ModuleNavBreadcrumbsRoute;
