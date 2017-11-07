@@ -9,16 +9,18 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
 /**
  * Configuration data for the showcase.
  *
- * headerDetails:: Hold the all the header information (headerTitle, manufacturerLogo, headerColor, backgroundColor)
+ * headerDetails:: All the header information is optional
+ * imgLogo: may be require('../custom_content/assets/images/SYM-BLK.png') or null
  *
- * footerDetails:: Hold the all the footer information (imgProvidedBy, backgroundColor)
+ * footerDetails:: Hold all the footer information (imgProvidedBy, backgroundColor)
  *
- * staticRoutes:: Hold the all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
+ * staticRoutes:: Hold all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
  */
 const configuration = {
   moduleName: 'Symantec',
   moduleId: 'symantec',
   headerDetails:{
+    imgLogo: require('../custom_content/assets/images/SYM-BLK.png'),
     headerTitle: 'Symantec',
     textColor: 'white',
     backgroundColor: 'black'
@@ -43,6 +45,7 @@ const configuration = {
       path: '/EndpointManagement',
       component: EndpointManagement,
       name: 'Endpoint Management',
+      title: 'Endpoint Management'
     },
     {
       path: '/Page3',
@@ -53,6 +56,7 @@ const configuration = {
       path: '/EndpointSolutions',
       component: EndpointSolutions,
       name: 'Endpoint Solutions',
+      title: 'Endpoint Solutions',
     },
     {
       path: '/iframe',
@@ -62,7 +66,8 @@ const configuration = {
     {
       path: '/testingArea',
       component: testingArea,
-      name: 'testing Area',
+      name: 'testing Video',
+      title: 'Video Gallery',
     },
     {
       path: '/ProductListing1',
