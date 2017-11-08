@@ -13,7 +13,7 @@ const absolutizeChildren = (child) => {
     let scriptUrl = moduleInfo.scriptsrcbaseurl;
     console.log('original Element src', src);
 
-    if (!src || src.startsWith('data:'))
+    if (!src || src.startsWith('data:') || src.startsWith('http'))
         return child;
     if (scriptUrl.includes('localhost') && (window.location.href.indexOf("://localhost:")!= -1))
         return child;
