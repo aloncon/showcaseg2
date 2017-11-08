@@ -1,5 +1,5 @@
 import React from 'react';
-import EntryPoint from '../../system/codes/EntryPoint';
+import EntryPoint from '../../system/codes/entrypoint';
 import '../../system/style/App.css';
 import WcpcContent from '../../system/codes/WcpcContent';
 import FromProviderCenter from '../../system/data/module-profiles/fromProviderCenter.json'
