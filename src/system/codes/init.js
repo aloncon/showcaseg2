@@ -16,8 +16,9 @@ const getScriptURL = (function() {
 
 function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('rawgit.com')) {
-            console.log('in git!')
-            return `https://rawgit.com/aloncon/showcaseg2/master/build/`;             
+            console.log('in git!',scriptUrl)
+            //return `https://rawgit.com/aloncon/showcaseg2/master/build/`;
+            return scriptUrl.replace(/\/build\/.*/,"/build/");             
     }
 
     if (scriptUrl.includes('media-preview.')) {
@@ -37,8 +38,9 @@ function getSrcBase(scriptUrl) {
     }
     //for testing only on real site
     if (scriptUrl.includes('scontent.webcollage.net/')) {
-            console.log('in original site - testing only!!')
-            return `https://rawgit.com/aloncon/showcaseg2/master/build/`;             
+            console.log('in original site - testing only!!',scriptUrl)
+            //return `https://rawgit.com/aloncon/showcaseg2/master/build/`;             
+            scriptUrl.replace(/\/build\/.*/,"/build/");
     }    
     
   //localhost  
