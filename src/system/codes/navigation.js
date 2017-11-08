@@ -31,9 +31,9 @@ class navBarHorizontal extends React.Component {
                 <span className="icon-bar" />
                 <span className="icon-bar" />
               </button>
-              <NavLink to="/" className="navbar-brand">
+             {/* <NavLink to="/" className="navbar-brand">
                 HOME
-              </NavLink>
+    </NavLink> */}
             </div>
             <div id="navbar" className="navbar-collapse collapse">
               <ul className="nav navbar-nav">

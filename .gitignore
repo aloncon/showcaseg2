@@ -9,6 +9,10 @@ node_modules
 # production
 #/build
 #public
+build/static/css
+build/static/js
+!static/css/main.css
+!static/js/main.js
 DELETE
 
 

@@ -16,8 +16,8 @@
     background-color: #FFF;
     text-align: left !important;
 }
-.ShowcaseBody h2 {
-  color:red;
+#wc_showcase_root .ShowcaseBody h2 {
+  color:red !important; 
   font-size:18px;
 }
 .ShowcaseBody .wc-announcments{

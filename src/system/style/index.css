@@ -8,11 +8,83 @@ body {
   font-family: sans-serif;
   max-width: 900px;
 }
+
+#wc_showcase_root,
+.wc_showcase_root {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  max-width: 1000px;
+ 
+  background-color: #FFF; 
+
+}
+
+#wc_showcase_root .wcContainer{
+    width: 100% !important;
+    background-color: #FFF;
+    text-align: left !important;
+}
+#wc_showcase_root .ShowcaseBody h2 {
+  color:red !important; 
+  font-size:18px;
+}
 .ShowcaseBody .wc-announcments{
     height: 180px;
     overflow: hidden;
 }
 
+.showcase-header .wc-cus-header {
+    width: 100% !important;
+    text-align: right !important;
+    background-color: black !important;
+    border: 0px none black !important;
+    padding: 3px 10px 3px 3px !important;
+}
+
+
+#wc-showcase-root .wcContainer .category-ul{
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    list-style-type: none !important;
+}
+#wc-showcase-root .wcContainer .category-li{
+    padding-top: 15px !important;
+    border-bottom: 1px solid #CBCBCB;
+    list-style-type: none !important;
+        background-color: transparent;
+    border: medium none black;
+    width: auto;
+    height: auto;    
+}
+#wc-showcase-root .wcContainer .category-li .centeredText{
+    float: left !important;
+    padding-right: 12px !important;
+}
+
+
+#wc-showcase-root .wcContainer .category-li .fiveCol{
+    
+}
+#wc-showcase-root .wcContainer .category-li .fiveCol p{
+    font-family: Arial !important;
+    font-size: 12px !important;
+    font-weight: normal !important;
+    color: #5f5f5f !important;
+    margin-top: 5px !important;
+}
+#wc-showcase-root .wcContainer .clear{
+    clear:both !important;
+}
+
+/*  ********* React Slick Start **********  */
+#wc-showcase-root .slick-list{
+    height: 240px;
+}
+
+
+/*  ********* React Slick End **********  */
+ 
 /************* Header ***************/
 
 .wc-header-title{
