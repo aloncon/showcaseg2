@@ -1,18 +1,18 @@
-.breadcrumbs {
+.wc-breadcrumbs {
   padding: 8px 15px;
   margin-bottom: 20px;
   list-style: none;
   /* background-color: #f5f5f5; */
   border-radius: 4px
 }
-.breadcrumbs > li {
+.wc-breadcrumbs > li {
   display: inline-block
 }
-.breadcrumbs > li + li:before {
+.wc-breadcrumbs > li + li:before {
   padding: 0 5px;
   color: #ccc;
   content: "/\00a0"
 }
-.breadcrumbs > li:last-child {
+.wc-breadcrumbs > li:last-child {
   color: #EB32DC;
 }

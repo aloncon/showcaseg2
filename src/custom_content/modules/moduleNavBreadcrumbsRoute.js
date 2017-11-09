@@ -12,8 +12,6 @@ import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
  *
  * isDisplayBreadcrumbRoot (OPTIONAL):: Boolean, true to display the breadcrumbs in the root path: '/'. False by default.
  *
- * customRender (OPTIONAL):: Function(name,path), a custom way to display the name breadcrumbs.
- *
  * For more information, please look in the component itself.
  */
 const ModuleNavBreadcrumbsRoute = () => (

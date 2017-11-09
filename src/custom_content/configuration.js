@@ -16,7 +16,6 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  *
  * staticRoutes:: Hold the all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
  *
- * TODO: Change the 'staticRoutes' index to the route name
  */
 const configuration = {
   moduleName: 'Symantec',
