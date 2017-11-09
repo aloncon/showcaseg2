@@ -54,6 +54,12 @@ const configuration = {
       name: 'Page 3',
     },
     {
+      path: '/Page3/EndpointManagement',
+      component: EndpointManagement,
+      name: 'Page 3 child',
+      title: 'Child Example breadcrumbs'
+    },
+    {
       path: '/EndpointSolutions',
       component: EndpointSolutions,
       name: 'Endpoint Solutions',
