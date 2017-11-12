@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
-import WcResource from './WcResource';
+import {WcImg} from './WcResource';
 
 export default class Header extends Component {
 
@@ -23,9 +23,7 @@ export default class Header extends Component {
                    {hasLogo && 
                     <div className="wc-header-logo wc-half-width">
                         <NavLink to="/">
-                            <WcResource>
-                                <img alt={"Showcase " + this.props.moduleName} src={this.props.manufacturerLogo}/>
-                            </WcResource>
+                            <WcImg alt={"Showcase " + this.props.moduleName} src={this.props.manufacturerLogo}/>
                         </NavLink>
                     </div>}
             </div>    

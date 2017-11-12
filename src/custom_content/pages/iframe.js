@@ -3,7 +3,7 @@ import EntryPoint from '../../system/codes/entrypoint';
 import '../../system/style/App.css';
 import WcpcContent from '../../system/codes/WcpcContent';
 import FromProviderCenter from '../../system/data/module-profiles/fromProviderCenter.json'
-import WcpcResources from '../../system/codes/WcResource' 
+import {WcLink} from '../../system/codes/WcResource' 
 
 const providerCenterAssortment = FromProviderCenter.adobe.mailto.value
 const entryPointAssortment = {
@@ -28,12 +28,12 @@ const entryPointAssortment = {
 class Iframe extends React.Component {
     render() {
         return <div id="iframeContainer" style={{width:'98%' ,margin:'0px auto'}}>
-                    <WcpcResources><EntryPoint
+                    <WcLink><EntryPoint
                         id={"entryPoint"}
                         src={'./siteadditions/adobe-creative-cloud-for-teams/index.html'}
                         title="adobe-creative-cloud-for-teams"
                         config = {entryPointAssortment}/>
-                    </WcpcResources>
+                    </WcLink>
                 </div>
     }
 }

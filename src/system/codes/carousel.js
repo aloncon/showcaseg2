@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import WcResource from './WcResource';
+import {WcImg , WcLink} from './WcResource';
 import'../style/carousel.css';
 
 
@@ -176,14 +176,14 @@ export default class Wcca extends Component {
                                                 <div style={divStyleProduct}  className={!this.state.isVertical ? 'wcca_product_browse' :'wcca_product_browse_vertical'} >
                                                     <div className="wcca_product_image">
                                                         <a href={product.link}>
-                                                            <WcResource><img src={product.image} alt=""/></WcResource>
+                                                            <WcImg src={product.image} alt=""/>
                                                         </a>
                                                     </div>
                                                     { product.title &&
                                                         <div className="wcca_product_title"><a href={product.link}>{product.title}</a></div>           
                                                     }
                                                     { (product.link && this.state.productLink) &&
-                                                        <div className="wcca_product_link"><WcResource><a href={product.link}>Take a Tour</a></WcResource></div>           
+                                                        <div className="wcca_product_link"><a href={product.link}>Take a Tour</a></div>           
                                                     }                                                   
                                                 </div>
                                             </div>

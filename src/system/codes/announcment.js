@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick';
 
-import WcResource from './WcResource';
+import {WcLink , WcImg} from './WcResource';
 import '../style/announcments.css'
 
 import { Link } from 'react-router-dom';
@@ -296,14 +296,12 @@ export default class Wcan extends React.Component {
                     <div key={index}>
                         { (slide[2] === 'LocalLink') ? 
                             <Link to={slide[1]}>
-                                <img src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
+                                <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                             </Link>
                           :
-                            <WcResource>
-                                <a href={slide[1]} className='wcan_link' title={slide[3]} target="_blank">
-                                    <WcResource><img src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/></WcResource>
-                                </a>
-                            </WcResource>
+                            <WcLink href={slide[1]} className='wcan_link' title={slide[3]} target="_blank">
+                                <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
+                            </WcLink>
                         }
                         
 

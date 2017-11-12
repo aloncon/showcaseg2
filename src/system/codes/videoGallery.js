@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Player } from 'video-react';
 import "../../../node_modules/video-react/dist/video-react.css";
 import "../../system/style/videoGallery.css";
-import WcResource from './WcResource';
+import {WcPlayer} from './WcResource';
 import play_thumbnails from "../resources/videoGallery/play_thumbnails.png";
 
 
@@ -47,7 +47,7 @@ export default class Wcvg extends Component {
         return (   
             <div>
                 <div style={playerContainerStyle}>
-                    <Player
+                    <WcPlayer
                         playsInline
                         poster={this.state.poster}
                         src={this.state.src}
