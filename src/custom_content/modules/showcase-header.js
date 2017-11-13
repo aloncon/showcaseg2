@@ -6,8 +6,11 @@ import configuration from '../configuration';
 
 class ShowcaseHeader extends React.Component {
       render() {
+        
         const pathname = this.props.location.pathname;
-        let pageName = configuration.staticRoutes.find(element => element.path === pathname).title;
+        const route = configuration.staticRoutes.find(element => element.path === pathname);
+        const pageName  = route ? route.title : '';
+        
         let nameToShow = pageName ? pageName : configuration.headerDetails.headerTitle;
 
           return (
