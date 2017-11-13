@@ -12,14 +12,14 @@ const RoutesGenerate = ({ config }) => {
   const routesConfig = config;
   return (
     <div>
-      {Object.keys(routesConfig).map(route => {
+      {routesConfig.map(route => {
         const propsRoutes = {
-          key: routesConfig[route].path,
-          path: routesConfig[route].path,
-          component: routesConfig[route].component,
+          key: route.path,
+          path: route.path,
+          component: route.component,
         };
 
-        if (routesConfig[route].path === '/') propsRoutes['exact'] = true;
+        if (route.notExact === undefined || route.notExact === false) propsRoutes['exact'] = true;
 
         return <Route {...propsRoutes} />;
       })}

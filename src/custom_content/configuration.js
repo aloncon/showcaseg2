@@ -15,6 +15,8 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  * footerDetails:: Hold all the footer information (imgProvidedBy, backgroundColor)
  *
  * staticRoutes:: Hold the all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
+ * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be
+ * exact, add 'notExact : true' to the parent.
  *
  */
 const configuration = {
@@ -51,7 +53,7 @@ const configuration = {
     {
       path: '/Page3',
       component: Page3,
-      name: 'Page 3',
+      name: 'Page 3'
     },
     {
       path: '/Page3/EndpointManagement',
