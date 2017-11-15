@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import {WcImg , WcLink} from './WcResource';
+import { WcImg } from './WcResource';
 import'../style/carousel.css';
 
 
@@ -31,7 +31,7 @@ export default class Wcca extends Component {
         this.handleResize = this.handleResize.bind(this);
         this.state = {
             id                      :           (this.props.data_setting.id!=null                   ? this.props.data_setting.id                        : '00'     ),
-            isVertical              :           (this.props.data_setting.vertical!=null             ? this.props.data_setting.vertical                  :  false   ),  
+            isVertical              :           (this.props.data_setting.vertical!=null             ? this.props.data_setting.vertical                  :  false   ),
             slidesToShow            :           (this.props.data_setting.slidesToShow!=null         ? this.props.data_setting.slidesToShow              :  1       ),
             infinite                :           (this.props.data_setting.infinite != null           ? this.props.data_setting.infinite                  :  true    ),
             responsive              :           (this.props.data_setting.responsive != null         ? this.props.data_setting.responsive                :  false   ),
@@ -43,15 +43,15 @@ export default class Wcca extends Component {
             //NOT TO EDIT - USES AS FLAGS
             latestSlide             :           0,
             windowHeight            :           window.innerHeight,
-            windowWidth             :           window.innerWidth,            
-        };       
+            windowWidth             :           window.innerWidth,
+        };
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         //NEEDED FOR THE VERTICAL lISTING - SO THEY CAN FULLY UPLODED
-        setTimeout(() => { 
-            window.dispatchEvent(new Event('resize')) 
-        }, 500); 
+        setTimeout(() => {
+            window.dispatchEvent(new Event('resize'))
+        }, 500);
 
         //For responsive
             //Enable responsive only on horizonal carusel
@@ -59,11 +59,11 @@ export default class Wcca extends Component {
                 this.state.responsive = false;
                 //this.setState({
                 //    responsive : false
-                //});           
+                //});
             }
             //Detect resize and if requested change from horizonal to vertical carusel
             this.handleResize();
-            window.addEventListener('resize', this.handleResize);       
+            window.addEventListener('resize', this.handleResize);
     }
 
     componentWillUnmount() {
@@ -95,7 +95,7 @@ export default class Wcca extends Component {
     sliderArrows(e) {
     //control the arrows buttons of the slider (preview/next)
         var totalSlides = Number(this.props.data_slides[0].products.length);
-        var maxSlides = totalSlides-this.state.slidesToShow; 
+        var maxSlides = totalSlides-this.state.slidesToShow;
 
         document.getElementById(this.state.id+('_wcca_arrows_next')).disabled = true;
         document.getElementById(this.state.id+('_wcca_arrows_previous')).disabled = true;
@@ -103,8 +103,8 @@ export default class Wcca extends Component {
         if(e.target.dataset.id === 'previous' && this.state.latestSlide!==0)
         {
                 document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical';
-                document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'prev wcca_arrows_browse_vertical';   
-                
+                document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'prev wcca_arrows_browse_vertical';
+
                 this.slider.slickPrev();
                 this.state.latestSlide = this.state.latestSlide - 1;
 
@@ -116,20 +116,20 @@ export default class Wcca extends Component {
         {
             document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical';
             document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'prev wcca_arrows_browse_vertical';
-            
+
             this.slider.slickNext();
             this.state.latestSlide = this.state.latestSlide  + 1;
-            
+
             if(this.state.latestSlide===maxSlides){
-                document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical disabled'; 
+                document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical disabled';
             }
         }
 
-         setTimeout(() => { 
+         setTimeout(() => {
              document.getElementById(this.state.id+('_wcca_arrows_next')).disabled = false;
              document.getElementById(this.state.id+('_wcca_arrows_previous')).disabled = false;
-         }, 500); 
-       
+         }, 500);
+
     }
 
 
@@ -138,12 +138,12 @@ export default class Wcca extends Component {
         const settings = {
             arrows: !this.state.isVertical,
             nextArrow: <SampleNextArrow />,
-            prevArrow: <SamplePrevArrow />,               
+            prevArrow: <SamplePrevArrow />,
             dots: false,
             infinite: this.state.infinite,
             speed: 500,
             slidesToShow: this.state.slidesToShow,
-            slidesToScroll: 1,              
+            slidesToScroll: 1,
             vertical: this.state.isVertical
           };
 
@@ -163,9 +163,9 @@ export default class Wcca extends Component {
                         <div className='wcca_arrows_container_vertical'>
                             <button id={this.state.id+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? 'disabled ' :  ' ') + (' prev wcca_arrows_browse_vertical')}>
                                 <div className="left"></div>
-                            </button> 
-                        </div>                    
-                    }                   
+                            </button>
+                        </div>
+                    }
                     {
                         this.props.data_slides.map((slide, index) => (
                            <div key={index} className={!this.state.isVertical ? 'wcca_slider_container' : 'wcca_slider_container_vertical'}>
@@ -180,11 +180,11 @@ export default class Wcca extends Component {
                                                         </a>
                                                     </div>
                                                     { product.title &&
-                                                        <div className="wcca_product_title"><a href={product.link}>{product.title}</a></div>           
+                                                        <div className="wcca_product_title"><a href={product.link}>{product.title}</a></div>
                                                     }
                                                     { (product.link && this.state.productLink) &&
-                                                        <div className="wcca_product_link"><a href={product.link}>Take a Tour</a></div>           
-                                                    }                                                   
+                                                        <div className="wcca_product_link"><a href={product.link}>Take a Tour</a></div>
+                                                    }
                                                 </div>
                                             </div>
                                         ))
@@ -199,7 +199,7 @@ export default class Wcca extends Component {
                                 <div className="right"></div>
                             </button>
                         </div>
-                    }                           
+                    }
                 </div>
             </div>
         )

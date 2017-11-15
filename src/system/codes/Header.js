@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
-import {WcImg} from './WcResource';
+import { WcImg } from './WcResource';
 
 export default class Header extends Component {
 
-    render() { 
+    render() {
         const titleStyle = {color: this.props.textColor};
         const headerStyles = {backgroundColor: this.props.background};
 
@@ -20,13 +20,13 @@ export default class Header extends Component {
                         </div>
                     </div>}
 
-                   {hasLogo && 
+                   {hasLogo &&
                     <div className="wc-header-logo wc-half-width">
                         <NavLink to="/">
-                            <WcImg alt={"Showcase " + this.props.moduleName} src={this.props.manufacturerLogo}/>
+                           <WcImg alt={"Showcase " + this.props.moduleName} src={this.props.manufacturerLogo}/>
                         </NavLink>
                     </div>}
-            </div>    
+            </div>
         );
     }
 };

@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick';
 
-import {WcLink , WcImg} from './WcResource';
+import { WcLink , WcImg } from './WcResource';
 import '../style/announcments.css'
 
 import { Link } from 'react-router-dom';
@@ -35,11 +35,11 @@ export default class Wcan extends React.Component {
             speed               :   (this.props.data_setting.speed!=null        ? this.props.data_setting.speed    : 500 ),
             pauseOnHover        :   (this.props.data_setting.pauseOnHover!=null ? this.props.data_setting.pauseOnHover  : false),
             slidesToShow        :   (this.props.data_setting.slidesToShow!=null ? this.props.data_setting.slidesToShow  : 1 ),
-            changeImage         :   (this.props.data_setting.changeImage        ? this.props.data_setting.changeImage   : false),             
-            changeImageWidth    :   (this.props.data_setting.changeImageWidth   ? this.props.data_setting.changeImageWidth : 600),  
-            
+            changeImage         :   (this.props.data_setting.changeImage        ? this.props.data_setting.changeImage   : false),
+            changeImageWidth    :   (this.props.data_setting.changeImageWidth   ? this.props.data_setting.changeImageWidth : 600),
+
         };
-        this.state = {            
+        this.state = {
             //rtl                 :   (this.props.data_setting.rtl!=null          ? this.props.data_setting.rtl  : false), //TODO
             //slider settings - change Image Or Different Width related
             changeImgSrc        :   4,
@@ -80,7 +80,7 @@ export default class Wcan extends React.Component {
 
         this.handleResize();
         window.addEventListener('resize', this.handleResize);
-        
+
     }
 
     componentWillUnmount() {
@@ -209,7 +209,7 @@ export default class Wcan extends React.Component {
               }else if(!this.init.infinite && (next === this.state.slidesNew.length) ){
                     document.getElementById('wcan_next').className = 'wcan_next wcan_disable';
                     document.getElementById('wcan_next').disabled = true;
-              }                
+              }
 
               if(!this.init.infinite){
                 document.getElementById('wcan_previous').className = 'wcan_previous';
@@ -222,7 +222,7 @@ export default class Wcan extends React.Component {
 
               if(Number(e) === 0)
               {
-                  pre = 1; 
+                  pre = 1;
                   next = this.state.slidesNew.length;
               }
               else if(!this.init.infinite && (Number(e) === 1) )
@@ -230,12 +230,12 @@ export default class Wcan extends React.Component {
                     console.log('no next');
                     document.getElementById('wcan_previous').className = 'wcan_previous wcan_disable';
                     document.getElementById('wcan_previous').disabled = true;
-              } 
-              
+              }
+
               if(!this.init.infinite){
                 document.getElementById('wcan_next').className = 'wcan_next';
                 document.getElementById('wcan_next').disabled = false;
-              }               
+              }
 
           }
 
@@ -249,7 +249,7 @@ export default class Wcan extends React.Component {
             document.getElementById(id_next).className = 'wcan_sb_item wcan_'+next+'a';
           }
           this.state.sliderPaused = false;
-                    
+
     }
 
     handleResize(e) {
@@ -282,7 +282,7 @@ export default class Wcan extends React.Component {
             speed:          this.init.speed,
             swipe:          false, //TODO ??
             touchMove:      false, //TODO ??
-            swipeToSlide:   false  //TODO ?? 
+            swipeToSlide:   false  //TODO ??
         };
 
         var divStyle = {
@@ -291,10 +291,10 @@ export default class Wcan extends React.Component {
 
         return (
           <div style={divStyle}>
-            <Slider ref={ c => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
+           <Slider ref={ c => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
                 {this.state.slidesNew.map((slide, index) => (
                     <div key={index}>
-                        { (slide[2] === 'LocalLink') ? 
+                        { (slide[2] === 'LocalLink') ?
                             <Link to={slide[1]}>
                                 <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                             </Link>
@@ -303,7 +303,7 @@ export default class Wcan extends React.Component {
                                 <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                             </WcLink>
                         }
-                        
+
 
                     </div>
                 ))}
