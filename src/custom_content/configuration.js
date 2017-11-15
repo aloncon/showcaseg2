@@ -84,7 +84,19 @@ const configuration = {
       name: 'Product Listing1',
     },
   ],
-  "routesExclude": "(Product Listing1)", /* When there is no need for a value here, please use .^  */
+  "routesExclude": "(Product Listing1)",
 };
+
+configuration.routesExcludeTest = (routeName) => {
+  let { routesExclude } = configuration;
+  if (!routesExclude) return false;
+
+  const regexMatchName = /([a-zA-Z0-9-_$\s][\sa-zA-Z0-9-_$]*)/g;
+
+  routesExclude = routesExclude.replace(regexMatchName, '^$1$');
+  routesExclude = new RegExp(routesExclude);
+
+  return routesExclude.test(routeName);
+}
 
 export default configuration;

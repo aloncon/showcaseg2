@@ -5,7 +5,7 @@ import Breadcrumbs from './breadcrumbs';
 import configuration from '../../custom_content/configuration';
 import WcpcContent from '../../system/codes/WcpcContent';
 
-const {staticRoutes, routesExclude} = configuration;
+const { staticRoutes, routesExcludeTest } = configuration;
 
 /**
  * Component that hold the three components:
@@ -22,7 +22,7 @@ const {staticRoutes, routesExclude} = configuration;
 const NavBreadcrumbsRoute = ({ options }) => (
   <div>
     <WcpcContent wc_section_code={'wc_navigation_bar'}>
-      <Navigation config={staticRoutes} routesExclude={routesExclude.length === 0 ? '.^' : routesExclude}/>
+      <Navigation config={staticRoutes} routesExcludeTest={routesExcludeTest}/>
     </WcpcContent>
     <Breadcrumbs config={staticRoutes} options={options} />
     <hr />

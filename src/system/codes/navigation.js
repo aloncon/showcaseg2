@@ -15,10 +15,7 @@ import { NavLink } from 'react-router-dom';
 class navBarHorizontal extends React.Component {
 
   render() {
-    const { config } = this.props;
-    const routesExclude = new RegExp(this.props.routesExclude);
-
-    // console.log({routesExclude});
+    const { config, routesExcludeTest } = this.props;
 
     return (
       <div className="wcContainer">
@@ -40,7 +37,7 @@ class navBarHorizontal extends React.Component {
 
                 {config.map(route => {
                   // Exclude routes from the navigation
-                  if (routesExclude.test(route.name)) return;
+                  if (routesExcludeTest(route.name)) return;
 
                   // We handle the root path om the first NavLink above 'Home'
                   if (route.path === '/') return;
