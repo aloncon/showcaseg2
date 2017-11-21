@@ -26,7 +26,7 @@ class page2 extends Component {
         <p className="App-intro">
         
         <h1>pag2 </h1>
-        <ProductListing store={ProductDataStore} wclink="http://api.walmartlabs.com/v1/items?ids=222,12417832&amp;apiKey=rgzr9bdktsbm3d6qy8ppdevb"/>
+        <ProductListing store={ProductDataStore} id="list3" wclink="http://api.walmartlabs.com/v1/items?ids=222,12417832&amp;apiKey=rgzr9bdktsbm3d6qy8ppdevb"/>
         </p>
         
       </div>

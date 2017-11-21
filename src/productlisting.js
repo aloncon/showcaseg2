@@ -24,7 +24,7 @@ export default observer(
     let categoryIDs = this.props.ids;
     let linkToAPI = this.props.wclink;
     console.log("linktoapi1",linkToAPI)
-    this.props.store.loadProducts(linkToAPI);
+    this.props.store.loadProducts(this.props.id,linkToAPI);
 
     }
     
@@ -46,7 +46,7 @@ export default observer(
            <u> </u>
            {console.log("dddddd ",this.props.store.products.length)}
            {this.props.store.loading && <b>Is Loading ............</b>  }
-           {!this.loading && this.props.store.products.map((item) => this.product(item))}
+           {(!this.loading && this.props.store.products[this.props.id]) && this.props.store.products[this.props.id].map((item) => this.product(item))}
         </div>
         );
     }
