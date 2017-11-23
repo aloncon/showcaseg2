@@ -19,10 +19,10 @@ const isloadingC = () => {
 export default extendObservable(this, {
      products: [],
      loading: false,
-     loadProducts: action(async (id,link) =>{
-         this.loading=true;
+     loadProducts: action(async (id,link,listObj) =>{
+         //this.loading=true;
          console.log('linkToApi Link: ',id);
-         console.log('linkToApi Link: ',typeof link);
+         console.log('linkToApi listobj is: ',listObj);
          let linkToApi = typeof link!="undefined"? link : "http://api.walmartlabs.com/v1/search?query=bosch&format=json&categoryId=1072864_1067619_1231248_1067739&apiKey=rgzr9bdktsbm3d6qy8ppdevb&numItems=25&start=25" 
          console.log('linkToApi',linkToApi);
          let url = linkToApi;
@@ -59,14 +59,16 @@ export default extendObservable(this, {
 
          const jsonResp = await jsonpP(url).promise.then( (response) => {console.log ('jsonpp return'); return response });         
          //const json = await response.json();
+         listObj.setProducts(jsonResp.items, listObj.id); 
+        
          runInAction ( ()=>{
-            console.log ('runInActioncccID',id); 
-            console.log ('runInActionccc',jsonResp.items);
-             this.products[id] = [];
-             this.products[id] = jsonResp.items;
-             console.log ('runInActionccc Arry[id]',this.products[id]);
+            //console.log ('runInActioncccID',id); 
+            //console.log ('runInActionccc',jsonResp.items);
+             //this.products[id] = [];
+             //this.products[id] = jsonResp.items;
+             //console.log ('runInActionccc Arry[id]',this.products[id]);
              //this.loading = false;
-             this.loading = isloadingC();
+            this.loading = isloadingC();
          })
      })
       

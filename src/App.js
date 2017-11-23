@@ -29,7 +29,7 @@ class App extends Component {
         <Link to="./page2">page 2222222222</Link>
 
         <div><h1>********* Listing #1 ****************</h1></div>
-        <ProductListing store={ProductDataStore} id="list3" wclink="http://api.walmartlabs.com/v1/items?ids=222,369677640,12417832&amp;apiKey=rgzr9bdktsbm3d6qy8ppdevb"/>
+        <ProductListing store={ProductDataStore} id="list1" wclink="http://api.walmartlabs.com/v1/items?ids=222,369677640,12417832&amp;apiKey=rgzr9bdktsbm3d6qy8ppdevb"/>
         <br/>
         <div><h1>********* Listing #2 ****************</h1>        </div>
         <br/>

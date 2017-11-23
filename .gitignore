@@ -8,7 +8,7 @@ node_modules
 
 # production
 #/build
-#public
+public
 build/static/css
 build/static/js
 !static/css/main.css
