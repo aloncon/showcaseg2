@@ -43,11 +43,6 @@ const configuration = {
       name: 'Symantec Showcase',
     },
     {
-      path: '/ShowcaseApp',
-      component: ShowcaseApp,
-      name: 'Symantec Showcase',
-    },
-    {
       path: '/EndpointManagement',
       component: EndpointManagement,
       name: 'Endpoint Management',
