@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import generateNavItems from './generateNavItems';
 
 /**
  * Bootstrap navigation - Create the nav links with looping the static routes from the configuration data using the [path,name].
@@ -8,11 +8,11 @@ import { NavLink } from 'react-router-dom';
  *
  * config (MANDATORY):: JSON object, holds the the static routes configuration.
  *
- * routesExclude (OPTIONAL):: String of regex expression of routes you wish to exclude from the navigation for example: routesExclude=`(Product Listing1|Endpoint Solutions|iframe)`
+ * routesExcludeTest(routeName):: Function, check if the 'routeName' in the configuration.js need to be excluded by regex test the routesExclude string.
  *
  * TODO: Add implementation to add li.className="active" to the active item.
  */
-class navBarHorizontal extends React.Component {
+class NavigationHorizontal extends React.Component {
 
   render() {
     const { config, routesExcludeTest } = this.props;
@@ -28,26 +28,11 @@ class navBarHorizontal extends React.Component {
                 <span className="icon-bar" />
                 <span className="icon-bar" />
               </button>
-             {/* <NavLink to="/" className="navbar-brand">
-                HOME
-    </NavLink> */}
             </div>
             <div id="navbar" className="navbar-collapse collapse">
               <ul className="nav navbar-nav">
 
-                {config.map(route => {
-                  // Exclude routes from the navigation
-                  if (routesExcludeTest(route.name)) return;
-
-                  // We handle the root path om the first NavLink above 'Home'
-                  if (route.path === '/') return;
-
-                  return (
-                    <li key={route.path}>
-                      <NavLink to={route.path}>{route.name}</NavLink>
-                    </li>
-                  );
-                })}
+                {generateNavItems(config, routesExcludeTest)}
 
               </ul>
             </div>
@@ -58,4 +43,4 @@ class navBarHorizontal extends React.Component {
   }
 }
 
-export default navBarHorizontal;
+export default NavigationHorizontal;

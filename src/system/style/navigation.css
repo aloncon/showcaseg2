@@ -1,0 +1,20 @@
+.wc-navigation-vertical{
+  display: inline-block;
+  border: 1px solid #C8C8C8;
+  min-width: 120px;
+}
+.wc-navigation-vertical ul{
+  padding: 0 15px;
+}
+.wc-navigation-vertical ul li{
+  list-style: none;
+  font-size: 12px;
+}
+.wc-navigation-vertical .header{
+  background-color: #AF0000;
+}
+.wc-navigation-vertical .header h1{
+  color: #ffffff;
+  font-size: 14px;
+  margin-top: 0;
+}
