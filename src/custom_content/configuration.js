@@ -18,6 +18,9 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be
  * exact, add 'notExact : true' to the parent.
  *
+ * routesExclude:: String , hold the names which we wish to exclude from the navigation.
+ *
+ * routesExcludeTest(routeName):: Function, check if the 'routeName' need to be excluded by regex test the routesExclude string.
  */
 const configuration = {
   moduleName: 'Symantec',
@@ -87,6 +90,12 @@ const configuration = {
   "routesExclude": "(Product Listing1)",
 };
 
+/**
+ *
+ * Function that checks if the provided route name needed to be excluded, return a boolean result.
+ *
+ * routeName:: The route name we wish to check if needed to be excluded.
+ */
 configuration.routesExcludeTest = (routeName) => {
   let { routesExclude } = configuration;
   if (!routesExclude) return false;
