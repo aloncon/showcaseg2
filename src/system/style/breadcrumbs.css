@@ -6,7 +6,7 @@
   display: inline-block
 }
 .wc-breadcrumbs > li + li:before {
-  content: "/\00a0";
+  content: "/ ";
   padding: 0 5px;
   color: #cccccc;
 }
