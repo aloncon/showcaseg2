@@ -9,27 +9,33 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
 /**
  * Configuration data for the showcase.
  *
- * headerDetails:: All the header information is optional
- * imgLogo: may be require('../custom_content/assets/images/SYM-BLK.png') or null
+ * headerDetails:: Holds all the header information
+ * imgLogo[optional]: may be require('../custom_content/assets/images/SYM-BLK.png') or null or just delete it
+ * headerTitle[optional]: may be text as "Symantec", empty string, or just delete it
+ * marginBottom[optional]: may get all the css measurements (px, em etc.)
  *
- * footerDetails:: Hold all the footer information (imgProvidedBy, backgroundColor)
+ * footerDetails:: Holds all the footer information (imgProvidedBy, backgroundColor)
  *
- * staticRoutes:: Hold the all the routes information, [path,component,name]. Used for generate the routes, breadcrumbs and navigation.
+ * staticRoutes:: Holds all the routes information, [path,component,name, title]. Used for generating the routes, breadcrumbs and navigation.
+ * title[optional]: will display specific title for certain page, may be text, or empty string
  * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be
  * exact, add 'notExact : true' to the parent.
  *
  * routesExclude:: String , hold the names which we wish to exclude from the navigation.
  *
  * routesExcludeTest(routeName):: Function, check if the 'routeName' need to be excluded by regex test the routesExclude string.
+ * 
+ * 
  */
 const configuration = {
-  moduleName: 'Symantec',
-  moduleId: 'symantec',
+  moduleName: 'Avery',
+  moduleId: 'avery',
   headerDetails:{
-    imgLogo: require('../custom_content/assets/images/SYM-BLK.png'),
-    headerTitle: 'Symantec',
+    imgLogo: require('../custom_content/assets/images/avery_logo.jpg'),
+    headerTitle: 'Avery',
     textColor: 'white',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    marginBottom: '1px'
    },
    footerDetails:
    {
@@ -46,7 +52,7 @@ const configuration = {
       path: '/EndpointManagement',
       component: EndpointManagement,
       name: 'Endpoint Management',
-      title: 'Endpoint Management'
+      title: ''
     },
     {
       path: '/Page3',
@@ -57,7 +63,7 @@ const configuration = {
       path: '/Page3/EndpointManagement',
       component: EndpointManagement,
       name: 'Page 3 child',
-      title: 'Child Example breadcrumbs'
+      title: 'Page3/EndpointManagement'
     },
     {
       path: '/EndpointSolutions',
@@ -69,12 +75,13 @@ const configuration = {
       path: '/iframe',
       component: iframe,
       name: 'iframe',
+      title: 'Iframe'
     },
     {
       path: '/testingArea',
       component: testingArea,
       name: 'testing Video',
-      title: 'Video Gallery',
+      title: '',
     },
     {
       path: '/ProductListing1',

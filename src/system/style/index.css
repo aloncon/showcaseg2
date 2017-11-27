@@ -87,45 +87,60 @@ body {
  
 /************* Header ***************/
 
-.wc-header-title{
-    text-align: left;
+.wc-header{
+    background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center !important;
 }
 
+.wc-header-title{
+    text-align: left;
+    height: 100%;
+}
+
+/*height and  line-height must be in same size to alignt the header vertical-centered in the middle
+the height is determined like the logo height+margings(top+bottom)
+TODO: add variable in less for this rule*/
+
 .wc-row-eq-height{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
+    display:    -ms-flexbox;
+    display:    -webkit-box;
     display:    flex;
+    height: 71px;
 }
 
 .wc-header-title h1{
-    font-size: 23px;
-    margin: 15px;
+    padding-left: 10px;
+    line-height: 71px;
+    margin: 0 auto;
+    font-size: 2em;
 }
 
 .wc-header-logo{
     text-align: right; 
 }
 
+.wc-header-logo img{
+    margin: 3px;
+}
+
 .wc-half-width{
     width: 50%;
 }
+/************* Header end ***************/
 
 /************* Footer ***************/
-.Footer{
-    /* background-color: grey !important; */
+.wc-footer{
     height: 40px;
     padding:10px;
- 
 } 
 
-.Footer .wc-powered-by{
+.wc-footer .wc-powered-by{
     text-align: right !important;
     float: right !important;
     width: 150px !important;
     height: 20px !important;
     margin-right: 2px !important;
 }
+/************* Footer end ***************/
 
 .category-ul{
         margin-right: 10px !important;
@@ -145,7 +160,6 @@ body {
     float: left !important;
     padding-right: 12px !important;
 }
-
 
 .category-li .fiveCol{
     height: 100%;

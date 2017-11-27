@@ -6,26 +6,28 @@ export default class Header extends Component {
 
     render() {
         const titleStyle = {color: this.props.textColor};
-        const headerStyles = {backgroundColor: this.props.background};
+        const headerStyles = {
+            backgroundColor: this.props.background,
+            marginBottom: this.props.marginBottom
+        };
 
-        const hasTitle = this.props.title;
-        const hasLogo = this.props.manufacturerLogo;
-
+        let title = this.props.title;
+        let logo = this.props.manufacturerLogo;
+        
         return (
-            <div className="wc-row-eq-height" style={headerStyles}>
-                    {hasTitle !== "" &&
+            <div className="wc-header wc-row-eq-height" style={headerStyles}>
+            
                     <div className="wc-half-width">
                         <div className="wc-header-title">
-                            <h1 style={titleStyle}>{this.props.title}</h1>
+                            <h1 style={titleStyle}>{title}</h1>
                         </div>
-                    </div>}
-
-                   {hasLogo &&
+                    </div>
+                   
                     <div className="wc-header-logo wc-half-width">
                         <NavLink to="/">
-                           <WcImg alt={"Showcase " + this.props.moduleName} src={this.props.manufacturerLogo}/>
+                           <WcImg alt={"Showcase " + this.props.moduleName} src={logo}/>
                         </NavLink>
-                    </div>}
+                    </div>
             </div>
         );
     }
