@@ -24,8 +24,8 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  * routesExclude:: String , hold the names which we wish to exclude from the navigation.
  *
  * routesExcludeTest(routeName):: Function, check if the 'routeName' need to be excluded by regex test the routesExclude string.
- * 
- * 
+ *
+ *
  */
 const configuration = {
   moduleName: 'Avery',
@@ -42,64 +42,67 @@ const configuration = {
         imgProvidedBy: require('../system/resources/powered-by.png'),
         backgroundColor: 'white'
    },
-  staticRoutes: [
-    {
-      path: '/',
-      component: ShowcaseApp,
-      name: 'Symantec Showcase',
-    },
-    {
-      path: '/EndpointManagement',
-      component: EndpointManagement,
-      name: 'Endpoint Management',
-      title: ''
-    },
-    {
-      path: '/Page3',
-      component: Page3,
-      name: 'Page 3'
-    },
-    {
-      path: '/Page3/EndpointManagement',
-      component: EndpointManagement,
-      name: 'Page 3 child',
-      title: 'Page3/EndpointManagement'
-    },
-    {
-      path: '/EndpointSolutions',
-      component: EndpointSolutions,
-      name: 'Endpoint Solutions',
-      title: 'Endpoint Solutions',
-    },
-    {
-      path: '/iframe',
-      component: iframe,
-      name: 'iframe',
-      title: 'Iframe'
-    },
-    {
-      path: '/testingArea',
-      component: testingArea,
-      name: 'testing Video',
-      title: '',
-    },
-    {
-      path: '/ProductListing1',
-      component: ProductListing1,
-      name: 'Product Listing1',
-    },
-  ],
-  "routesExclude": "(Product Listing1)",
+  staticRoutes: {
+    routesDetails : [
+      {
+        path: '/',
+        component: ShowcaseApp,
+        name: 'Symantec Showcase',
+      },
+      {
+        path: '/EndpointManagement',
+        component: EndpointManagement,
+        name: 'Endpoint Management',
+        title: ''
+      },
+      {
+        path: '/Page3',
+        component: Page3,
+        name: 'Page 3'
+      },
+      {
+        path: '/Page3/EndpointManagement',
+        component: EndpointManagement,
+        name: 'Page 3 child',
+        title: 'Page3/EndpointManagement'
+      },
+      {
+        path: '/EndpointSolutions',
+        component: EndpointSolutions,
+        name: 'Endpoint Solutions',
+        title: 'Endpoint Solutions',
+      },
+      {
+        path: '/iframe',
+        component: iframe,
+        name: 'iframe',
+        title: 'Iframe'
+      },
+      {
+        path: '/testingArea',
+        component: testingArea,
+        name: 'testing Video',
+        title: '',
+      },
+      {
+        path: '/ProductListing1',
+        component: ProductListing1,
+        name: 'Product Listing1',
+      },
+    ],
+    "routesExclude": "(Product Listing1)"
+  }
 };
 
 /**
  *
  * Function that checks if the provided route name needed to be excluded, return a boolean result.
+ * The function takes 'routesExclude' and wrap the string between the pipelines with '^' and '$'
  *
  * routeName:: The route name we wish to check if needed to be excluded.
  */
 configuration.routesExcludeTest = (routeName) => {
-  let { routesExclude } = configuration;
+  let { routesExclude } = configuration.staticRoutes;
   if (!routesExclude) return false;
 
   const regexMatchName = /([a-zA-Z0-9-_$\s][\sa-zA-Z0-9-_$]*)/g;

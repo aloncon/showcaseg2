@@ -16,17 +16,18 @@ const { staticRoutes, routesExcludeTest } = configuration;
  *
  * config (MANDATORY):: JSON object, holds the the static routes configuration.
  *
- * options (OPTIONAL):: Options for the Breadcrumbs component. Holds displayHomeName, isDisplayBreadcrumbRoot and customRender.
+ * options (OPTIONAL):: Options for the Breadcrumbs component. Holds displayRootNameAsHome, isDisplayBreadcrumbRoot and customRender.
  *
  */
 const NavBreadcrumbsRoute = ({ options }) => (
   <div>
-    <WcpcContent wc_section_code={'wc_navigation_bar'}>
-      <NavigationHorizontal config={staticRoutes} routesExcludeTest={routesExcludeTest} />
+    <WcpcContent wc_section_code={'wc_navigation_horizontal_bar'}>
+      <NavigationHorizontal config={staticRoutes.routesDetails} routesExcludeTest={routesExcludeTest} />
     </WcpcContent>
-    <Breadcrumbs config={staticRoutes} options={options} />
-    <hr />
-    <RoutesGenerate config={staticRoutes} />
+    <WcpcContent wc_section_code={'wc_breadcrumbs'}>
+      <Breadcrumbs config={staticRoutes.routesDetails} options={options} />
+    </WcpcContent>
+    <RoutesGenerate config={staticRoutes.routesDetails} />
   </div>
 );
 

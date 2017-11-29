@@ -84,21 +84,18 @@ const BreadcrumbItem = ({ index, pathsRouteLength, name, path}) => {
  *
  * options contains ::=
  *
- * displayHomeName (OPTIONAL):: Boolean, true to display the word 'Home' when the path is: '/'. False by default.
+ * displayRootNameAsHome (OPTIONAL):: Boolean, true to display the word 'Home' when the path is: '/'. False by default.
  *
  * isDisplayBreadcrumbRoot (OPTIONAL):: Boolean, true to display the breadcrumbs in the root path: '/'. False by default.
  *
+ * addHorizontalRule (OPTIONAL):: Boolean, true to display <hr /> element under the breadcrumbs. False by default.
  *
- * TODO: Add the option to change the style for the breadcrumbs.
  */
 const Breadcrumbs = ({config, options, location}) => {
     const pathname = location.pathname;
     const routes = getRoutesConfig(config);
     const homePath = '/';
-    const [isDisplayBreadcrumbRoot, displayHomeName] =
-      options ?
-      [options.isDisplayBreadcrumbRoot, options.displayHomeName] :
-      [false, false];
+    const { isDisplayBreadcrumbRoot, displayRootNameAsHome, addHorizontalRule } = options;
     const pathsRoute = [];
 
     // return null for not to show the breadcrumbs in case of isDisplayBreadcrumbRoot is false
@@ -106,8 +103,8 @@ const Breadcrumbs = ({config, options, location}) => {
       return null;
     }
 
-    // change the root route name to 'Home' in case of displayHomeName is true
-    if (displayHomeName) {
+    // change the root route name to 'Home' in case of displayRootNameAsHome is true
+    if (displayRootNameAsHome) {
       routes[homePath] = 'Home';
     }
 
@@ -126,9 +123,12 @@ const Breadcrumbs = ({config, options, location}) => {
     const breadcrumbs = generateBreadcrumbItems(pathsRoute, routes, pathsRouteLength);
 
     return (
-      <ul className="wc-breadcrumbs">
-        {breadcrumbs}
-      </ul>
+      <div className="wc-breadcrumbs">
+        <ul>
+          {breadcrumbs}
+        </ul>
+        { addHorizontalRule && <hr />}
+      </div>
     );
   }
 

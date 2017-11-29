@@ -8,14 +8,16 @@ import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
  *
  * options::->
  *
- * displayHomeName (OPTIONAL):: Boolean, true to display the word 'Home' when the path is: '/'. False by default.
+ * displayRootNameAsHome (OPTIONAL):: Boolean, true to display the word 'Home' when the path is: '/'. False by default.
  *
  * isDisplayBreadcrumbRoot (OPTIONAL):: Boolean, true to display the breadcrumbs in the root path: '/'. False by default.
+ *
+ * addHorizontalRule (OPTIONAL):: Boolean, true to display <hr /> element under the breadcrumbs. False by default.
  *
  * For more information, please look in the component itself.
  */
 const ModuleNavBreadcrumbsRoute = () => (
-  <NavBreadcrumbsRoute options={{displayHomeName: true, isDisplayBreadcrumbRoot: false}} />
+  <NavBreadcrumbsRoute options={{displayRootNameAsHome: true, addHorizontalRule: true}} />
 )
 
 export default ModuleNavBreadcrumbsRoute;

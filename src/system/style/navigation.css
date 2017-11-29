@@ -1,20 +1,26 @@
-.wc-navigation-vertical{
-  display: inline-block;
+div.wc-navigation-vertical{
   border: 1px solid #C8C8C8;
+  margin-right: 5px;
+  max-width: 179px;
   min-width: 120px;
 }
-.wc-navigation-vertical ul{
-  padding: 0 15px;
+div.wc-navigation-vertical ul{
+  padding: 11px 4px 0 11px;
+  margin-bottom: 8px;
 }
-.wc-navigation-vertical ul li{
+div.wc-navigation-vertical ul li{
   list-style: none;
   font-size: 12px;
 }
-.wc-navigation-vertical .header{
+/* TODO: Add the background color value as variable in LESS  */
+div.wc-navigation-vertical .header{
   background-color: #AF0000;
 }
-.wc-navigation-vertical .header h1{
+/* TODO: Add the header color value as variable in LESS  */
+div.wc-navigation-vertical .header h1{
   color: #ffffff;
   font-size: 14px;
-  margin-top: 0;
+  line-height: 25px;
+  margin: 0 auto;
+  padding-left: 11px;
 }

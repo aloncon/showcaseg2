@@ -11,8 +11,9 @@
 
 	"Page_Structure": 			[
 									{ "Id":"wc-header" , "Display" : true},
-									{ "Id":"wc_navigation_bar" , "Display" : true},
-									{ "Id":"wc_bread_crumbs" , "Display" : true}
+                                    { "Id":"wc_navigation_horizontal_bar" , "Display" : true},
+                                    { "Id":"wc_navigation_vertical" , "Display" : true},
+									{ "Id":"wc_breadcrumbs" , "Display" : true}
 								]
 
 }
