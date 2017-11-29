@@ -20,6 +20,11 @@ import wcan4_img_s from '../assets/announcements/banners/4-s.jpg';
 import wcan5_img_s from '../assets/announcements/banners/5-s.jpg';
 
 import Announcments from '../../system/codes/announcment.js';
+
+
+import videoTestSrc from '../assets/video/videoTest.mp4';
+import videoTestPoster from '../assets/video/posterTest.jpg'
+
 /*
 ******Instruction to check in browser's console, don't forget to close email and chat and change the time-zone to Eastern Time(US&Canada):
       1)    Create a variable with the new Date (text date)
@@ -67,11 +72,12 @@ import Announcments from '../../system/codes/announcment.js';
 
     /*    DO NOT CHANGE THE ORDER OF THE ARRAY!!!!!!    */
     const wcan_slides = [
-        [0 , wcan1_asset , 'Asset'      , 'KSV 25% Discount'              , wcan1_img , wcan1_img_s , false , false],
-        [1 , wcan2_asset , 'Asset'      , 'Q4_16_KSV_New_Customer'        , wcan2_img , wcan2_img_s , false , false],
-        [2 , wcan3_asset , 'Asset'      , 'Q4_16_VSB_Customer_Provantage' , wcan3_img , wcan3_img_s , false , false],
-        [3 , wcan4_asset , 'Asset'      , 'KSV 25% Discount'              , wcan4_img , wcan4_img_s , false , false],
-        [4 , '/iframe' , 'LocalLink'  , 'Q4_16_KSV_New_Customer'        , wcan5_img , wcan5_img_s , false , false]
+        [0 , wcan1_asset  , 'Asset'        , 'KSV 25% Discount'              , wcan1_img , wcan1_img_s , false , false],
+        [1 , wcan2_asset  , 'Asset'        , 'Q4_16_KSV_New_Customer'        , wcan2_img , wcan2_img_s , false , false],
+        [2 , wcan3_asset  , 'Asset'        , 'Q4_16_VSB_Customer_Provantage' , wcan3_img , wcan3_img_s , false , false],
+        [3 , wcan4_asset  , 'Asset'        , 'KSV 25% Discount'              , wcan4_img , wcan4_img_s , false , false],
+        [4 , '/iframe'    , 'LocalLink'    , 'Q4_16_KSV_New_Customer'        , wcan5_img , wcan5_img_s , false , false],
+        [5 , videoTestSrc , 'videoLink'    , 'video'                         , videoTestPoster , videoTestPoster , false , false]
     ]
 
     //********Slider Settings  CHANGE ONLY BY REQUEST!! ****************//

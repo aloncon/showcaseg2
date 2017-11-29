@@ -3,8 +3,9 @@ import {Wcan} from '../modules/Announcments';
 import {Wcca , Wcca1} from '../modules/Carousel';
 import {Wcvg} from '../modules/VideoGallery';
 import '../../system/style/App.css';
-import { WcImg, WcLink } from '../../system/codes/WcResource';
+import {WcLink} from '../../system/codes/WcResource'
 import {Button} from 'react-bootstrap'
+
 
 var featuredTitle = {
   width: '100%',
@@ -25,12 +26,16 @@ var rightSide = {
   width: '20%'
 }
 
+
 class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
       <div className="ShowcaseBody">
             <Wcan />
-            <br/>
+            <br/>      
+            <div>
+              <h1>api testing:</h1>
+            </div>
       </div>
     );
   }
@@ -45,11 +50,11 @@ class ShowcaseBody extends React.Component {
             <div style={rightSide}>
                 <div style={featuredTitle}>Recommended Products</div>
                 <Wcca1 />
+            </div>    
+            <div style={leftSide}>
+                 <Wcvg /> 
             </div>
-            <div  style={leftSide}>
-                 <Wcvg />
-            </div>
-            <div className='clear'></div>
+            <div className='clear'></div>     
             <div>
                 <br/>
                 <br/>

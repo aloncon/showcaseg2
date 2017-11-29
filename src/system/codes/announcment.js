@@ -1,10 +1,13 @@
 import React from 'react'
 import Slider from 'react-slick';
 
-import { WcLink , WcImg } from './WcResource';
+import {WcLink , WcImg , WcPlayer} from './WcResource';
 import '../style/announcments.css'
 
 import { Link } from 'react-router-dom';
+import { Player, ControlBar , PlayToggle , BigPlayButton } from 'video-react';
+
+
 
 /*
 NOTE: In order to CHANGE AUTOPLAY (False/True), use the State settings (autoplay) AND NOT the Slider setting
@@ -35,9 +38,8 @@ export default class Wcan extends React.Component {
             speed               :   (this.props.data_setting.speed!=null        ? this.props.data_setting.speed    : 500 ),
             pauseOnHover        :   (this.props.data_setting.pauseOnHover!=null ? this.props.data_setting.pauseOnHover  : false),
             slidesToShow        :   (this.props.data_setting.slidesToShow!=null ? this.props.data_setting.slidesToShow  : 1 ),
-            changeImage         :   (this.props.data_setting.changeImage        ? this.props.data_setting.changeImage   : false),
-            changeImageWidth    :   (this.props.data_setting.changeImageWidth   ? this.props.data_setting.changeImageWidth : 600),
-
+            changeImage         :   (this.props.data_setting.changeImage        ? this.props.data_setting.changeImage   : false),             
+            changeImageWidth    :   (this.props.data_setting.changeImageWidth   ? this.props.data_setting.changeImageWidth : 600)
         };
         this.state = {
             //rtl                 :   (this.props.data_setting.rtl!=null          ? this.props.data_setting.rtl  : false), //TODO
@@ -60,6 +62,8 @@ export default class Wcan extends React.Component {
           ***  fix problem with infinite - if we get to the end and try to start again it causes problems
           ***  check pauseOnHover - somthing not right
     */
+
+
     componentDidMount() {
         //control autoplay on page loading
         if(this.init.autoplay){
@@ -294,11 +298,19 @@ export default class Wcan extends React.Component {
            <Slider ref={ c => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
                 {this.state.slidesNew.map((slide, index) => (
                     <div key={index}>
-                        { (slide[2] === 'LocalLink') ?
+                        { (slide[2] === 'videoLink') ?
+                            <div className="wcVideoSlideContainer">
+                                <div className="wcVideoSlidePlayer">
+                                    <WcPlayer playsInline src={slide[1]} poster={slide[this.state.changeImgSrc]}> 
+                                        <BigPlayButton position="center" />
+                                    </WcPlayer> 
+                                </div>   
+                            </div>                      
+                          : (slide[2] === 'LocalLink') ?
                             <Link to={slide[1]}>
                                 <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
-                            </Link>
-                          :
+                            </Link>                          
+                            :
                             <WcLink href={slide[1]} className='wcan_link' title={slide[3]} target="_blank">
                                 <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                             </WcLink>

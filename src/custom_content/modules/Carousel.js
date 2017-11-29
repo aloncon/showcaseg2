@@ -96,7 +96,7 @@ class Wcca extends Component {
     render() {
       return (            
         <div className='WcCarousel'>               
-            <Carousel data_slides={WcCarousel_Slides} data_setting={WcCarousel_Setting}/>
+            <Carousel data_setting={WcCarousel_Setting}/>
         </div>                   
       );
     }
@@ -106,7 +106,7 @@ class Wcca extends Component {
     render() {
       return (         
         <div className='WcCarousel_1'>               
-            <Carousel data_slides={WcCarousel_Slides1} data_setting={WcCarousel_Setting2}/>
+            <Carousel  data_setting={WcCarousel_Setting2}/>
         </div>                   
       );
     }

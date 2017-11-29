@@ -1,4 +1,7 @@
 
+
+
+
 .wcvg_galleryBox_wrap{
     position: relative;
     width: 162px;
@@ -8,6 +11,13 @@
     margin: 20px 20px 0 0;
     cursor: pointer;
 }
+.VideoPlayerContainer{
+    width: 98%;
+}
+/* .VideoPlayerContainer video{
+    display: block!important;
+    width: inherit!important;
+} */
 
 .wc-play-list li.wc-play-list-item a:hover .wc-play,
 .wc-play-list li.wc-play-list-item a:focus .wc-play,
@@ -55,7 +65,6 @@
     width : 162px;
     height : 94px;
     display : inline-block;
-    float : left;
     margin : 20px 20px 0 0;
     cursor : pointer;
 }
@@ -220,53 +229,6 @@ a.wc-current-media-caption-description:hover {
     height : auto !important;
 }
 
-/******************************************ellipsis***********************************************************************/
-.ellipsis {
-    overflow: hidden;
-    height: 200px;
-    line-height: 25px;
-}
-
-.ellipsis:before {
-    content:"";
-    float: left;
-    width: 5px; height: 200px;
-}
-
-.ellipsis > *:first-child {
-    float: right;
-    width: 100%;
-    margin-left: -5px;
-}
-
-.ellipsis:after {
-    content: "\02026";
-
-    box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-
-    float: right; position: relative;
-    top: -25px; left: 100%;
-    width: 3em; margin-left: -3em;
-    padding-right: 5px;
-
-    text-align: right;
-
-
-    background-size: 100% 100%;
-    /* 512x1 image, gradient for IE9. Transparent at 0% -> white at 50% -> white at 100%.*/
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAABCAMAAACfZeZEAAAABGdBTUEAALGPC/xhBQAAAwBQTFRF////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wDWRdwAAAP90Uk5TgsRjMZXhS30YrvDUP3Emow1YibnM9+ggOZxrBtpRRo94gxItwLOoX/vsHdA2yGgL8+TdKUK8VFufmHSGgAQWJNc9tk+rb5KMCA8aM0iwpWV6dwP9+fXuFerm3yMs0jDOysY8wr5FTldeoWKabgEJ8RATG+IeIdsn2NUqLjQ3OgBDumC3SbRMsVKsValZplydZpZpbJOQco2KdYeEe36BDAL8/vgHBfr2CvTyDu8R7esU6RcZ5ecc4+Af3iLcJSjZ1ivT0S/PMs3LNck4x8U7wz7Bv0G9RLtHuEq1TbJQr1OtVqqnWqRdoqBhnmSbZ5mXapRtcJGOc4t2eYiFfH9AS7qYlgAAARlJREFUKM9jqK9fEGS7VNrDI2+F/nyB1Z4Fa5UKN4TbbeLY7FW0Tatkp3jp7mj7vXzl+4yrDsYoVx+JYz7mXXNSp/a0RN25JMcLPP8umzRcTZW77tNyk63tdprzXdmO+2ZdD9MFe56Y9z3LUG96mcX02n/CW71JH6Qmf8px/cw77ZvVzB+BCj8D5vxhn/vXZh6D4uzf1rN+Cc347j79q/zUL25TPrJMfG/5LvuNZP8rixeZz/mf+vU+Vut+5NL5gPOeb/sd1dZbTs03hBuvmV5JuaRyMfk849nEM7qnEk6IHI8/qn049hB35QGHiv0yZXuMdkXtYC3ebrglcqvYxoj1muvC1nDlrzJYGbpcdHHIMo2FwYv+j3QAAOBSfkZYITwUAAAAAElFTkSuQmCC);
-
-    background: -webkit-gradient(linear, left top, right top,
-    from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white));
-    /* @alternate */background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-    /* @alternate */background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-    /* @alternate */background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-    /* @alternate */background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white);
-
-}
-
 
 #player {
     display : block;
@@ -304,71 +266,23 @@ object {
     right : 0;
 }
 
-
-/***** Player Controls *************************************************************/
-.vjs-fullscreen {
-    padding-bottom : 0 !important;
+.wc-movie-active{
+    border : 3px solid #0066cc!important;
 }
 
-.vjs-default-skin.vjs-paused .vjs-big-play-button {
-    display : block;
+.video-react-big-play-button-center{
+    background: none !important;
+    background-image: url('../resources/videoGallery/play_thumbnails.png')!important;
+    background-repeat: no-repeat!important;
+    background-size: 52px 52px!important;
+    border: none !important; 
+}
+.video-react .video-react-big-play-button{
+    height: 3.5em !important;
+    width: 4.2em !important;
+}
+.video-react-icon-play-arrow:before, 
+.video-react .video-react-big-play-button:before{
+    content: none!important;
 }
 
-
-.vjs-default-skin.vjs-playing .vjs-big-play-button  {
-    display : none;
-}
-
-.vjs-default-skin .vjs-big-play-button {
-    top : 0;
-    bottom : 0;
-    left: 0;
-    right : 0;
-    margin : auto;
-    width : 2em;
-    height : 2em;
-    border-radius : 1.1em;
-}
-
-.vjs-default-skin .vjs-big-play-button:before {
-    content : "";
-    background : transparent url(../resources/videoGallery/play.png) no-repeat 50% 50%;
-}
- .tooltip .wc-item-caption {
-    display : block;
-     margin-bottom : 5px;
- }
-
-.tooltip-inner {
-    width: 240px;
-    color: #333333;
-    text-align: left;
-    border : 1px solid #666666;
-    padding : 10px;
-    -webkit-box-shadow: 2px 2px 2px 0px #999999; /* Android 2.3+, iOS 4.0.2-4.2, Safari 3-4 */
-    box-shadow: 2px 2px 2px 2px #999999; /* Chrome 6+, Firefox 4+, IE 9+, iOS 5+, Opera 10.50+ */
-}
-
-video {
-    -webkit-transform-style: preserve-3d;
-}
-
-.wc-idevice.wc-has-agegate video{
-    visibility : hidden;
-}
-
-.wc-video-gallery-container .vjs-default-skin .vjs-play-control {
-    width : 3em;
-}
-
-.wc-video-gallery-container .vjs-default-skin .vjs-live-controls {
-    width : 1em;
-}
-
-.wc-idevice.wc-has-agegate .vjs-poster {
-    display : block !important ;
-}
-
-body.wc-layout-phone {
-    padding-bottom : 10px;
-}
