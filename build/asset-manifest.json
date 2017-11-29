@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.ee8c0b74.css",
-  "main.css.map": "static/css/main.ee8c0b74.css.map",
-  "main.js": "static/js/main.d1e63bd0.js",
-  "main.js.map": "static/js/main.d1e63bd0.js.map",
+  "main.css": "static/css/main.3dad2289.css",
+  "main.css.map": "static/css/main.3dad2289.css.map",
+  "main.js": "static/js/main.668350e5.js",
+  "main.js.map": "static/js/main.668350e5.js.map",
   "static\\media\\1-s.jpg": "static/media/1-s.77dade5e.jpg",
   "static\\media\\1.jpg": "static/media/1.6bcc4939.jpg",
   "static\\media\\2-s.jpg": "static/media/2-s.a6b46068.jpg",
@@ -25,5 +25,7 @@
   "static\\media\\slick.eot": "static/media/slick.ced611da.eot",
   "static\\media\\slick.svg": "static/media/slick.f97e3bbf.svg",
   "static\\media\\slick.ttf": "static/media/slick.d41f55a7.ttf",
-  "static\\media\\slick.woff": "static/media/slick.b7c9e1e4.woff"
+  "static\\media\\slick.woff": "static/media/slick.b7c9e1e4.woff",
+  "static\\media\\videoTest.mp4": "static/media/videoTest.6744d110.mp4",
+  "static\\media\\videoTest1.mp4": "static/media/videoTest1.491b9346.mp4"
 }
