@@ -123,7 +123,7 @@ const Breadcrumbs = ({config, options, location}) => {
     const breadcrumbs = generateBreadcrumbItems(pathsRoute, routes, pathsRouteLength);
 
     return (
-      <div className="wc-breadcrumbs">
+      <div className="wcBreadcrumbs">
         <ul>
           {breadcrumbs}
         </ul>

@@ -119,7 +119,7 @@ export default class Wcvg extends Component {
 
             return (   
                 <div>
-                    <div className="VideoPlayerContainer">
+                    <div className="wcVideoPlayerContainer">
                          <WcPlayer
                             playsInline
                             poster={this.state.poster}
@@ -131,19 +131,19 @@ export default class Wcvg extends Component {
                             <BigPlayButton position="center" />
                         </WcPlayer> 
                     </div>                
-                    <div className="wc-play-list">
-                            <ul className="wc-play-list">
+                    <div className="wcPlayList">
+                            <ul className="wcPlayList">
                             
                             {flag && videoObj.map((video,index) => {
-                                const className = this.state.activeIndex === index ? 'wc-center-container wc-movie-active' : 'wc-center-container';
+                                const className = this.state.activeIndex === index ? 'wcCenterContainer wcMovieActive' : 'wcCenterContainer';
                                 return(
-                                    <li className="wc-play-list-item"  key={index}>
-                                        <div className="wc-thumbnail-wrap">
+                                    <li className="wcPlayListItem"  key={index}>
+                                        <div className="wcThumbnailWrap">
                                             <a className={className} title={video.title} data-id={index} onClick={this.getIndex}>
-                                                <WcImg className="wc-thumbnail wc-center" title={video.videoTitle} src={video.poster} alt={video.title} data-id={index} onClick={this.getIndex}/>
-                                                <WcImg className="wc-play wc-center" title={video.title} src={play_thumbnails} alt="" data-id={index} onClick={this.getIndex}  />
+                                                <WcImg className="wcThumbnail wcCenter" title={video.videoTitle} src={video.poster} alt={video.title} data-id={index} onClick={this.getIndex}/>
+                                                <WcImg className="wcPlay wcCenter" title={video.title} src={play_thumbnails} alt="" data-id={index} onClick={this.getIndex}  />
                                             </a>
-                                            <span className="wc-duration">{this.displayDuration(video.duration)}</span>                         
+                                            <span className="wcDuration">{this.displayDuration(video.duration)}</span>                         
                                         </div>
                                     </li> 
                                 )

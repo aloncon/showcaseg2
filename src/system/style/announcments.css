@@ -1,189 +1,184 @@
 
-.thisisatest{
-  width:1000px; 
-  height:240px;
-}
 /*********************************!!!Announcement!!!************************************/
-.wcan_ul{
+
+.wcAnnounceUl{
     list-style-type: none;
     margin:0px 0 0 -40px;
     cursor:pointer;
 }
 
-.wcan_link{
+.wcAnnounceLink{
     text-decoration: none;
 }
 
-.wcan_play, .wcan_pause, .wcan_sb_item {
+.wcAnnouncePlay, .wcAnnouncePause, .wcAnnounceItemNum {
   float:                  left !important;
   font-size:              0px !important;
   background-repeat:      no-repeat !important;
 }
 
-.wcan_disable{
+.wcAnnounceDisable{
   filter: alpha(opacity=35);
   opacity:0.35;
   cursor:default;
 }
 
-.wcan_previous , .wcan_next{
+.wcAnnounceUl .wcAnnouncePrev , .wcAnnounceUl .wcAnnounceNext{
   background: none;
   border: 0;
   color: inherit;
-  /* cursor: default; */
   font: inherit;
   line-height: normal;
   overflow: visible;
   padding: 0;
   -webkit-appearance: button; /* for input */
   -webkit-user-select: none; /* for button */
-    -moz-user-select: none;
-      -ms-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-.wcan_previous:focus , .wcan_next:focus { outline: none; }
+.wcAnnounceUl .wcAnnouncePrev:focus , .wcAnnounceUl .wcAnnounceNext:focus {outline: none;}
 
-.wcan_sb_item {
+.wcAnnounceUl .wcAnnounceItemNum {
   width:                  23px !important;
   height:                 23px !important;
   background-image:       url('../resources/announcement/control-bar.png') !important;
 }
 
-.wcan_previous{
+.wcAnnounceUl .wcAnnouncePrev{
     float:                  right !important;
     background-image:       url('../resources/announcement/prev.png') !important;
     width:                  16px !important;
     height:                 16px !important;
 }
 
-.wcan_next{
+.wcAnnounceUl .wcAnnounceNext{
     float:                  right !important;
     background-image:       url('../resources/announcement/next.png') !important;
     width:                  16px !important;
     height:                 16px !important;
 }
 
-
-.wcan_play {
+.wcAnnounceUl .wcAnnouncePlay {
   background-position: 90% 0 !important;
 }
 
-.wcan_play:hover, .wcan_play:focus {
+.wcAnnounceUl .wcAnnouncePlay:hover, .wcAnnounceUl.wcAnnouncePlay:focus {
   background-position: 90% 50% !important;
 }
 
-.wcan_pause {
+.wcAnnouncePause {
   background-position: 100% 0 !important;
 }
 
-.wcan_pause:hover, .wcan_pause:focus {
+.wcAnnouncePause:hover, .wcAnnouncePause:focus {
   background-position: 100% 50% !important;
 }
 
-.wcan_1 {
+.wcAnnounceUl .wcAnnounce1 {
   background-position: 0 0 !important;
 }
 
-.wcan_2 {
+.wcAnnounceUl  .wcAnnounce2 {
   background-position: 10% 0 !important;
 }
 
-.wcan_3 {
+.wcAnnounceUl  .wcAnnounce3 {
   background-position: 20% 0 !important;
 }
 
-.wcan_4 {
+.wcAnnounceUl .wcAnnounce4 {
   background-position: 30% 0 !important;
 }
 
-.wcan_5 {
+.wcAnnounceUl  .wcAnnounce5 {
   background-position: 40% 0 !important;
 }
 
-.wcan_6 {
+.wcAnnounceUl .wcAnnounce6 {
   background-position: 50% 0 !important;
 }
 
-.wcan_7 {
+.wcAnnounceUl .wcAnnounce7 {
   background-position: 60% 0 !important;
 }
 
-.wcan_8 {
+.wcAnnounceUl .wcAnnounce8 {
   background-position: 70% 0 !important;
 }
 
-.wcan_9 {
+.wcAnnounceUl .wcAnnounce9 {
   background-position: 80% 0 !important;
 }
 
-.wcan_1:hover, .wcan_1:focus {
+.wcAnnounceUl .wcAnnounce1:hover, .wcAnnounceUl .wcAnnounce1:focus {
   background-position: 0 50% !important;
 }
 
-.wcan_2:hover, .wcan_2:focus {
+.wcAnnounceUl .wcAnnounce2:hover, .wcAnnounceUl .wcAnnounce2:focus {
   background-position: 10% 50% !important;
 }
 
-.wcan_3:hover, .wcan_3:focus {
+.wcAnnounceUl .wcAnnounce3:hover, .wcAnnounceUl .wcAnnounce3:focus {
   background-position: 20% 50% !important;
 }
 
-.wcan_4:hover, .wcan_4:focus {
+.wcAnnounceUl .wcAnnounce4:hover, .wcAnnounceUl .wcAnnounce4:focus {
   background-position: 30% 50% !important;
 }
 
-.wcan_5:hover, .wcan_5:focus {
+.wcAnnounceUl .wcAnnounce5:hover, .wcAnnounceUl .wcAnnounce5:focus {
   background-position: 40% 50% !important;
 }
 
-.wcan_6:hover, .wcan_6:focus {
+.wcAnnounceUl .wcAnnounce6:hover, .wcAnnounceUl .wcAnnounce6:focus {
   background-position: 50% 50% !important;
 }
 
-.wcan_7:hover, .wcan_7:focus {
+.wcAnnounceUl .wcAnnounce7:hover, .wcAnnounceUl .wcAnnounce7:focus {
   background-position: 60% 50% !important;
 }
 
-.wcan_8:hover, .wcan_8:focus {
+.wcAnnounceUl .wcAnnounce8:hover, .wcAnnounceUl .wcAnnounce8:focus {
   background-position: 70% 50% !important;
 }
 
-.wcan_9:hover, .wcan_9:focus {
+.wcAnnounceUl .wcAnnounce9:hover, .wcAnnounceUl .wcAnnounce9:focus {
   background-position: 80% 50% !important;
 }
 
-.wcan_1a {
+.wcAnnounceUl .wcAnnounce1Active {
   background-position: 0 100%  !important;
 }
 
-.wcan_2a {
+.wcAnnounceUl .wcAnnounce2Active {
   background-position: 10% 100% !important;
 }
 
-.wcan_3a {
+.wcAnnounceUl .wcAnnounce3Active {
   background-position: 20% 100% !important;
 }
 
-.wcan_4a {
+.wcAnnounceUl .wcAnnounce4Active {
   background-position: 30% 100% !important;
 }
 
-.wcan_5a {
+.wcAnnounceUl .wcAnnounce5Active {
   background-position: 40% 100% !important;
 }
 
-.wcan_6a {
+.wcAnnounceUl .wcAnnounce6Active {
   background-position: 50% 100% !important;
 }
 
-.wcan_7a {
+.wcAnnounceUl .wcAnnounce7Active {
   background-position: 60% 100% !important;
 }
 
-.wcan_8a {
+.wcAnnounceUl .wcAnnounce8Active {
   background-position: 70% 100% !important;
 }
 
-.wcan_9a {
+.wcAnnounceUl .wcAnnounce9Active {
   background-position: 80% 100% !important;
 }

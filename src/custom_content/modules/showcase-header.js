@@ -17,10 +17,7 @@ class ShowcaseHeader extends React.Component {
             <Header
                 title={nameToShow}
                 moduleName={configuration.moduleName}
-                manufacturerLogo={configuration.headerDetails.imgLogo}
-                marginBottom={configuration.headerDetails.marginBottom}
-                background={configuration.headerDetails.backgroundColor}
-                textColor={configuration.headerDetails.textColor}/>
+                manufacturerLogo={configuration.headerDetails.imgLogo}/>
           )
       }
   }

@@ -32,10 +32,7 @@ const configuration = {
   moduleId: 'avery',
   headerDetails:{
     imgLogo: require('../custom_content/assets/images/avery_logo.jpg'),
-    headerTitle: 'Avery',
-    textColor: 'white',
-    backgroundColor: 'black',
-    marginBottom: '1px'
+    headerTitle: 'Avery'
    },
    footerDetails:
    {

@@ -53,7 +53,7 @@ export default class Wcan extends React.Component {
             sliderPaused        :   false,                                 //flag for stopping autoplay (Boolean)
             slideDirection      :   true,                                  //flag for autoplay direction (Boolean)
             butoonPaused        :   false,                                 //flag for pause/play button (Boolean)
-            pauseClass          :   'wcan_sb_item wcan_pause'             //flag for play/pause button class (String)
+            pauseClass          :   'wcAnnounceItemNum wcAnnouncePause'             //flag for play/pause button class (String)
 
         };
     }
@@ -71,14 +71,14 @@ export default class Wcan extends React.Component {
             //this.setState({autoplaySpeed: this.state.autoplaySpeed}); //26.10
         }else{
             this.setState({butoonPaused: true});
-            this.state.pauseClass = 'wcan_sb_item wcan_play';
+            this.state.pauseClass = 'wcAnnounceItemNum wcAnnouncePlay';
         }
         this.getUpdatedArray();
 
         //if not infinite - disable prev button
         if(!this.init.infinite){
-            document.getElementById('wcan_previous').className = 'wcan_previous wcan_disable';
-            document.getElementById('wcan_previous').disabled = true;
+            document.getElementById('wcAnnouncePrev').className = 'wcAnnouncePrev wcAnnounceDisable';
+            document.getElementById('wcAnnouncePrev').disabled = true;
 
         }
 
@@ -144,7 +144,7 @@ export default class Wcan extends React.Component {
     //control the arrows buttons of the slider (preview/next)
         if(!this.init.autoplayArrows){//control autoplayArrows
             this.setState({butoonPaused: true});
-            this.state.pauseClass = 'wcan_sb_item wcan_play';
+            this.state.pauseClass = 'wcAnnounceItemNum wcAnnouncePlay';
             this.endSlideTimeout();
         }
 
@@ -169,16 +169,16 @@ export default class Wcan extends React.Component {
         for (var i = 1; i < this.state.slidesNew.length+1; i++) {
             var id = 'slide_'+i;
             if (i === (num+1)){
-                document.getElementById(id).className = 'wcan_sb_item wcan_'+i+'a';
+                document.getElementById(id).className = 'wcAnnounceItemNum wcAnnounce'+i+'Active';
             }else{
-                document.getElementById(id).className = 'wcan_sb_item wcan_'+i;
+                document.getElementById(id).className = 'wcAnnounceItemNum wcAnnounce'+i;
             }
         }
         this.state.sliderPaused = true;
 
         if(!this.init.autoplayPagination){//control autoplayPagination
             this.setState({butoonPaused: !this.state.butoonPaused});
-            this.state.pauseClass = 'wcan_sb_item wcan_play';
+            this.state.pauseClass = 'wcAnnounceItemNum wcAnnouncePlay';
         }else{
             this.startSlideTimeout();
         }
@@ -190,11 +190,11 @@ export default class Wcan extends React.Component {
     //control the play/pause buttons of the slider
         if(!this.state.butoonPaused){
             this.setState({butoonPaused: true});
-            this.state.pauseClass = 'wcan_sb_item wcan_play';
+            this.state.pauseClass = 'wcAnnounceItemNum wcAnnouncePlay';
             this.endSlideTimeout();
         }else{
             this.setState({butoonPaused: false});
-            this.state.pauseClass = 'wcan_sb_item wcan_pause';
+            this.state.pauseClass = 'wcAnnounceItemNum wcAnnouncePause';
             this.startSlideTimeout();
         }
     }
@@ -211,13 +211,13 @@ export default class Wcan extends React.Component {
               {
                   next = 1;
               }else if(!this.init.infinite && (next === this.state.slidesNew.length) ){
-                    document.getElementById('wcan_next').className = 'wcan_next wcan_disable';
-                    document.getElementById('wcan_next').disabled = true;
+                    document.getElementById('wcAnnounceNext').className = 'wcAnnounceNext wcAnnounceDisable';
+                    document.getElementById('wcAnnounceNext').disabled = true;
               }
 
               if(!this.init.infinite){
-                document.getElementById('wcan_previous').className = 'wcan_previous';
-                document.getElementById('wcan_previous').disabled = false;
+                document.getElementById('wcAnnouncePrev').className = 'wcAnnouncePrev';
+                document.getElementById('wcAnnouncePrev').disabled = false;
               }
 
           }else{
@@ -232,13 +232,13 @@ export default class Wcan extends React.Component {
               else if(!this.init.infinite && (Number(e) === 1) )
               {
                     console.log('no next');
-                    document.getElementById('wcan_previous').className = 'wcan_previous wcan_disable';
-                    document.getElementById('wcan_previous').disabled = true;
+                    document.getElementById('wcAnnouncePrev').className = 'wcAnnouncePrev wcAnnounceDisable';
+                    document.getElementById('wcAnnouncePrev').disabled = true;
               }
 
               if(!this.init.infinite){
-                document.getElementById('wcan_next').className = 'wcan_next';
-                document.getElementById('wcan_next').disabled = false;
+                document.getElementById('wcAnnounceNext').className = 'wcAnnounceNext';
+                document.getElementById('wcAnnounceNext').disabled = false;
               }
 
           }
@@ -249,8 +249,8 @@ export default class Wcan extends React.Component {
           id_next = 'slide_'+next;
 
           if(!this.state.sliderPaused){
-            document.getElementById(id_pre).className = 'wcan_sb_item wcan_'+pre;
-            document.getElementById(id_next).className = 'wcan_sb_item wcan_'+next+'a';
+            document.getElementById(id_pre).className = 'wcAnnounceItemNum wcAnnounce'+pre;
+            document.getElementById(id_next).className = 'wcAnnounceItemNum wcAnnounce'+next+'Active';
           }
           this.state.sliderPaused = false;
 
@@ -311,7 +311,7 @@ export default class Wcan extends React.Component {
                                 <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                             </Link>                          
                             :
-                            <WcLink href={slide[1]} className='wcan_link' title={slide[3]} target="_blank">
+                            <WcLink href={slide[1]} className="wcAnnounceLink" title={slide[3]} target="_blank">
                                 <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                             </WcLink>
                         }
@@ -320,11 +320,11 @@ export default class Wcan extends React.Component {
                     </div>
                 ))}
             </Slider>
-            <ul className='wcan_ul'>
-                <li><button id='wcan_next'     className='wcan_next'     data-id='next'     onClick={this.sliderArrows}></button></li>
-                <li><button id='wcan_previous' className='wcan_previous' data-id='previous' onClick={this.sliderArrows}></button></li>
+            <ul className="wcAnnounceUl">
+                <li><button id='wcAnnounceNext' className="wcAnnounceNext" data-id='next' onClick={this.sliderArrows}></button></li>
+                <li><button id='wcAnnouncePrev' className="wcAnnouncePrev" data-id='previous' onClick={this.sliderArrows}></button></li>
                 {this.state.slidesNew.map((slide,index) => (
-                    <li key={index}><span id={'slide_'+Number(index+1)} data-id={index} className={Number(index)===0 ? 'wcan_sb_item wcan_1a' : 'wcan_sb_item wcan_'+Number(index+1)} onClick={this.sliderNumbers.bind(this)}></span></li>
+                    <li key={index}><span id={'slide_'+Number(index+1)} data-id={index} className={Number(index)===0 ? 'wcAnnounceItemNum wcAnnounce1Active' : 'wcAnnounceItemNum wcAnnounce'+Number(index+1)} onClick={this.sliderNumbers.bind(this)}></span></li>
                 ))}
                 <li><span className={this.state.pauseClass} onClick={this.sliderPlayAndPauseButton}></span></li>
             </ul>

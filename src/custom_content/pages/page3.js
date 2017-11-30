@@ -21,7 +21,7 @@ class Page3 extends React.Component {
                  </center>
 
                 </div>
-                <div className="productListing">
+                <div className="wcProductListing">
 
 
                    <Listing list="1430315725083|1430312432542|1430312367318|1430311989860|1430312567373|1430312143801|1430312306400|1430312637682"/>

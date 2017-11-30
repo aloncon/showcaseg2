@@ -32,9 +32,9 @@ class ProductListing1 extends React.Component {
 
       console.log("ProductListing1");
    return (
-        <div className="ProductListing">
-           <div className="wc-listing">
-              <ul className="list-group">
+        <div className="wcProductListing">
+           <div className="wcListing">
+              <ul className="wcListGroup">
 
               </ul>
                <div>Product 11xx111</div>

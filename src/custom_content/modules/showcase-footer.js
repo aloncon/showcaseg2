@@ -9,8 +9,8 @@ class ShowcaseFooter extends Component{
     let imgSrc = configuration.footerDetails.imgProvidedBy;
     return(
       <span>
-            <div className="wc-footer" style={footerStyle}>
-                <div className="wc-powered-by" >
+            <div className="wcFooter" style={footerStyle}>
+                <div className="wcPoweredBy" >
                   <WcImg alt="Powered by Webcollage" src={imgSrc} title="Powered by Webcollage"/>
                 </div>
             </div>

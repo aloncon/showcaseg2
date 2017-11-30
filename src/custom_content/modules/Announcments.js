@@ -19,7 +19,7 @@ import wcan3_img_s from '../assets/announcements/banners/3-s.jpg';
 import wcan4_img_s from '../assets/announcements/banners/4-s.jpg';
 import wcan5_img_s from '../assets/announcements/banners/5-s.jpg';
 
-import Announcments from '../../system/codes/announcment.js';
+import Announcements from '../../system/codes/announcment.js';
 
 
 import videoTestSrc from '../assets/video/videoTest.mp4';
@@ -62,11 +62,11 @@ import videoTestPoster from '../assets/video/posterTest.jpg'
       4)    add Wcan1 to the export
 
 ********      Include the component at a page:     ****************
-      1)    import {Wcan} from './Announcment';
-      2)    put <Wcan /> where you want the announcment to show
+      1)    import {Wcan} from './Announcement';
+      2)    put <Wcan /> where you want the Announcement to show
       //IF NEEDED MORE THEN ONE:
-      3)    import as needed (for example: 'import {Wcan , Wcan1} from './Announcment';' )
-      4)    put <Wcan1 /> as well where you want the announcment to show
+      3)    import as needed (for example: 'import {Wcan , Wcan1} from './Announcement';' )
+      4)    put <Wcan1 /> as well where you want the Announcement to show
 */
 
 
@@ -96,12 +96,12 @@ import videoTestPoster from '../assets/video/posterTest.jpg'
         sliderWidth             :       'full'          //  give fixed width or 'full' for full screen      (Integer/String)  //TODO:  FINISH IT -FIX FULL
     }
 
-//********Do not touch - CHANGE ONLY IF NEEDED!! (for example: to add another announcment)****************//
+//********Do not touch - CHANGE ONLY IF NEEDED!! (for example: to add another Announcement)****************//
 class Wcan extends React.Component {
 
     render() {
         return (
-            <Announcments data_setting={wcan_setting} data_slides={wcan_slides} />
+            <Announcements data_setting={wcan_setting} data_slides={wcan_slides} />
         )
 
     }

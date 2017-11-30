@@ -53,7 +53,7 @@ class ProductList extends Component {
                     })
     */
     return (
-          <div className="list-group-item">
+          <div className="wcListGroupItem">
             {list}
           </div>
   
@@ -63,7 +63,7 @@ class ProductList extends Component {
       console.log('ssssss return this.props.products: ' + this.props.products)  
       return (
 
-          <li className="list-group-item">
+          <li className="wcListGroupItem">
             <img src={photo.thumbnailUrl} />
           </li>
   
@@ -75,7 +75,7 @@ class ProductList extends Component {
   render() {
     return (
       
-      <ul className="list-group">
+      <ul className="wcListGroup">
         {
          this.renderProducts()
          
@@ -100,7 +100,7 @@ class ProductsList extends Component {
   renderProducts() {
     return this.props.products.map(product => {
       return (
-          <li className="list-group-item">
+          <li className="wcListGroupItem">
             <img src={product.thumbnailUrl} />
           </li>
     
@@ -110,7 +110,7 @@ class ProductsList extends Component {
 
   render() {
     return (
-      <ul className="list-group">
+      <ul className="wcListGroup">
         {this.renderProducts()}
       </ul>
     );
@@ -125,7 +125,7 @@ export default connect(mapStateToProps)(ProductsList);
 */
     /*
         <Link key={product.id} to={`/products/${product.id}`}>
-          <li className="list-group-item">
+          <li className="wcListGroupItem">
             <img src={product.thumbnailUrl} />
           </li>
         </Link>

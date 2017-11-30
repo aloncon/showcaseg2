@@ -54,7 +54,7 @@ const getParentElement = (function(){
 ReactDOM.render(
     <Provider store={store}>
     <HashRouter>
-      <div id="wc_showcase_root" className="wc_showcase_root">
+      <div id="wc_showcase_root" className="wcShowcaseRoot">
         
         <div className="wcContainer">
 

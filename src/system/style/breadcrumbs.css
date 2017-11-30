@@ -1,16 +1,16 @@
-div.wc-breadcrumbs ul {
+div.wcBreadcrumbs ul {
   padding: 15px 0 0 15px;
   list-style: none;
   margin: 0;
 }
-div.wc-breadcrumbs ul > li {
+div.wcBreadcrumbs ul > li {
   display: inline-block
 }
-div.wc-breadcrumbs ul > li + li:before {
+div.wcBreadcrumbs ul > li + li:before {
   content: "/ ";
   padding: 0 5px;
   color: #cccccc;
 }
-div.wc-breadcrumbs ul > li:last-child {
+div.wcBreadcrumbs ul > li:last-child {
   color: #EB32DC;
 }

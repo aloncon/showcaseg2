@@ -30,7 +30,7 @@ var rightSide = {
 class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
-      <div className="ShowcaseBody">
+      <div className="wcShowcaseBody">
             <Wcan />
             <br/>      
             <div>
@@ -54,12 +54,12 @@ class ShowcaseBody extends React.Component {
             <div style={leftSide}>
                  <Wcvg /> 
             </div>
-            <div className='clear'></div>     
+            <div className="wcClear"></div>     
             <div>
                 <br/>
                 <br/>
                 <WcLink href='' />
-                <div className="wc-wrap-button">
+                <div className="wcWrapButton">
                   <WcLink href="http://www.test.symantecbtobuk.webcollage.net/wcdevres/_wc/pdf-white_papers/reaping-the-benefits-en.pdf" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>
                       <Button style={{backgroundColor:'#150e34',color:'white',marginLeft:10}}>Test the pop up button</Button>
                   </WcLink>
@@ -77,7 +77,7 @@ class ShowcaseBody extends React.Component {
 class ShowcaseApp extends Component {
   render() {
     return (
-      <div className="Showcase" id="wc-reset">
+      <div className="wcShowcase" id="wc-reset">
         <ShowcaseBodyHeader />
         <ShowcaseBody />
       </div>

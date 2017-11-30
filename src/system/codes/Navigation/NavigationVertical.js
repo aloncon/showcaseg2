@@ -8,8 +8,8 @@ class NavigationVertical extends React.Component {
       const { config, routesExcludeTest,moduleName } = this.props;
 
       return (
-        <div className="wc-navigation-vertical">
-          <div className="header">
+        <div className="wcNavigationVertical">
+          <div className="wcNavHeader">
             <h1>{moduleName}</h1>
           </div>
           <ul>

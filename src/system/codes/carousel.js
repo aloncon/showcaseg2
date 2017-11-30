@@ -12,8 +12,8 @@ let productsList;
 function SamplePrevArrow(props) {
   const {onClick,className} = props
   return (
-    <div className='wcca_arrows_container_horizonal'>
-        <a className="prev browse left wcca_arrows_browse" onClick={onClick}><div className={className + ( " left")}><span className="wcca_arrows_browse_horizonal">{'<'}</span></div></a>
+    <div className="wcCarouselArrowsContainerHorizonal">
+        <a className="wcPrev wcBrowse wcLeft wcCarouselArrowsBrowse" onClick={onClick}><div className={className + ( " wcLeft")}><span className="wcCarouselArrowsBrowseHorizonal">{'<'}</span></div></a>
      </div>
   );
 }
@@ -21,8 +21,8 @@ function SamplePrevArrow(props) {
 function SampleNextArrow(props) {
   const {onClick,className} = props
   return (
-      <div className='wcca_arrows_container_horizonal'>
-          <a className=' next browse right wcca_arrows_browse' onClick={onClick}><div className={className + ( " right")}><span className="wcca_arrows_browse_horizonal">{'>'}</span></div></a>
+      <div className="wcCarouselArrowsContainerHorizonal">
+          <a className="wcNext wcBrowse wcRight wcCarouselArrowsBrowse" onClick={onClick}><div className={className + ( " wcRight")}><span className="wcCarouselArrowsBrowseHorizonal">{'>'}</span></div></a>
       </div>
   );
 }
@@ -120,26 +120,26 @@ export default class Wcca extends Component {
 
         if(e.target.dataset.id === 'previous' && this.state.latestSlide!==0)
         {
-                document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical';
-                document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'prev wcca_arrows_browse_vertical';
+                document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
+                document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
 
                 this.slider.slickPrev();
                 this.state.latestSlide = this.state.latestSlide - 1;
 
                 if(this.state.latestSlide===0){
-                    document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'prev wcca_arrows_browse_vertical disabled';
+                    document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
                 }
         }
         else if(e.target.dataset.id === 'next' && this.state.latestSlide!==maxSlides)
         {
-            document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical';
-            document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'prev wcca_arrows_browse_vertical';
+            document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
+            document.getElementById(this.state.id+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
 
             this.slider.slickNext();
             this.state.latestSlide = this.state.latestSlide  + 1;
 
             if(this.state.latestSlide===maxSlides){
-                document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'next wcca_arrows_browse_vertical disabled';
+                document.getElementById(this.state.id+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical wcDisabled';
             }
         }
 
@@ -180,34 +180,34 @@ export default class Wcca extends Component {
                 { this.state.productsListFlag &&
                 <div>
                     
-                    <div  style={divStyle} className={!this.state.isVertical ? 'wcca_wrap' : 'wcca_wrap_vertical'}>
+                    <div  style={divStyle} className={!this.state.isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
                         { this.state.isVertical &&
-                            <div className='wcca_arrows_container_vertical'>
-                                <button id={this.state.id+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? 'disabled ' :  ' ') + (' prev wcca_arrows_browse_vertical')}>
-                                    <div className="left"></div>
+                            <div className="wcCarouselArrowsContainerVertical">
+                                <button id={this.state.id+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
+                                    <div className="wcLeft"></div>
                                 </button> 
                             </div>                    
                         }                   
                         {
                             //  this.init.productsList.map((slide, index) => (
-                            //  <div key={index} className={!this.state.isVertical ? 'wcca_slider_container' : 'wcca_slider_container_vertical'}>
-                            <div className={!this.state.isVertical ? 'wcca_slider_container' : 'wcca_slider_container_vertical'}> 
+                            //  <div key={index} className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}>
+                            <div className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}> 
                                      <Slider ref={ c => this.slider = c }{...settings} > 
                                         {
                                             // slide.products.map((product, index) => (
                                              productsList.map((product, index) => (
-                                                <div key={index} className={this.props.data_setting.sliderClass+(' wcca_product_container')}>
-                                                    <div style={divStyleProduct}  className={!this.state.isVertical ? 'wcca_product_browse' :'wcca_product_browse_vertical'} >
-                                                        <div className="wcca_product_image">
+                                                <div key={index} className={this.props.data_setting.sliderClass+(' wcCarouselProductContainer')}>
+                                                    <div style={divStyleProduct}  className={!this.state.isVertical ? 'wcCarouselProductBrowse' :'wcCarouselProductBrowseVertical'} >
+                                                        <div className="wcCarouselProductImage">
                                                             <a href={product.link}>
                                                                 <WcImg src={product.listImage} alt=""/>
                                                             </a>
                                                         </div>
                                                         { product.vendorProductName &&
-                                                            <div className="wcca_product_title"><a href=''>{product.vendorProductName}</a></div>           
+                                                            <div className="wcCarouselProductTitle"><a href=''>{product.vendorProductName}</a></div>           
                                                         }
                                                         { (product.link && this.state.productLink) &&
-                                                            <div className="wcca_product_link"><a href=''>Take a Tour</a></div>           
+                                                            <div className="wcCarouselProductLink"><a href=''>Take a Tour</a></div>           
                                                         }                                                   
                                                     </div>
                                                 </div>
@@ -218,9 +218,9 @@ export default class Wcca extends Component {
                         //  ))
                         }
                         { this.state.isVertical &&
-                            <div className='wcca_arrows_container_vertical'>
-                                <button id={this.state.id+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className='next wcca_arrows_browse_vertical'>
-                                    <div className="right"></div>
+                            <div className="wcCarouselArrowsContainerVertical">
+                                <button id={this.state.id+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className="wcNext wcCarouselArrowsBrowseVertical">
+                                    <div className="wcRight"></div>
                                 </button>
                             </div>
                         }                           

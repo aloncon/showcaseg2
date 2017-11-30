@@ -8,8 +8,8 @@ import announcment1 from '../assets/images/office-365-hero-950x180_1.jpg';
 import { WcImg } from '../../system/codes/WcResource';
 
 export default () => (
-    <div className="wc-top-announcments">
-        <div className="wc-announcments" id="announcment11">
+    <div className="wcTopAnnouncments">
+        <div className="wcAnnouncments" id="announcment11">
             <WcImg className="wcAnnouncmentImage" id="wcImg" height="300px" style={{backgroundColor:'red',float:'right'}} src={announcment1} alt=""/>
         </div>
     </div>

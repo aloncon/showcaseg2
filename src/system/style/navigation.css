@@ -1,23 +1,23 @@
-div.wc-navigation-vertical{
+div.wcNavigationVertical{
   border: 1px solid #C8C8C8;
   margin-right: 5px;
   max-width: 179px;
   min-width: 120px;
 }
-div.wc-navigation-vertical ul{
+div.wcNavigationVertical ul{
   padding: 11px 4px 0 11px;
   margin-bottom: 8px;
 }
-div.wc-navigation-vertical ul li{
+div.wcNavigationVertical ul li{
   list-style: none;
   font-size: 12px;
 }
 /* TODO: Add the background color value as variable in LESS  */
-div.wc-navigation-vertical .header{
+div.wcNavigationVertical .wcNavHeader{
   background-color: #AF0000;
 }
 /* TODO: Add the header color value as variable in LESS  */
-div.wc-navigation-vertical .header h1{
+div.wcNavigationVertical .wcNavHeader h1{
   color: #ffffff;
   font-size: 14px;
   line-height: 25px;

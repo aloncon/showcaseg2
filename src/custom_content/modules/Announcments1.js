@@ -9,12 +9,12 @@ import { WcImg } from '../../WcResource';
 import WcpcContent from '../../WcpcContent';
 
 export default () => (
-    <div className="wc-top-announcments">
-    <WcpcContent wc_product_code="17"><div className="wc-announcments" id="announcment22"><WcImg src={require('./SYM-BLK-wide.png')}/></div></WcpcContent>
+    <div className="wcTopAnnouncments">
+    <WcpcContent wc_product_code="17"><div className="wcAnnouncments" id="announcment22"><WcImg src={require('./SYM-BLK-wide.png')}/></div></WcpcContent>
     
-    <div className="wc-announcments" id="announcment33"><WcImg src={announcment3} alt=''/></div>
-    <div className="wc-announcments" id="announcment44"><WcImg src={announcment4}/></div>
-    <div className="wc-announcments" id="announcment44"><WcImg src={announcment5}/></div>
+    <div className="wcAnnouncments" id="announcment33"><WcImg src={announcment3} alt=''/></div>
+    <div className="wcAnnouncments" id="announcment44"><WcImg src={announcment4}/></div>
+    <div className="wcAnnouncments" id="announcment44"><WcImg src={announcment5}/></div>
     </div> 
 );
 

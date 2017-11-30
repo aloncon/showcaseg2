@@ -67,8 +67,8 @@ const WcCarousel_Slides1 = [{
 const WcCarousel_Setting = {
     id                      :      '00',                //  Give the carousel unique ID                                                                                     (String - '00' as Default) 
     vertical                :       false,              //  Is the carousel vertical?                                                                                       (Boolean - false as Default)
-    slidesToShow            :       3,                  //  Number of slides to be visible at a time                                                                        (Integer - 1 as Default)
-    infinite                :       true,               //  Should the gallery wrap around it's contents                                                                    (Boolean - true as Default)
+    slidesToShow            :       1,                  //  Number of slides to be visible at a time                                                                        (Integer - 1 as Default)
+    infinite                :       false,               //  Should the gallery wrap around it's contents                                                                    (Boolean - true as Default)
     sliderClass             :       'wc_carousel_1',    //  Give the carousel an internal class to control the design                                                       (String - '' as Default)
     responsive              :       true,               //  Is the carousel responsive (if the carousel is horizonal , it can be turned to vetical at a specific width)     (Boolean - false as Default)
     responsiveWidth         :       0,                  //  If the carousel is responsive , from witch width to transfer it to vertical                                     (Integer - 600 as Default)                   
@@ -95,7 +95,7 @@ const WcCarousel_Setting2 = {
 class Wcca extends Component {
     render() {
       return (            
-        <div className='WcCarousel'>               
+        <div className="WcCarousel">               
             <Carousel data_setting={WcCarousel_Setting}/>
         </div>                   
       );
@@ -105,7 +105,7 @@ class Wcca extends Component {
   class Wcca1 extends Component {
     render() {
       return (         
-        <div className='WcCarousel_1'>               
+        <div className="WcCarousel_1">               
             <Carousel  data_setting={WcCarousel_Setting2}/>
         </div>                   
       );

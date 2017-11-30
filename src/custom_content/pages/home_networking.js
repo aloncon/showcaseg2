@@ -13,7 +13,7 @@ class home_networking extends React.Component {
                 <h3>Endpoint Solution</h3>
                 <h3>Endpoint Solution</h3>
                 <h3>Endpoint Solution</h3>
-                <div className="productListing">
+                <div className="wcProductListing">
                 
                                  
                 

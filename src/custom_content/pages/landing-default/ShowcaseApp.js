@@ -9,7 +9,7 @@ import Announcments2 from '../../modules/Announcment2';
 class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
-      <div className="ShowcaseBody">
+      <div className="wcShowcaseBody">
             <h2>Webcollage (test) Showcase</h2>
             <center> 
             <Wcan />
@@ -30,7 +30,7 @@ class ShowcaseBody extends React.Component {
   render() {
     return (
       <div>
-        <div className="App-intro">
+        <div className="wcAppIntro">
           <u>Body Content (showcaseBody) ..... </u> 
           <div>
           <ul>
@@ -52,7 +52,7 @@ class ShowcaseBody extends React.Component {
 class ShowcaseApp extends Component {
   render() {
     return (
-      <div className="Showcase" id="wc-reset">
+      <div className="wcShowcase" id="wc-reset">
         
         <ShowcaseBodyHeader />
         <ShowcaseBody />

@@ -24,7 +24,7 @@ const MainComp = observer(({ moduledata }) => {
   return (
     <Provider store={store}>
       <HashRouter>
-        <div id="wc_showcase_root" className="wc_showcase_root">
+        <div id="wc_showcase_root" className="wcShowcaseRoot">
           <div style={{display: "flex"}}>
             <ModuleNavigationVertical />
             <div className="wcContainer">
