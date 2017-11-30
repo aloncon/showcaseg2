@@ -19,9 +19,10 @@ import wcan3_img_s from '../assets/announcements/banners/3-s.jpg';
 import wcan4_img_s from '../assets/announcements/banners/4-s.jpg';
 import wcan5_img_s from '../assets/announcements/banners/5-s.jpg';
 
-import Announcements from '../../system/codes/announcment.js';
+import AnnouncementsCode from '../../system/codes/announcement.js';
 
 
+import videoBackground from '../assets/announcements/banners/announcementVideoBackground.jpg';
 import videoTestSrc from '../assets/video/videoTest.mp4';
 import videoTestPoster from '../assets/video/posterTest.jpg'
 
@@ -82,26 +83,31 @@ import videoTestPoster from '../assets/video/posterTest.jpg'
 
     //********Slider Settings  CHANGE ONLY BY REQUEST!! ****************//
     const wcan_setting = {
-        autoplay                :       true,           //  Should the scroller auto scroll?                (Boolean - False as Default)
-        autoplayArrows          :       false,          //  Should the Arrows turn on auto scroll?          (Boolean - False as Default)
-        autoplayPagination      :       false,          //  Should the Pagination turn on  auto scroll?     (Boolean - False as Default)
-        autoplaySpeed           :       3000,           //  Delay between each auto scoll. in ms            (Integer)
-        infinite                :       true,           //  Should the gallery wrap around it's contents    (Boolean - True as Default)
-        speed                   :       500,            //  Speed of the autoplay                           (Integer)
-        slidesToShow            :       1,              //  Number of slides to be visible at a time        (Integer - True as Default)
-        changeImage             :       true,           //  Should change Image banner in specific width?   (Boolean)
-        changeImageWidth        :       700,            //  the width in which the second image will appear (Integer)
+        autoplay                :       true,           //  Should the scroller auto scroll?                    (Boolean - False as Default)
+        autoplayArrows          :       false,          //  Should the Arrows turn on auto scroll?              (Boolean - False as Default)
+        autoplayPagination      :       false,          //  Should the Pagination turn on  auto scroll?         (Boolean - False as Default)
+        autoplaySpeed           :       3000,           //  Delay between each auto scoll. in ms                (Integer)
+        infinite                :       true,           //  Should the gallery wrap around it's contents        (Boolean - True as Default)
+        speed                   :       500,            //  Speed of the autoplay                               (Integer)
+        slidesToShow            :       1,              //  Number of slides to be visible at a time            (Integer - True as Default)
+        changeImage             :       true,           //  Should change Image banner in specific width?       (Boolean)
+        changeImageWidth        :       700,            //  the width in which the second image will appear     (Integer)
         pauseOnHover            :       false,
-        //rtl                   :       false,          //  Reverses the slide order                        (Boolean - True as Default) - TODO
-        sliderWidth             :       'full'          //  give fixed width or 'full' for full screen      (Integer/String)  //TODO:  FINISH IT -FIX FULL
+        //rtl                   :       false,           //  Reverses the slide order                           (Boolean - True as Default) - TODO
+        sliderWidth             :       '100%',          //  give fixed width  (Default - full screen: '100%')  (Integer/String)  //TODO:  FINISH IT -FIX FULL
+        sliderHeight             :      '240px'          //  give fixed height (Default - 200px)                (Integer/String)  //TODO:  FINISH IT -FIX FULL
+    }
+
+    const wcan_video = {
+        backgroundImage         :       videoBackground
     }
 
 //********Do not touch - CHANGE ONLY IF NEEDED!! (for example: to add another Announcement)****************//
-class Wcan extends React.Component {
+class Announcements extends React.Component {
 
     render() {
         return (
-            <Announcements data_setting={wcan_setting} data_slides={wcan_slides} />
+            <AnnouncementsCode data_setting={wcan_setting} data_slides={wcan_slides} data_video={wcan_video} />
         )
 
     }
@@ -110,5 +116,5 @@ class Wcan extends React.Component {
 }
 
 export {
-    Wcan
+    Announcements
 }

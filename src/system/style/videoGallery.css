@@ -141,17 +141,22 @@
     border : 3px solid #0066cc!important;
 }
 
+.wcVideoSlidePlayer .video-react-big-play-button-center,
 .wcVideoPlayerContainer .video-react-big-play-button-center{
     background: none !important;
     background-image: url('../resources/videoGallery/play_thumbnails.png')!important;
     background-repeat: no-repeat!important;
     background-size: 52px 52px!important;
-    border: none !important; 
+    height: 55px !important;
+    border: none !important;
+    width: 1.7em !important;
+    margin-left: -1em !important; 
 }
+/* .wcVideoSlidePlayer .video-react .video-react-big-play-button,
 .wcVideoPlayerContainer.video-react .video-react-big-play-button{
     height: 3.5em !important;
     width: 4.2em !important;
-}
+} */
 .video-react-icon-play-arrow:before, 
 .video-react .video-react-big-play-button:before{
     content: none!important;

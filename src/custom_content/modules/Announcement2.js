@@ -8,9 +8,9 @@ import announcment1 from '../assets/images/office-365-hero-950x180_1.jpg';
 import { WcImg } from '../../system/codes/WcResource';
 
 export default () => (
-    <div className="wcTopAnnouncments">
-        <div className="wcAnnouncments" id="announcment11">
-            <WcImg className="wcAnnouncmentImage" id="wcImg" height="300px" style={{backgroundColor:'red',float:'right'}} src={announcment1} alt=""/>
+    <div className="wcTopAnnouncements">
+        <div className="wcAnnouncements" id="announcment11">
+            <WcImg className="wcAnnouncementImage" id="wcImg" height="300px" style={{backgroundColor:'red',float:'right'}} src={announcment1} alt=""/>
         </div>
     </div>
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../system/style/index.css';
-import { Wcan } from '../modules/Announcments';
+import { Announcements } from '../modules/Announcements';
 
 import Listing from '../../system/codes/productlisting';
 import ProductListing from '../../system/codes/productListingTest3';
@@ -17,7 +17,7 @@ class Page3 extends React.Component {
 
                 <div style={{width:'100%'}}>
                   <center>
-                        <Wcan />
+                        <Announcements />
                  </center>
 
                 </div>

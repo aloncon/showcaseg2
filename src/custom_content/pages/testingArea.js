@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Wcan} from '../modules/Announcments';
+import {Announcements} from '../modules/Announcements';
 import {Wcca , Wcca1} from '../modules/Carousel';
 import {Wcvg} from '../modules/VideoGallery';
 import '../../system/style/App.css';
@@ -31,7 +31,7 @@ class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
       <div className="wcShowcaseBody">
-            <Wcan />
+            <Announcements />
             <br/>      
             <div>
               <h1>api testing:</h1>

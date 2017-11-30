@@ -16,10 +16,10 @@
     text-align: left !important;
 }
 #wc_showcase_root .wcShowcaseBody h2 {
-  color:red !important; 
+  color:red; 
   font-size:18px;
 }
-.wcShowcaseBody .wcAnnouncments{
+.wcShowcaseBody .wcAnnouncements{
     height: 180px;
     overflow: hidden;
 }
@@ -54,12 +54,7 @@
     clear:both !important;
 }
 
-/*  ********* React Slick Start **********  */
-#wc-showcase-root .slick-list{
-    height: 240px;
-}
-/*  ********* React Slick End **********  */
- 
+
 
 /************* Footer ***************/
 .wcFooter{

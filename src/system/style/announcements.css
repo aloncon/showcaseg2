@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+
+.wcVideoSlideContainer{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background-color:green;
+  /* background-image: url('../../custom_content/assets/announcements/banners/announcementVideoBackground.jpg'); */
+  background-size:  900px 240px;  
+}
+.wcVideoSlidePlayer{
+  margin-top: 2%;
+}
+.wcVideoSlideText h2{  
+  font-family: 'Sofia';
+  font-size: 32px!important;
+  color: rgb(95, 81, 81)!important;
+}
+.wcVideoSlideText {
+  margin-bottom: 2%;
+  color: #fff!important;
+}
+
+/* .wcVideoSlidePlayer .video-react-big-play-button-center{
+  background: none !important;
+  background-image: url('../resources/videoGallery/play_thumbnails.png')!important;
+  background-repeat: no-repeat!important;
+  background-size: 52px 52px!important;
+  height: 55px !important;
+  border: none !important; 
+}
+.wcVideoSlidePlayer .video-react .video-react-big-play-button{
+  height: 3.5em !important;
+  width: 4.2em !important;
+}
+.video-react-icon-play-arrow:before, 
+.video-react .video-react-big-play-button:before{
+  content: none!important;
+} */
+/*
+.announcementVideoBackground{
+
+.wcVideoSlidePlayer{
+  width:300px; 
+  height:40px;
+  float: left;
+  margin: auto 0;
+} */
 
 /*********************************!!!Announcement!!!************************************/
 
