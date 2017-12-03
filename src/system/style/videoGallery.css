@@ -1,164 +1,111 @@
-.wcVideoPlayerContainer{
-    width: 98%;
+.wcVideoPlayerContainer {
+  width: 98%;
 }
-
-.wcPlayList li.wcPlayListItem a:hover .wcPlay,
-.wcPlayList li.wcPlayListItem a:focus .wcPlay,
-.wcPlayList li.wcPlayListItem a:active .wcPlay
-.wcPlayList li.wcPlayListItem a.wcSelected .wcPlay {
-    opacity : 0.9;
-    filter: alpha(opacity=55);
+.wcVideoPlayerContainer .video-react-big-play-button-center {
+  background: none !important;
+  background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: 52px 52px !important;
+  height: 55px !important;
+  border: none !important;
+  width: 1.7em !important;
+  margin-left: -1em !important;
 }
-
-/* **************************************************** */
-.wc-hidden {
-    display : none;
-}
-
-.gallery {
-    display: block;
-    position: relative;
-    max-width : 800px;
-}
-
-.gallery:after{
-    clear: both;
-    content: "";
-    display: block;
-}
-
-.wc-center-video-gallery {
-    margin : auto;
-}
-
-.wc-player-outer-wrap {
-    margin-bottom : 5px;
-}
-
 .wcPlayList {
   list-style: none;
-  margin : -5px 0 0 0;
-  padding : 0;
+  margin: -5px 0 0 0;
+  padding: 0;
 }
-
-.wcPlayList .wcPlayListItem{
-    position : relative;
-    width : 162px;
-    height : 94px;
-    display : inline-block;
-    margin : 20px 20px 0 0;
-    cursor : pointer;
+.wcPlayList .wcPlayListItem {
+  position: relative;
+  width: 162px;
+  height: 94px;
+  display: inline-block;
+  margin: 20px 20px 0 0;
+  cursor: pointer;
 }
-
-
-.wcPlayList .wcThumbnailWrap {
-    height : 94px;
-    margin-bottom : 5px;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap {
+  height: 94px;
+  margin-bottom: 5px;
 }
-
-.wcPlayList li .wcThumbnailWrap a {
-    /* since the bootstrap tooltip css set the box-sizing to box-content*/
-    -webkit-box-sizing: content-box; /* Android â‰¤ 2.3, iOS â‰¤ 4 */
-    -moz-box-sizing: content-box; /* Firefox â‰¤ 28 */
-    box-sizing: content-box; /* Chrome, Firefox 29+, IE 8+, Opera, Safari 5.1 */
-
-    display : block;
-    border: 1px solid #999999;
-    width : 160px;
-    height : 90px;
-    background : #000000;
-    top : 2px;
-    left : 2px;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap a {
+  box-sizing: content-box;
+  display: block;
+  border: 1px solid #999999;
+  width: 160px;
+  height: 90px;
+  background: #000000;
+  top: 2px;
+  left: 2px;
 }
-
-.wcPlayList li.wcPlayListItem .wcThumbnailWrap a:hover,
-.wcPlayList li.wcPlayListItem .wcThumbnailWrap a:focus,
-.wcPlayList li.wcPlayListItem .wcThumbnailWrap a:active,
-.wcPlayList li.wcPlayListItem .wcThumbnailWrap a.wcSelected {
-    top : 1px;
-    left : 1px;
-    border: 2px solid #0066cc;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap a:hover,
+.wcPlayList .wcPlayListItem .wcThumbnailWrap a:focus,
+.wcPlayList .wcPlayListItem .wcThumbnailWrap a:active {
+  top: 1px;
+  left: 1px;
+  border: 2px solid #0066cc;
 }
-
-.wcPlayList li.wcPlayListItem img {
-    max-width : 100%;
-    max-height : 100%;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap a.wcSelected {
+  top: 1px;
+  left: 1px;
+  border: 2px solid #0066cc;
 }
-
-.wcPlayList li.wcPlayListItem img.wcPlay {
-    width : auto;
-    height : auto;
-    opacity : 0.6;
-    filter: alpha(opacity=25);
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer {
+  position: relative;
 }
-
-
-.wcPlayList li.wcPlayListItem .wcDuration {
-    font-size : 10px;
-    background: #000000;
-    color: #ffffff;
-    position: absolute;
-    bottom: 0;
-    right: 2px;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:hover .wcPlay,
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:focus .wcPlay,
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:active .wcPlay {
+  opacity: 0.9;
+  filter: alpha(opacity=55);
 }
-
-.wcPlayList li.wcPlayListItem a:hover .wcDuration,
-.wcPlayList li.wcPlayListItem a:focus .wcDuration,
-.wcPlayList li.wcPlayListItem.wcPlayListItem a:active .wcDuration,
-.wcPlayList li a.wcSelected .wcDuration {
-    background : #0066cc;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:hover .wcDuration,
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:focus .wcDuration,
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:active .wcDuration {
+  background: #0066cc;
 }
-
-.wc-item-description {
-    margin : 0;
-    color: #333333;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer .wcThumbnail {
+  max-width: 100%;
+  max-height: 100%;
 }
-
-
-/************************************centeringg********************************/
-
-.wcCenterContainer {
-    position : relative;
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer img.wcPlay {
+  width: auto;
+  height: auto;
+  opacity: 0.6;
+  filter: alpha(opacity=25);
+}
+.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcMovieActive {
+  border: 3px solid #0066cc !important;
+}
+.wcPlayList .wcPlayListItem .wcDuration {
+  font-size: 10px;
+  background: #000000;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+}
+.wcVideoSlidePlayer .video-react-big-play-button-center {
+  background: none !important;
+  background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
+  background-repeat: no-repeat !important;
+  background-size: 52px 52px !important;
+  height: 55px !important;
+  border: none !important;
+  width: 1.7em !important;
+  margin-left: -1em !important;
+}
+.video-react-icon-play-arrow:before {
+  content: none !important;
+}
+.video-react .video-react-big-play-button:before {
+  content: none !important;
 }
 .wcCenter {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  margin: auto;
 }
-
-#player {
-    display : block;
-    position : relative;
-    height : 0;
-    padding-bottom : 75%;
-    max-width : 100%;
-}
-
-.wcMovieActive{
-    border : 3px solid #0066cc!important;
-}
-
-.wcVideoSlidePlayer .video-react-big-play-button-center,
-.wcVideoPlayerContainer .video-react-big-play-button-center{
-    background: none !important;
-    background-image: url('../resources/videoGallery/play_thumbnails.png')!important;
-    background-repeat: no-repeat!important;
-    background-size: 52px 52px!important;
-    height: 55px !important;
-    border: none !important;
-    width: 1.7em !important;
-    margin-left: -1em !important; 
-}
-/* .wcVideoSlidePlayer .video-react .video-react-big-play-button,
-.wcVideoPlayerContainer.video-react .video-react-big-play-button{
-    height: 3.5em !important;
-    width: 4.2em !important;
-} */
-.video-react-icon-play-arrow:before, 
-.video-react .video-react-big-play-button:before{
-    content: none!important;
-}
-

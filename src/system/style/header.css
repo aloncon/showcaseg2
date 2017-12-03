@@ -1,35 +1,30 @@
 .wcEqualHeight {
-	display: -ms-flexbox;
-	display: flex;
+  display: -ms-flexbox;
+  display: flex;
 }
-
 .wcHeader {
-	display: -ms-flexbox;
-	display: flex;
-	margin-bottom: 1px;
-	background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center;
-	height: 68px;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1px;
+  background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center !important;
+  height: 68px;
 }
-
 .wcHeader .wcHeaderTitle {
-	width: 50%;
-	text-align: left;
-	height: 100%;
+  width: 50%;
+  text-align: left;
+  height: 100%;
 }
-
 .wcHeader .wcHeaderTitle h1 {
-	color: yellow;
-	line-height: 68px;
-	padding-left: 10px;
-	margin: 0 auto;
-	font-size: 2em;
+  color: white;
+  line-height: 68px;
+  padding-left: 10px;
+  margin: 0 auto;
+  font-size: 2em;
 }
-
 .wcHeader .wcHeaderLogo {
-	width: 50%;
-	text-align: right;
+  width: 50%;
+  text-align: right;
 }
-
 .wcHeader .wcHeaderLogo img {
-	margin: 3px;
+  margin: 3px;
 }

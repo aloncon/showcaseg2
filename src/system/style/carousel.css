@@ -1,232 +1,198 @@
 /* USER CAROUSEL CLASSES */
-
-.WcCarousel{
-    background-image: url('http://www.test.electroluxus.webcollage.net/_wc/category-slider/images/Horizon_Middle.jpg');
-    background-position-y: '0%';    
+.WcCarousel {
+  background-image: url('http://www.test.electroluxus.webcollage.net/_wc/category-slider/images/Horizon_Middle.jpg');
+  background-position-y: '0%';
 }
-.wc_carousel_2{
-    border-bottom: 1px solid lightgray!important;
-    border-top: 1px solid lightgray!important;    
+.WcCarousel .wcCarouselWrap .wcCarouselSliderContainer {
+  margin: 0 auto;
+  padding: 40px;
 }
-/*******/
-.wcCarouselArrowsContainerHorizonal .slick-disabled{
-    filter: alpha(opacity=35);
-    opacity:0.35;
-    cursor:default;
+.WcCarousel .wcCarouselWrap a.wcBrowse {
+  display: inline !important;
+  margin: 0px 10px !important;
+  font-size: 1px !important;
+  cursor: pointer !important;
+  border: 0px !important;
 }
-.wcCarouselArrowsContainerHorizonal:hover{
-    filter: alpha(opacity=95);
-    opacity:0.95;    
-}
-
-.wcCarouselArrowsBrowse{
-    margin-top:50px !important;
-    font-size: 0;
-    line-height: 0;
-    position: absolute;
-    top: 50%;
-    display: block;
-    width: 20px;
-    height: 20px;
-    padding: 0;
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    cursor: pointer;
-    color: transparent;
-    border: none;
-    outline: none;
-    background: transparent;
-}
-
-.wcCarouselArrowsBrowseHorizonal .slick-next {
-    content: '';
-}
-.wcCarouselArrowsBrowseHorizonal{
-    position: absolute;
-    margin-top: -34px;
-    outline: 0;
-    width: 32px;
-    height: 100px;
-    z-index: 9999;
-    cursor: pointer;
-    background-color: #CCC;
-    color: white;
-    font-size: 30px;
-    text-align: center;
-    text-indent: 0!important;
-    line-height: 100px;
-    opacity: 0.8; 
-    filter: alpha(opacity=80);    
-}
-
-.wcCarouselWrap a.wcBrowse{
-    display: inline !important;
-    margin: 0px 10px !important;
-    font-size: 1px !important;
-    cursor:pointer !important;
-    border: 0px !important;
- }
-
- .wcCarouselWrapVertical button {
-    background: none;
-    border: 0;
-    color: inherit;
-    font: inherit;
-    line-height: normal;
-    overflow: visible;
-    padding: 0;
-    -webkit-appearance: button; /* for input */
-    -webkit-user-select: none; /* for button */
-       -moz-user-select: none;
-        -ms-user-select: none;
-}
-
-.wcCarouselWrapVertical button:focus { outline: none; } 
-
-.wcCarouselWrapVertical button.wcPrev{
-    background: url('../resources/carousel/vertical-previous.jpg') no-repeat !important;
-    width: 30px !important;
-    height: 14px !important;
-    margin: 0px 10px !important;
-    font-size: 1px !important;
-    cursor:pointer !important;
-    border: 0px !important;
-    vertical-align: bottom ;
-}
-
-.wcCarouselWrapVertical button.wcNext{
-    background: url('../resources/carousel/vertical-next.jpg') no-repeat !important;
-    width: 30px !important;
-    height: 15px !important;
-    margin: 0px 10px !important;
-    font-size: 1px !important;
-    cursor:pointer !important;
-    border: 0px !important;
-}
-
-.wcCarouselWrap a.wcNext{
-    background-position: 0 0 !important;
-    right: -25px;
-}
-
-.wcCarouselArrowsContainerHorizonal .slick-next:before {
-    content: ''!important;
-}
-
-.wcCarouselWrap a.wcNext:active{ background-position: 0 -30px !important;}
-
-.wcCarouselWrap a.wcPrev{
-    background-position: -30px 0 !important;
-    left: -45px;
-}
-
-.wcCarouselWrap a.wcPrev:active{ background-position: -30px -30px !important;}
-
-.wcCarouselWrap a.wcRight{background-position: 0 -30px !important;}
-
-.wcCarouselWrap a.wcRight:active{ background-position:-60px -30px !important;}
-
-.wcCarouselWrap a.wcLeft{ background-position: 0 0 !important;}
-
-.wcCarouselWrap a.wcLeft:active{ background-position:-60px 0 !important;}
-
-.wcCarouselWrap a.wcBrowse div{
+.WcCarousel .wcCarouselWrap a.wcBrowse div {
   background: transparent !important;
   display: inline !important;
 }
-
-.wcCarouselWrap a.wcDisabled div.wcLeft{
+.WcCarousel .wcCarouselWrap a.wcNext {
+  background-position: 0 0 !important;
+  right: -25px;
+}
+.WcCarousel .wcCarouselWrap a.wcNext:active {
+  background-position: 0 -30px !important;
+}
+.WcCarousel .wcCarouselWrap a.wcPrev {
+  background-position: -30px 0 !important;
+  left: -45px;
+}
+.WcCarousel .wcCarouselWrap a.wcPrev:active {
+  background-position: -30px -30px !important;
+}
+.WcCarousel .wcCarouselWrap a.wcDisabled div.wcLeft {
   background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
-  background-position:-90px 0 !important;
-  cursor:default !important;
+  background-position: -90px 0 !important;
+  cursor: default !important;
 }
-
-.wcCarouselWrap a.wcDisabled div.wcRight{
+.WcCarousel .wcCarouselWrap a.wcDisabled div.wcRight {
   background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
-  background-position:-90px -30px !important;
-  cursor:default !important;
+  background-position: -90px -30px !important;
+  cursor: default !important;
 }
-
-.wcCarouselArrowsContainerVertical .wcDisabled{
-    opacity: 0.5;
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal:hover {
+  filter: alpha(opacity=95);
+  opacity: 0.95;
 }
-
-.wcCarouselArrowsContainerVertical{
-    width:100%;
-    text-align: center!important;
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .slick-next:before {
+  content: '' !important;
 }
-
-.wcCarouselArrowsBrowseVertical{
-    display: inline-block!important;
-    margin: 0 auto!important;  
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse {
+  margin-top: 50px !important;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
 }
-
-.wcCarouselSliderContainerVertical{
-    display: table;
-    margin: 0 auto;    
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse .wcCarouselArrowsBrowseHorizonal {
+  position: absolute;
+  margin-top: -34px;
+  outline: 0;
+  width: 32px;
+  height: 100px;
+  z-index: 9999;
+  cursor: pointer;
+  background-color: #CCC;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  text-indent: 0 !important;
+  line-height: 100px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
-.wcCarouselSliderContainer {
-    margin: 0 auto;
-    padding: 40px;
-  }
-
-.wcCarouselProductContainer{
-    text-align: center!important;   
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse .wcCarouselArrowsBrowseHorizonal .slick-next {
+  content: '';
 }
-
-.wcCarouselProductBrowseVertical{
-    margin: 0 auto!important;
-    display: table-cell;
-    vertical-align: middle;     
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcLeft {
+  background-position: 0 0 !important;
 }
-.wcCarouselProductBrowse{
-    margin: 0 auto!important;
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcLeft:active {
+  background-position: -60px 0 !important;
 }
-
-.wcCarouselProductImage img{
-    display: inline-block!important;
-    margin: 0 auto!important;   
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcRight {
+  background-position: 0 -30px !important;
 }
-
-.wcCarouselProductTitle{
-    margin: 0px !important;
-    padding: 0px !important;
-    font-weight: bold !important;
-    font-size: 12px !important;
-    color: #000000 !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    background-color: transparent !important;
-    border: 0px none black !important;
-    width: auto !important;
-    height: auto !important;
-        list-style-type: none !important;
-        list-style-position: inside !important;
-        clear: none !important;
-        float: none !important;
-        table-layout: auto !important;
-        border-collapse: collapse !important;
-        border-spacing: 0px !important;
-        empty-cells: show !important;
-            text-transform: none !important;
-            text-indent: 0px !important;
-            vertical-align: baseline !important;
-            letter-spacing: normal !important;
-            word-spacing: normal !important;
-            line-height: normal !important;
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcRight:active {
+  background-position: -60px -30px !important;
 }
-
-.wcCarouselProductTitle a{
-    font-weight: bold !important;
-    font-size: 12px !important;
-    color: #000000 !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    font-family: Verdana, Helvetica, Arial !important;
-    font-weight: bold !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    width: auto !important;
-    height: auto !important;
+.wcCarouselWrapVertical button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  width: 30px !important;
+  height: 14px !important;
+  margin: 0px 10px !important;
+  font-size: 1px !important;
+  cursor: pointer !important;
+  border: 0px !important;
+}
+.wcCarouselWrapVertical button:focus {
+  outline: none;
+}
+.wcCarouselWrapVertical button.wcPrev {
+  background: url('../resources/carousel/vertical-previous.jpg') no-repeat !important;
+  vertical-align: bottom;
+}
+.wcCarouselWrapVertical button.wcNext {
+  background: url('../resources/carousel/vertical-next.jpg') no-repeat !important;
+}
+.wcCarouselWrapVertical .wcCarouselSliderContainerVertical {
+  display: table;
+  margin: 0 auto;
+}
+.wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarousel2 {
+  border-bottom: 1px solid lightgray !important;
+  border-top: 1px solid lightgray !important;
+}
+.wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarouselProductContainer .wcCarouselProductBrowseVertical {
+  margin: 0 auto !important;
+  display: table-cell;
+  vertical-align: middle;
+}
+.wcCarouselWrapVertical .wcCarouselArrowsContainerVertical {
+  width: 100%;
+  text-align: center !important;
+}
+.wcCarouselWrapVertical .wcCarouselArrowsContainerVertical .wcDisabled {
+  opacity: 0.5;
+}
+.wcCarouselWrapVertical .wcCarouselArrowsContainerVertical .wcCarouselArrowsBrowseVertical {
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+.wcCarouselProductContainer {
+  text-align: center !important;
+}
+.wcCarouselProductContainer .wcCarouselProductBrowse {
+  margin: 0 auto !important;
+}
+.wcCarouselProductImage img {
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+.wcCarouselProductTitle {
+  margin: 0px !important;
+  padding: 0px !important;
+  background-color: transparent !important;
+  border: 0px none black !important;
+  list-style-type: none !important;
+  list-style-position: inside !important;
+  clear: none !important;
+  float: none !important;
+  table-layout: auto !important;
+  border-collapse: collapse !important;
+  border-spacing: 0px !important;
+  empty-cells: show !important;
+  text-transform: none !important;
+  text-indent: 0px !important;
+  vertical-align: baseline !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  line-height: normal !important;
+}
+.wcCarouselProductTitle a {
+  font-weight: bold !important;
+  font-size: 12px !important;
+  color: #000000 !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  font-family: Verdana, Helvetica, Arial !important;
+  width: auto !important;
+  height: auto !important;
+}
+.slick-disabled {
+  filter: alpha(opacity=35);
+  opacity: 0.35;
+  cursor: default;
 }

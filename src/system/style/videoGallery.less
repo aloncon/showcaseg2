@@ -1,0 +1,131 @@
+@color-theme: #0066cc;
+
+.wcVideoPlayerContainer {
+	width: 98%;
+	.video-react-big-play-button-center {
+		background: none !important;
+		background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
+		background-repeat: no-repeat !important;
+		background-size: 52px 52px !important;
+		height: 55px !important;
+		border: none !important;
+		width: 1.7em !important;
+		margin-left: -1em !important;
+	}
+}
+
+.wcPlayList {
+	.wcPlayListItem {
+        position: relative;
+		width: 162px;
+		height: 94px;
+		display: inline-block;
+		margin: 20px 20px 0 0;
+		cursor: pointer;
+		.wcThumbnailWrap {
+			height: 94px;
+			margin-bottom: 5px;
+			a {
+				-webkit-box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				box-sizing: content-box;
+				display: block;
+				border: 1px solid #999999;
+				width: 160px;
+				height: 90px;
+				background: #000000;
+				top: 2px;
+				left: 2px;
+
+				&:hover, &:focus, &:active {
+					top: 1px;
+					left: 1px;
+					border: 2px solid @color-theme;
+				}
+			}
+			a.wcSelected {
+				top: 1px;
+				left: 1px;
+				border: 2px solid @color-theme;
+			}
+			.wcCenterContainer {
+	
+				&:hover, &:focus, &:active {
+					.wcPlay {
+						opacity: 0.9;
+						filter: alpha(opacity=55);
+					}
+					.wcDuration {
+						background: @color-theme;
+					}
+				}
+						
+				position: relative;
+
+				.wcThumbnail {
+					max-width: 100%;
+					max-height: 100%;
+				}
+
+				img.wcPlay {
+					width: auto;
+					height: auto;
+					opacity: 0.6;
+					filter: alpha(opacity=25);
+				}
+			}
+
+			.wcMovieActive {
+				border: 3px solid @color-theme !important;
+			}
+		}
+
+		.wcDuration {
+			font-size: 10px;
+			background: #000000;
+			color: #ffffff;
+			position: absolute;
+			bottom: 0;
+			right: 2px;
+		}
+	}
+	list-style: none;
+	margin: -5px 0 0 0;
+	padding: 0;
+}
+
+.wcVideoSlidePlayer {
+	.video-react-big-play-button-center {
+		background: none !important;
+		background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
+		background-repeat: no-repeat !important;
+		background-size: 52px 52px !important;
+		height: 55px !important;
+		border: none !important;
+		width: 1.7em !important;
+		margin-left: -1em !important;
+	}
+}
+
+//css from the library
+.video-react-icon-play-arrow {
+	&:before {
+		content: none !important;
+	}
+}
+.video-react {
+	.video-react-big-play-button {
+		&:before {
+			content: none !important;
+		}
+	}
+}
+
+.wcCenter {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	margin: auto;
+}

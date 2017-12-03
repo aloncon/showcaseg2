@@ -4,7 +4,7 @@ div.wcBreadcrumbs ul {
   margin: 0;
 }
 div.wcBreadcrumbs ul > li {
-  display: inline-block
+  display: inline-block;
 }
 div.wcBreadcrumbs ul > li + li:before {
   content: "/ ";

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import configuration from '../configuration.js';
 import { WcImg } from '../../system/codes/WcResource';
+import'../../system/style/footer.css';
+
 
 class ShowcaseFooter extends Component{
 

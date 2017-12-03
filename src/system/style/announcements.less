@@ -1,0 +1,128 @@
+@import "https://fonts.googleapis.com/css?family=Sofia";
+
+/*********************************!!!Announcement!!!************************************/
+.wcVideoSlideContainer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: green;
+	background-size: 900px 240px;
+
+    .wcVideoSlideText {
+        h2 {
+            font-family: 'Sofia';
+            font-size: 32px !important;
+            color: rgb(95, 81, 81) !important;
+        }
+        margin-bottom: 2%;
+        color: #fff !important;
+    }
+
+    .wcVideoSlidePlayer {
+        margin-top: 2%;
+    }
+}
+
+
+.wcAnnounceUl {
+	list-style-type: none;
+	margin: 0px 0 0 -40px;
+    cursor: pointer;
+    
+    li{
+    
+    .wcAnnounceArrow{
+        background: none;
+		border: 0;
+        color: inherit;
+        font: inherit;
+		line-height: normal;
+        overflow: visible;
+        padding: 0;
+		-webkit-appearance: button;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+        float: right !important;
+        width: 16px !important;
+        height: 16px !important;
+        &:focus {
+			outline: none;
+		}
+	}
+
+	.wcAnnouncePlay {
+		background-position: 90% 0 !important;
+		&:hover {
+			background-position: 90% 50% !important;
+		}
+	}
+
+    .wcAnnouncePrev {
+		.wcAnnounceArrow;
+		background-image: url('../resources/announcement/prev.png') !important;
+	}
+	.wcAnnounceNext {
+        .wcAnnounceArrow;
+		background-image: url('../resources/announcement/next.png') !important;
+	}
+	.wcAnnounceItemNum {
+		width: 23px !important;
+		height: 23px !important;
+		background-image: url('../resources/announcement/control-bar.png') !important;
+	}
+	
+	
+	//Announcements Positioning Loop
+	.AnnouncementsPositionLoop (1) {}
+	.AnnouncementsPositionLoop (@index) when (@index > 0) {
+	  .wcAnnounce@{index} {
+		background-position: (@index - 1)*10% 0 !important;
+		&:hover, &:focus {
+			background-position: (@index - 1)*10% 50% !important;
+		}
+	  }
+	  .wcAnnounce@{index}Active {
+		background-position: (@index - 1)*10% 100% !important;
+	  }
+	  .AnnouncementsPositionLoop (@index - 1);
+	}
+	.AnnouncementsPositionLoop(9);
+	//Announcements Positioning Loop end
+
+}
+}
+
+
+.wcAnnounceLink {
+	text-decoration: none;
+}
+
+.wcAnnounceItemNum {
+	float: left !important;
+	font-size: 0px !important;
+	background-repeat: no-repeat !important;
+}
+
+.wcAnnouncePlay {
+	.wcAnnounceItemNum;
+}
+.wcAnnouncePause {
+	.wcAnnounceItemNum;
+	
+	background-position: 100% 0 !important;
+	&:hover, &:focus {
+		background-position: 100% 50% !important;
+	}
+}
+
+.wcAnnounceDisable {
+	filter: alpha(opacity=35);
+	opacity: 0.35;
+	cursor: default;
+}
+.wcAnnounceUl.wcAnnouncePlay {
+	&:focus {
+		background-position: 90% 50% !important;
+	}
+}

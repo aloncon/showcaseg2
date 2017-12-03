@@ -84,7 +84,7 @@ const WcCarousel_Setting2 = {
     vertical                :       true,
     slidesToShow            :       2,
     infinite                :       false,
-    sliderClass             :       'wc_carousel_2',
+    sliderClass             :       'wcCarousel2',
     carouselWidth           :       '200px',
     productWidth            :       '200px',
     productHeight           :       '250px',
@@ -105,7 +105,7 @@ class Wcca extends Component {
   class Wcca1 extends Component {
     render() {
       return (         
-        <div className="WcCarousel_1">               
+        <div className="WcCarousel1">               
             <Carousel  data_setting={WcCarousel_Setting2}/>
         </div>                   
       );

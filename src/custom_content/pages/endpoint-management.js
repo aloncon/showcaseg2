@@ -7,7 +7,7 @@ class EndpointManagement extends React.Component {
                 <h3>Endpoint Management</h3>
                 <ul className="wcCategoryUl">
                     <li className="wcCategoryLi">
-                       <div className="wcCenteredText">
+                       <div className="wcCenteredCategoryText">
                           <a>
                             <img alt="" height="118" src="http://media-itest2.webcollage.net/rlfp/wc/test/module/lexmark/_wc/images/listings/MX310.jpg" width="125"/>
                           </a>       
@@ -21,7 +21,7 @@ class EndpointManagement extends React.Component {
                            <div  className="wcClear"></div>
                   </li>
                     <li className="wcCategoryLi">
-                       <div className="wcCenteredText">
+                       <div className="wcCenteredCategoryText">
                           <a>
                             <img alt="" height="118" src="http://media-itest2.webcollage.net/rlfp/wc/test/module/lexmark/_wc/images/listings/MX310.jpg" width="125"/>
                           </a>       
@@ -35,7 +35,7 @@ class EndpointManagement extends React.Component {
                            <div  className="wcClear"></div>
                   </li>
                     <li className="wcCategoryLi">
-                       <div className="wcCenteredText">
+                       <div className="wcCenteredCategoryText">
                           <a>
                             <img alt="" height="118" src="http://media-itest2.webcollage.net/rlfp/wc/test/module/lexmark/_wc/images/listings/MX310.jpg" width="125"/>
                           </a>       

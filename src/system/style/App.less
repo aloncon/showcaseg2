@@ -1,0 +1,30 @@
+
+
+//TODO: What is it?
+@keyframes "wcAppLogoSpin" {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+
+
+.wcApp {
+	text-align: center;
+	.wcAppHeader {
+		.wcAppLogo {
+			animation: wcAppLogoSpin infinite 20s linear;
+			height: 80px;
+		}
+		background-color: #222;
+		height: 150px;
+		padding: 20px;
+		color: white;
+	}
+	.wcAppIntro {
+		font-size: large;
+	}
+}

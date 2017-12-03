@@ -53,7 +53,7 @@ export default class Wcca extends Component {
     }
 
     componentWillMount(){
-        api.getListOfVerifyWcpcs("12417832,637,30,632,1")
+        api.getListOfVerifyWcpcs("12417832,637,30,632,1,1411,1412")
         .then(result => { 
             console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!',result)           
          productsList = VendorData.filter(list =>  result.includes(list.wcpc));
