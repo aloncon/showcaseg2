@@ -33,6 +33,19 @@ const findName = (routes, breadcrumbPath) => {
 }
 
 /**
+ * Extract from the string the current location.
+ *
+ * PARAMS::
+ *
+ * pathname ::= String, string the represent the path location
+ */
+const extractCurrentPath = (pathname) => {
+  let currentPath = pathname.split('/');
+  currentPath = `/${currentPath[currentPath.length - 1]}`;
+  return currentPath;
+}
+
+/**
  * Generate the Breadcrumb Items
  *
  * PARAMS::
@@ -43,7 +56,7 @@ const findName = (routes, breadcrumbPath) => {
  */
 const generateBreadcrumbItems =  (pathsRoute, routes, pathsRouteLength) => {
   return pathsRoute.map((path, index) => {
-    const name = findName(routes, path);
+    const name = findName(routes, extractCurrentPath(path));
     const props = { index, pathsRouteLength, name, path };
     return <BreadcrumbItem key={path} {...props} />;
   });
@@ -91,12 +104,12 @@ const BreadcrumbItem = ({ index, pathsRouteLength, name, path}) => {
  * addHorizontalRule (OPTIONAL):: Boolean, true to display <hr /> element under the breadcrumbs. False by default.
  *
  */
-const Breadcrumbs = ({config, options, location}) => {
+const Breadcrumbs = ({config, options, getPath, location}) => {
     const pathname = location.pathname;
     const routes = getRoutesConfig(config);
     const homePath = '/';
     const { isDisplayBreadcrumbRoot, displayRootNameAsHome, addHorizontalRule } = options;
-    const pathsRoute = [];
+    let pathsRoute = [];
 
     // return null for not to show the breadcrumbs in case of isDisplayBreadcrumbRoot is false
     if (!isDisplayBreadcrumbRoot && pathname === homePath) {
@@ -110,6 +123,8 @@ const Breadcrumbs = ({config, options, location}) => {
 
     // add the root path
     pathsRoute[0] = homePath;
+
+    const currentBread = config.find( route => route.path === extractCurrentPath(pathname));
 
     if (pathname !== homePath) {
       pathname.split('/').reduce((previousPath, currentPath, index) => {
@@ -133,4 +148,3 @@ const Breadcrumbs = ({config, options, location}) => {
   }
 
 export default withRouter(Breadcrumbs);
-
