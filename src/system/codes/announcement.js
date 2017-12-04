@@ -88,12 +88,6 @@ export default class Wcan extends React.Component {
 
         this.handleResize();
         window.addEventListener('resize', this.handleResize);        
-        this.timeout = setTimeout(() => {
-            console.log('sliderHeight: ',this.state.sliderHeight);
-            this.setState({ sliderHeight: this.slider.clientHeight });
-            console.log('sliderHeight: ',this.state.sliderHeight);
-            console.log('this.slider: ',this.slider);
-    },  200);    
     }
 
     componentWillUnmount() {
@@ -300,7 +294,7 @@ export default class Wcan extends React.Component {
 
         var divStyle = {
             width: this.init.sliderWidth,
-            // height: this.init.sliderHeight
+            height: this.init.sliderHeight
         };
 
         return (

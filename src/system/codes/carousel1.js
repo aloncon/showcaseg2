@@ -33,48 +33,41 @@ export default class Wcca extends Component {
         super(props)
         this.sliderArrows = this.sliderArrows.bind(this);
         this.handleResize = this.handleResize.bind(this);
+        this.init = {
+            carosulId               :   (this.props.carosulId        !=null     ?   this.props.carosulId        :   '00'),
+            slidesToShow            :   (this.props.slidesToShow     !=null     ?   this.props.slidesToShow     :   1),
+            infinite                :   (this.props.infinite         !=null     ?   this.props.infinite         :   false),
+            responsive              :   (this.props.responsive       !=null     ?   this.props.responsive       :   false),
+            responsiveWidth         :   (this.props.responsiveWidth  !=null     ?   this.props.responsiveWidth  :   540),
+            carouselWidth           :   (this.props.carouselWidth    !=null     ?   this.props.carouselWidth    :   '100%'),
+            carouselHeight          :   (this.props.carouselHeight   !=null     ?   this.props.carouselHeight   :   '300px'),
+            productWidth            :   (this.props.productWidth     !=null     ?   this.props.productWidth     :   '200px'),
+            productHeight           :   (this.props.productHeight    !=null     ?   this.props.productHeight    :   '300px'),
+            productTour             :   (this.props.productTour      !=null     ?   this.props.productTour      :   false)
+
+        }
         this.state = {
-            carosulId               :           (this.props.data_setting.id!=null                   ? this.props.data_setting.id                        : '00'     ),
-            isVertical              :           (this.props.data_setting.vertical!=null             ? this.props.data_setting.vertical                  :  false   ),
-            slidesToShow            :           (this.props.data_setting.slidesToShow!=null         ? this.props.data_setting.slidesToShow              :  1       ),
-            infinite                :           (this.props.data_setting.infinite != null           ? this.props.data_setting.infinite                  :  true    ),
-            responsive              :           (this.props.data_setting.responsive != null         ? this.props.data_setting.responsive                :  false   ),
-            responsiveWidth         :           (this.props.data_setting.responsiveWidth            ? this.props.data_setting.responsiveWidth           :  600     ),
-            carouselWidth           :           (this.props.data_setting.carouselWidth!=null        ? this.props.data_setting.carouselWidth             :  '100%'  ),
-            carouselHeight           :           (this.props.data_setting.carouselHeight!=null      ? this.props.data_setting.carouselHeight            :  '200px'  ),
-            productWidth            :           (this.props.data_setting.productWidth!=null         ? this.props.data_setting.productWidth              :  '100%'  ),
-            productHeight           :           (this.props.data_setting.productHeight!=null        ? this.props.data_setting.productHeight             :  '500px'  ),
-            productLink             :           (this.props.data_setting.productLink!=null          ? this.props.data_setting.productLink               :   false  ),
-            //NOT TO EDIT - USES AS FLAGS
+            isVertical              :   (this.props.vertical         !=null     ?   this.props.vertical         :   false),            
+            // //NOT TO EDIT - USES AS FLAGS
             latestSlide             :           0,
             windowHeight            :           window.innerHeight,
             windowWidth             :           window.innerWidth,
-            productsListFlag        :           false           
+            productsList            :           this.props.data[0].productsData,
+            maxImgHieght             :           null  
         };       
     }
 
-    componentWillMount(){
-        api.getListOfVerifyWcpcs("12417832,637,30,632,1,1411,1412")
-        .then(result => { 
-            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!',result)           
-         productsList = VendorData.filter(list =>  result.includes(list.wcpc));
-         console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!! productsList',productsList)
-          //console.log('productsList: '+productsList);
-          this.setState({productsListFlag: true});  
-          console.log('productsListFlag: '+this.state.productsListFlag);      
-        }).catch(err => {console.log(err)})
-    }
 
     componentDidMount() { 
-        //NEEDED FOR THE VERTICAL lISTING - SO THEY CAN FULLY UPLODED
+        //NEEDED FOR THE VERTICAL lISTING - SO THEY CAN FULLY UPLODED        
         setTimeout(() => {
             window.dispatchEvent(new Event('resize'))
         }, 500);
 
         //For responsive
             //Enable responsive only on horizonal carusel
-            if(this.state.responsive && this.state.isVertical){
-                this.state.responsive = false;
+            if(this.init.responsive && this.state.isVertical){
+                this.init.responsive = false;
                 //this.setState({
                 //    responsive : false
                 //});
@@ -96,8 +89,8 @@ export default class Wcca extends Component {
             windowHeight: window.innerHeight,
             windowWidth: window.innerWidth,
         });
-       if(this.state.responsive === true){
-           if(window.innerWidth >= this.state.responsiveWidth){
+       if(this.init.responsive === true){
+           if(window.innerWidth >= this.init.responsiveWidth){
                this.setState({
                    isVertical : false
                });
@@ -113,44 +106,53 @@ export default class Wcca extends Component {
     sliderArrows(e) {
     //control the arrows buttons of the slider (preview/next)
         // var totalSlides = Number(this.props.data_slides[0].products.length);
-        var totalSlides = Number(productsList.length);
-        var maxSlides = totalSlides-this.state.slidesToShow; 
+        var totalSlides = Number(this.state.productsList.length);
+        var maxSlides = totalSlides-this.init.slidesToShow; 
 
-        document.getElementById(this.state.carosulId+('_wcca_arrows_next')).disabled = true;
-        document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = true;
+        document.getElementById(this.init.carosulId+('_wcca_arrows_next')).disabled = true;
+        document.getElementById(this.init.carosulId+('_wcca_arrows_previous')).disabled = true;
 
         if(e.target.dataset.id === 'previous' && this.state.latestSlide!==0)
         {
-                document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
-                document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
+                document.getElementById(this.init.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
+                document.getElementById(this.init.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
 
                 this.slider.slickPrev();
                 this.state.latestSlide = this.state.latestSlide - 1;
 
                 if(this.state.latestSlide===0){
-                    document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
+                    document.getElementById(this.init.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
                 }
         }
         else if(e.target.dataset.id === 'next' && this.state.latestSlide!==maxSlides)
         {
-            document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
-            document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
+            document.getElementById(this.init.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
+            document.getElementById(this.init.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
 
             this.slider.slickNext();
             this.state.latestSlide = this.state.latestSlide  + 1;
 
             if(this.state.latestSlide===maxSlides){
-                document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical wcDisabled';
+                document.getElementById(this.init.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical wcDisabled';
             }
         }
 
          setTimeout(() => {
-             document.getElementById(this.state.carosulId+('_wcca_arrows_next')).disabled = false;
-             document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = false;
+             document.getElementById(this.init.carosulId+('_wcca_arrows_next')).disabled = false;
+             document.getElementById(this.init.carosulId+('_wcca_arrows_previous')).disabled = false;
          }, 500);
 
     }
 
+    onImgLoad = ({target:img}) =>{
+        // console.log(img.height);
+        let imgHeight = this.state.maxImgHieght;
+        if(imgHeight == null || imgHeight < img.height || img.height*0.85 <= this.state.productHeight)
+        {
+            imgHeight = img.height;
+            this.setState({ maxImgHieght : imgHeight });   
+        }
+    } 
 
     render() {
 
@@ -159,57 +161,59 @@ export default class Wcca extends Component {
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
             dots: false,
-            infinite: this.state.infinite,
+            infinite: this.init.infinite,
             speed: 500,
-            slidesToShow: this.state.slidesToShow,
+            slidesToShow: this.init.slidesToShow,
             slidesToScroll: 1,
             vertical: this.state.isVertical
           };
         
 
         var divStyle = {
-            width: this.state.carouselWidth,
-            height: this.state.carouselHeight,
+            width: this.init.carouselWidth,
+            height: this.init.carouselHeight,
             display:'block'
         };
 
 
         var divStyleProduct = {
-            width: this.state.productWidth,
-            height: this.state.productHeight
+            width: this.init.productWidth,
+            height: this.init.productHeight
         };
+
+        let maxImgHieght = { height : this.state.maxImgHieght } 
+
         return (
             <div>
-                { this.state.productsListFlag &&
-                <div>
-                    
+                <div>                   
                     <div className={!this.state.isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
                         { this.state.isVertical &&
                             <div className="wcCarouselArrowsContainerVertical">
-                                <button id={this.state.carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
+                                <button id={this.init.carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.init.infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
                                     <div className="wcLeft"></div>
                                 </button> 
                             </div>                    
                         }                   
                         {
                             //  this.init.productsList.map((slide, index) => (
-                            //  <div key={index} className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}>
+                            //  <div key={index} className={!this.init.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}>
                             <div  style={divStyle} className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}> 
                                      <Slider ref={ c => this.slider = c }{...settings} > 
                                         {
                                             // slide.products.map((product, index) => (
-                                             productsList.map((product, index) => (
-                                                <div key={index} className={this.props.data_setting.sliderClass+(' wcCarouselProductContainer')}>
+                                                this.state.productsList.map((product, index) => (
+                                                // <div key={index} className={this.props.data_setting.sliderClass+(' wcCarouselProductContainer')}>
+                                                <div key={index}>
                                                     <div style={divStyleProduct}  className={!this.state.isVertical ? 'wcCarouselProductBrowse' :'wcCarouselProductBrowseVertical'} >
-                                                        <div className="wcCarouselProductImage">
+                                                        <div className="wcCarouselProductImage" style={maxImgHieght}>
                                                             <a href={product.link}>
-                                                                <WcImg src={product.listImage} alt=""/>
+                                                                <WcImg src={product.listImage} alt=""  onLoad={this.onImgLoad}/>
                                                             </a>
                                                         </div>
                                                         { product.vendorProductName &&
                                                             <div className="wcCarouselProductTitle"><a href=''>{product.vendorProductName}</a></div>           
                                                         }
-                                                        { (product.link && this.state.productLink) &&
+                                                        { (product.link && this.init.productTour) &&
                                                             <div className="wcCarouselProductLink"><a href=''>Take a Tour</a></div>           
                                                         }                                                   
                                                     </div>
@@ -222,14 +226,13 @@ export default class Wcca extends Component {
                         }
                         { this.state.isVertical &&
                             <div className="wcCarouselArrowsContainerVertical">
-                                <button id={this.state.carosulId+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className="wcNext wcCarouselArrowsBrowseVertical">
+                                <button id={this.init.carosulId+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className="wcNext wcCarouselArrowsBrowseVertical">
                                     <div className="wcRight"></div>
                                 </button>
                             </div>
                         }                           
                     </div>
-                </div>
-                }            
+                </div>          
             </div>
         )
     }

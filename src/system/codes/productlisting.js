@@ -1,132 +1,94 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-//import { Link } from 'react-router';
-import * as actions from '../../actions'
-
-import jsonpP from 'jsonp-p';
-//import fjp from 'fetch-jsonp';
-
-class ProductList extends Component {
-
-  componentWillMount(){
-      console.log("propsssssss willmount " + this.props.list);  
-      console.log("propsssssss willmount " + this._jsxFileName  );  
-      this.props.fetchProducts(this.props.list); 
-  }  
-
-  renderProducts() {
-    console.log("sssssssssss - renderProducts: " + this.props.products);  
-    console.log(this.props.products);  
-
-    //let xxx = JSON.stringify(this.props.products);
-    
+import React from 'react'
+import WideList from './WideList'
+import GridList from './GridList'
+//import Store from '../../system/codes/store/ListingSotre'
+import Store from '../../store/ProductData'
+//import { observer } from 'mobx-react';
+import Carousel from './carousel1'
 
 
-    var list = [];
-    var p = Object.keys( this.props.products);
-    p.forEach((key)=>{
-        let innerI = Object.keys(this.props.products[key])
 
-        innerI.forEach((innerKey) => {
-        this.props.products[key][innerKey]["wcpc"] = key;
-        this.props.products[key][innerKey]["cpi"]  = innerKey; 
-        list.push(this.props.products[key][innerKey]);
-        })                                                                                                                                  
-                
-    })
-    console.log("kkkkkkkey --: " + list);
-    var list = list.map( (item) => {
-        console.log("kkkkkkkey --: " +item)
-        return <li>product :  <b>{item.wcpc}</b>
-                <ul>                    
-                    <li>Name:   {item.channelProductName} </li>
-                    <li>Channel Product ID:  {item.cpi} </li>                    
-                    <li>Price:  {item.price} </li>
-                </ul>
-               </li>
-    }) 
-    
-    /*p.forEach((key)=>{
-                        console.log("kkkkkkkey : " + key);
-                        console.log(this.props.products[key]);
-                         <li>aaaaaa</li>         
-                    })
-    */
-    return (
-          <div className="wcListGroupItem">
-            {list}
-          </div>
-  
-      );
-    /*return this.props.products.map(photo => {
-    
-      console.log('ssssss return this.props.products: ' + this.props.products)  
-      return (
 
-          <li className="wcListGroupItem">
-            <img src={photo.thumbnailUrl} />
-          </li>
-  
-      );
-    });
-    */
-  }
 
-  render() {
-    return (
-      
-      <ul className="wcListGroup">
-        {
-         this.renderProducts()
-         
-        //fetchProducts2()
+class ProductlistingObserver extends React.Component{
+    state = {
+        data : null
+    }
+
+    componentWillMount(){
+        this.props.store.getProductsData(this.props.settings.ids , this.getData.bind(this))
+    }
+
+    getData(data){
+        console.log("getData",data)
+        if(data.length > 0)
+            this.setState({data : data})
+    }
+
+    render(){
+        const { type , ids, carosulId , vertical , slidesToShow , infinite , responsive , responsiveWidth , carouselWidth , carouselHeight , productWidth , productHeight } = this.props.settings;
+        const { data } = this.state;
+        console.log("DATA", data)
+        console.log('props',this.props)
+        console.log("type", type)
+        console.log("ids", ids)
+        console.log("vertical", this.props.vertical)
+        if(data){
+            switch(type){
+                case 'wide':
+                    return <WideList  ids={ids} data={data}/>
+                case 'grid':
+                    return <GridList ids={ids} data={data}/>    
+                case 'Carousel'  :
+                    console.log('data!!!: ',data)
+                    console.log('vertical!!!: ',vertical)
+                    return <Carousel ids={ids}
+                                     data={data}
+                                     carosulId={carosulId}
+                                     vertical={vertical}
+                                     slidesToShow={slidesToShow}
+                                     infinite={infinite}
+                                     responsiveWidth={responsiveWidth}
+                                     responsive={responsive}
+                                     carouselWidth={carouselWidth}
+                                     carouselHeight={carouselHeight}
+                                     productWidth={productWidth}
+                                     productHeight={productHeight}
+                            />
+               default: 
+                return <div></div>
+           }
         }
-        {console.log("propsssssss " + this.props.list)  }
-      </ul>
-    );
-  }
+        else return <div></div>
+        
+
+    }
 }
 
-function mapStateToProps({ products }) {
-  console.log("sssssssssss - mapstatetoProps: " + products)  
-  console.log(products)  
-  return { products }
-}
 
-export default connect(mapStateToProps,actions)(ProductList);
-
-/*
-class ProductsList extends Component {
-  renderProducts() {
-    return this.props.products.map(product => {
-      return (
-          <li className="wcListGroupItem">
-            <img src={product.thumbnailUrl} />
-          </li>
+class Productlisting extends React.Component{
     
-      );
-    });
-  }
-
-  render() {
-    return (
-      <ul className="wcListGroup">
-        {this.renderProducts()}
-      </ul>
-    );
-  }
+    render(){
+        const {ids , type} = this.props
+        console.log('props1111',this.props)
+        return(
+            <ProductlistingObserver store={Store} settings = {this.props}/>
+        )
+        
+    }
 }
 
-function mapStateToProps({ products }) {
-  return { products }
-}
+export default Productlisting;
+//export default observer(Productlisting);
 
-export default connect(mapStateToProps)(ProductsList);
+/* ------------------ Documation ------------------ */
+/*  type is mandatory --> type= "Categorylist" | "Carousel" | ""
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
 */
-    /*
-        <Link key={product.id} to={`/products/${product.id}`}>
-          <li className="wcListGroupItem">
-            <img src={product.thumbnailUrl} />
-          </li>
-        </Link>
-        */

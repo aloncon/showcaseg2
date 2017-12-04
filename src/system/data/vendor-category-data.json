@@ -1,0 +1,68 @@
+[
+    {
+        "caption":"Unmanaged Switch",
+        "id":"Business-Networking-Unmanaged-Switch",
+        "wcpcs": "369677640,12417832,107,30"
+    },
+    {
+        "caption":"Smart Managed Switch",
+        "id":"Business-Networking-Smart-Managed-Switch",
+        "wcpcs": "631"
+    },
+    {
+        "caption":"Smart Managed Pro Switch",
+        "id":"Business-Networking-Smart-Managed-Pro-Switch",
+        "wcpcs": "632"
+    },
+    {
+        "caption":"Access Point",
+        "id":"Business-Networking-Access-Point",
+        "wcpcs": "635"
+    },
+    {
+        "caption":"Network Attached Storage",
+        "id":"Business-Networking-Network-Attached-Storage",
+        "wcpcs": "637,638,1411,1412"
+    },
+    {
+        "caption":"Router",
+        "id":"Home-Networking-Router",
+        "wcpcs": "1437"
+    },
+    {
+        "caption":"Orbi",
+        "id":"Home-Networking-Orbi",
+        "wcpcs": "1451,1453,1479,546546546"
+    },
+    {
+        "caption":"Network Attached Storage",
+        "id":"Home-Networking-Network-Attached-Storage",
+        "wcpcs": "637"
+    },
+    {
+        "caption":"Arlo Security System",
+        "id":"Security-and-Surveillance-Arlo-Security-System",
+        "wcpcs": "1498"
+    },
+    {
+        "caption":"Orbi",
+        "id":"WiFi-Systems-Orbi",
+        "wcpcs": "1451,1453,1479"
+    },
+    {
+        "caption":"TEST",
+        "id":"test",
+        "wcpcs": "100,102"
+    },
+    {
+        "caption":"caption TEST2",
+        "id":"carouselTest",
+        "wcpcs": "1451,1453,1479,1498,637,638,1411,1412,100,102,19336158,19336159,19336161,19336162,19336163,19336164,19336165,19336166,1933616"
+    },
+    {
+        "caption":"caption TEST3",
+        "id":"test3",
+        "wcpcs": "637"
+    }
+]
+

@@ -5,6 +5,7 @@ import {Wcvg} from '../modules/VideoGallery';
 import '../../system/style/App.css';
 import {WcLink} from '../../system/codes/WcResource'
 import {Button} from 'react-bootstrap'
+import ProductListing from '../../system/codes/ProductListing'  
 
 
 var featuredTitle = {
@@ -46,6 +47,9 @@ class ShowcaseBody extends React.Component {
     return (
       <div>
         <Wcca />
+        <h1>TEST:::</h1>
+                <ProductListing type='Carousel'
+                                ids={['carouselTest']} responsive={true} slidesToShow={3}/>        
         <section>
             <div style={rightSide}>
                 <div style={featuredTitle}>Recommended Products</div>
