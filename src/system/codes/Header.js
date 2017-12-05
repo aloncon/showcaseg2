@@ -6,8 +6,6 @@ import'../style/header.css';
 export default class Header extends Component {
 
     render() {
-        const titleStyle = {color: this.props.textColor};
-
         let title = this.props.title;
         let logo = this.props.manufacturerLogo;
         

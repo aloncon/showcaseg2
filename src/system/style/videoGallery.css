@@ -1,16 +1,6 @@
 .wcVideoPlayerContainer {
   width: 98%;
 }
-.wcVideoPlayerContainer .video-react-big-play-button-center {
-  background: none !important;
-  background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
-  background-repeat: no-repeat !important;
-  background-size: 52px 52px !important;
-  height: 55px !important;
-  border: none !important;
-  width: 1.7em !important;
-  margin-left: -1em !important;
-}
 .wcPlayList {
   list-style: none;
   margin: -5px 0 0 0;
@@ -75,7 +65,7 @@
   filter: alpha(opacity=25);
 }
 .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcMovieActive {
-  border: 3px solid #0066cc !important;
+  border: 3px solid #0066cc;
 }
 .wcPlayList .wcPlayListItem .wcDuration {
   font-size: 10px;
@@ -85,7 +75,13 @@
   bottom: 0;
   right: 2px;
 }
-.wcVideoSlidePlayer .video-react-big-play-button-center {
+.video-react-icon-play-arrow:before {
+  content: none !important;
+}
+.video-react .video-react-big-play-button:before {
+  content: none !important;
+}
+.video-react-big-play-button-center {
   background: none !important;
   background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
   background-repeat: no-repeat !important;
@@ -94,12 +90,6 @@
   border: none !important;
   width: 1.7em !important;
   margin-left: -1em !important;
-}
-.video-react-icon-play-arrow:before {
-  content: none !important;
-}
-.video-react .video-react-big-play-button:before {
-  content: none !important;
 }
 .wcCenter {
   top: 0;

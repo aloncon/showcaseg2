@@ -1,12 +1,8 @@
 import React from 'react';
 import '../../system/style/index.css';
 import { Announcements } from '../modules/Announcements';
-
 import Listing from '../../system/codes/productlisting';
 import ProductListing from '../../system/codes/productListingTest3';
-
-
-
 
 class Page3 extends React.Component {
     render() {
@@ -19,6 +15,7 @@ class Page3 extends React.Component {
                   <center>
                         <Announcements />
                  </center>
+                 <br/>
 
                 </div>
                 <div className="wcProductListing">

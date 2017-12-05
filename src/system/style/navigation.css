@@ -1,4 +1,4 @@
-/* Horizontal  */
+/* Horizontal Navigation */
 nav.wcHorizontalNav .dropdown-submenu {
   position: relative;
 }
@@ -28,7 +28,7 @@ nav.wcHorizontalNav .dropdown-submenu.open {
 nav.wcHorizontalNav .dropdown-submenu.open > .dropdown-menu {
   display: block;
 }
-/* Vertival */
+/* Vertical Navigation*/
 div.wcNavigationVertical {
   border: 1px solid #c8c8c8;
   margin-right: 5px;

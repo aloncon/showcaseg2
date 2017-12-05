@@ -8,6 +8,7 @@ import EndpointSolutions from '../custom_content/pages/endpoint-solutions';
 import iframe from '../custom_content/pages/iframe';
 import testingArea from '../custom_content/pages/testingArea';
 import ProductListing1 from '../custom_content/modules/product-listing1';
+import StandAlone from '../standalone/index';
 
 /**
  * Configuration data for the showcase.
@@ -15,7 +16,6 @@ import ProductListing1 from '../custom_content/modules/product-listing1';
  * headerDetails:: Holds all the header information
  * imgLogo[optional]: may be require('../custom_content/assets/images/SYM-BLK.png') or null or just delete it
  * headerTitle[optional]: may be text as "Symantec", empty string, or just delete it
- * marginBottom[optional]: may get all the css measurements (px, em etc.)
  *
  * footerDetails:: Holds all the footer information (imgProvidedBy, backgroundColor)
  *
@@ -137,6 +137,13 @@ const configuration = {
         component: ProductListing1,
         name: 'Product Listing1',
       },
+      {
+        id: 'StandAlone',
+        parent: '/',
+        path: '/standalone',
+        component: StandAlone,
+        name: 'StandAlone',
+      }
     ],
     routesExclude: '(Product Listing1)',
   },

@@ -11,11 +11,11 @@
     .wcVideoSlideText {
         h2 {
             font-family: 'Sofia';
-            font-size: 32px !important;
-            color: rgb(95, 81, 81) !important;
+            font-size: 32px;
+            color: rgb(95, 81, 81);
         }
         margin-bottom: 2%;
-        color: #fff !important;
+        color: #fff;
     }
 
     .wcVideoSlidePlayer {
@@ -43,33 +43,33 @@
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
-        float: right !important;
-        width: 16px !important;
-        height: 16px !important;
+        float: right;
+        width: 16px;
+        height: 16px;
         &:focus {
 			outline: none;
 		}
 	}
 
 	.wcAnnouncePlay {
-		background-position: 90% 0 !important;
+		background-position: 90% 0;
 		&:hover {
-			background-position: 90% 50% !important;
+			background-position: 90% 50%;
 		}
 	}
 
     .wcAnnouncePrev {
 		.wcAnnounceArrow;
-		background-image: url('../resources/announcement/prev.png') !important;
+		background-image: url('../resources/announcement/prev.png');
 	}
 	.wcAnnounceNext {
         .wcAnnounceArrow;
-		background-image: url('../resources/announcement/next.png') !important;
+		background-image: url('../resources/announcement/next.png');
 	}
 	.wcAnnounceItemNum {
-		width: 23px !important;
-		height: 23px !important;
-		background-image: url('../resources/announcement/control-bar.png') !important;
+		width: 23px;
+		height: 23px;
+		background-image: url('../resources/announcement/control-bar.png');
 	}
 	
 	
@@ -77,13 +77,13 @@
 	.AnnouncementsPositionLoop (1) {}
 	.AnnouncementsPositionLoop (@index) when (@index > 0) {
 	  .wcAnnounce@{index} {
-		background-position: (@index - 1)*10% 0 !important;
+		background-position: (@index - 1)*10% 0;
 		&:hover, &:focus {
-			background-position: (@index - 1)*10% 50% !important;
+			background-position: (@index - 1)*10% 50%;
 		}
 	  }
 	  .wcAnnounce@{index}Active {
-		background-position: (@index - 1)*10% 100% !important;
+		background-position: (@index - 1)*10% 100%;
 	  }
 	  .AnnouncementsPositionLoop (@index - 1);
 	}
@@ -99,20 +99,21 @@
 }
 
 .wcAnnounceItemNum {
-	float: left !important;
-	font-size: 0px !important;
-	background-repeat: no-repeat !important;
+	float: left;
+	font-size: 0px;
+	background-repeat: no-repeat;
 }
 
 .wcAnnouncePlay {
 	.wcAnnounceItemNum;
 }
+
 .wcAnnouncePause {
 	.wcAnnounceItemNum;
 	
-	background-position: 100% 0 !important;
+	background-position: 100% 0;
 	&:hover, &:focus {
-		background-position: 100% 50% !important;
+		background-position: 100% 50%;
 	}
 }
 
@@ -123,6 +124,6 @@
 }
 .wcAnnounceUl.wcAnnouncePlay {
 	&:focus {
-		background-position: 90% 50% !important;
+		background-position: 90% 50%;
 	}
 }

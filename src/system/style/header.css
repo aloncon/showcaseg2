@@ -1,12 +1,8 @@
-.wcEqualHeight {
-  display: -ms-flexbox;
-  display: flex;
-}
 .wcHeader {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1px;
-  background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center !important;
+  background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center;
   height: 68px;
 }
 .wcHeader .wcHeaderTitle {

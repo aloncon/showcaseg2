@@ -8,22 +8,22 @@
   padding: 40px;
 }
 .WcCarousel .wcCarouselWrap a.wcBrowse {
-  display: inline !important;
+  display: inline;
   margin: 0px 10px !important;
-  font-size: 1px !important;
-  cursor: pointer !important;
-  border: 0px !important;
+  font-size: 1px;
+  cursor: pointer;
+  border: 0px;
 }
 .WcCarousel .wcCarouselWrap a.wcBrowse div {
-  background: transparent !important;
-  display: inline !important;
+  background: transparent;
+  display: inline;
 }
 .WcCarousel .wcCarouselWrap a.wcNext {
-  background-position: 0 0 !important;
+  background-position: 0 0;
   right: -25px;
 }
 .WcCarousel .wcCarouselWrap a.wcNext:active {
-  background-position: 0 -30px !important;
+  background-position: 0 -30px;
 }
 .WcCarousel .wcCarouselWrap a.wcPrev {
   background-position: -30px 0 !important;
@@ -87,10 +87,10 @@
   content: '';
 }
 .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcLeft {
-  background-position: 0 0 !important;
+  background-position: 0 0;
 }
 .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcLeft:active {
-  background-position: -60px 0 !important;
+  background-position: -60px 0;
 }
 .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcRight {
   background-position: 0 -30px !important;
@@ -110,12 +110,11 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  width: 30px !important;
-  height: 14px !important;
+  width: 30px;
+  height: 14px;
   margin: 0px 10px !important;
-  font-size: 1px !important;
-  cursor: pointer !important;
-  border: 0px !important;
+  font-size: 1px;
+  cursor: pointer;
 }
 .wcCarouselWrapVertical button:focus {
   outline: none;
@@ -132,17 +131,17 @@
   margin: 0 auto;
 }
 .wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarousel2 {
-  border-bottom: 1px solid lightgray !important;
-  border-top: 1px solid lightgray !important;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
 }
 .wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarouselProductContainer .wcCarouselProductBrowseVertical {
-  margin: 0 auto !important;
+  margin: 0 auto;
   display: table-cell;
   vertical-align: middle;
 }
 .wcCarouselWrapVertical .wcCarouselArrowsContainerVertical {
   width: 100%;
-  text-align: center !important;
+  text-align: center;
 }
 .wcCarouselWrapVertical .wcCarouselArrowsContainerVertical .wcDisabled {
   opacity: 0.5;
@@ -162,34 +161,34 @@
   margin: 0 auto !important;
 }
 .wcCarouselProductTitle {
-  margin: 0px !important;
-  padding: 0px !important;
-  background-color: transparent !important;
-  border: 0px none black !important;
-  list-style-type: none !important;
-  list-style-position: inside !important;
-  clear: none !important;
-  float: none !important;
-  table-layout: auto !important;
-  border-collapse: collapse !important;
-  border-spacing: 0px !important;
-  empty-cells: show !important;
-  text-transform: none !important;
-  text-indent: 0px !important;
-  vertical-align: baseline !important;
-  letter-spacing: normal !important;
-  word-spacing: normal !important;
-  line-height: normal !important;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+  border: 0px none black;
+  list-style-type: none;
+  list-style-position: inside;
+  clear: none;
+  float: none;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  empty-cells: show;
+  text-transform: none;
+  text-indent: 0px;
+  vertical-align: baseline;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
 }
 .wcCarouselProductTitle a {
-  font-weight: bold !important;
-  font-size: 12px !important;
-  color: #000000 !important;
-  text-decoration: none !important;
-  text-align: center !important;
-  font-family: Verdana, Helvetica, Arial !important;
-  width: auto !important;
-  height: auto !important;
+  font-weight: bold;
+  font-size: 12px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  font-family: Verdana, Helvetica, Arial;
+  width: auto;
+  height: auto;
 }
 .slick-disabled {
   filter: alpha(opacity=35);

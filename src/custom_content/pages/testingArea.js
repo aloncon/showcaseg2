@@ -47,6 +47,10 @@ class ShowcaseBody extends React.Component {
       <div>
         <Wcca />
         <section>
+                <div>
+                  <WcLink href="standalone/index.html" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>Open Standalone</WcLink>
+                </div>
+
             <div style={rightSide}>
                 <div style={featuredTitle}>Recommended Products</div>
                 <Wcca1 />

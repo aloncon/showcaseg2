@@ -12,12 +12,12 @@
 }
 .wcVideoSlideContainer .wcVideoSlideText {
   margin-bottom: 2%;
-  color: #fff !important;
+  color: #fff;
 }
 .wcVideoSlideContainer .wcVideoSlideText h2 {
   font-family: 'Sofia';
-  font-size: 32px !important;
-  color: #5f5151 !important;
+  font-size: 32px;
+  color: #5f5151;
 }
 .wcVideoSlideContainer .wcVideoSlidePlayer {
   margin-top: 2%;
@@ -39,18 +39,18 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  float: right !important;
-  width: 16px !important;
-  height: 16px !important;
+  float: right;
+  width: 16px;
+  height: 16px;
 }
 .wcAnnounceUl li .wcAnnounceArrow:focus {
   outline: none;
 }
 .wcAnnounceUl li .wcAnnouncePlay {
-  background-position: 90% 0 !important;
+  background-position: 90% 0;
 }
 .wcAnnounceUl li .wcAnnouncePlay:hover {
-  background-position: 90% 50% !important;
+  background-position: 90% 50%;
 }
 .wcAnnounceUl li .wcAnnouncePrev {
   background: none;
@@ -64,10 +64,10 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  float: right !important;
-  width: 16px !important;
-  height: 16px !important;
-  background-image: url('../resources/announcement/prev.png') !important;
+  float: right;
+  width: 16px;
+  height: 16px;
+  background-image: url('../resources/announcement/prev.png');
 }
 .wcAnnounceUl li .wcAnnouncePrev:focus {
   outline: none;
@@ -84,131 +84,131 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  float: right !important;
-  width: 16px !important;
-  height: 16px !important;
-  background-image: url('../resources/announcement/next.png') !important;
+  float: right;
+  width: 16px;
+  height: 16px;
+  background-image: url('../resources/announcement/next.png');
 }
 .wcAnnounceUl li .wcAnnounceNext:focus {
   outline: none;
 }
 .wcAnnounceUl li .wcAnnounceItemNum {
-  width: 23px !important;
-  height: 23px !important;
-  background-image: url('../resources/announcement/control-bar.png') !important;
+  width: 23px;
+  height: 23px;
+  background-image: url('../resources/announcement/control-bar.png');
 }
 .wcAnnounceUl li .wcAnnounce9 {
-  background-position: 80% 0 !important;
+  background-position: 80% 0;
 }
 .wcAnnounceUl li .wcAnnounce9:hover,
 .wcAnnounceUl li .wcAnnounce9:focus {
-  background-position: 80% 50% !important;
+  background-position: 80% 50%;
 }
 .wcAnnounceUl li .wcAnnounce9Active {
-  background-position: 80% 100% !important;
+  background-position: 80% 100%;
 }
 .wcAnnounceUl li .wcAnnounce8 {
-  background-position: 70% 0 !important;
+  background-position: 70% 0;
 }
 .wcAnnounceUl li .wcAnnounce8:hover,
 .wcAnnounceUl li .wcAnnounce8:focus {
-  background-position: 70% 50% !important;
+  background-position: 70% 50%;
 }
 .wcAnnounceUl li .wcAnnounce8Active {
-  background-position: 70% 100% !important;
+  background-position: 70% 100%;
 }
 .wcAnnounceUl li .wcAnnounce7 {
-  background-position: 60% 0 !important;
+  background-position: 60% 0;
 }
 .wcAnnounceUl li .wcAnnounce7:hover,
 .wcAnnounceUl li .wcAnnounce7:focus {
-  background-position: 60% 50% !important;
+  background-position: 60% 50%;
 }
 .wcAnnounceUl li .wcAnnounce7Active {
-  background-position: 60% 100% !important;
+  background-position: 60% 100%;
 }
 .wcAnnounceUl li .wcAnnounce6 {
-  background-position: 50% 0 !important;
+  background-position: 50% 0;
 }
 .wcAnnounceUl li .wcAnnounce6:hover,
 .wcAnnounceUl li .wcAnnounce6:focus {
-  background-position: 50% 50% !important;
+  background-position: 50% 50%;
 }
 .wcAnnounceUl li .wcAnnounce6Active {
-  background-position: 50% 100% !important;
+  background-position: 50% 100%;
 }
 .wcAnnounceUl li .wcAnnounce5 {
-  background-position: 40% 0 !important;
+  background-position: 40% 0;
 }
 .wcAnnounceUl li .wcAnnounce5:hover,
 .wcAnnounceUl li .wcAnnounce5:focus {
-  background-position: 40% 50% !important;
+  background-position: 40% 50%;
 }
 .wcAnnounceUl li .wcAnnounce5Active {
-  background-position: 40% 100% !important;
+  background-position: 40% 100%;
 }
 .wcAnnounceUl li .wcAnnounce4 {
-  background-position: 30% 0 !important;
+  background-position: 30% 0;
 }
 .wcAnnounceUl li .wcAnnounce4:hover,
 .wcAnnounceUl li .wcAnnounce4:focus {
-  background-position: 30% 50% !important;
+  background-position: 30% 50%;
 }
 .wcAnnounceUl li .wcAnnounce4Active {
-  background-position: 30% 100% !important;
+  background-position: 30% 100%;
 }
 .wcAnnounceUl li .wcAnnounce3 {
-  background-position: 20% 0 !important;
+  background-position: 20% 0;
 }
 .wcAnnounceUl li .wcAnnounce3:hover,
 .wcAnnounceUl li .wcAnnounce3:focus {
-  background-position: 20% 50% !important;
+  background-position: 20% 50%;
 }
 .wcAnnounceUl li .wcAnnounce3Active {
-  background-position: 20% 100% !important;
+  background-position: 20% 100%;
 }
 .wcAnnounceUl li .wcAnnounce2 {
-  background-position: 10% 0 !important;
+  background-position: 10% 0;
 }
 .wcAnnounceUl li .wcAnnounce2:hover,
 .wcAnnounceUl li .wcAnnounce2:focus {
-  background-position: 10% 50% !important;
+  background-position: 10% 50%;
 }
 .wcAnnounceUl li .wcAnnounce2Active {
-  background-position: 10% 100% !important;
+  background-position: 10% 100%;
 }
 .wcAnnounceUl li .wcAnnounce1 {
-  background-position: 0% 0 !important;
+  background-position: 0% 0;
 }
 .wcAnnounceUl li .wcAnnounce1:hover,
 .wcAnnounceUl li .wcAnnounce1:focus {
-  background-position: 0% 50% !important;
+  background-position: 0% 50%;
 }
 .wcAnnounceUl li .wcAnnounce1Active {
-  background-position: 0% 100% !important;
+  background-position: 0% 100%;
 }
 .wcAnnounceLink {
   text-decoration: none;
 }
 .wcAnnounceItemNum {
-  float: left !important;
-  font-size: 0px !important;
-  background-repeat: no-repeat !important;
+  float: left;
+  font-size: 0px;
+  background-repeat: no-repeat;
 }
 .wcAnnouncePlay {
-  float: left !important;
-  font-size: 0px !important;
-  background-repeat: no-repeat !important;
+  float: left;
+  font-size: 0px;
+  background-repeat: no-repeat;
 }
 .wcAnnouncePause {
-  float: left !important;
-  font-size: 0px !important;
-  background-repeat: no-repeat !important;
-  background-position: 100% 0 !important;
+  float: left;
+  font-size: 0px;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
 }
 .wcAnnouncePause:hover,
 .wcAnnouncePause:focus {
-  background-position: 100% 50% !important;
+  background-position: 100% 50%;
 }
 .wcAnnounceDisable {
   filter: alpha(opacity=35);
@@ -216,5 +216,5 @@
   cursor: default;
 }
 .wcAnnounceUl.wcAnnouncePlay:focus {
-  background-position: 90% 50% !important;
+  background-position: 90% 50%;
 }
