@@ -15,8 +15,6 @@ const getScriptURL = (function() {
     return function() { return myScript.src; };
 })();
 
-//TODO: vika: live-->live - I didn`n fine example to such a link
-let environmentId = "dev";
 
 function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('rawgit.com')) {
@@ -29,18 +27,18 @@ function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('media-preview.')) {
             console.log('in stage!');
             environmentId = 'live';
-
             return `http://media-preview.webcollage.net/rwvfp/wc/live/99999991/module/webcollage/_wc/react_showcase/showcase-app-1/`; 
             //src = `http://media-preview.webcollage.net/rwvfp/wc/live/99999991/module/webcollage/_wc/react_showcase/showcase-app-1/${src}`;        
     }
 
     if (scriptUrl.includes('www.test.')) {
-            console.log('in test!');
             environmentId = 'test';
+            console.log('in test!');
             return `http://www.test.webcollage.webcollage.net/_wc/react_showcase/showcase-app-1/`;
     }
 
     if (scriptUrl.includes('localhost:')) {
+            environmentId = 'localhost';
             console.log('in test!')
             return `http://localhost:3000`;
     }
@@ -56,11 +54,12 @@ function getSrcBase(scriptUrl) {
    return null; 
 }
 
-console.log("environmentId: ", environmentId);
 
 const scriptUrl = getScriptURL();
 console.log('original JS src', scriptUrl);
+let environmentId="dev";
 const srcBase = getSrcBase(scriptUrl);
+console.log('environmentId', environmentId);
 console.log('base Src' + srcBase);
 
 export default function getModuleInfo () {
@@ -71,7 +70,7 @@ export default function getModuleInfo () {
     //let site = script.replace(/.*server\/([^\/]*)\/.*/,'$1');
 
     let site;
-    let module;    
+    let module; 
 
     if(script.indexOf('media-preview')!=-1){
         module = script.replace(/.*\/module\/([^\/]*)\/.*/,'$1');
