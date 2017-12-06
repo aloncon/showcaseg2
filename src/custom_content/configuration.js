@@ -8,7 +8,6 @@ import EndpointSolutions from '../custom_content/pages/endpoint-solutions';
 import iframe from '../custom_content/pages/iframe';
 import testingArea from '../custom_content/pages/testingArea';
 import ProductListing1 from '../custom_content/modules/product-listing1';
-import StandAlone from '../standalone/index';
 
 /**
  * Configuration data for the showcase.
@@ -40,6 +39,7 @@ import StandAlone from '../standalone/index';
  */
 const configuration = {
   moduleName: 'Avery',
+  presentationName: 'Avery (presentation)',
   moduleId: 'avery',
   headerDetails: {
     imgLogo: require('../custom_content/assets/images/avery_logo.jpg'),
@@ -136,13 +136,6 @@ const configuration = {
         path: '/ProductListing1',
         component: ProductListing1,
         name: 'Product Listing1',
-      },
-      {
-        id: 'StandAlone',
-        parent: '/',
-        path: '/standalone',
-        component: StandAlone,
-        name: 'StandAlone',
       }
     ],
     routesExclude: '(Product Listing1)',

@@ -10,7 +10,7 @@ import {
  
 import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
-import moduleInfo from './moduleInfo';
+
 import store from './store';
 
 import Navigation from './navigation';
@@ -23,7 +23,6 @@ import Page3 from './custom_content/modules/page3';
 import EndpointManagement from './custom_content/modules/endpoint-management';
 import EndpointSolutions from './custom_content/modules/endpoint-solutions';
 //import Products from './custom_content/modules/productlisting';
-
 
 import { onProductsEnter } from './routers/route_callbacks';
 

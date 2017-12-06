@@ -1,7 +1,7 @@
 import axios from 'axios'
 import jsonpP from 'jsonp-p';
 import replace from 'react-string-replace';
-import * as moduleInfo from '../system/codes/moduleInfo';
+import WcShowcase from "../src/system/codes/moduleInfo";
 
 //import fjsonp from 'fetch-jsonp';
 //import fjp from 'fetch-jsonp';
@@ -20,7 +20,7 @@ var xxx;
 export function getProductsUrl(wcpcs) {
     wcpcs = wcpcs.replace(/\|/g,'&wcpc=')
     wcpcs = wcpcs.replace(/^/g,'wcpc=')
-    let url = 'https://json-preview.webcollage.net/apps/json/' + moduleInfo.siteName + '/method/partner-products-data-by-wcpc?' + wcpcs + '&d=' + moduleInfo.id + '&moduleId=' + moduleInfo.moduleName;
+    let url = 'https://json-preview.webcollage.net/apps/json/' + WcShowcase.siteName + '/method/partner-products-data-by-wcpc?' + wcpcs + '&d=' + WcShowcase.id + '&moduleId=' + WcShowcase.moduleName;
     return url;
 }
 

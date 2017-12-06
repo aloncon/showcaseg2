@@ -1,35 +1,47 @@
-.wcPopupHeader {
-  height: 56px;
-  background-color: #FFFFFF;
-  width: 100%;
-  display: -ms-flexbox;
-  display: flex;
-  background-image: url(http://www.live.netgear.webcollage.net/_wc/partner-defs/cdw/resources/images/slimheader-cbackground-new.jpg);
-  background-repeat: repeat-x;
-  background-position: 0px 0px;
+.wcNavigationVertical {
+  display: none;
 }
-.wcPopupHeader .wcHeaderLogo {
-  width: 50%;
+.wc-popup-header div.wc-logo a img,
+.wc-popup-header div.wc-close a img {
+  border: 0;
 }
-.wcPopupHeader .wcHeaderLogo img.wcLogo {
-  margin-left: 0px;
-  margin-top: 0px;
-  float: left;
-  height: 50px;
-}
-.wcPopupHeader .wcProvidedBy {
-  width: 50%;
-  text-align: right;
-}
-.wcPopupHeader .wcProvidedBy .wcPrefix {
-  color: #000000;
-  font-size: 11px;
-  font-weight: normal;
-  font-family: Verdana;
-}
-.wcPopupHeader .wcProvidedBy .wcVendorName {
-  color: #000000;
-  font-size: 18px;
-  font-weight: bold;
-  font-family: Verdana;
-}
+/* .wcPopupHeader {
+    height: 56px;
+    background-color: #FFFFFF;
+    width: 100%;
+    display: -ms-flexbox;
+    display: flex;
+    
+    background-image: url(http://www.live.netgear.webcollage.net/_wc/partner-defs/cdw/resources/images/slimheader-cbackground-new.jpg);
+    background-repeat: repeat-x;
+    background-position: 0px 0px;
+
+    .wcHeaderLogo{
+        width: 50%;
+
+        img.wcLogo{
+            margin-left: 0px;
+            margin-top: 0px;
+            float: left;
+            height: 50px;
+        }
+    }
+    
+    .wcProvidedBy{
+        width: 50%;
+        text-align: right;
+
+        .wcPrefix{
+            color: #000000;
+            font-size: 11px;
+            font-weight: normal;
+            font-family: Verdana;
+        }
+        .wcVendorName{
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            font-family: Verdana;
+        }
+    }
+} */

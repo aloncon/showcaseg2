@@ -1,8 +1,8 @@
-import moduleInfo from '../moduleInfo';
+import WcShowcase from '../moduleInfo';
 
 const absolutizeSrc= (src) => {
-  let srcBase = moduleInfo.showcaseprefix;
-  let scriptUrl = moduleInfo.scriptsrcbaseurl;
+  let srcBase = WcShowcase.showcasePrefix;
+  let scriptUrl = WcShowcase.scriptsrcbaseurl;
 
   if (!src || src.startsWith('data:') || src.startsWith('http')){
       return src;
