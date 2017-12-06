@@ -18,8 +18,6 @@ const getScriptURL = (function() {
 //TODO: vika: live-->live - I didn`n fine example to such a link
 let environmentId = "dev";
 
-console.log("environmentId", environmentId);
-
 function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('rawgit.com')) {
             console.log('in git!',scriptUrl)
@@ -57,6 +55,8 @@ function getSrcBase(scriptUrl) {
   //localhost  
    return null; 
 }
+
+console.log("environmentId: ", environmentId);
 
 const scriptUrl = getScriptURL();
 console.log('original JS src', scriptUrl);
