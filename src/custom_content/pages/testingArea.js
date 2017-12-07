@@ -5,7 +5,8 @@ import {Wcvg} from '../modules/VideoGallery';
 import '../../system/style/App.css';
 import {WcLink} from '../../system/codes/WcResource'
 import {Button} from 'react-bootstrap'
-import ProductListing from '../../system/codes/ProductListing'  
+//import ProductListing from '../../system/codes/ProductListing'
+import {ProductListing , CategoryList} from '../../system/codes/demo/ProductListingDemo'
 
 
 var featuredTitle = {
@@ -48,8 +49,8 @@ class ShowcaseBody extends React.Component {
       <div>
         <Wcca />
         <h1>TEST:::</h1>
-                <ProductListing type='Carousel'
-                                ids={['carouselTest']} responsive={true} slidesToShow={3}/>        
+              {/*  <ProductListing type='Carousel'
+                                ids={['carouselTest']} responsive={true} slidesToShow={3}/>   */}
         <section>
                 <div>
                   <WcLink href="standalone/index.html" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>Open Standalone</WcLink>
@@ -75,11 +76,17 @@ class ShowcaseBody extends React.Component {
             </div>
 
         </section>
+
+        <ProductListing ids={["Business-Networking-Network-Attached-Storage"]} type="grid"/>
+        <hr/>
+        <CategoryList ids={["Business-Networking-Network-Attached-Storage"]} type="grid"/>
+
       </div>
 
     );
   }
 }
+
 
 
 class ShowcaseApp extends Component {
