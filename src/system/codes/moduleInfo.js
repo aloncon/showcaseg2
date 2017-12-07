@@ -11,7 +11,9 @@ let WcShowcase = {
     scriptsrcbaseurl : moduleInfo.scriptsrcbaseurl,
     presentationName : moduleInfo.presentationName,
     environmentId : moduleInfo.environmentId,
-    isStandalone : window.location.href.indexOf("/standalone/") !==-1 ? true:false
+    isStandalone : window.location.href.indexOf("/standalone/") !==-1 ? true:false,
+    verticalNavigation : true
 }
+WcShowcase.isDev = WcShowcase.environmentId === "localhost" ? true : false; 
 
 export default WcShowcase;

@@ -27,8 +27,11 @@ const MainComp = observer(({ moduledata }) => {
   return (
     <Provider store={store}>
       <HashRouter>
+            
         <div id="wc_showcase_root" className="wcShowcaseRoot">
-
+{console.log("WcShowcase.envio xxx", WcShowcase.environmentId)}
+{console.log("WcShowcase.isDev xxx", WcShowcase.isDev)}
+{!WcShowcase.isDev && <link href="../static/css/main2.css" rel="stylesheet"></link>}    
           {WcShowcase.isStandalone && <StandAlone/>}
 
           <div style={{display: "flex"}}>
