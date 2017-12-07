@@ -57,7 +57,7 @@ function getSrcBase(scriptUrl) {
 
 const scriptUrl = getScriptURL();
 console.log('original JS src', scriptUrl);
-let environmentId="dev";
+let environmentId = 'dev';
 const srcBase = getSrcBase(scriptUrl);
 console.log('environmentId', environmentId);
 console.log('base Src' + srcBase);
