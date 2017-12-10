@@ -1,0 +1,29 @@
+{
+    "module": "adobe",
+    "showcase": true,
+    "partner" : "cdw",
+	"Sections": {			
+        "wc_header": true,
+        "wc_navigation_horizontal": true,
+        "wc_navigation_vertical" : true,
+        "wc_bread_crumbs": true,
+        "wc_footer": true,
+        "wc_all_module_products" : true,
+        "wc_reporting" : true
+    },
+    "Properties":{
+        "box1":false
+    },
+    "Entry":{
+        "mailto":{
+            "title"       :   "Email Software Questions field 3#",
+            "description" :   "Change Email Software Questions field 3#",
+            "group"       :   "adobe-bp-group-custom",
+            "defaultValue":   "mailto:adobeSupperEmailAddress@adobeSupperEmailAddress.com",
+            "value"       :   "angelika.yupatov@webcollage.com"
+        }
+    }
+}
+
+
+

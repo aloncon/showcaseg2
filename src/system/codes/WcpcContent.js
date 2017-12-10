@@ -1,31 +1,50 @@
 import React from 'react';
-import moduleAssortment from'../data/module-profiles/fromProviderCenter.json';
+import get from 'jsonp';
+import mergeJson from './mergeJson'
 
-    //globalWcpcAssortmentList.includes(wcpc) ? children : null
+const partnerDef = mergeJson();
 
-
-export default ({children , wc_section_code, wc_product_code}) => (
-
-    <span>
-       {assortmentCheck(children ,wc_section_code , wc_product_code)}
-    </span>
-)
-
-
-
-const assortmentCheck = (child , wc_section_code, wc_product_code) => {
-    //let flag2 = moduleAssortment.Page_Structure.find(section => section.Id === wc_section_code).Display
-    //console.log("WcContent flag2", flag2);
-    for(let i= 0 ; i < moduleAssortment.Page_Structure.length ; i++){
-        if(moduleAssortment.Page_Structure[i].Id === wc_section_code){
-            let flag = moduleAssortment.Page_Structure[i].Display
-            console.log("WcContent flag", flag);
-            console.log("WcContent flag", wc_section_code);
-            if(flag){
-                return child;
-            }
-            else
-                return null
-        }
+export default ({call, children}) => {
+    let answer= {};
+    if(call == "section"){
+        answer = displaySections();
+        return answer;
     }
+    else if(call == "entry"){
+        answer = entryConfig();
+        return answer;
+    }
+    else{ 
+       return(propertiesConfig(call,children)) 
+    }
+}
+
+function propertiesConfig(call,children){
+    if(partnerDef.Properties[call] ){
+        return (<span>
+                    {children}
+                </span>)
+    }
+    else{
+        return (<span>{null}</span>);
+    }
+}
+
+function entryConfig(){
+    return {
+        "entry": partnerDef.Entry
+    }
+}
+
+function displaySections (){
+    let sections = {
+        "showcase" : partnerDef.showcase,
+        "displayHeader" : partnerDef.Sections.wc_header,
+        "displayNavigationHorizontal":partnerDef.Sections.wc_navigation_horizontal,
+        "displayNavigationVertical":partnerDef.Sections.wc_navigation_vertical,
+        "displayBreadcrumbs": partnerDef.Sections.wc_bread_crumbs,
+        "displayFooter": partnerDef.Sections.wc_footer,
+        "displayWithoutAssortment" : partnerDef.Sections.wc_all_module_products
+    }
+    return sections;
 }

@@ -1,9 +1,10 @@
 
 import jsonpP from 'jsonp-p'
+import {displayWithoutAssortment} from '../system/codes/moduleInfo'
 
 let apiKey = "rgzr9bdktsbm3d6qy8ppdevb";
 let url = "http://api.walmartlabs.com/v1/items?"
-let allA = false; // <--- should get from another component -- don't leave it  "true" nor "false"
+
 
 class Api{
     splitRequsts(wcpcs){
@@ -39,7 +40,7 @@ class Api{
     // and only after will get all the
     // responds he need he will send back one promise with the result
     getListOfVerifyWcpcs = (wcpcs) =>{
-        if(!allA){
+        if(!displayWithoutAssortment){
 
             let allWcpcsVerify = [];
             let splitWcpcs = wcpcs.split(",")
