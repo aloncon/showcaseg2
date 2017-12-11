@@ -10,13 +10,11 @@ class ShowcaseFooter extends Component{
     let footerStyle = {backgroundColor : configuration.footerDetails.backgroundColor};
     let imgSrc = configuration.footerDetails.imgProvidedBy;
     return(
-      <span>
             <div className="wcFooter" style={footerStyle}>
                 <div className="wcPoweredBy" >
                   <WcImg alt="Powered by Webcollage" src={imgSrc} title="Powered by Webcollage"/>
                 </div>
             </div>
-      </span>
     );
   }
 }

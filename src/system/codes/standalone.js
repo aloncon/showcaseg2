@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import '../system/style/standalone.css';
-
-import WcShowcase from '../system/codes/moduleInfo';
+import WcShowcase from '../codes/moduleInfo';
 
 export default class StandAlone extends Component{
   render() {
-    return(
-      <div>
 
-<span id="wc-reset">
+    
+    let siteName = 'allasortment';
+
+    if(WcShowcase.siteName != undefined){
+      siteName = WcShowcase.siteName;
+    }
+
+    let partnerDefsLink = 'https://scontent.webcollage.net/partner-defs/css?partner-id='+ siteName +'&showcase-format=popup&origin=showcase~MarkupType!document!PresentationFormat!html,';
+
+
+    return(
+    <span id="wc-reset">
 
 {/* Link to Partner Defs styles */}
-<link rel="stylesheet" href="https://scontent.webcollage.net/partner-defs/css?partner-id=buycom&showcase-format=popup&origin=showcase~MarkupType!document!PresentationFormat!html,"/>
 
-{/* <link rel="stylesheet" href="http://www.test.netgear.webcollage.net/server/cdw/netgear-showcase/css?ws-action=http://www.test.netgear.webcollage.net/partner-defs/css?partner-id%3dcdw%26showcase-format%3dpopup%26origin%3dshowcase~MarkupType!document!PresentationFormat!html,"/> */}
+<link rel="stylesheet" href={partnerDefsLink}/>
 
   <table cellPadding="0" cellSpacing="0" className="wc-popup-header">
     <tbody>
@@ -40,21 +46,6 @@ export default class StandAlone extends Component{
     </tbody>
   </table>
 </span>
-
-       {/*  <div className="wcPopupHeader">
-          <div className="wcHeaderLogo">
-             <WcImg src={logo} className="wcLogo"/>
-          </div>
-          <div className="wcProvidedBy">
-                <a href="">
-                  <span className="wcText">Close Window</span>
-                </a>
-             <br/>
-             <span className="wcPrefix">Provided by </span>
-             <span className="wcVendorName">{moduleName}</span>
-          </div>
-        </div> */}
-      </div>
     );
   }
 }
