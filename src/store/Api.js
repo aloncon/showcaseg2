@@ -1,5 +1,6 @@
 
 import jsonpP from 'jsonp-p'
+import {displayWithoutAssortment} from '../system/codes/moduleInfo'
 
 //https://json-preview.wcvlab.net/apps/json/quill/method/partner-products-data-by-wcpc?wcpc=142685906755211&moduleId=keurig&product-details=true 
 
