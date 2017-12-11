@@ -12,7 +12,7 @@
         "wc_reporting" : true
     },
     "Properties":{
-        "box1":false
+        "box1":true
     },
     "Entry":{
         "mailto":{
