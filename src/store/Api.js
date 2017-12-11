@@ -1,38 +1,15 @@
 
 import jsonpP from 'jsonp-p'
 
-let apiKey = "rgzr9bdktsbm3d6qy8ppdevb";
-let url = "http://api.walmartlabs.com/v1/items?"
+//https://json-preview.wcvlab.net/apps/json/quill/method/partner-products-data-by-wcpc?wcpc=142685906755211&moduleId=keurig&product-details=true 
+
+let moduleName = "xerox"
+let partnerName = "cdw"
+let apiKey = `moduleId=${moduleName}&product-details=true`
+let url = `https://json-preview.wcvlab.net/apps/json/${partnerName}/method/partner-products-data-by-wcpc?`
 let allA = false; // <--- should get from another component -- don't leave it  "true" nor "false"
 
 class Api{
-    splitRequsts(wcpcs){
-        let config = {
-            param: 'callback',
-            timeout: 15000,
-            prefix: '__jp'
-        }
-        return new Promise((resolve,reject)=>{
-            
-            
-                            let request = url+"ids="+wcpcs+"&apiKey="+apiKey;
-                            let response; 
-                            jsonpP(request,config).promise
-                            .then(result =>{
-                                if(result.items){
-                                    response = result.items.map(item => {return item.itemId});
-                                    resolve(response);
-                                }
-                                else resolve({err:`Error Cant Fetch Data, message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}`});
-                                    
-                            })
-                            .catch((err) => {
-                                reject(`ErrorMsg ${err}`); 
-                            })
-                
-                        })
-    }
-
     // main function of the class 
     // first check if needed to go to service api for JSON result (or allassortment is allow)
     // after in case there is more then 25 wcpcs it will split them for several request (by using function 'splitRequsts')
@@ -40,43 +17,32 @@ class Api{
     // responds he need he will send back one promise with the result
     getListOfVerifyWcpcs = (wcpcs) =>{
         if(!allA){
-
-            let allWcpcsVerify = [];
-            let splitWcpcs = wcpcs.split(",")
-            if(splitWcpcs.length > 25){
-                let wcpcList = "";
-                splitWcpcs.forEach((wcpc , i) => {
-                    if((i+1)%26 != 0 && (i+1)<splitWcpcs.length)
-                        wcpcList+=wcpc+","
-                    else{
-                        wcpcList+=wcpc;
-                        allWcpcsVerify.push(
-                            new Promise((resolve,reject)=>{
-                                this.splitRequsts(wcpcList)
-                                .then(result => {
-                                    resolve(result)
-                                })
-                                .catch(err => reject(err))
-                            })
-                        )
-                        wcpcList = "";
-                    }
-                        
-                })
-
-                return Promise.all(allWcpcsVerify)
-                .then(result => {
-                    let merged = [].concat.apply([], result);
-                    return new Promise( res=> { res(merged) } )
-                })
+            let config = {
+                param: 'callback',
+                timeout: 15000,
+                prefix: '__jp'
             }
-            else{
-                return new Promise((resolve,reject)=>{
-                    this.splitRequsts(wcpcs)
-                    .then( result =>  { resolve(result) } )
-                    .catch( err => reject(err) )
+            return new Promise((resolve,reject)=>{
+                    wcpcs=wcpcs.split(",");
+                    let fixWcpcs="";  
+                    wcpcs.map(wcpc => fixWcpcs+="wcpc="+wcpc+"&")
+                    let request = url+fixWcpcs+apiKey;
+                    let response; 
+                    jsonpP(request,config).promise
+                    .then(result =>{
+                        let partnerKey = Object.keys(result)
+                        let keys = Object.keys(result[partnerKey])
+                        if(Boolean(keys.length)){
+                            resolve(keys);
+                        }
+                        else reject({err:`message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}`});
+                            
+                    })
+                    .catch((err) => {
+                        reject(`ErrorMsg ${err}`); 
+                    })
+        
                 })
-            }
         }
         else{
             
