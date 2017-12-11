@@ -1,6 +1,7 @@
 import WcShowcase from '../moduleInfo';
 
 const absolutizeSrc= (src) => {
+  
   let srcBase = WcShowcase.showcasePrefix;
   let scriptUrl = WcShowcase.scriptsrcbaseurl;
 
@@ -13,7 +14,7 @@ const absolutizeSrc= (src) => {
   }
 
   if (scriptUrl.includes('localhost') ){
-      return srcBase+src;
+      return srcBase+src.replace(/./, '');
   }
 
   return `${srcBase}${src}`;
