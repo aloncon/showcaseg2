@@ -19,29 +19,29 @@ import './system/style/index.css';
 import configuration from './custom_content/configuration';
 //const css = require('./App.css');
 
-import ModuleNavigationVertical from './custom_content/modules/ModuleNavigationVertical';
-import WcShowcase from "../src/system/codes/moduleInfo";
+import AssortedVerticalNavigation from './system/codes/AssortedVerticalNavigation';
+import WcShowcase from '../src/system/codes/moduleInfo';
 
 const MainComp = observer(({ configurationData }) => {
-
   return (
     <Provider store={store}>
       <HashRouter>
-            
         <div id="wc_showcase_root" className="wcShowcaseRoot">
-{console.log("WcShowcase.envio xxx", WcShowcase.environmentId)}
-{console.log("WcShowcase.isDev xxx", WcShowcase.isDev)}
-{!WcShowcase.isDev && <link href="../static/css/main2.css" rel="stylesheet"></link>}    
-          {WcShowcase.isStandalone && <StandAlone/>}
+          {/* style={{ border: '5px dotted red' }} */}
+          {console.log('WcShowcase.envio xxx', WcShowcase.environmentId)}
+          {console.log('WcShowcase.isDev xxx', WcShowcase.isDev)}
+          {!WcShowcase.isDev && <link href="../static/css/main2.css" rel="stylesheet"></link>}
+          {WcShowcase.isStandalone && <StandAlone />}
 
-          <div style={{display: "flex"}}>
-          <ModuleNavigationVertical />
-            <div className="wcContainer">
+          <div style={{ display: "flex" }}>
+            <AssortedVerticalNavigation />
+            <div className={`wcContainer ${WcShowcase.displayVerticalNavigation ? 'wcContainerSmallerVerticalNav' : 'wcContainerFull'}`}>
               {configurationData.staticRoutes.routesDetails.find( ( field ) => field.path === '/EndpointManagement').title}
+
               <ShowcaseHeader />
               <ModuleNavBreadcrumbsRoute />
               <hr />
-               <ShowcaseFooter />
+              <ShowcaseFooter />
               <basePath />
             </div>
           </div>
