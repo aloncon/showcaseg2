@@ -19,13 +19,15 @@ function getDuration(url){
         let videoElement = document.createElement('video');
             videoElement.src = url;
             videoElement.preload = 'metadata';
-            videoElement.onloadedmetadata = setTimeout(function() {
-                window.URL.revokeObjectURL(videoElement.src);
-                let  durationVideo = videoElement.duration;
-                resolve(videoElement.duration)
-            },500)
-            
-            
+            let waitToDuration = setInterval(()=>{
+            console.log("videoElement.readyState",videoElement.readyState);
+                if(videoElement.readyState > 0){
+                    window.URL.revokeObjectURL(videoElement.src);
+                    let  durationVideo = videoElement.duration;
+                    resolve(videoElement.duration)
+                    clearInterval(waitToDuration);
+                }
+            },200)
             
     })
 }
