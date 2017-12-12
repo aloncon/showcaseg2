@@ -1,0 +1,54 @@
+[
+    {
+        "caption":"Unmanaged Switch",
+        "id":"Business-Networking-Unmanaged-Switch",
+        "wcpcs": "106R01294,106R01316,106R01317,106R01318,106R01319,106R01320,106R01321,106R01322,106R01433,106R01434,106R01435,106R01436,106R01437,106R01438,106R01439,106R01485,106R01486,106R01503,106R01504,106R01505,106R01506,106R01507,106R01508,106R01509,106R01510,106R01533,106R01535,106R01563,106R01564,106R01565,106R01566,106R01567,106R01568,106R01569,106R02305,106R02307,106R02309,106R02311"
+        
+    },
+    {
+        "caption":"Smart Managed Switch",
+        "id":"Business-Networking-Smart-Managed-Switch",
+        "wcpcs": "106R02313,106R02599,106R02600,106R02601,106R02602,106R02603,106R02604,106R02605,106R02720,106R02722,106R02731,106R02736,106R02738,106R02740,106R02744,106R02745,106R02746,106R02747,106R02756,106R02757,106R02758,106R02759,3453,106R02775,106R02777,108R00793,108R00795,108R00950,108R00951,108R00952,108R00953,108R00990,108R00991,108R00992,108R00993,108R00994,108R01014,108R01015"        
+    },
+    {
+        "caption":"Smart Managed Pro Switch",
+        "id":"Business-Networking-Smart-Managed-Pro-Switch",
+        "wcpcs": "108R01016,108R01017,100,109R00731,113R00670"
+    },
+    {
+        "caption":"Access Point",
+        "id":"Business-Networking-Access-Point",
+        "wcpcs": "50,51,55,1377023287175,1377023370026,1379006320027,1409426863230,1409426926691,1409426970480,1409762983353,1409763035239,1409763081633,1409763124003,1412084178055,1412084215539,1412084251148,1412084299367,1422975800759,1422975844034,1430310958199,1430311182277,1430311314363,1430311472391,1430311721726,1430311811988,1430311912171,1430311989860,1430312143801,1430312306400,1430312367318,1430312432542,1430312567373,1430312637682,1430314864461,1430315289063"        
+    },
+    {
+        "caption":"Network Attached Storage",
+        "id":"Business-Networking-Network-Attached-Storage",
+        "wcpcs": "gs108t-200,jfs524,0,2"
+    },
+    {
+        "caption":"Router",
+        "id":"Home-Networking-Router",
+        "wcpcs": "gs105"
+    },
+    {
+        "caption":"Orbi",
+        "id":"Home-Networking-Orbi",
+        "wcpcs": "ptv2000,1363738038309,1445626170301,546546546"
+    },
+    {
+        "caption":"Network Attached Storage",
+        "id":"Home-Networking-Network-Attached-Storage",
+        "wcpcs": "ptv2000"
+    },
+    {
+        "caption":"Arlo Security System",
+        "id":"Security-and-Surveillance-Arlo-Security-System",
+        "wcpcs": "r6300"
+    },
+    {
+        "caption":"Orbi",
+        "id":"WiFi-Systems-Orbi",
+        "wcpcs": "1445626170301,1363738038309,ptv2000,1363738038309"
+    }
+]
+

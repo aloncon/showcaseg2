@@ -192,7 +192,7 @@ configuration.staticRoutes.getChildren = (parentPath) => {
  * Get all the root routes.
  */
 configuration.staticRoutes.getRootRoutes = () => {
-  return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeTest(route.name));
+  return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeTest(route.name) && route.path !== '/');
 }
 
 export default configuration;

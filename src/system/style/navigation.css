@@ -1,15 +1,15 @@
-/* Horizontal Navigation */
-nav.wcHorizontalNav .dropdown-submenu {
+/* Horizontal Navigation*/
+nav.wcHorizontalNav .wcDropdownSubMenu {
   position: relative;
 }
-nav.wcHorizontalNav .dropdown-submenu > .dropdown-menu {
+nav.wcHorizontalNav .wcDropdownSubMenu > .dropdown-menu {
   top: 0;
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
   border-radius: 0 6px 6px 6px;
 }
-nav.wcHorizontalNav .dropdown-submenu > a:after {
+nav.wcHorizontalNav .wcDropdownSubMenu > a:after {
   display: block;
   content: ' ';
   float: right;
@@ -22,18 +22,26 @@ nav.wcHorizontalNav .dropdown-submenu > a:after {
   margin-top: 5px;
   margin-right: -10px;
 }
-nav.wcHorizontalNav .dropdown-submenu.open {
+nav.wcHorizontalNav .navbar-nav > li > .dropdown-menu {
+  border-radius: 0 6px 6px 6px;
+}
+nav.wcHorizontalNav .wcDropdownSubMenu.open {
   border-left-color: #fff;
 }
-nav.wcHorizontalNav .dropdown-submenu.open > .dropdown-menu {
+nav.wcHorizontalNav .wcDropdownSubMenu.open > .dropdown-menu {
   display: block;
 }
 /* Vertical Navigation*/
+@media screen and (max-width: 641px) {
+  div.wcNavigationVertical {
+    display: none;
+  }
+}
 div.wcNavigationVertical {
   border: 1px solid #c8c8c8;
   margin-right: 5px;
-  max-width: 179px;
-  min-width: 120px;
+  width: 20%;
+  height: 100%;
 }
 div.wcNavigationVertical ul {
   padding: 11px 4px 0 11px;

@@ -5,8 +5,6 @@ import {Wcvg} from '../modules/VideoGallery';
 import '../../system/style/App.css';
 import {WcLink} from '../../system/codes/WcResource'
 import {Button} from 'react-bootstrap'
-//import ProductListing from '../../system/codes/ProductListing'
-import {ProductListing , CategoryList} from '../../system/codes/demo/ProductListingDemo'
 
 
 var featuredTitle = {
@@ -77,9 +75,6 @@ class ShowcaseBody extends React.Component {
 
         </section>
 
-        <ProductListing ids={["Business-Networking-Network-Attached-Storage"]} type="grid"/>
-        <hr/>
-        <CategoryList ids={["Business-Networking-Network-Attached-Storage"]} type="grid"/>
 
       </div>
 

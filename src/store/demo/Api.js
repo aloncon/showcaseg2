@@ -3,8 +3,8 @@ import jsonpP from 'jsonp-p'
 
 //https://json-preview.wcvlab.net/apps/json/quill/method/partner-products-data-by-wcpc?wcpc=142685906755211&moduleId=keurig&product-details=true 
 
-let moduleName = "netgear"
-let partnerName = "adorama"
+let moduleName = "xerox"
+let partnerName = "cdw"
 let apiKey = `moduleId=${moduleName}&product-details=true`
 let url = `https://json-preview.wcvlab.net/apps/json/${partnerName}/method/partner-products-data-by-wcpc?`
 let allA = false; // <--- should get from another component -- don't leave it  "true" nor "false"

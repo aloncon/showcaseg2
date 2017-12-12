@@ -1,18 +1,14 @@
 import { observable, action } from 'mobx'
-import VendorCategoryData from '../../system/data/demo/vendor-category-data.json'
-import VendorData from '../../system/data/demo/vendor-data.json'
-import api from './Api'
+import VendorCategoryData from '../../../system/data/demo/v2/vendor-category-data-v2.json'
+import VendorData from '../../../system/data/demo/v2/vendor-data-v2.json'
+import api from './ApiV2'
 import jsonpP from 'jsonp-p';
-
 
 const ProductStore = (id) =>{
     const store = observable({
         id : id,
+        caption : null,
         products : [],
-        isValid(){
-            if(store.products.length > 0)
-                return true;
-        }
     })
     
     
@@ -24,7 +20,7 @@ const ProductStore = (id) =>{
     /***********************************************************************/
     
     api.getListOfVerifyWcpcs(wcpcs)
-    .then(wcpcs => store.products = wcpcs)
+    .then(wcpcs =>{ store.products = wcpcs ;  store.caption = _vendorCategoryData.caption})
     .catch(err => console.log("No Data Fatch",err))
     
      
@@ -33,37 +29,50 @@ const ProductStore = (id) =>{
 
 }
 
-const allIdsStore = observable({
-    allIds : new Map(),
+class allIdsStore{
+    constructor(){
+        this.allIds = new Map()
+        console.log("VendorData",VendorData)
+    }
+    
     setId(id){
         if(!this.allIds.has(id)){
             this.allIds.set(id,new ProductStore(id))
         }
-    },
+    }
+
     getId(id){
         if(!this.allIds.has(id)){
             this.setId(id)
         }
-        //else console.log("ID Exist")
+        else console.log("ID Exist")
         let idData = this.allIds.get(id);
         return this.allIds.get(id)
     }
-})
+}
 
-//let _allIdsStore = new allIdsStore;
+let _allIdsStore = new allIdsStore();
 
-const ListingStore = (...id) =>{
+const ListingStore = (id , type) =>{
     const store = observable({
-            isProcessing : false,
-            idListing : allIdsStore.getId(id.toString()),
+            isDisplay : true,
+            type : type,
+            idListing : _allIdsStore.getId(id.toString()),
             get data(){
-                return  store.idListing.products ? VendorData.filter(item=> store.idListing.products.includes(item.wcpc)) : null
+                return  store.idListing.products ? VendorData.products.filter(item=> store.idListing.products.includes(item.wcpc)) : null
+            },
+            changeDisplay(){
+                console.log("Display",store.isDisplay)
+                store.isDisplay = !store.isDisplay;
+                
+            },
+            setType(_type){
+                store.type = _type;
             }
 
     })
     return store
 }
-
 
 
 export default ListingStore;
