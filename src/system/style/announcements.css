@@ -67,7 +67,7 @@
   float: right;
   width: 16px;
   height: 16px;
-  background-image: url('../resources/announcement/prev.png');
+  background-image: url("../resources/announcement/prev.png");
 }
 .wcAnnounceUl li .wcAnnouncePrev:focus {
   outline: none;
@@ -87,7 +87,7 @@
   float: right;
   width: 16px;
   height: 16px;
-  background-image: url('../resources/announcement/next.png');
+  background-image: url("../resources/announcement/next.png");
 }
 .wcAnnounceUl li .wcAnnounceNext:focus {
   outline: none;
@@ -95,7 +95,7 @@
 .wcAnnounceUl li .wcAnnounceItemNum {
   width: 23px;
   height: 23px;
-  background-image: url('../resources/announcement/control-bar.png');
+  background-image: url("../resources/announcement/control-bar.png");
 }
 .wcAnnounceUl li .wcAnnounce9 {
   background-position: 80% 0;

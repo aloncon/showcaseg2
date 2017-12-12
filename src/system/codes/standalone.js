@@ -5,7 +5,6 @@ import WcShowcase from '../codes/moduleInfo';
 export default class StandAlone extends Component{
   render() {
 
-    
     let siteName = 'allasortment';
 
     if(WcShowcase.siteName != undefined){

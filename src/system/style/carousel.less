@@ -1,3 +1,4 @@
+@imagesDir: "../resources/carousel/";
 /* USER CAROUSEL CLASSES */
 
 //Horizontal Carousel
@@ -39,12 +40,12 @@
 	
 		a.wcDisabled {
 			div.wcLeft {
-				background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
+				background: url('@{imagesDir}listing-carousel-sprite.png') no-repeat !important;
 				background-position: -90px 0 !important;
 				cursor: default !important;
 			}
 			div.wcRight {
-				background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
+				background: url('@{imagesDir}listing-carousel-sprite.png') no-repeat !important;
 				background-position: -90px -30px !important;
 				cursor: default !important;
 			}
@@ -147,11 +148,11 @@
 		}
 	}
 	button.wcPrev {
-		background: url('../resources/carousel/vertical-previous.jpg') no-repeat !important;
+		background: url('@{imagesDir}vertical-previous.jpg') no-repeat !important;
 		vertical-align: bottom;
 	}
 	button.wcNext {
-		background: url('../resources/carousel/vertical-next.jpg') no-repeat !important;
+		background: url('@{imagesDir}vertical-next.jpg') no-repeat !important;
 	}
 
 	.wcCarouselSliderContainerVertical {

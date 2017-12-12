@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Sofia";
-
+@imagesDir: "../resources/announcement/";
 /*********************************!!!Announcement!!!************************************/
 .wcVideoSlideContainer {
 	display: flex;
@@ -60,18 +60,17 @@
 
     .wcAnnouncePrev {
 		.wcAnnounceArrow;
-		background-image: url('../resources/announcement/prev.png');
+		background-image: url("@{imagesDir}prev.png");
 	}
 	.wcAnnounceNext {
         .wcAnnounceArrow;
-		background-image: url('../resources/announcement/next.png');
+		background-image: url("@{imagesDir}next.png");
 	}
 	.wcAnnounceItemNum {
 		width: 23px;
 		height: 23px;
-		background-image: url('../resources/announcement/control-bar.png');
+		background-image: url("@{imagesDir}control-bar.png");
 	}
-	
 	
 	//Announcements Positioning Loop
 	.AnnouncementsPositionLoop (1) {}
@@ -85,14 +84,12 @@
 	  .wcAnnounce@{index}Active {
 		background-position: (@index - 1)*10% 100%;
 	  }
-	  .AnnouncementsPositionLoop (@index - 1);
+	  .AnnouncementsPositionLoop(@index - 1);
 	}
 	.AnnouncementsPositionLoop(9);
 	//Announcements Positioning Loop end
-
 }
 }
-
 
 .wcAnnounceLink {
 	text-decoration: none;
