@@ -1,10 +1,11 @@
 import React from 'react';
 import get from 'jsonp';
 import mergeJson from './mergeJson'
+import ShoulDisplay from './lisit/ShouldDisplay'
 
 const partnerDef = mergeJson();
 
-export default ({call, children}) => {
+export default ({call, children,ids}) => {
     let answer= {};
     if(call == "section"){
         answer = displaySections();
@@ -15,14 +16,15 @@ export default ({call, children}) => {
         return answer;
     }
     else{ 
-       return(propertiesConfig(call,children)) 
+       return(propertiesConfig(call,children,ids)) 
     }
 }
 
-function propertiesConfig(call,children){
-    if(partnerDef.Properties[call] ){
+function propertiesConfig(call,children,ids){
+    let content  = ids ? <ShoulDisplay ids={ids}> {children} </ShoulDisplay> : children
+    if(partnerDef.Properties[call] || ids){
         return (<span>
-                    {children}
+                   {content}
                 </span>)
     }
     else{
