@@ -14,7 +14,7 @@ const ProductListingObserver = observer(({ store: {idListing, isDisplay , data ,
     let change = changeDisplay;
     let _isDisplay = isDisplay
     let classButtonName  = _isDisplay ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus"
-
+    console.log("ttt" , content.length , idListing.caption)
     let { isSubCategory , viewChange } = settings  
 
     let _viewChangeHeader = viewChange ? <ChangeView type={type} ids={[id]} callBack={setType}/> : null
@@ -50,10 +50,9 @@ class ProductListing extends React.Component{
      render(){
             const { ids , type="wide" , isSubCategory} = this.props
             let { viewChange } = this.props
-            viewChange= (viewChange==undefined) ? true : viewChange
-            console.log("viewChange",viewChange)
+            viewChange = (viewChange==undefined) ? false : viewChange
             const settings = {ids , type , isSubCategory , viewChange}
-
+            console.log("ttt ids",ids)
             return  <div>
                         {settings.ids.map((id , i)=><ProductListingObserver key={i} store={Store(id , type)} orderNumber={i} settings={settings} id={id} />)}
                     </div>

@@ -9,19 +9,39 @@ const ProductStore = (id) =>{
         id : id,
         caption : null,
         products : [],
+        
     })
     
     
     let _vendorCategoryData = VendorCategoryData.filter(item => item.id == id)[0];
     let wcpcs = _vendorCategoryData.wcpcs;
+    store.caption = _vendorCategoryData.caption
 
-    /***********************************************************************/
-    /* need to apply logic of limited products to send to api (iterative) */
-    /***********************************************************************/
     
-    api.getListOfVerifyWcpcs(wcpcs)
-    .then(wcpcs =>{ store.products = wcpcs ;  store.caption = _vendorCategoryData.caption})
-    .catch(err => console.log("No Data Fatch",err))
+    wcpcs = wcpcs.split(",")
+    let wcpcLength = wcpcs.length
+    let subWcpcs;
+
+    while(wcpcLength > 0){
+
+        if(wcpcLength > 15){
+            subWcpcs = wcpcs.slice(0,15)
+            wcpcs = wcpcs.slice(15)
+        }
+        else subWcpcs = wcpcs;
+
+        wcpcLength-=15;
+
+        api.getListOfVerifyWcpcs(subWcpcs)
+        .then(wcpcs => store.products = store.products.concat(wcpcs))
+        .catch(err => console.log("No Data Fatch",err))
+        
+    }
+
+    
+    // api.getListOfVerifyWcpcs(wcpcs)
+    // .then(wcpcs =>{ store.products = wcpcs ;  store.caption = _vendorCategoryData.caption})
+    // .catch(err => console.log("No Data Fatch",err))
     
      
 
@@ -32,7 +52,6 @@ const ProductStore = (id) =>{
 class allIdsStore{
     constructor(){
         this.allIds = new Map()
-        console.log("VendorData",VendorData)
     }
     
     setId(id){

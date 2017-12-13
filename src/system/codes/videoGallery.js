@@ -33,35 +33,26 @@ function getDuration(url){
 }
 function getVideoDuration(videosTemp){
         let videos = videosTemp;
-       return new Promise((resolve,reject) => {
-                let list = [];
-                let length = videos.length;
-                videos.forEach((video,i) => {
+        console.log("videos",videos)
+        let temp = []
+        return new Promise(res=>{
+            videos.forEach(video => {
+                temp.push(new Promise(resolve => {
                     let videoPoster = video.videoPoster;
                     let videoDuration;
                     let videoSrc = absolutizeSrc(video.videoSrc);
                     let videoTitle = video.videoTitle;
                     getDuration(videoSrc)
                     .then(result => {
-                        console.log("LENGTHasdasdasd" + length);
-                        list.push({duration : result ,poster : videoPoster, src : videoSrc, title : videoTitle});
-                        length--;
-                    }).then(()=>{
-                        if(length==0){
-                            resolve(list);  
-                        }    
-                            
+                        resolve({duration : result ,poster : videoPoster, src : videoSrc, title : videoTitle});
                     })
+                }))
             })
-           
-        
-       }) 
+    
+            Promise.all(temp).then(result => {res (result)})
+        })
  
 }
-
-// function secondsToTime(time){
-//     return ~(time/60) + ":" + (time%60<10 ? "0" : "") + time %60;
-// }
 
 
 export default class Wcvg extends Component {

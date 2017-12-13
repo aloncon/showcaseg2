@@ -24,7 +24,7 @@ class Api{
                 prefix: '__jp'
             }
             return new Promise((resolve,reject)=>{
-                    wcpcs=wcpcs.split(",");
+                    //wcpcs=wcpcs.split(",");
                     let fixWcpcs="";  
                     wcpcs.map(wcpc => fixWcpcs+="wcpc="+wcpc+"&")
                     let request = url+fixWcpcs+apiKey;
