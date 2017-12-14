@@ -48,7 +48,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cd build\\static\\js && copy main.*.js main.js && cd ..\\css && copy main.*.css main.css",
+    "build": "react-scripts build && cd build\\static\\js && copy main.*.js main.js && cd ..\\css && copy main.*.css main.css && copy main.*.css main.inner.css",
     "test": "react-scripts test --env=jsdom",
     "getData": "cd ..\\nodeService && node index.js xerox",
     "eject": "react-scripts eject"

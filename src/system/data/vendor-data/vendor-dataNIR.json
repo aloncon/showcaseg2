@@ -1,0 +1,119 @@
+[
+    {
+        "wcpc"              : 369677640,
+        "type"              : "product",
+        "vendorProductName" : "8-Port Gigabit Ethernet Unmanaged Switch (GS108)",
+        "listDescription"   : "The NETGEAR Gigabit Unmanaged Switch series helps businesses cost-effectively expand their network to Gigabit speeds and higher port counts.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/gs10875px.jpg"
+    
+    },
+    {
+        "wcpc"              : 12417832,
+        "type"              : "product",
+        "vendorProductName" : "5-Port with 4-Port PoE Gigabit Ethernet Unmanaged Switch (GS305P)",
+        "listDescription"   : "The GS305P with Power-over-Ethernet (PoE) provides power and data from a single Ethernet (CAT-5) cable to devices such as IP cameras, VoIP/Internet-based phones, wireless access points, etc.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/149548733778275px.png"
+    
+    },
+    {
+        "wcpc"              : 107,
+        "type"              : "product",
+        "vendorProductName" : "48-Port Gigabit Ethernet Rackmount Network Business Essentials Switch (GS348)",
+        "listDescription"   : "NETGEAR GS348 Gigabit Ethernet Unmanaged Switch provides easy, reliable, and affordable network connectivity for home and small offices",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/149548771573975px.png"
+    
+    },
+    {
+        "wcpc"              : 631,
+        "type"              : "product",
+        "vendorProductName" : "8-Port PoE+ Gigabit Ethernet Smart Managed Switch (GS510TLP)",
+        "listDescription"   : "The GS510TLP 8-Port Gigabit Smart Managed Switch with PoE+ and 2 SFP Ports joins the NETGEAR Standalone Smart Managed Switches family, adding full 8 port PoE+ support for deployment of modern high-power PoE devices.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/149282082729275px.png"
+    
+    },
+    {
+        "wcpc"              : 632,
+        "type"              : "product",
+        "vendorProductName" : "48-Port 10-Gigabit Smart Managed Pro Switch (XS748T)",
+        "listDescription"   : "The 10G Smart Managed Switches provide comprehensive L2+/Layer 3 Lite features in order to meet current and future needs on virtualization, converged networking and mobility.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/146073523522275px.png"
+        
+    },
+    {
+        "wcpc"              : 635,
+        "type"              : "product",
+        "vendorProductName" : "AC WiFi Business Access Point with NETGEAR Insight app (WAC510)",
+        "listDescription"   : "The NETGEAR AC WiFi Business Access Point WAC510 delivers high performance with high client density for enterprises requiring ubiquitous and reliable wireless for all business applications.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/148295034729475px.png"
+    },
+    {
+        "wcpc"              : 637,
+        "type"              : "product",
+        "vendorProductName" : "ReadyNAS 2-bay Network Attached Storage (RN42200)",
+        "listDescription"   : "ReadyNAS 422 enables all the features a smart and modern business is looking for in a single, compact solution: file storage, file sharing, automatic on-premise, off-premise or cloud backup and recovery and full data protection.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/148294978538175px.png"
+    },
+    {
+        "wcpc"              : 638,
+        "type"              : "product",
+        "vendorProductName" : "ReadyNAS 6-Bay Network Attached Storage 2x10GbE (RN526X00)",
+        "listDescription"   : "The high-end, high performance NAS based on Intel Dual Core Server Processor has built-in dual 10Gig Ethernet ports and is the ideal professional desktop NAS system for small and medium size businesses.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/147032637212875px.png"
+    },
+    {
+        "wcpc"              : 1411,
+        "type"              : "product",
+        "vendorProductName" : "ReadyNAS 6-Bay Network Attached Storage 2x10GbE + 2x1GbE (RN626X00)",
+        "listDescription"   : "ReadyNAS 626X delivers up to 20Gigabit per second throughput for file serving, offers backup, disaster recovery, and cloud options. It is the best-of-breed solution for modern small businesses.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/147136583211675px.png"
+    
+    },
+    {
+        "wcpc"              : 1412,
+        "type"              : "product",
+        "vendorProductName" : "ReadyNAS 12-Bay Network Attached Storage 2x10Gbase-T 2U Rackmount (RR4312X0)",
+        "listDescription"   : "ReadyNAS 12-Bay Network Attached Storage 2x10Gbase-T 2U Rackmount (RR4312X0)",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/147136977622475px.png"
+    
+    },
+    {
+        "wcpc"              : 1437,
+        "type"              : "product",
+        "vendorProductName" : "Nighthawk X10 – AD7200 802.11ac/ad MU-MIMO with Plex Media Server (R9000)",
+        "listDescription"   : "Nighthawk X10 AD7200 is one of industry’s fastest router for media streaming with Plex media server. With 802.11ac and 802.11ad WiFi technology, the X10 delivers ultra-smooth 4K streaming, VR gaming and instant downloads.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/147682504214975px.png"
+    
+    },
+    {
+        "wcpc"              : 1451,
+        "type"              : "product",
+        "vendorProductName" : "Orbi Home WiFi System: AC2200 Tri-Band. Up to 3,500sqft of WiFi Coverage (RBK30)",
+        "listDescription"   : "From your front door to your patio, get super strong WiFi in every inch of your home. This WiFi Systems provides up to 3,500 square feet of coverage.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/149063326145575px.jpg"
+    
+    },
+    {
+        "wcpc"              : 1453,
+        "type"              : "product",
+        "vendorProductName" : "Orbi Home WiFi System: AC2200 Tri-Band. Up to 4,000sqft of WiFi Coverage (RBK40)",
+        "listDescription"   : "From your front door to your patio, get super strong WiFi in every inch of your home. This WiFi Systems provides up to 4,000 square feet of coverage.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/149063350721875px.jpg"
+
+    },
+    {
+        "wcpc"              : 1479,
+        "type"              : "product",
+        "vendorProductName" : "Orbi Home WiFi System: AC3000 Tri-Band. Up to 5,000sqft of WiFi Coverage (RBK50)",
+        "listDescription"   : "From your front door to your patio, get super strong WiFi in every inch of your home. This WiFi Systems provides up to 5,000 square feet of coverage.",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/147006493551275px.jpg"
+    
+    },
+    {
+        "wcpc"              : 1498,
+        "type"              : "product",
+        "vendorProductName" : "Arlo Pro Security System with Siren – 3 Rechargeable Wire-Free HD Cameras (VMS4330)",
+        "listDescription"   : "Arlo Pro wire-free security cameras let you watch over what you love from every angle, indoors and out, day and night",
+        "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/147595024623675px.png"
+    
+    }
+]
