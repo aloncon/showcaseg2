@@ -31,7 +31,7 @@ const MainComp = observer(({ configurationData }) => {
           {/* style={{ border: '5px dotted red' }} */}
           {console.log('WcShowcase.envio xxx', WcShowcase.environmentId)}
           {console.log('WcShowcase.isDev xxx', WcShowcase.isDev)}
-          {!WcShowcase.isDev && <WcCssLink href="../static/css/main.inner.css" rel="stylesheet"/>}
+          {!WcShowcase.isDev && <WcCssLink href="static/css/main.inner.css" rel="stylesheet"/>}
           {WcShowcase.isStandalone && <StandAlone />}
 
           <div style={{ display: "flex" }}>
