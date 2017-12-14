@@ -21,6 +21,7 @@ import configuration from './custom_content/configuration';
 
 import AssortedVerticalNavigation from './system/codes/AssortedVerticalNavigation';
 import WcShowcase from '../src/system/codes/moduleInfo';
+import {WcCssLink} from './system/codes/WcResource'
 
 const MainComp = observer(({ configurationData }) => {
   return (
@@ -30,7 +31,7 @@ const MainComp = observer(({ configurationData }) => {
           {/* style={{ border: '5px dotted red' }} */}
           {console.log('WcShowcase.envio xxx', WcShowcase.environmentId)}
           {console.log('WcShowcase.isDev xxx', WcShowcase.isDev)}
-          {!WcShowcase.isDev && <link href="../static/css/main.inner.css" rel="stylesheet"></link>}
+          {!WcShowcase.isDev && <WcCssLink href="../static/css/main.inner.css" rel="stylesheet"/>}
           {WcShowcase.isStandalone && <StandAlone />}
 
           <div style={{ display: "flex" }}>
