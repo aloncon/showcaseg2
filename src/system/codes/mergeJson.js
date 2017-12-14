@@ -1,6 +1,6 @@
 import React from 'react';
 import get from 'jsonp';
-import providerCC from'../data/module-profiles/providerCenter.json';
+
 import basic from'../data/module-profiles/basicModuleDisplay.json';
 import WcShowcase from './moduleInfo'
 import basicPartnerDef from'../data/module-profiles/basicModuleDisplay.json';

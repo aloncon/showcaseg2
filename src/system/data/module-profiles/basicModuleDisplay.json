@@ -5,7 +5,7 @@
 	"Sections": {
         "wc_header": true,
         "wc_navigation_horizontal": true,
-        "wc_navigation_vertical" : true,
+        "wc_navigation_vertical" : false,
         "wc_bread_crumbs": true,
         "wc_footer": true,
         "wc_all_module_products" : true,
