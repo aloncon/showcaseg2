@@ -6,7 +6,7 @@ class EndpointManagement extends React.Component {
         return(
             <div>
                 <h3>Endpoint Management</h3>
-                <WcpcContent call="box1" ids={["Home-Networking-Router"]}>
+                <WcpcContent wc_section="box1" ids={["Home-Networking-Router"]}>
                     <ul className="wcCategoryUl">
                         <li className="wcCategoryLi">
                         <div className="wcCenteredCategoryText">

@@ -1,52 +1,28 @@
 import React from 'react';
 import get from 'jsonp';
-import mergeJson from './mergeJson'
-import ShoulDisplay from './lisit/ShouldDisplay'
+import {partnerDef} from './moduleInfo'
+import ShoulDisplay from './lisit/ShouldDisplay' 
 
-const partnerDef = mergeJson();
-
-export default ({call, children,ids}) => {
-    let answer= {};
-    if(call == "section"){
-        answer = displaySections();
-        return answer;
+export default ({wc_section, children, ids, wc_property ,wc_entry}) => {
+    if(wc_property){
+        return (<span>{partnerDef.Properties[wc_property]}</span>)
     }
-    else if(call == "entry"){
-        answer = entryConfig();
-        return answer;
+    else if(wc_entry === "entry"){
+        return partnerDef.Entry
     }
     else{ 
-       return(propertiesConfig(call,children,ids)) 
+        let content  = ids ? <ShoulDisplay ids={ids}> {children} </ShoulDisplay> : children
+        let section = partnerDef.Sections[wc_section]=== undefined ? true : partnerDef.Sections[wc_section] 
+        if(!children){
+            return partnerDef.Sections[wc_section];
+        }
+        if(section && content){
+            return (<span>
+                       {content}
+                    </span>)
+        }
+        else{
+            return (null);
+        }
     }
-}
-
-function propertiesConfig(call,children,ids){
-    let content  = ids ? <ShoulDisplay ids={ids}> {children} </ShoulDisplay> : children
-    if(partnerDef.Properties[call] || ids){
-        return (<span>
-                   {content}
-                </span>)
-    }
-    else{
-        return (<span>{null}</span>);
-    }
-}
-
-function entryConfig(){
-    return {
-        "entry": partnerDef.Entry
-    }
-}
-
-function displaySections (){
-    let sections = {
-        "showcase" : partnerDef.showcase,
-        "displayHeader" : partnerDef.Sections.wc_header,
-        "displayNavigationHorizontal":partnerDef.Sections.wc_navigation_horizontal,
-        "displayNavigationVertical":partnerDef.Sections.wc_navigation_vertical,
-        "displayBreadcrumbs": partnerDef.Sections.wc_bread_crumbs,
-        "displayFooter": partnerDef.Sections.wc_footer,
-        "displayWithoutAssortment" : partnerDef.Sections.wc_all_module_products
-    }
-    return sections;
-}
+};

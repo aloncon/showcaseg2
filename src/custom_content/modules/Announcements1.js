@@ -6,11 +6,11 @@ import announcment4 from '../assets/images/SYM-BLK.png';
 import announcment5 from '../assets/images/SYM-BLK-nerrow.png';
 import SVG from '../assets/images/office-365-hero-950x180_1.svg';
 import { WcImg } from '../../WcResource';
-import WcpcContent from '../../WcpcContent';
+
 
 export default () => (
     <div className="wcTopAnnouncements">
-    <WcpcContent wc_product_code="17"><div className="wcAnnouncements" id="announcment22"><WcImg src={require('./SYM-BLK-wide.png')}/></div></WcpcContent>
+    <div className="wcAnnouncements" id="announcment22"><WcImg src={require('./SYM-BLK-wide.png')}/></div>
     
     <div className="wcAnnouncements" id="announcment33"><WcImg src={announcment3} alt=''/></div>
     <div className="wcAnnouncements" id="announcment44"><WcImg src={announcment4}/></div>

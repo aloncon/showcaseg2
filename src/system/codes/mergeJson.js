@@ -1,31 +1,34 @@
 import React from 'react';
 import get from 'jsonp';
-
-import basic from'../data/module-profiles/basicModuleDisplay.json';
 import WcShowcase from './moduleInfo'
-import basicPartnerDef from'../data/module-profiles/basicModuleDisplay.json';
+import jsonpP from 'jsonp-p'
+import allassortment from'../data/module-profiles/allassortment.json';
+import { resolve } from 'url';
 
-
-//json match
-export default () => {
-    // const site = WcShowcase.siteName;
-    const partnerDef = require('../data/module-profiles/cdw/module-profile.json');
-    const moduleDef = deepCompare(partnerDef);
-    return moduleDef;
+function isObject(item) {
+    return (item && typeof item === 'object' && !Array.isArray(item));
 }
 
-function deepCompare (partnerDef) {
-    if(partnerDef.module === basic.module && partnerDef.partner === "cdw"){ // "cdw change to WcShowcase.siteName"
-        if(JSON.stringify(partnerDef) === JSON.stringify(basic)){
-            return basicPartnerDef;
+function mergeDeep(target, ...sources) {
+    if (!sources.length) return target;
+    const source = sources.shift();
+  
+    if (isObject(target) && isObject(source)) {
+      for (const key in source) {
+        if (isObject(source[key])) {
+          if (!target[key]) Object.assign(target, { [key]: {} });
+          mergeDeep(target[key], source[key]);
+        } else {
+          Object.assign(target, { [key]: source[key] });
         }
-        else{
-            
-            return partnerDef;
-        }
-    } 
-    else{
-        alert("Problem with partner Json");
-        return basicPartnerDef;
-    }  
+      }
+    }
+    return mergeDeep(target, ...sources);
+}
+
+export default () => {
+    const site = WcShowcase.siteName;
+    const partnerDef = require('../data/module-profiles/'+site+'/module-profile.json');
+    return mergeDeep({},allassortment, partnerDef);
+
 }

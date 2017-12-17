@@ -3,8 +3,7 @@ import RoutesGenerate from './routesGenerate';
 import { NavigationHorizontal } from './Navigation';
 import Breadcrumbs from './breadcrumbs';
 import configuration from '../../custom_content/configuration';
-// import WcpcContent from '../../system/codes/WcpcContent';
-import {displayNavigationHorizontal,displayBreadcrumbs} from '../../system/codes/moduleInfo';
+import WcpcContent from '../../system/codes/WcpcContent';
 
 const { staticRoutes } = configuration;
 
@@ -22,8 +21,8 @@ const { staticRoutes } = configuration;
  */
 const NavBreadcrumbsRoute = ({ options }) => (
   <div>
-    {displayNavigationHorizontal  && <NavigationHorizontal routesConfiguration={staticRoutes} /> }
-    {displayBreadcrumbs && <Breadcrumbs config={staticRoutes.routesDetails} options={options} getPath={staticRoutes.getPath}/> }
+    <WcpcContent wc_section="wc_navigation_horizontal"> <NavigationHorizontal routesConfiguration={staticRoutes} /> </WcpcContent>
+    <WcpcContent wc_section="wc_bread_crumbs"><Breadcrumbs config={staticRoutes.routesDetails} options={options} getPath={staticRoutes.getPath}/> </WcpcContent>
     <RoutesGenerate config={staticRoutes.routesDetails} getPath={staticRoutes.getPath}/>
   </div>
 );

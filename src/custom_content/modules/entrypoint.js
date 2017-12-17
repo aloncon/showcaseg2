@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import WcShowcase, {entry} from '../../system/codes/moduleInfo';
+import WcShowcase from '../../system/codes/moduleInfo';
+import WcpcContent from '../../system/codes/WcpcContent';
 import'../../system/style/iframe.css';
+
 class EntryPoint extends React.Component {
 
     constructor(props) {
@@ -9,15 +11,16 @@ class EntryPoint extends React.Component {
         this.state = {
             iFrameHeight: '0px',
             src: null,
-            mailTo: "?ismail=t-textmail=" + encodeURIComponent(entry.mailto.value) +"-endmail",
             loader: true
         }
+        
     }
     componentDidMount() {
-        console.log("xxxx",WcShowcase.siteName);
+        // console.log("xxxx",WcShowcase.siteName);
         let siteName = "?domain=" + window.location.host + "-domain"; // in the future change to : WcShowcase.siteName
+        const entry=  WcpcContent({wc_entry: "entry"}); 
         this.setState({
-            "src": this.props.src + siteName + this.state.mailTo 
+            "src": this.props.src + siteName + "?ismail=t-textmail=" + encodeURIComponent(entry.mailto.value) +"-endmail" 
         });
     }
     onLoad = () => {

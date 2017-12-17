@@ -1,6 +1,6 @@
 
 import jsonpP from 'jsonp-p'
-import {displayWithoutAssortment} from '../system/codes/moduleInfo'
+import WcpcContent from '../system/codes/WcpcContent'
 
 //https://json-preview.wcvlab.net/apps/json/quill/method/partner-products-data-by-wcpc?wcpc=142685906755211&moduleId=keurig&product-details=true 
 
@@ -8,7 +8,6 @@ let moduleName = "xerox"
 let partnerName = "cdw"
 let apiKey = `moduleId=${moduleName}&product-details=true`
 let url = `https://json-preview.wcvlab.net/apps/json/${partnerName}/method/partner-products-data-by-wcpc?`
-let allA = false; // <--- should get from another component -- don't leave it  "true" nor "false"
 
 class Api{
     // main function of the class 
@@ -17,7 +16,9 @@ class Api{
     // and only after will get all the
     // responds he need he will send back one promise with the result
     getListOfVerifyWcpcs = (wcpcs) =>{
-        if(!allA){
+        const {displayWithoutAssortment}= WcpcContent({wc_section:"wc_all_module_products"}) 
+        if(!displayWithoutAssortment){
+
             let config = {
                 param: 'callback',
                 timeout: 15000,
