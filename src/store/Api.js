@@ -25,7 +25,6 @@ class Api{
                 prefix: '__jp'
             }
             return new Promise((resolve,reject)=>{
-                    //wcpcs=wcpcs.split(",");
                     let fixWcpcs="";  
                     wcpcs.map(wcpc => fixWcpcs+="wcpc="+wcpc+"&")
                     let request = url+fixWcpcs+apiKey;
@@ -47,9 +46,7 @@ class Api{
                 })
         }
         else{
-            
-            let allWcpcs = wcpcs.split(",");
-            allWcpcs = allWcpcs.map(item => { return parseInt(item)})
+            let allWcpcs = wcpcs
             return  Promise.resolve(allWcpcs);
         }
         
@@ -59,6 +56,3 @@ class Api{
 
 const api = new Api();
 export default api
-
-// exapmle:
-// http://api.walmartlabs.com/v1/items?ids=222,369677640,12417832,679562478,19336123,951908906&apiKey=rgzr9bdktsbm3d6qy8ppdevb

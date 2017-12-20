@@ -1,15 +1,16 @@
 import React from 'react';
 import '../../system/style/index.css'
-import ShouldDisplay from '../../system/codes/lisit/ShouldDisplay'
+import ShouldDisplay from '../../system/codes/ShouldDisplay'
+import WcpcContent from '../../system/codes/WcpcContent'
 
 const Page3Child1Grand1 = () => {
   return (
     <div>
       <h3>Page 3 child 1 Grand 1</h3>
       <hr/>
-      <ShouldDisplay ids={["Business-Networking-Unmanaged-Switch"]}>
+      <WcpcContent call="itest1-box" ids={["Home-Networking-Orbi"]}>
         <h3>Test 1</h3>
-      </ShouldDisplay>
+      </WcpcContent>
 
       <ShouldDisplay ids={["Business-Networking-Smart-Managed-Switch"]}>
         <h3>Test 2</h3>

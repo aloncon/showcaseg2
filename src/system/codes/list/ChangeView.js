@@ -7,7 +7,60 @@
 
 import React from 'react'
 import VendorCategoryData from '../../data/demo/v2/vendor-category-data-v2.json'
-import ShouldDisplay from './ShouldDisplay'
+import ShouldDisplay from '../ShouldDisplay'
+
+class CategoriesHeader extends React.Component{
+    state = {
+        captions : []
+    }
+
+    /* scrollToId function used for "Jump" to target (id), it  does similar 
+    * function such as --> href="#id_name" (in a tag)
+    **/
+    scrollToId = (id) =>{ 
+        let elm = document.getElementById(id);
+        window.scrollTo(0, elm.getBoundingClientRect().y + window.scrollY);
+    }
+
+    handleVerifyIds(temp, priority){
+        let captionsList = this.state.captions;
+        if(!captionsList.includes(temp)){
+            captionsList[priority] = temp
+            this.setState({ captions : captionsList })
+        }
+       
+    }
+    render(){
+        const {ids} = this.props
+        const {captions} = this.state
+        let categories = (captions.length > 1) ?
+        <div style={{float:"left", maxWidth:"80%"}}>
+                {captions.map((id, i)=>
+                    { 
+                        return <div key={i} style={{float:"left"}}>
+                                         
+                                        <button style={{border:"none",color:"blue",background:"transparent" , outline:"none"}} 
+                                                onClick={()=>this.scrollToId(id)}>
+                                        {VendorCategoryData.filter(item=>item.id==id)[0].caption}
+                                        </button> 
+                                        {(i + 1 < captions.length) && <span> | </span>}
+                                </div>
+                    }
+                )}
+        </div> : null
+        return(
+            <div>
+                {
+                    ids.map((id, i)=>
+                    { 
+                       return  <ShouldDisplay key={i} ids={[id]} callBack={ (temp) => this.handleVerifyIds(temp , i) }/> 
+                    })
+                }
+                {categories}
+            </div>    
+        )
+    }
+}
 
 class ChangeView extends React.Component{
    
@@ -18,44 +71,17 @@ class ChangeView extends React.Component{
     }
     onClickHandle = (e) => {
         let name = e
-       
         this.type = (name==="glyphicon glyphicon-th-list") ? "wide" : "grid"
         this.defaultActivateClass = (this.type === "wide") ? "glyphicon glyphicon-th-list" : "glyphicon glyphicon-th"
         this.props.callBack(this.type);
                             
     }
 
-
-    /* scrollToId function used for "Jump" to target (id), it  does similar 
-    * function such as --> href="#id_name" (in a tag)
-    **/
-    scrollToId = (id) =>{ 
-        console.log("id",id);
-        let elm = document.getElementById(id);
-        window.scrollTo(0, elm.getBoundingClientRect().y + window.scrollY);
-    }
+    
 
     render(){
         let {ids} = this.props
-        let idsLength  = ids.length
-        let categories = (ids.length > 1) ?
-        <div style={{float:"left", maxWidth:"80%"}}>
-                {ids.map((id, key)=>
-                    { 
-                        return <div key={key} style={{float:"left"}}>
-                                    <div style={{display:"none"}}>{idsLength--}</div> 
-                                    <ShouldDisplay ids={[id]}>
-                                        {console.log("idsLength",idsLength)}
-                                        <button style={{border:"none",color:"blue",background:"transparent" , outline:"none"}} 
-                                                onClick={()=>this.scrollToId(id)}>
-                                        {VendorCategoryData.filter(item=>item.id==id)[0].caption}
-                                        </button>{(key < idsLength) && <span> | </span>} 
-                                        <div style={{display:"none"}}>{idsLength++}</div> 
-                                    </ShouldDisplay>
-                                </div>
-                    }
-                )}
-        </div> : null
+        
         let buttonGrid = <div className="btn-group" role="group" aria-label="..." style={{ float:"right", marginTop:2 }}> 
         {["glyphicon glyphicon-th-list","glyphicon glyphicon-th"].map((but , i)=>{
             return(
@@ -71,7 +97,7 @@ class ChangeView extends React.Component{
         return(
             <div style={{marginBottom : -12}}>
                 {buttonGrid}
-                {categories}
+                <CategoriesHeader ids={ids}/>
                 <div style={{clear:"both"}}/>
             </div>
         )

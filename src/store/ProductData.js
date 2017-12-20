@@ -3,13 +3,11 @@ import VendorCategoryData from '../system/data/demo/v2/vendor-category-data-v2.j
 import VendorData from '../system/data/demo/v2/vendor-data-v2.json'
 import api from './Api'
 import jsonpP from 'jsonp-p';
-
-const ProductStore = (id) =>{
+const ProductStore = (id, callback) =>{
     const store = observable({
         id : id,
         caption : null,
-        products : [],
-        
+        products : []
     })
     
     
@@ -24,27 +22,19 @@ const ProductStore = (id) =>{
 
     while(wcpcLength > 0){
 
-        if(wcpcLength > 15){
-            subWcpcs = wcpcs.slice(0,15)
-            wcpcs = wcpcs.slice(15)
+        if(wcpcLength > 50){
+            subWcpcs = wcpcs.slice(0,50)
+            wcpcs = wcpcs.slice(50)
         }
         else subWcpcs = wcpcs;
 
-        wcpcLength-=15;
+        wcpcLength-=50;
 
         api.getListOfVerifyWcpcs(subWcpcs)
         .then(wcpcs => store.products = store.products.concat(wcpcs))
         .catch(err => console.log("No Data Fatch",err))
         
     }
-
-    
-    // api.getListOfVerifyWcpcs(wcpcs)
-    // .then(wcpcs =>{ store.products = wcpcs ;  store.caption = _vendorCategoryData.caption})
-    // .catch(err => console.log("No Data Fatch",err))
-    
-     
-
     return store;
 
 }
@@ -53,7 +43,6 @@ class allIdsStore{
     constructor(){
         this.allIds = new Map()
     }
-    
     setId(id){
         if(!this.allIds.has(id)){
             this.allIds.set(id,new ProductStore(id))
@@ -64,7 +53,7 @@ class allIdsStore{
         if(!this.allIds.has(id)){
             this.setId(id)
         }
-        else console.log("ID Exist")
+        //else console.log("ID Exist")
         let idData = this.allIds.get(id);
         return this.allIds.get(id)
     }
@@ -76,17 +65,29 @@ const ListingStore = (id , type) =>{
     const store = observable({
             isDisplay : true,
             type : type,
+            productsLength : 0 ,
             idListing : _allIdsStore.getId(id.toString()),
             get data(){
-                return  store.idListing.products ? VendorData.products.filter(item=> store.idListing.products.includes(item.wcpc)) : null
+                return  store.idListing.products ? 
+                                        { 
+                                            products : VendorData.products.filter(item=> store.idListing.products.includes(item.wcpc)) , 
+                                            caption : store.idListing.caption,
+                                            isDisplay : store.isDisplay,
+                                            type : store.type,
+                                            productsLength : store.idListing.products.length
+                                        } : null
+                                            
             },
             changeDisplay(){
-                console.log("Display",store.isDisplay)
                 store.isDisplay = !store.isDisplay;
                 
             },
             setType(_type){
                 store.type = _type;
+            },
+            get shouldDisplay(){
+                if(store.idListing.productsLength)
+                    return true
             }
 
     })
@@ -94,4 +95,4 @@ const ListingStore = (id , type) =>{
 }
 
 
-export default ListingStore;
+export default ListingStore

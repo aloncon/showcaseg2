@@ -1,12 +1,10 @@
 import React from 'react'
 import {observer}  from 'mobx-react';
-import Store from '../../../store/ProductData'
-
+import ListingStore from '../../store/ProductData'
 
 const Filter = observer(({ store: { idListing , data}, onChange}) => {
     let content = data;
-    return content.length > 0 ? <div>{onChange(true)}</div> : null
-   
+    return content.products.length > 0 ? <div>{onChange(true)}</div> : null  
 })
 
 
@@ -18,13 +16,17 @@ class ShouldDisplay extends React.Component{
     }
 
     getData = (isOk) =>{
-        // if(!this.state.shouldDisplay && isOk) console.log("State change once")
+         if(!this.state.shouldDisplay && isOk) {   
+             this.props.callBack(this.props.ids)
+            // console.log("State change once" , this.props)
+         }
         !this.state.shouldDisplay  && isOk ? this.setState({ shouldDisplay : true }) : null  
     }
 
     render(){
         const {shouldDisplay} = this.state
-        let filter = !shouldDisplay ? this.props.ids.map((id,i)=> <Filter key={i} store={Store(id , null)} onChange={this.getData.bind(this)}/>) : null
+        const {callBack} = this.props
+        let filter = !shouldDisplay ? this.props.ids.map((id,i)=> <Filter key={i} store={ListingStore(id , null)} onChange={this.getData.bind(this)}/>) : null
         let content = shouldDisplay ? this.props.children : null;
         return(
               <div> 
@@ -37,4 +39,4 @@ class ShouldDisplay extends React.Component{
     
 }
 
-export default (ShouldDisplay);
+export default ShouldDisplay;

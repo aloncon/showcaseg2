@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'jsonp';
 import {partnerDef} from './moduleInfo'
-import ShoulDisplay from './lisit/ShouldDisplay' 
+import ShoulDisplay from './ShouldDisplay'
 
 export default ({wc_section, children, ids, wc_property ,wc_entry}) => {
     if(wc_property){
