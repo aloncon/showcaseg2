@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
+
 import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
 import store from './store';
@@ -13,7 +14,7 @@ import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
 
 import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcrumbsRoute';
-
+import './system/style/bootstrap-custom/css/wc.bootstrap.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './system/style/index.css';
 import './css/index.css';
