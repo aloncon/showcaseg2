@@ -17,10 +17,10 @@ class ShouldDisplay extends React.Component{
 
     getData = (isOk) =>{
          if(!this.state.shouldDisplay && isOk) {   
-             this.props.callBack(this.props.ids)
+            this.props.callBack && this.props.callBack(this.props.ids)
+             this.setState({ shouldDisplay : true })
             // console.log("State change once" , this.props)
          }
-        !this.state.shouldDisplay  && isOk ? this.setState({ shouldDisplay : true }) : null  
     }
 
     render(){

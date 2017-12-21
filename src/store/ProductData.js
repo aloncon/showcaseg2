@@ -39,6 +39,21 @@ const ProductStore = (id, callback) =>{
 
 }
 
+class allProductsStore{
+    constructor(){
+        this.allProducts = new Map()
+    }
+    setProduct(wcpc , data){
+        if(!this.allProducts.has(wcpc))
+            this.allProducts.set(wcpc,data)
+    }
+    getProduct(wcpc){
+        if(this.allProducts.has(wcpc))
+            return this.allProducts.get(wcpc)
+        return null    
+    }
+}
+
 class allIdsStore{
     constructor(){
         this.allIds = new Map()

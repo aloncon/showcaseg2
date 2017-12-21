@@ -16,6 +16,7 @@ import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcr
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './system/style/index.css';
+import './css/index.css';
 import configuration from './custom_content/configuration';
 //const css = require('./App.css');
 

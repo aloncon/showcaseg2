@@ -32,8 +32,12 @@ class Api{
                     jsonpP(request,config).promise
                     .then(result =>{
                         let partnerKey = Object.keys(result)
-                        let keys = Object.keys(result[partnerKey])
+                        let resultPartner = result[partnerKey]
+                        let keys = Object.keys(resultPartner)
                         if(Boolean(keys.length)){
+                            let temp = keys.map(key => {return {wcpc:key,cp:Object.keys((resultPartner[key]).cpis)[0]}})
+                            
+                            console.log(temp)
                             resolve(keys);
                         }
                         else reject({err:`message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}`});

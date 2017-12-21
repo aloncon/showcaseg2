@@ -298,50 +298,50 @@ export default class Wcan extends React.Component {
         };
 
         return (
-          <div style={divStyle}>
-           <Slider ref={ (c) => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
-                {this.state.slidesNew.map((slide, index) => (
-                    <div key={index}>
-                        { (slide[2] === 'videoLink') ?
-                            <div className="wcVideoSlideContainer" style={{backgroundImage: `url(${this.props.data_video.backgroundImage})` ,  width: this.init.sliderWidth,height:this.init.sliderHeight}}>
-                                <div className="wcVideoSlideText">
-                                    <h2>Sale Sale Sale</h2>
-                                    <p>Sale Sale Sale</p>
-                                    <p>Sale Sale Sale</p>
-                                </div>                                  
-                                <div className="wcVideoSlidePlayer" style={{width:'300px',height:'200px'}}>
-                                    <WcPlayer playsInline src={slide[1]} poster={slide[this.state.changeImgSrc]}> 
-                                        <BigPlayButton position="center" />
-                                    </WcPlayer> 
-                                </div> 
-                            </div>                      
-                          : (slide[2] === 'LocalLink') ?
-                            <Link to={slide[1]}>
-                                <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
-                            </Link>                          
-                            :
-                            <WcLink href={slide[1]} className="wcAnnounceLink" title={slide[3]} target="_blank">
-                                <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
-                            </WcLink>
-                        }
+            <div>
+                <div style={divStyle}>
+                    <Slider ref={ (c) => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
+                        {this.state.slidesNew.map((slide, index) => (
+                            <div key={index}>
+                                { (slide[2] === 'videoLink') ?
+                                    <div className="wcVideoSlideContainer" style={{backgroundImage: `url(${this.props.data_video.backgroundImage})` ,  width: this.init.sliderWidth,height:this.init.sliderHeight}}>
+                                        <div className="wcVideoSlideText">
+                                            <h2>Sale Sale Sale</h2>
+                                            <p>Sale Sale Sale</p>
+                                            <p>Sale Sale Sale</p>
+                                        </div>                                  
+                                        <div className="wcVideoSlidePlayer" style={{width:'300px',height:'200px'}}>
+                                            <WcPlayer playsInline src={slide[1]} poster={slide[this.state.changeImgSrc]}> 
+                                                <BigPlayButton position="center" />
+                                            </WcPlayer> 
+                                        </div> 
+                                    </div>                      
+                                    : (slide[2] === 'LocalLink') ?
+                                    <Link to={slide[1]}>
+                                        <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
+                                    </Link>                          
+                                    :
+                                    <WcLink href={slide[1]} className="wcAnnounceLink" title={slide[3]} target="_blank">
+                                        <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
+                                    </WcLink>
+                                }
 
 
-                    </div>
-                ))}
-            </Slider>
-            <ul className="wcAnnounceUl">
-                <li><button id='wcAnnounceNext' className="wcAnnounceNext" data-id='next' onClick={this.sliderArrows}></button></li>
-                <li><button id='wcAnnouncePrev' className="wcAnnouncePrev" data-id='previous' onClick={this.sliderArrows}></button></li>
-                {this.state.slidesNew.map((slide,index) => (
-                    <li key={index}><span id={'slide_'+Number(index+1)} data-id={index} className={Number(index)===0 ? 'wcAnnounceItemNum wcAnnounce1Active' : 'wcAnnounceItemNum wcAnnounce'+Number(index+1)} onClick={this.sliderNumbers.bind(this)}></span></li>
-                ))}
-                <li><span className={this.state.pauseClass} onClick={this.sliderPlayAndPauseButton}></span></li>
-            </ul>
-            <br/>
-           {/*} <span>
-                {this.state.windowWidth} x {this.state.windowHeight}
-            </span> */}
-          </div>
+                            </div>
+                        ))}
+                    </Slider>
+                    <ul className="wcAnnounceUl">
+                        <li><button id='wcAnnounceNext' className="wcAnnounceNext" data-id='next' onClick={this.sliderArrows}></button></li>
+                        <li><button id='wcAnnouncePrev' className="wcAnnouncePrev" data-id='previous' onClick={this.sliderArrows}></button></li>
+                        {this.state.slidesNew.map((slide,index) => (
+                            <li key={index}><span id={'slide_'+Number(index+1)} data-id={index} className={Number(index)===0 ? 'wcAnnounceItemNum wcAnnounce1Active' : 'wcAnnounceItemNum wcAnnounce'+Number(index+1)} onClick={this.sliderNumbers.bind(this)}></span></li>
+                        ))}
+                        <li><span className={this.state.pauseClass} onClick={this.sliderPlayAndPauseButton}></span></li>
+                    </ul>
+                    <br/>
+                </div>
+                <div className="wcClear"></div>
+            </div>
         );
     }
 }
