@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../../style/navigation.css';
+import '../../style/partner-def/verticalNavigation.css';
 
 const VerticalNavItem = ({ route, getPath }) => {
   const linkTo = getPath(route.path, route.parent);
@@ -31,7 +31,7 @@ const NavigationVertical = ({ routesConfiguration, moduleName } ) => {
         <h1>{moduleName}</h1>
       </div>
 
-      <ul>{routesConfiguration.getRootRoutes().map(route => VerticalNavItem({ route, getPath: routesConfiguration.getPath }))}</ul>
+      <ul className="wcNavigationBox">{routesConfiguration.getRootRoutes().map(route => VerticalNavItem({ route, getPath: routesConfiguration.getPath }))}</ul>
     </div>
   );
 };

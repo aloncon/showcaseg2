@@ -1,0 +1,24 @@
+/* Vertical Navigation*/
+div.wcNavigationVertical {
+  border: 1px solid #c8c8c8;
+  width: 20%;
+  display: table;
+}
+div.wcNavigationVertical ul.wcNavigationBox {
+  padding: 11px 4px 0 11px;
+  margin-bottom: 8px;
+}
+div.wcNavigationVertical ul.wcNavigationBox li {
+  list-style: none;
+  font-size: 12px;
+}
+div.wcNavigationVertical .wcNavHeader {
+  background-color: #af0000;
+}
+div.wcNavigationVertical .wcNavHeader h1 {
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 25px;
+  margin: 0 auto;
+  padding-left: 11px;
+}
