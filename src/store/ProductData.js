@@ -31,8 +31,11 @@ const ProductStore = (id, callback) =>{
         wcpcLength-=50;
 
         api.getListOfVerifyWcpcs(subWcpcs)
-        .then(wcpcs => store.products = store.products.concat(wcpcs))
-        .catch(err => console.log("No Data Fatch",err))
+        .then(wcpcs => {
+            console.log('should wcps', wcpcs);
+            return store.products = store.products.concat(wcpcs);
+        })
+        .catch(err => console.log("should No Data Fatch",err))
         
     }
     return store;
@@ -77,11 +80,13 @@ class allIdsStore{
 let _allIdsStore = new allIdsStore();
 
 const ListingStore = (id , type) =>{
+    const productStore = _allIdsStore.getId(id.toString());
     const store = observable({
             isDisplay : true,
             type : type,
             productsLength : 0 ,
-            idListing : _allIdsStore.getId(id.toString()),
+            idListing : productStore,
+            productStore,
             get data(){
                 return  store.idListing.products ? 
                                         { 
@@ -109,5 +114,14 @@ const ListingStore = (id , type) =>{
     return store
 }
 
+export const Listings = (listingStores) => {
+    return observable({
+        listingStores,
+        get shouldDisplay() {
+            console.log("should computing... ", listingStores.reduce((x,y) => y.productStore ? x + y.productStore.products.length : x, 0));
+            return listingStores.some(store => store.productStore && store.productStore.products.length > 0)
+        }
+    })
+};
 
 export default ListingStore

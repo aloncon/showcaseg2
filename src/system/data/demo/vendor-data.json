@@ -3,7 +3,7 @@
         "wcpc"              : "wndap360",
         "type"              : "product",
         "vendorProductName" : "8-Port Gigabit Ethernet Unmanaged Switch (GS108)",
-        "listDescription"   : "The NETGEAR Gigabit Unmanaged Switch series helps businesses cost-effectively expand their network to Gigabit speeds and higher port counts.",
+        "listDescription"   : "<b>some bold text</b>The NETGEAR Gigabit Unmanaged Switch series helps businesses cost-effectively expand their network to Gigabit speeds and higher port counts.",
         "listImage"         : "http://media-itest3.webcollage.net/rlfp/wc/test/module/netgear/_wc/product-images/gs10875px.jpg"
     
     },

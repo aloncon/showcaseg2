@@ -11,37 +11,45 @@ import '../../style/horizontalNavigation.css';
  *
  * When the Navigation's width is under 600px, this component won't be display.
  */
-class MoreButtonResponsive extends React.Component {
-  state = {
-    isOpen: false,
-  };
 
-  handleOpen = () => {
-    this.setState({ isOpen: true });
-  };
-
-  handleClose = () => {
-    this.setState({ isOpen: false });
-  };
-
-  render() {
-    const { routes, excludes, getPath, getChildren, limit } = this.props;
-    const moreStyle = {
-      display: 'block',
+ const HasOpenClose = (Component) => {
+   return class extends React.Component {
+    state = {
+      isOpen: false,
     };
 
-    return (
-      <ul className="nav navbar-nav navbar-right wcMoreButtonResponsive" onMouseEnter={this.handleOpen} onMouseLeave={this.handleClose}>
-        <li className={`dropdown${this.state.isOpen ? ' open' : ''}`}>
-          <button className="navbar-toggle" style={moreStyle}>
-            More <b className="caret" />
-          </button>
-          <NestedItems routes={routes} exclude={excludes} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} />
-        </li>
-      </ul>
-    );
+    handleOpen = () => {
+      this.setState({ isOpen: true });
+    };
+
+    handleClose = () => {
+      this.setState({ isOpen: false });
+    };
+
+    render() {
+      return <Component {...this.props} handleOpen={this.handleOpen} handleClose={this.handleClose} isOpen={this.state.isOpen}/>
+    }
   }
 }
+
+ const MoreButtonResponsive = HasOpenClose(({
+  routes, excludes, getPath, getChildren, limit, handleOpen, handleClose, isOpen
+ }) => {
+  const moreStyle = {
+    display: 'block',
+  };
+
+  return (
+    <ul className="nav navbar-nav navbar-right wcMoreButtonResponsive" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+      <li className={`dropdown${isOpen ? ' open' : ''}`}>
+        <button className="navbar-toggle" style={moreStyle}>
+          More <b className="caret" />
+        </button>
+        <NestedItems routes={routes} exclude={excludes} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} />
+      </li>
+    </ul>
+  );
+ });
 
 /**
  * Represent a sub menu component which have the state if it open to handler the mouse over event.
@@ -50,28 +58,16 @@ class MoreButtonResponsive extends React.Component {
  * FIXME: Fix sub-menu change the nav height.
  * FIXME: Fix the no left padding for the sub-menus when the screen width is under 600px.
  */
-class SubMenu extends React.Component {
-  state = {
-    isOpen: false,
-  };
-
-  handleOpen = () => {
-    this.setState({ isOpen: true });
-  };
-
-  handleClose = () => {
-    this.setState({ isOpen: false });
-  };
-
+const SubMenu = HasOpenClose(class extends React.Component {
   render() {
-    const { route, children, linkTo, hasMoreResponsiveButton } = this.props;
+    const { route, children, linkTo, hasMoreResponsiveButton, handleOpen, handleClose, isOpen } = this.props;
     let classes = '';
 
     classes += (route.parent !== '/' || hasMoreResponsiveButton) ? 'wcDropdownSubMenu ' : '';
-    classes += this.state.isOpen ? 'open' : '';
+    classes += isOpen ? 'open' : '';
 
     return (
-      <li key={route.id} className={classes} onMouseEnter={this.handleOpen} onMouseLeave={this.handleClose}>
+      <li key={route.id} className={classes} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
         <NavLink className="dropdown-toggle" data-toggle="dropdown" to={linkTo}>
           {route.name}
           {route.parent === '/' && !hasMoreResponsiveButton && ' '}
@@ -81,7 +77,7 @@ class SubMenu extends React.Component {
       </li>
     );
   }
-}
+})
 
 /**
  * Recursive component to draw the navigation items, get down the tree from the provided routes configuration,

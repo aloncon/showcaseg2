@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
@@ -24,13 +25,25 @@ import MainContainer from './system/codes/MainContainer';
 import WcShowcase from '../src/system/codes/moduleInfo';
 import { WcCssLink } from './system/codes/WcResource';
 
-const MainComp = observer(({ configurationData }) => {
+import vendorData from './system/data/demo/vendor-data';
+
+const Dummy = () => {
+  console.log('qqq dummy render');
+  return <div dangerouslySetInnerHTML={{ __html: vendorData[0].listDescription}}></div>;
+}
+
+const MainComp = observer(({ configurationData, rootStore }) => {
   return (
     <Provider store={store}>
       <HashRouter>
-        <div id="wc_showcase_root" className="wcShowcaseRoot">
+        <div id="wc_showcase_root" className={`app-size-${rootStore.mainSize} wcShowcaseRoot`}>
           {/* style={{ border: '5px dotted red' }} */}
-
+          <div>width: {rootStore.contentWidth}</div>
+          <div className={`size-${rootStore.mainSize}`}>
+            size: {rootStore.mainSize}
+            { console.log('qqq re render') }
+            <Dummy />
+          </div>
           <MainContainer>
             {console.log('WcShowcase.envio xxx', WcShowcase.environmentId)}
             {console.log('WcShowcase.isDev xxx', WcShowcase.isDev)}
@@ -49,9 +62,45 @@ const MainComp = observer(({ configurationData }) => {
   );
 });
 
+const el = document.getElementById('wc-showcase-root');
+let onUnmount;
+const RootStore = () => {
+  function update() {
+    const { width } = el.getBoundingClientRect();
+    const contentEl = el.querySelector('.wcContainer');
+    if (contentEl) {
+      store.contentWidth = contentEl.getBoundingClientRect().width;
+    }
+    store.mainWidth = width;
+  }
+
+  // requestAnimationFrame(() => {
+  //   update();
+  //   requestAnimationFrame(update);
+  // });
+
+  window.addEventListener('resize', update);
+
+  const store = observable({
+    mainWidth: el.getBoundingClientRect().width,
+    contentWidth: 0,
+    get mainSize() {
+      if (this.mainWidth < 576) return 'sm';
+      if (this.mainWidth < 768) return 'md';
+      if (this.mainWidth < 1200) return 'lg';
+      return 'xl';
+    }
+  });
+
+  return store;
+};
+
+const rootStore = RootStore();
+
+
 ReactDOM.render(
-  <MainComp configurationData={configuration} />,
-  document.getElementById('wc-showcase-root'),
+  <MainComp configurationData={configuration} rootStore={rootStore}/>,
+  el,
   //getParentElement()
   //document.getElementById('root')
 );

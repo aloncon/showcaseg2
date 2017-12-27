@@ -1,6 +1,6 @@
 
 import jsonpP from 'jsonp-p'
-import WcpcContent from '../system/codes/WcpcContent'
+// import WcpcContent from '../system/codes/WcpcContent'
 
 //https://json-preview.wcvlab.net/apps/json/quill/method/partner-products-data-by-wcpc?wcpc=142685906755211&moduleId=keurig&product-details=true 
 
@@ -16,7 +16,7 @@ class Api{
     // and only after will get all the
     // responds he need he will send back one promise with the result
     getListOfVerifyWcpcs = (wcpcs) =>{
-        const {displayWithoutAssortment}= WcpcContent({wc_section:"wc_all_module_products"}) 
+        const {displayWithoutAssortment}= false; //WcpcContent({wc_section:"wc_all_module_products"}) 
         if(!displayWithoutAssortment){
 
             let config = {
