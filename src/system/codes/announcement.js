@@ -42,8 +42,9 @@ export default class Wcan extends React.Component {
             changeImage         :   (this.props.data_setting.changeImage        ? this.props.data_setting.changeImage   : false),             
             changeImageWidth    :   (this.props.data_setting.changeImageWidth   ? this.props.data_setting.changeImageWidth : 600),
             sliderWidth         :   (this.props.data_setting.sliderWidth        ? this.props.data_setting.sliderWidth : '100%'),
-            sliderHeight        :   this.props.data_setting.sliderHeight
-                     
+            sliderHeight        :   this.props.data_setting.sliderHeight,
+            isDots              :   (this.props.data_setting.isDots!=null         ? this.props.data_setting.isDots : true),
+            isArrows            :   (this.props.data_setting.isArrows!=null         ? this.props.data_setting.isArrows : true),       
         };
         this.state = {
             //rtl                 :   (this.props.data_setting.rtl!=null          ? this.props.data_setting.rtl  : false), //TODO
@@ -70,7 +71,7 @@ export default class Wcan extends React.Component {
 
     componentDidMount() {
         //control autoplay on page loading
-        if(this.init.autoplay){
+        if(this.init.autoplay && !this.init.pauseOnHover){
             this.startSlideTimeout();
             //this.setState({autoplaySpeed: this.state.autoplaySpeed}); //26.10
         }else{
@@ -80,14 +81,15 @@ export default class Wcan extends React.Component {
         this.getUpdatedArray();
 
         //if not infinite - disable prev button
-        if(!this.init.infinite){
+        if(!this.init.infinite && !this.init.isDots){
             document.getElementById('wcAnnouncePrev').className = 'wcAnnouncePrev wcAnnounceDisable';
             document.getElementById('wcAnnouncePrev').disabled = true;
 
         }
 
         this.handleResize();
-        window.addEventListener('resize', this.handleResize);        
+        window.addEventListener('resize', this.handleResize);   
+        console.log('this.init.pauseOnHover: '+this.init.pauseOnHover)     
     }
 
     componentWillUnmount() {
@@ -279,9 +281,9 @@ export default class Wcan extends React.Component {
 
     render() {
         const settings = {
-            arrows:         false,
-            autoplay:       false,
-            dots:           false,
+            arrows:         this.init.isArrows,
+            autoplay:       this.init.pauseOnHover,
+            dots:           this.init.isDots,
             infinite:       this.init.infinite,
             pauseOnHover:   this.init.pauseOnHover,
             rtl:            false, //TODO
@@ -299,8 +301,8 @@ export default class Wcan extends React.Component {
 
         return (
             <div>
-                <div style={divStyle}>
-                    <Slider ref={ (c) => this.slider = c } beforeChange={ this.changeClass.bind(this)} {...settings}>
+                <div className="AnnouncementSlick" style={divStyle}>
+                    <Slider ref={ (c) => this.slider = c } beforeChange={!this.init.isDots && this.changeClass.bind(this)} {...settings}>
                         {this.state.slidesNew.map((slide, index) => (
                             <div key={index}>
                                 { (slide[2] === 'videoLink') ?
@@ -329,17 +331,26 @@ export default class Wcan extends React.Component {
 
                             </div>
                         ))}
+
                     </Slider>
                     <ul className="wcAnnounceUl">
-                        <li><button id='wcAnnounceNext' className="wcAnnounceNext" data-id='next' onClick={this.sliderArrows}></button></li>
-                        <li><button id='wcAnnouncePrev' className="wcAnnouncePrev" data-id='previous' onClick={this.sliderArrows}></button></li>
-                        {this.state.slidesNew.map((slide,index) => (
+                        {!this.init.isArrows &&
+                            <span>
+                                <li><button id='wcAnnounceNext' className="wcAnnounceNext" data-id='next' onClick={this.sliderArrows}></button></li>
+                                <li><button id='wcAnnouncePrev' className="wcAnnouncePrev" data-id='previous' onClick={this.sliderArrows}></button></li>
+                            </span>
+                        }
+                        {!this.init.isDots && this.state.slidesNew.map((slide,index) => (
                             <li key={index}><span id={'slide_'+Number(index+1)} data-id={index} className={Number(index)===0 ? 'wcAnnounceItemNum wcAnnounce1Active' : 'wcAnnounceItemNum wcAnnounce'+Number(index+1)} onClick={this.sliderNumbers.bind(this)}></span></li>
                         ))}
-                        <li><span className={this.state.pauseClass} onClick={this.sliderPlayAndPauseButton}></span></li>
-                    </ul>
+                        {!this.init.isDots && 
+                            <li><span className={this.state.pauseClass} onClick={this.sliderPlayAndPauseButton}></span></li>
+                        }
+
+                    </ul>                    
                     <br/>
                 </div>
+                {this.init.isArrows && <br/>}
                 <div className="wcClear"></div>
             </div>
         );

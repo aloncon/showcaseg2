@@ -1,5 +1,6 @@
 .wcVideoPlayerContainer {
   width: 98%;
+  border: 1px solid #000000;
 }
 .wcPlayList {
   list-style: none;
@@ -24,7 +25,7 @@
   border: 1px solid #999999;
   width: 160px;
   height: 90px;
-  background: #000000;
+  background: #ffffff;
   top: 2px;
   left: 2px;
 }
@@ -33,12 +34,12 @@
 .wcPlayList .wcPlayListItem .wcThumbnailWrap a:active {
   top: 1px;
   left: 1px;
-  border: 2px solid #0066cc;
+  border: 1px solid #0066cc;
 }
 .wcPlayList .wcPlayListItem .wcThumbnailWrap a.wcSelected {
   top: 1px;
   left: 1px;
-  border: 2px solid #0066cc;
+  border: 1px solid #0066cc;
 }
 .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer {
   position: relative;
@@ -65,7 +66,7 @@
   filter: alpha(opacity=25);
 }
 .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcMovieActive {
-  border: 3px solid #0066cc;
+  border: 1px solid #0066cc;
 }
 .wcPlayList .wcPlayListItem .wcDuration {
   font-size: 10px;
@@ -98,4 +99,7 @@
   bottom: 0;
   position: absolute;
   margin: auto;
+}
+.video-react-poster {
+  background-color: #ffffff!important;
 }

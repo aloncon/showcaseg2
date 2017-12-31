@@ -92,10 +92,11 @@ import videoTestPoster from '../assets/video/posterTest.jpg'
         slidesToShow            :       1,              //  Number of slides to be visible at a time            (Integer - True as Default)
         changeImage             :       true,           //  Should change Image banner in specific width?       (Boolean)
         changeImageWidth        :       700,            //  the width in which the second image will appear     (Integer)
-        pauseOnHover            :       false,
+        pauseOnHover            :       true,
         //rtl                   :       false,           //  Reverses the slide order                           (Boolean - True as Default) - TODO
         sliderWidth             :       '100%',          //  give fixed width  (Default - full screen: '100%')  (Integer/String)  //TODO:  FINISH IT -FIX FULL
-        sliderHeight             :      '240px'          //  give fixed height (Default - 200px)                (Integer/String)  //TODO:  FINISH IT -FIX FULL
+        sliderHeight            :      '240px',          //  give fixed height (Default - 200px)                (Integer/String)  //TODO:  FINISH IT -FIX FULL
+        isDots                  :       true
     }
 
     const wcan_video = {

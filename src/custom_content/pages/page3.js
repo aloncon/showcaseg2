@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../system/style/index.css';
-
+import ProductListing from '../../system/codes/list/ProductListing';
 
 
 class Page3 extends React.Component {
@@ -8,7 +8,7 @@ class Page3 extends React.Component {
 
         return(
             <div>
-               
+               <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={3} carouselHeight='350px'/>
 
             </div>
         );

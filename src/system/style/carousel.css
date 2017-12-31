@@ -1,11 +1,7 @@
 /* USER CAROUSEL CLASSES */
-.WcCarousel {
-  background-image: url('http://www.test.electroluxus.webcollage.net/_wc/category-slider/images/Horizon_Middle.jpg');
-  background-position-y: '0%';
-}
 .WcCarousel .wcCarouselWrap .wcCarouselSliderContainer {
   margin: 0 auto;
-  padding: 40px;
+  padding: 42px;
 }
 .WcCarousel .wcCarouselWrap a.wcBrowse {
   display: inline;
@@ -20,7 +16,7 @@
 }
 .WcCarousel .wcCarouselWrap a.wcNext {
   background-position: 0 0;
-  right: -25px;
+  right: -13px;
 }
 .WcCarousel .wcCarouselWrap a.wcNext:active {
   background-position: 0 -30px;
@@ -68,7 +64,7 @@
 }
 .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse .wcCarouselArrowsBrowseHorizonal {
   position: absolute;
-  margin-top: -34px;
+  margin-top: -40px;
   outline: 0;
   width: 32px;
   height: 100px;
@@ -130,10 +126,6 @@
   display: table;
   margin: 0 auto;
 }
-.wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarousel2 {
-  border-bottom: 1px solid lightgray;
-  border-top: 1px solid lightgray;
-}
 .wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarouselProductContainer .wcCarouselProductBrowseVertical {
   margin: 0 auto;
   display: table-cell;
@@ -157,7 +149,7 @@
   margin: 0 auto !important;
 }
 .wcCarouselProductImage img {
-  display: inline-block !important;
+  /*display: inline-block !important;*/
   margin: 0 auto !important;
 }
 .wcCarouselProductTitle {

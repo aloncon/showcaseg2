@@ -1,6 +1,7 @@
 import React from 'react'
 import WideList from './WideList'
 import GridList from './GridList'
+import Carousel from './Carousel'
 import { observer } from 'mobx-react'
 import Store from '../../../store/ProductData'
 import ChangeView from './ChangeView'
@@ -13,7 +14,7 @@ const ProductListingObserver = observer(({ store: { data , changeDisplay , setTy
             _length = content.productsLength
 
     const   change = changeDisplay;
-    const { isSubCategory , viewChange } = settings  
+    const { isSubCategory , viewChange  , vertical , carosulId , slidesToShow , infinite , responsive , responsiveWidth , carouselWidth , carouselHeight, productWidth , productHeight , ImageHeight , ImageWidth } = settings  
 
     let classButtonName  = _isDisplay ? "glyphicon glyphicon-minus" : "glyphicon glyphicon-plus"
     let colorButton  = _isDisplay ? "#DDDEE1" : "#AFB1B9"
@@ -40,7 +41,12 @@ const ProductListingObserver = observer(({ store: { data , changeDisplay , setTy
                         </div>
                         {_isDisplay && <GridList data={content.products}/>}
                     </div>
-            break    
+            break
+        case "carousel": 
+            return <div>
+                        {_isDisplay && <Carousel data={content} settings={settings}/>}
+                    </div>
+            break               
         default:  return null
     }         
 });
@@ -48,10 +54,10 @@ const ProductListingObserver = observer(({ store: { data , changeDisplay , setTy
 class ProductListing extends React.Component{
     
      render(){
-            const { ids , type="wide" , isSubCategory} = this.props
+            const { ids , type="wide" , isSubCategory , vertical , carosulId , slidesToShow , infinite , responsive , responsiveWidth , carouselWidth , carouselHeight, productWidth , productHeight  , ImageHeight , ImageWidth} = this.props
             let { viewChange } = this.props
             viewChange = (viewChange==undefined) ? false : viewChange
-            const settings = {ids , type , isSubCategory , viewChange}
+            const settings = {ids , type , isSubCategory , viewChange , vertical , carosulId , slidesToShow , infinite , responsive , responsiveWidth , carouselWidth , carouselHeight, productWidth , productHeight  , ImageHeight , ImageWidth}
             return  <div>
                         {settings.ids.map((id , i)=><ProductListingObserver key={i} store={Store(id , type)} orderNumber={i} settings={settings} id={id} />)}
                     </div>

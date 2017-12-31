@@ -3,6 +3,7 @@
 
 .wcVideoPlayerContainer {
 	width: 98%;
+	border: 1px solid #000000;
 }
 
 .wcPlayList {
@@ -24,20 +25,20 @@
 				border: 1px solid #999999;
 				width: 160px;
 				height: 90px;
-				background: #000000;
+				background: #ffffff;
 				top: 2px;
 				left: 2px;
 
 				&:hover, &:focus, &:active {
 					top: 1px;
 					left: 1px;
-					border: 2px solid @color-theme;
+					border: 1px solid @color-theme;
 				}
 			}
 			a.wcSelected {
 				top: 1px;
 				left: 1px;
-				border: 2px solid @color-theme;
+				border: 1px solid @color-theme;
 			}
 			.wcCenterContainer {
 	
@@ -67,7 +68,7 @@
 			}
 
 			.wcMovieActive {
-				border: 3px solid @color-theme;
+				border: 1px solid @color-theme;
 			}
 		}
 
@@ -117,4 +118,8 @@
 	bottom: 0;
 	position: absolute;
 	margin: auto;
+}
+
+.video-react-poster{
+	background-color: #ffffff!important;
 }

@@ -26,7 +26,8 @@
 
 .wcAnnounceUl {
 	list-style-type: none;
-	margin: 0px 0 0 -40px;
+	/*margin: 0px 0 0 -40px;*/
+	margin: 0; padding: 0;
     cursor: pointer;
     
     li{
@@ -123,4 +124,31 @@
 	&:focus {
 		background-position: 90% 50%;
 	}
+}
+
+.AnnouncementSlick{
+	.slick-prev {
+		width: 20px;
+		height: 20px;
+		background-repeat: no-repeat!important;
+		z-index: 999;
+		margin-left: 3%;
+		background-image: url("../resources/announcement/prev.png")!important;
+	  }
+	  .slick-next {
+		width: 20px;
+		height: 20px;
+		background-repeat: no-repeat!important;
+		z-index: 999;
+		margin-right: 3%;
+		background-image: url("../resources/announcement/next.png")!important;
+	  }
+	  
+	  .slick-next:before{
+		font-size: 0!important;
+	  }
+	  
+	  .slick-prev:before{
+		font-size: 0!important;
+	  }
 }

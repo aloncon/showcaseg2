@@ -3,9 +3,8 @@ import {Announcements} from '../modules/Announcements';
 import {Wcca , Wcca1} from '../modules/Carousel';
 import {Wcvg} from '../modules/VideoGallery';
 import '../../system/style/App.css';
-import {WcLink} from '../../system/codes/WcResource'
-import {Button} from 'react-bootstrap'
-
+import {WcLink} from '../../system/codes/WcResource';
+import ProductListing from '../../system/codes/list/ProductListing';
 
 var featuredTitle = {
   width: '100%',
@@ -31,11 +30,9 @@ class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
       <div className="wcShowcaseBody">
+            <h2>Announcements:</h2>
             <Announcements />
-            <br/>      
-            <div>
-              <h1>api testing:</h1>
-            </div>
+            <hr/>      
       </div>
     );
   }
@@ -45,37 +42,38 @@ class ShowcaseBody extends React.Component {
   render() {
     return (
       <div>
-        <Wcca />
-        <h1>TEST:::</h1>
-              {/*  <ProductListing type='Carousel'
-                                ids={['carouselTest']} responsive={true} slidesToShow={3}/>   */}
+        <div>
+          <h2>Carousel:</h2>
+          <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} carouselHeight='200px'/>
+          <br/>
+          {/* <ProductListing type="carousel" ids={["Carusel-Data-2"]} slidesToShow={4} carouselHeight='320px' ImageHeight='200px'/> */}
+          <br/>
+          {/* <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='600px' productWidth="200px" productHeight='200px'/> */}
+        </div>  
+        <hr/>      
+        <h2>Standalone Link:</h2>
+        <div>
+          <WcLink href="standalone/index.html" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>Open Standalone</WcLink>
+        </div>
+        <hr/>
+        <h2>Video Gallery:</h2>
         <section>
-                <div>
-                  <WcLink href="standalone/index.html" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>Open Standalone</WcLink>
-                </div>
 
-            <div style={rightSide}>
-                <div style={featuredTitle}>Recommended Products</div>
-                <Wcca1 />
-            </div>    
-            <div style={leftSide}>
+
+            {/* <div style={rightSide}> */}
+                {/* <div style={featuredTitle}>Recommended Products</div> */}
+                {/* <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='420px'  ImageHeight='100px'/> */}
+            {/* </div>     */}
+            {/* <div style={leftSide}> */}
                  <Wcvg /> 
-            </div>
+            {/* </div> */}
             <div className="wcClear"></div>     
             <div>
                 <br/>
                 <br/>
-                <WcLink href='' />
-                <div className="wcWrapButton">
-                  <WcLink href="http://www.test.symantecbtobuk.webcollage.net/wcdevres/_wc/pdf-white_papers/reaping-the-benefits-en.pdf" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>
-                      <Button style={{backgroundColor:'#150e34',color:'white',marginLeft:10}}>Test the pop up button</Button>
-                  </WcLink>
-                </div>
             </div>
 
         </section>
-
-
       </div>
 
     );
