@@ -17,40 +17,17 @@ const getScriptURL = (function() {
 
 
 function getSrcBase(scriptUrl) {
-    if (scriptUrl.includes('rawgit.com')) {
-            console.log('in git!',scriptUrl)
-            //return `https://rawgit.com/aloncon/showcaseg2/master/build/`;
-            environmentId = 'git';
-            return scriptUrl.replace(/\/build\/.*/,"/build/");             
-    }
-
-    if (scriptUrl.includes('media-preview.')) {
-            console.log('in stage!');
-            environmentId = 'live';
-            return `http://media-preview.webcollage.net/rwvfp/wc/live/99999991/module/webcollage/_wc/react_showcase/showcase-app-1/`; 
-            //src = `http://media-preview.webcollage.net/rwvfp/wc/live/99999991/module/webcollage/_wc/react_showcase/showcase-app-1/${src}`;        
-    }
-
-    if (scriptUrl.includes('www.test.')) {
-            environmentId = 'test';
-            console.log('in test!');
-            return `http://www.test.webcollage.webcollage.net/_wc/react_showcase/showcase-app-1/`;
-    }
-
     if (scriptUrl.includes('localhost:')) {
-            environmentId = 'localhost';
-            console.log('in test!')
-            return `http://localhost:3000`;
+        environmentId = 'localhost';
+        console.log('in test!')
+        return `http://localhost:3000`;
+    }else{
+        console.log('in git!',scriptUrl)
+        //return `https://rawgit.com/aloncon/showcaseg2/master/build/`;
+        environmentId = 'git';
+        return scriptUrl.replace(/\/build\/.*/,"/build/");
     }
-
-    //for testing only on real site
-    if (scriptUrl.includes('scontent.webcollage.net/')) {
-            console.log('in original site - testing only!!',scriptUrl)
-            //return `https://rawgit.com/aloncon/showcaseg2/master/build/`;             
-            scriptUrl.replace(/\/build\/.*/,"/build/");
-    }    
-    
-  //localhost  
+   
    return null; 
 }
 

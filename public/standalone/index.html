@@ -25,35 +25,24 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Webcollage Showcase: Standalone</title>
-    <script>
-  
-   
-    if (document.location.origin.indexOf("localhost")==-1){ 
-      document.write('<link rel="stylesheet" type="text/css" href="../static/css/main.css">'); 
-    }
-   </script>
+    <script>                 
+        if (document.location.origin.indexOf("localhost")==-1){ 
+          document.write('<link rel="stylesheet" type="text/css" href="../static/css/main.css">'); 
+        }
+    </script>
+    
     </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <span class="alonspan">
-  
+    
+    <span class="wcStandalone">
       <!-- Standalone has to be located here -->
-
-    <div id="wc-showcase-root"></div>
+        <div id="wc-showcase-root"></div>
     </span>
-    <div>******************************* index.html Root - localhost *********************************</div>
-    <!-- script id="wcmain" type="text/javascript" src="../static/js/main.js"></script -->
-    <script>
-        console.log("origin "  + document.location.origin)
-        
-      if (! (document.location.origin.indexOf("localhost") > -1) ){ 
-        document.write('<script id="wcmain" type="text/javascript" src="../static/js/main.js"><\/script>')  
-      } else {
-          document.write('<script id="wcmain" type="text/javascript" src="../static/js/bundle.js"><\/script>')
-        }
-       </script>
+    
+    <script id="wcmain" type="text/javascript" src="../static/js/bundle.js"></script>
     
   </body>
     <!--
