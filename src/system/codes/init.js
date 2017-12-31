@@ -22,9 +22,8 @@ function getSrcBase(scriptUrl) {
         console.log('in test!')
         return `http://localhost:3000`;
     }else{
-        console.log('in git!',scriptUrl)
-        //return `https://rawgit.com/aloncon/showcaseg2/master/build/`;
-        environmentId = 'git';
+        console.log('ENV: in others!',scriptUrl)
+        environmentId = 'non_dev';
         return scriptUrl.replace(/\/build\/.*/,"/build/");
     }
    
