@@ -13,7 +13,7 @@ build/static/css
 build/static/js
 !static/css/main.css
 !build/static/css/main.inner.css
-!static/js/main.js
+!static/js/bundle.js
 DELETE
 
 
