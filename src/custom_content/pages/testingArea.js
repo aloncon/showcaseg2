@@ -46,10 +46,11 @@ class ShowcaseBody extends React.Component {
           <h2>Carousel:</h2>
           <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} carouselHeight='200px'/>
           <br/>
-          {/* <ProductListing type="carousel" ids={["Carusel-Data-2"]} slidesToShow={4} carouselHeight='320px' ImageHeight='200px'/> */}
+           {/* <ProductListing type="carousel" ids={["Carusel-Data-2"]} slidesToShow={4} carouselHeight='320px' ImageHeight='200px'/> 
           <br/>
-          {/* <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='600px' productWidth="200px" productHeight='200px'/> */}
-        </div>  
+           <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='600px' productWidth="200px" productHeight='200px'/> 
+           */}
+           </div>  
         <hr/>      
         <h2>Standalone Link:</h2>
         <div>
@@ -58,15 +59,13 @@ class ShowcaseBody extends React.Component {
         <hr/>
         <h2>Video Gallery:</h2>
         <section>
-
-
-            {/* <div style={rightSide}> */}
-                {/* <div style={featuredTitle}>Recommended Products</div> */}
-                {/* <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='420px'  ImageHeight='100px'/> */}
-            {/* </div>     */}
-            {/* <div style={leftSide}> */}
+             {/* <div style={rightSide}> 
+                 <div style={featuredTitle}>Recommended Products</div> 
+                 <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='420px'  ImageHeight='100px'/> 
+             </div>    
+             <div style={leftSide}>  */}
                  <Wcvg /> 
-            {/* </div> */}
+             {/* </div>  */}
             <div className="wcClear"></div>     
             <div>
                 <br/>
