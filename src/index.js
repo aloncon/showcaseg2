@@ -45,9 +45,6 @@ const MainComp = observer(({ configurationData, rootStore }) => {
             <Dummy />
           </div>
           <MainContainer>
-            {console.log('WcShowcase.envio xxx', WcShowcase.environmentId)}
-            {console.log('WcShowcase.isDev xxx', WcShowcase.isDev)}
-            {/*!WcShowcase.isDev && <WcCssLink href="static/css/main.inner.css" rel="stylesheet" />*/}
             {WcShowcase.isStandalone && <StandAlone />}
             {configurationData.staticRoutes.routesDetails.find(field => field.path === '/EndpointManagement').title}
             <ShowcaseHeader />

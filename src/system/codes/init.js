@@ -19,7 +19,7 @@ const getScriptURL = (function() {
 function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('localhost:')) {
         environmentId = 'localhost';
-        console.log('in test!')
+        console.log('in DEV')
         return `http://localhost:3000`;
     }else{
         console.log('ENV: in others!',scriptUrl)
