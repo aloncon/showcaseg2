@@ -46,7 +46,7 @@ class ShowcaseBody extends React.Component {
           <h2>Carousel:</h2>
           <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} carouselHeight='150px' />
           <br/>
-            <ProductListing type="carousel" ids={["Carusel-Data-2"]} slidesToShow={4} carouselHeight='320px' ImageHeight='200px'/> 
+            {/* <ProductListing type="carousel" ids={["Carusel-Data-2"]} slidesToShow={4} carouselHeight='320px' ImageHeight='200px'/>  */}
           <br/>
            {/* <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={2} carouselHeight='600px' productWidth="200px" productHeight='200px'/>            */}
            </div>  
