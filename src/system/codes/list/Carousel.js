@@ -42,7 +42,7 @@ export default class Wcca extends Component {
             responsive              :           (this.props.settings.responsive != null      ? this.props.settings.responsive       :  false   ),
             responsiveWidth         :           (this.props.settings.responsiveWidth         ? this.props.settings.responsiveWidth  :  600     ),
             carouselWidth           :           (this.props.settings.carouselWidth!=null     ? this.props.settings.carouselWidth    :  '100%'  ),
-            carouselHeight          :           (this.props.settings.carouselHeight!=null    ? this.props.settings.carouselHeight   :  '200px'  ),
+            carouselHeight          :           (this.props.settings.carouselHeight!=null    ? this.props.settings.carouselHeight   :  '100px'  ),
             productHeight           :           (this.props.settings.productHeight!=null     ? this.props.settings.productHeight    :  '100%'  ),
             productWidth            :           (this.props.settings.productWidth!=null      ? this.props.settings.productWidth     :  '100%'  ),
             ImageHeight             :           (this.props.settings.ImageHeight!=null       ? this.props.settings.ImageHeight      :  '60px'  ),
