@@ -114,7 +114,7 @@ const ListingStore = (id , type) =>{
     return store
 }
 
-export const Listings = (listingStores) => {
+export const ShouldDisplayStore = (listingStores) => {
     return observable({
         listingStores,
         get shouldDisplay() {

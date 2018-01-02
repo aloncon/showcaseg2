@@ -1,13 +1,21 @@
 import React from 'react'
 import {observer}  from 'mobx-react';
-import ListingStore from '../../store/ProductData'
+import ListingStore, { ShouldDisplayStore } from '../../store/ProductData'
 
-const ShouldDisplay = observer(({ store, children }) => {
+
+
+
+const ShouldDisplayObsrv = observer(({ store, children }) => {
     console.log("should display render", store.shouldDisplay);
     return store.shouldDisplay && <div>
         {children}
     </div>
 });
+
+const ShouldDisplay = ({ids , children}) => {
+    const listings = ShouldDisplayStore(ids.map(ListingStore));
+    return <ShouldDisplayObsrv store={listings} children={children}/>
+}
 
 // const Filter = observer(({ store: { idListing , data}, onChange}) => {
 //     let content = data;
