@@ -15,7 +15,7 @@ import StandAlone from '../src/system/codes/standalone';
 
 import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcrumbsRoute';
 import './system/style/bootstrap-custom/css/wc.bootstrap.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './system/style/index.css';
 import './css/index.css';
 import configuration from './custom_content/configuration';
@@ -27,28 +27,34 @@ import { WcCssLink } from './system/codes/WcResource';
 
 import vendorData from './system/data/demo/vendor-data';
 
+import ResponsiveStore from './store/ResponsiveStore';
+
 const Dummy = () => {
   console.log('qqq dummy render');
-  return <div dangerouslySetInnerHTML={{ __html: vendorData[0].listDescription}}></div>;
-}
+  return <div dangerouslySetInnerHTML={{ __html: vendorData[0].listDescription }} />;
+};
 
 const MainComp = observer(({ configurationData, rootStore }) => {
   return (
     <Provider store={store}>
       <HashRouter>
-        <div id="wc_showcase_root" className={`app-size-${rootStore.mainSize} wcShowcaseRoot`}>
+        <div id="wc_showcase_root" className={`app-size-${rootStore.wcContainerSize} wcShowcaseRoot`}>
           {/* style={{ border: '5px dotted red' }} */}
-          <div>width: {rootStore.contentWidth}</div>
-          <div className={`size-${rootStore.mainSize}`}>
-            size: {rootStore.mainSize}
-            { console.log('qqq re render') }
-            <Dummy />
+          <div>wcRootWidth: {rootStore.wcRootWidth}</div>
+          <div>wcContainerWidth: {rootStore.wcContainerWidth}</div>
+          <div className={`size-${rootStore.wcContainerSize}`}>
+            wcRootSize: {rootStore.wcRootSize}
+            <br />
+            wcContainerSize: {rootStore.wcContainerSize}
+            <br />
+            {/* <Dummy /> */}
+            <hr />
           </div>
           <MainContainer>
             {WcShowcase.isStandalone && <StandAlone />}
             {configurationData.staticRoutes.routesDetails.find(field => field.path === '/EndpointManagement').title}
             <ShowcaseHeader />
-            <ModuleNavBreadcrumbsRoute />
+            <ModuleNavBreadcrumbsRoute rootStore={rootStore} />
             <hr />
             <ShowcaseFooter />
             <basePath />
@@ -60,7 +66,7 @@ const MainComp = observer(({ configurationData, rootStore }) => {
 });
 
 const el = document.getElementById('wc-showcase-root');
-let onUnmount;
+/* // let onUnmount;
 const RootStore = () => {
   function update() {
     const { width } = el.getBoundingClientRect();
@@ -71,10 +77,10 @@ const RootStore = () => {
     store.mainWidth = width;
   }
 
-  // requestAnimationFrame(() => {
-  //   update();
-  //   requestAnimationFrame(update);
-  // });
+  requestAnimationFrame(() => {
+    update();
+    requestAnimationFrame(update);
+  });
 
   window.addEventListener('resize', update);
 
@@ -93,10 +99,10 @@ const RootStore = () => {
 };
 
 const rootStore = RootStore();
-
+ */
 
 ReactDOM.render(
-  <MainComp configurationData={configuration} rootStore={rootStore}/>,
+  <MainComp configurationData={configuration} rootStore={ResponsiveStore} />,
   el,
   //getParentElement()
   //document.getElementById('root')

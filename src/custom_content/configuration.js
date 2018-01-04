@@ -8,6 +8,7 @@ import EndpointSolutions from '../custom_content/pages/endpoint-solutions';
 import iframe from '../custom_content/pages/iframe';
 import testingArea from '../custom_content/pages/testingArea';
 import ProductListing1 from '../custom_content/modules/product-listing1';
+// import PageTest from '../custom_content/pages/PageTest';
 
 /**
  * Configuration data for the showcase.
@@ -75,12 +76,22 @@ const configuration = {
         name: 'Endpoint Page Child',
         title: 'Endpoint Page Child',
       },
+/*       {
+        id: 'page-test',
+        parent: '/',
+        path: '/PageTest',
+        component: PageTest,
+        name: 'Page Test',
+        name: 'Testing JSON data',
+        assort: true
+      }, */
       {
         id: 'page3',
         parent: '/',
         path: '/Page3',
         component: Page3,
         name: 'Page 3',
+        // assort: true
       },
       {
         id: 'page3-child1',
@@ -97,6 +108,7 @@ const configuration = {
         component: Page3Child2,
         name: 'Page3 Child2',
         title: 'Page3 Child2',
+        // assort: true
       },
       {
         id: 'page3-child1-grand1',
@@ -131,14 +143,15 @@ const configuration = {
         title: '',
       },
       {
-        id: 'ProductListing1',
+        id: 'product-listing-1',
         parent: '/',
         path: '/ProductListing1',
         component: ProductListing1,
         name: 'Product Listing1',
       }
     ],
-    routesExclude: '(Product Listing1)',
+    routesExclude: '(product-listing-1)',
+    /* |endpoint-management|endpoint-solutions|page3-child1-grand1 */
   },
 };
 
@@ -147,18 +160,19 @@ const configuration = {
  * Function that checks if the provided route name needed to be excluded, return a boolean result.
  * The function takes 'routesExclude' and wrap the string between the pipelines with '^' and '$'
  *
- * routeName:: The route name we wish to check if needed to be excluded.
+ * routeID:: The route ID we wish to check if needed to be excluded.
+ *
  */
-configuration.staticRoutes.routesExcludeTest = routeName => {
+configuration.staticRoutes.routesExcludeTest = routeID => {
   let { routesExclude } = configuration.staticRoutes;
-  if (!routesExclude) return false;
+  if (!routesExclude || /^\(?\)?$/.test(routesExclude)) return false;
 
   const regexMatchName = /([a-zA-Z0-9-_$\s][\sa-zA-Z0-9-_$]*)/g;
 
   routesExclude = routesExclude.replace(regexMatchName, '^$1$');
   routesExclude = new RegExp(routesExclude);
 
-  return routesExclude.test(routeName);
+  return routesExclude.test(routeID);
 };
 
 /**
@@ -192,7 +206,7 @@ configuration.staticRoutes.getChildren = (parentPath) => {
  * Get all the root routes.
  */
 configuration.staticRoutes.getRootRoutes = () => {
-  return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeTest(route.name) && route.path !== '/');
+  return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeTest(route.id) && route.path !== '/');
 }
 
 export default configuration;

@@ -2,15 +2,24 @@
 div.wcNavigationVertical {
   border: 1px solid #c8c8c8;
   width: 20%;
+  max-width: 120px;
   display: table;
 }
 div.wcNavigationVertical ul.wcNavigationBox {
-  padding: 11px 4px 0 11px;
-  margin-bottom: 8px;
+  padding: 10px 6px 0 11px;
+  margin: 0 0 8px 0;
 }
 div.wcNavigationVertical ul.wcNavigationBox li {
   list-style: none;
   font-size: 12px;
+  margin: 3px 0;
+}
+div.wcNavigationVertical ul.wcNavigationBox li a {
+  text-decoration: none;
+  color: #4d4e53;
+}
+div.wcNavigationVertical ul.wcNavigationBox li a:hover {
+  text-decoration: underline;
 }
 div.wcNavigationVertical .wcNavHeader {
   background-color: #af0000;
