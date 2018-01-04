@@ -1,32 +1,34 @@
-@logo-height: 65px;
-@logo-margin:3px;
-@background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center;
-@header-color: white;
+#wc-showcase-root{
+	@logo-height: 65px;
+	@logo-margin:3px;
+	@background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center;
+	@header-color: white;
 
-.wcHeader {
-	display: -ms-flexbox;
-	display: flex;
-	margin-bottom: 1px;
-    background: @background;
-	height: @logo-height + @logo-margin;
-    
-    .wcHeaderTitle {
-		width: 50%;
-		text-align: left;
-		height: 100%;
-		h1 {
-			color: @header-color;
-			line-height: @logo-height + @logo-margin;
-			padding-left: 10px;
-			margin: 0 auto;
-			//font-size: 2em;
+	.wcHeader {
+		display: -ms-flexbox;
+		display: flex;
+		margin-bottom: 1px;
+		background: @background;
+		height: @logo-height + @logo-margin;
+		
+		.wcHeaderTitle {
+			width: 50%;
+			text-align: left;
+			height: 100%;
+			h1 {
+				color: @header-color;
+				line-height: @logo-height + @logo-margin;
+				padding-left: 10px;
+				margin: 0 auto;
+				//font-size: 2em;
+			}
 		}
-	}
-	.wcHeaderLogo {
-		width: 50%;
-		text-align: right;
-		img {
-			margin: @logo-margin;;
+		.wcHeaderLogo {
+			width: 50%;
+			text-align: right;
+			img {
+				margin: @logo-margin;;
+			}
 		}
 	}
 }

@@ -1,39 +1,41 @@
-@import '~slick-carousel/slick/slick.css';
-@import '~slick-carousel/slick/slick-theme.css';
-#wc_showcase_root {
+#wc-showcase-root {
+  @import '~slick-carousel/slick/slick.css';
+  @import '~slick-carousel/slick/slick-theme.css';
+}
+#wc-showcase-root #wc_showcase_root {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   max-width: 1000px;
   background-color: #fff;
 }
-#wc_showcase_root .wcContainer {
+#wc-showcase-root #wc_showcase_root .wcContainer {
   background-color: #fff;
   text-align: left;
 }
-#wc_showcase_root .wcContainerFull {
+#wc-showcase-root #wc_showcase_root .wcContainerFull {
   width: 100%;
 }
-#wc_showcase_root .wcContainerSmallerVerticalNav {
+#wc-showcase-root #wc_showcase_root .wcContainerSmallerVerticalNav {
   width: 80%;
 }
-#wc_showcase_root .wcShowcaseBody h2 {
+#wc-showcase-root #wc_showcase_root .wcShowcaseBody h2 {
   color: red;
   font-size: 18px;
 }
-#wc_showcase_root .wcShowcaseRoot {
+#wc-showcase-root #wc_showcase_root .wcShowcaseRoot {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   max-width: 1000px;
   background-color: #fff;
 }
-#wc-showcase-root .wcContainer .wcCategoryUl {
+#wc-showcase-root #wc-showcase-root .wcContainer .wcCategoryUl {
   margin-right: 10px;
   margin-left: 10px;
   list-style-type: none;
 }
-#wc-showcase-root .wcContainer .wcCategoryUl .wcCategoryLi {
+#wc-showcase-root #wc-showcase-root .wcContainer .wcCategoryUl .wcCategoryLi {
   padding-top: 15px;
   border-bottom: 1px solid #cbcbcb;
   list-style-type: none;
@@ -42,17 +44,17 @@
   width: auto;
   height: auto;
 }
-#wc-showcase-root .wcContainer .wcCategoryUl .wcCategoryLi .wcCenteredCategoryText {
+#wc-showcase-root #wc-showcase-root .wcContainer .wcCategoryUl .wcCategoryLi .wcCenteredCategoryText {
   float: left;
   padding-right: 12px;
 }
-#wc-showcase-root .wcContainer .wcCategoryUl .wcCategoryLi .wcFiveCol p {
+#wc-showcase-root #wc-showcase-root .wcContainer .wcCategoryUl .wcCategoryLi .wcFiveCol p {
   font-family: Arial;
   font-size: 12px;
   font-weight: normal;
   color: #5f5f5f;
   margin-top: 5px;
 }
-.wcClear {
+#wc-showcase-root .wcClear {
   clear: both;
 }

@@ -1,13 +1,13 @@
-.wcVideoPlayerContainer {
+#wc-showcase-root .wcVideoPlayerContainer {
   width: 98%;
   border: 1px solid #000000;
 }
-.wcPlayList {
+#wc-showcase-root .wcPlayList {
   list-style: none;
   margin: -5px 0 0 0;
   padding: 0;
 }
-.wcPlayList .wcPlayListItem {
+#wc-showcase-root .wcPlayList .wcPlayListItem {
   position: relative;
   width: 162px;
   height: 94px;
@@ -15,11 +15,11 @@
   margin: 20px 20px 0 0;
   cursor: pointer;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap {
   height: 94px;
   margin-bottom: 5px;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap a {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap a {
   box-sizing: content-box;
   display: block;
   border: 1px solid #999999;
@@ -29,46 +29,46 @@
   top: 2px;
   left: 2px;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap a:hover,
-.wcPlayList .wcPlayListItem .wcThumbnailWrap a:focus,
-.wcPlayList .wcPlayListItem .wcThumbnailWrap a:active {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap a:hover,
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap a:focus,
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap a:active {
   top: 1px;
   left: 1px;
   border: 1px solid #0066cc;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap a.wcSelected {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap a.wcSelected {
   top: 1px;
   left: 1px;
   border: 1px solid #0066cc;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer {
   position: relative;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:hover .wcPlay,
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:focus .wcPlay,
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:active .wcPlay {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:hover .wcPlay,
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:focus .wcPlay,
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:active .wcPlay {
   opacity: 0.9;
   filter: alpha(opacity=55);
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:hover .wcDuration,
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:focus .wcDuration,
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:active .wcDuration {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:hover .wcDuration,
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:focus .wcDuration,
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer:active .wcDuration {
   background: #0066cc;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer .wcThumbnail {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer .wcThumbnail {
   max-width: 100%;
   max-height: 100%;
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer img.wcPlay {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcCenterContainer img.wcPlay {
   width: auto;
   height: auto;
   opacity: 0.6;
   filter: alpha(opacity=25);
 }
-.wcPlayList .wcPlayListItem .wcThumbnailWrap .wcMovieActive {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcThumbnailWrap .wcMovieActive {
   border: 1px solid #0066cc;
 }
-.wcPlayList .wcPlayListItem .wcDuration {
+#wc-showcase-root .wcPlayList .wcPlayListItem .wcDuration {
   font-size: 10px;
   background: #000000;
   color: #ffffff;
@@ -76,13 +76,13 @@
   bottom: 0;
   right: 2px;
 }
-.video-react-icon-play-arrow:before {
+#wc-showcase-root .video-react-icon-play-arrow:before {
   content: none !important;
 }
-.video-react .video-react-big-play-button:before {
+#wc-showcase-root .video-react .video-react-big-play-button:before {
   content: none !important;
 }
-.video-react-big-play-button-center {
+#wc-showcase-root .video-react-big-play-button-center {
   background: none !important;
   background-image: url('../resources/videoGallery/play_thumbnails.png') !important;
   background-repeat: no-repeat !important;
@@ -92,7 +92,7 @@
   width: 1.7em !important;
   margin-left: -1em !important;
 }
-.wcCenter {
+#wc-showcase-root .wcCenter {
   top: 0;
   left: 0;
   right: 0;
@@ -100,6 +100,6 @@
   position: absolute;
   margin: auto;
 }
-.video-react-poster {
+#wc-showcase-root .video-react-poster {
   background-color: #ffffff!important;
 }
