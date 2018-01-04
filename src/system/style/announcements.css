@@ -1,3 +1,4 @@
+/* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root {
   @import "~slick-carousel/slick/slick.css";
   @import "~slick-carousel/slick/slick-theme.css";
@@ -249,3 +250,4 @@
   font-size: 20px!important;
   font-family: 'times-new-roman' !important;
 }
+/* ***dev end: please add your styles above only!!!*** */
