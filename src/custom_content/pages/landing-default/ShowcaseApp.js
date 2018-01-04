@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+
+import ReactDOM from 'react-dom';
+
 import WcpcContent from '../../../system/codes/WcpcContent';
 import '../../../system/style/index.css';
 import { Announcements } from '../../modules/Announcements';
 import Announcements2 from '../../modules/Announcement2';
-
+import ProductListing from '../../../system/codes/list/ProductListing';
 
 class ShowcaseBodyHeader extends React.Component{
   render() {
@@ -27,6 +30,8 @@ class ShowcaseBodyHeader extends React.Component{
 
 class ShowcaseBody extends React.Component {
   render() {
+
+
     return (
       <div>
         <div className="wcAppIntro">
@@ -41,11 +46,24 @@ class ShowcaseBody extends React.Component {
           </ul>
           </div>
         </div>
+        <div className='wcAppIntroCarousel'>
+          <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} ImageHeight="80px" carouselHeight='230px' productWidth="150px" productHeight='150px'/>
+        </div>
+        {/* <div className="wcClear"></div>  */}
       </div>  
 
     );
   }
 }
+
+// const checkSize = () => {
+  
+//   const rootSizeElement = document.querySelector('#wc_showcase_root');
+//   const size = rootSizeElement.className.replace(/app-size-(.*)\s.*/,'$1');
+//   return size;
+// }
+
+// window.c = checkSize;
 
 
 class ShowcaseApp extends Component {

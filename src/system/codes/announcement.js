@@ -1,7 +1,8 @@
 import React from 'react'
 import Slider from 'react-slick';
+import { observer } from 'mobx-react';
 
-import {WcLink , WcImg , WcPlayer} from './WcResource';
+import {WcLink , WcImg , WcPlayer , absolutizeSrc} from './WcResource';
 import '../style/announcements.css';
 import '../style/videoGallery.css';
 
@@ -16,8 +17,8 @@ NOTE: In order to CHANGE AUTOPLAY (False/True), use the State settings (autoplay
       In order to CHANGE ARROWS/NUMBERS AUTOPLAY (False/True), use the State settings (autoplayArrows/autoplayPagination) AND NOT the Slider setting
 */
 
-export default class Wcan extends React.Component {
-
+const Wcan = observer(class Wcan extends React.Component {
+    
     constructor(props) {
         super(props)
         this.getUpdatedArray = this.getUpdatedArray.bind(this);
@@ -27,51 +28,47 @@ export default class Wcan extends React.Component {
         this.sliderNumbers = this.sliderNumbers.bind(this);
         this.sliderPlayAndPauseButton = this.sliderPlayAndPauseButton.bind(this);
         this.changeClass = this.changeClass.bind(this);
-        this.handleResize = this.handleResize.bind(this);
+
+        this.s = this.props.data_setting;
         this.init = {
             //slider settings - autoplay
-            autoplay            :   (this.props.data_setting.autoplay!=null       ? this.props.data_setting.autoplay : false),                  //turn on/off autoplay in slider (Boolean)
-            autoplayArrows      :   (this.props.data_setting.autoplayArrows!=null ? this.props.data_setting.autoplayArrows : false),            //turn on/off autoplay in arrows buttons (Boolean)
-            autoplayPagination  :   (this.props.data_setting.autoplayPagination!=null ? this.props.data_setting.autoplayPagination : false),    //turn on/off autoplay in numbers buttons (Boolean)
-            autoplaySpeed       :   (this.props.data_setting.autoplaySpeed!=null ? this.props.data_setting.autoplaySpeed : 3000),               //control the speed of autoplay changing slides (Integer)
+            autoplay            :   (this.s.autoplay!=null              ? this.s.autoplay : false),              //turn on/off autoplay in slider (Boolean)
+            autoplayArrows      :   (this.s.autoplayArrows!=null        ? this.s.autoplayArrows : false),        //turn on/off autoplay in arrows buttons (Boolean)
+            autoplayPagination  :   (this.s.autoplayPagination!=null    ? this.s.autoplayPagination : false),    //turn on/off autoplay in numbers buttons (Boolean)
+            autoplaySpeed       :   (this.s.autoplaySpeed!=null         ? this.s.autoplaySpeed : 3000),          //control the speed of autoplay changing slides (Integer)
             //slider settings - other settings
-            infinite            :   (this.props.data_setting.infinite!=null     ? this.props.data_setting.infinite : true ),                    //turn on/off infinite for the slier  (Boolean - true as Default)
-            speed               :   (this.props.data_setting.speed!=null        ? this.props.data_setting.speed    : 500 ),
-            pauseOnHover        :   (this.props.data_setting.pauseOnHover!=null ? this.props.data_setting.pauseOnHover  : false),
-            slidesToShow        :   (this.props.data_setting.slidesToShow!=null ? this.props.data_setting.slidesToShow  : 1 ),
-            changeImage         :   (this.props.data_setting.changeImage        ? this.props.data_setting.changeImage   : false),             
-            changeImageWidth    :   (this.props.data_setting.changeImageWidth   ? this.props.data_setting.changeImageWidth : 600),
-            sliderWidth         :   (this.props.data_setting.sliderWidth        ? this.props.data_setting.sliderWidth : '100%'),
-            sliderHeight        :   this.props.data_setting.sliderHeight,
-            isDots              :   (this.props.data_setting.isDots!=null         ? this.props.data_setting.isDots : true),
-            isArrows            :   (this.props.data_setting.isArrows!=null         ? this.props.data_setting.isArrows : true),       
+            infinite            :   (this.s.infinite!=null              ? this.s.infinite : true ),              //turn on/off infinite for the slier  (Boolean - true as Default)
+            speed               :   (this.s.speed!=null                 ? this.s.speed    : 500 ),
+            pauseOnHover        :   (this.s.pauseOnHover!=null          ? this.s.pauseOnHover  : false),
+            slidesToShow        :   (this.s.slidesToShow!=null          ? this.s.slidesToShow  : 1 ),
+            changeImage         :   (this.s.changeImage                 ? this.s.changeImage   : false),             
+            changeImageWidth    :   (this.s.changeImageWidth            ? this.s.changeImageWidth : 600),
+            sliderWidth         :   (this.s.sliderWidth                 ? this.s.sliderWidth : '100%'),
+            sliderHeight        :   this.s.sliderHeight,
+            isDots              :   (this.s.isDots!=null                ? this.s.isDots : true),
+            isArrows            :   (this.s.isArrows!=null              ? this.s.isArrows : true),     
+            isAutoplay          : false
         };
         this.state = {
-            //rtl                 :   (this.props.data_setting.rtl!=null          ? this.props.data_setting.rtl  : false), //TODO
-            //slider settings - change Image Or Different Width related
-            changeImgSrc        :   4,
-            windowHeight        :   window.innerHeight,
-            windowWidth         :   window.innerWidth,
-
             //NOT TO EDIT - USES AS FLAGS
             slidesNew           :   this.props.data_slides,
             sliderPaused        :   false,                                 //flag for stopping autoplay (Boolean)
             slideDirection      :   true,                                  //flag for autoplay direction (Boolean)
             butoonPaused        :   false,                                 //flag for pause/play button (Boolean)
-            pauseClass          :   'wcAnnounceItemNum wcAnnouncePause'             //flag for play/pause button class (String)
+            pauseClass          :   'wcAnnounceItemNum wcAnnouncePause'    //flag for play/pause button class (String)
 
         };
     }
 
     /*TODO:
           ***  fix problem with infinite - if we get to the end and try to start again it causes problems
-          ***  check pauseOnHover - somthing not right
+          ***  check pauseOnHover - something not right
     */
-
 
     componentDidMount() {
         //control autoplay on page loading
-        if(this.init.autoplay && !this.init.pauseOnHover){
+        // if(this.init.autoplay && !this.init.isDots){
+        if(this.init.autoplay){
             this.startSlideTimeout();
             //this.setState({autoplaySpeed: this.state.autoplaySpeed}); //26.10
         }else{
@@ -85,16 +82,7 @@ export default class Wcan extends React.Component {
             document.getElementById('wcAnnouncePrev').className = 'wcAnnouncePrev wcAnnounceDisable';
             document.getElementById('wcAnnouncePrev').disabled = true;
 
-        }
-
-        this.handleResize();
-        window.addEventListener('resize', this.handleResize);   
-        console.log('this.init.pauseOnHover: '+this.init.pauseOnHover)     
-    }
-
-    componentWillUnmount() {
-        this.handleResize();
-        window.removeEventListener('resize', this.handleResize);
+        }          
     }
 
     getUpdatedArray(){
@@ -126,13 +114,19 @@ export default class Wcan extends React.Component {
     //on use when we want autoplay for the slider - uses to play the autoplay
         this.timeout = setTimeout(() => {
             try {
-                if(this.state.slideDirection){
+                if(this.init.isDots){                 
+                    //this.init.isAutoplay = true;
+                    this.slider.slickNext();
+                    this.endSlideTimeout();
+                }else if(this.state.slideDirection){
                     this.slider.slickNext();
                 }else{
                     this.slider.slickPrev();
                 }
-                this.state.slideDirection = true;
-                this.startSlideTimeout();
+                if(!this.init.isDots){
+                    this.state.slideDirection = true;
+                    this.startSlideTimeout();
+                }
             }catch(err){
                 this.endSlideTimeout();
             }
@@ -261,38 +255,39 @@ export default class Wcan extends React.Component {
 
     }
 
-    handleResize(e) {
-         this.setState({
-             windowHeight: window.innerHeight,
-             windowWidth: window.innerWidth,
-         });
+    handleResize(size,settings) {
         if(this.init.changeImage === true){
-            if(window.innerWidth >= this.init.changeImageWidth){
-                this.setState({
-                    changeImgSrc: 4
-                });
+            if(size === 'sm'){
+                settings.changeImgSrc = 5;
             }else{
-                this.setState({
-                    changeImgSrc: 5
-                });
+                settings.changeImgSrc =  4;
             }
         }
     }
 
+
     render() {
+        const videoData = this.props.data_video;
+        const {isDots , infinite} = this.init;
+
         const settings = {
-            arrows:         this.init.isArrows,
-            autoplay:       this.init.pauseOnHover,
+            arrows:         isDots,
+            autoplay:       this.init.isDots,
             dots:           this.init.isDots,
             infinite:       this.init.infinite,
             pauseOnHover:   this.init.pauseOnHover,
-            rtl:            false, //TODO
             slidesToShow:   this.init.slidesToShow,
             speed:          this.init.speed,
             swipe:          false, //TODO ??
             touchMove:      false, //TODO ??
-            swipeToSlide:   false  //TODO ??
+            swipeToSlide:   false  //TODO ??          
         };
+
+        const res_settings = {changeImgSrc:   4};
+
+        this.handleResize(this.props.ResponsiveStore.wcContainerSize,res_settings);
+        
+        
 
         var divStyle = {
             width: this.init.sliderWidth,
@@ -306,25 +301,26 @@ export default class Wcan extends React.Component {
                         {this.state.slidesNew.map((slide, index) => (
                             <div key={index}>
                                 { (slide[2] === 'videoLink') ?
-                                    <div className="wcVideoSlideContainer" style={{backgroundImage: `url(${this.props.data_video.backgroundImage})` ,  width: this.init.sliderWidth,height:this.init.sliderHeight}}>
+                                    <div className="wcVideoSlideContainer" style={{backgroundImage: `url(${absolutizeSrc(videoData[Number(slide[1])][0])})` ,  width: '100%',height:this.init.sliderHeight}}>
                                         <div className="wcVideoSlideText">
-                                            <h2>Sale Sale Sale</h2>
-                                            <p>Sale Sale Sale</p>
-                                            <p>Sale Sale Sale</p>
+                                            <div dangerouslySetInnerHTML={{ __html: videoData[Number(slide[1])][1]}}></div>
                                         </div>                                  
-                                        <div className="wcVideoSlidePlayer" style={{width:'300px',height:'200px'}}>
-                                            <WcPlayer playsInline src={slide[1]} poster={slide[this.state.changeImgSrc]}> 
+                                        <div className="wcVideoSlidePlayer" style={{width:videoData[Number(slide[1])][4],height:videoData[Number(slide[1])][5]}} title={videoData[Number(slide[1])][6]}>
+                                            {/* TODO: CHECK IF NNED CHANGE IMAGE IS TRUE */}
+                                            <WcPlayer playsInline src={videoData[Number(slide[1])][2]} poster={videoData[Number(slide[1])][3]}> 
                                                 <BigPlayButton position="center" />
                                             </WcPlayer> 
                                         </div> 
                                     </div>                      
                                     : (slide[2] === 'LocalLink') ?
                                     <Link to={slide[1]}>
-                                        <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
+                                        {/* TODO: CHECK IF NNED CHANGE IMAGE IS TRUE */}
+                                        <WcImg src={slide[res_settings.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                                     </Link>                          
                                     :
                                     <WcLink href={slide[1]} className="wcAnnounceLink" title={slide[3]} target="_blank">
-                                        <WcImg src={slide[this.state.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
+                                        {/* TODO: CHECK IF NNED CHANGE IMAGE IS TRUE */}
+                                        <WcImg src={slide[res_settings.changeImgSrc]} alt={slide[3]} title={slide[3]}/>
                                     </WcLink>
                                 }
 
@@ -334,7 +330,7 @@ export default class Wcan extends React.Component {
 
                     </Slider>
                     <ul className="wcAnnounceUl">
-                        {!this.init.isArrows &&
+                        {!this.init.isDots &&
                             <span>
                                 <li><button id='wcAnnounceNext' className="wcAnnounceNext" data-id='next' onClick={this.sliderArrows}></button></li>
                                 <li><button id='wcAnnouncePrev' className="wcAnnouncePrev" data-id='previous' onClick={this.sliderArrows}></button></li>
@@ -355,4 +351,6 @@ export default class Wcan extends React.Component {
             </div>
         );
     }
-}
+})
+
+export default Wcan;

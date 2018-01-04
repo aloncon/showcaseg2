@@ -177,11 +177,10 @@
 }
 #wc-showcase-root .wcCarouselProductTitle a {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 0.750em;
   color: #000000;
   text-decoration: none;
   text-align: center;
-  font-family: Verdana, Helvetica, Arial;
   width: auto;
   height: auto;
 }
@@ -189,5 +188,8 @@
   filter: alpha(opacity=35);
   opacity: 0.35;
   cursor: default;
+}
+#wc-showcase-root .slick-slide {
+  height: auto!important;
 }
 /* ***dev end: please add your styles above only!!!*** */

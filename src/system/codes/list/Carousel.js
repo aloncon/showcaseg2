@@ -5,7 +5,6 @@ import'../../style/carousel.css';
 import api from '../../../store/Api';
 import VendorData from '../../data/vendor-data.json'
 
-
 //arrows for horizonal carousel
 function SamplePrevArrow(props) {
   const {onClick,className} = props
@@ -30,14 +29,16 @@ export default class Wcca extends Component {
     constructor(props) {
         super(props)
         this.sliderArrows = this.sliderArrows.bind(this);
-        this.handleResize = this.handleResize.bind(this);
+        //this.handleResize = this.handleResize.bind(this);
         this.onImgLoad = this.onImgLoad.bind(this);
-        this.settings = this.props.settings
-
+        this.s = this.props.settings;
+        this.init = {
+            slidesToShow            :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  1       ),
+            slidesToShowDefault     :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  1       ),
+        }
         this.state = {
             carosulId               :           (this.props.settings.id!=null                ? this.props.settings.id               : '00'     ),
             isVertical              :           (this.props.settings.vertical!=null          ? this.props.settings.vertical         :  false   ),
-            slidesToShow            :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  1       ),
             infinite                :           (this.props.settings.infinite != null        ? this.props.settings.infinite         :  true    ),
             responsive              :           (this.props.settings.responsive != null      ? this.props.settings.responsive       :  false   ),
             responsiveWidth         :           (this.props.settings.responsiveWidth         ? this.props.settings.responsiveWidth  :  600     ),
@@ -59,61 +60,74 @@ export default class Wcca extends Component {
 
     componentDidMount() { 
         //NEEDED FOR THE VERTICAL lISTING - SO THEY CAN FULLY UPLODED
-        setTimeout(() => {
-            window.dispatchEvent(new Event('resize'))
-        }, 500);
+       // setTimeout(() => {
+       //    window.dispatchEvent(new Event('resize'))
+       // }, 500);
 
         //For responsive
             //Enable responsive only on horizonal carusel
-            if(this.state.responsive && this.state.isVertical){
-                this.state.responsive = false;
+            //if(this.state.responsive && this.state.isVertical){
+            //    this.state.responsive = false;
                 //this.setState({
                 //    responsive : false
                 //});
-            }
+            //}
             //Detect resize and if requested change from horizonal to vertical carusel
-            this.handleResize();
+            //this.handleResize();
             this.setState({
                 maxImgHieght : this.state.productHeight
             });
             
-            console.log('ImageWidth: '+this.state.ImageWidth)
+            if(this.state.isVertical){
+                this.setState({
+                    carouselWidth : this.state.productWidth
+                });
+            }
             
     }
 
-    componentWillUnmount() {
-        //For responsive - Detect resize and if requested change from Horizonal to Vertical carusel
-            this.handleResize();
-            window.removeEventListener('resize', this.handleResize);
-    }
+    // componentWillUnmount() {
+    //     //For responsive - Detect resize and if requested change from Horizonal to Vertical carusel
+    //         this.handleResize();
+    //         window.removeEventListener('resize', this.handleResize);
+    // }
 
     //For responsive - Detect resize and if requested change from Horizonal to Vertical carusel
-    handleResize(e) {
-        this.setState({
-            windowHeight: window.innerHeight,
-            windowWidth: window.innerWidth,
-        });
-       if(this.state.responsive === true){
-           if(window.innerWidth >= this.state.responsiveWidth){
-               this.setState({
-                   isVertical : false
-               });
-           }else{
-            this.setState({
-                isVertical : true
-            });
-           }
-       }
-   }
+//     handleResize(e) {
+//         this.setState({
+//             windowHeight: window.innerHeight,
+//             windowWidth: window.innerWidth,
+//         });
+//        if(this.state.responsive === true){
+//            if(window.innerWidth >= this.state.responsiveWidth){
+//                this.setState({
+//                    isVertical : false
+//                });
+//            }else{
+//             this.setState({
+//                 isVertical : true
+//             });
+//            }
+//        }
+//    }
 
     sliderArrows(e) {
     //control the arrows buttons of the slider (preview/next)
         // var totalSlides = Number(this.props.data_slides[0].products.length);
         var totalSlides = Number(this.state.productsList.products.length);
-        var maxSlides = totalSlides-this.state.slidesToShow; 
+        var maxSlides = totalSlides-this.init.slidesToShow; 
+
+       
 
         document.getElementById(this.state.carosulId+('_wcca_arrows_next')).disabled = true;
-        document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = true;
+        document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = true;              
+
+
+         
+      
+        // if(this.state.latestSlide===0 && !this.state.infinite){
+        //     document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
+        // }
 
         if(e.target.dataset.id === 'previous' && this.state.latestSlide!==0)
         {
@@ -123,7 +137,7 @@ export default class Wcca extends Component {
                 this.slider.slickPrev();
                 this.state.latestSlide = this.state.latestSlide - 1;
 
-                if(this.state.latestSlide===0){
+                if(this.state.latestSlide===0 && !this.state.infinite){
                     document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
                 }
         }
@@ -135,9 +149,13 @@ export default class Wcca extends Component {
             this.slider.slickNext();
             this.state.latestSlide = this.state.latestSlide  + 1;
 
-            if(this.state.latestSlide===maxSlides){
+            if(this.state.latestSlide===maxSlides && !this.state.infinite){
                 document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical wcDisabled';
             }
+        }else if (e.target.dataset.id === 'previous' && this.state.infinite){
+            this.slider.slickPrev();
+        }else if (e.target.dataset.id === 'next' && this.state.infinite){
+            this.slider.slickNext();
         }
 
          setTimeout(() => {
@@ -157,7 +175,20 @@ export default class Wcca extends Component {
         }
     } 
 
+    handleResize(size) {     
+        if(size === 'sm'){
+            this.init.slidesToShow = this.init.slidesToShowDefault - 2;
+            if(this.init.slidesToShowDefault - 2 <= 0){this.init.slidesToShow = this.init.slidesToShowDefault}
+        }else if(size === 'md'){
+            this.init.slidesToShow = this.init.slidesToShowDefault - 1;
+            if(this.init.slidesToShowDefault - 2 <= 0){this.init.slidesToShow = this.init.slidesToShowDefault}   
+        }else{
+            this.init.slidesToShow = this.init.slidesToShowDefault
+        }
+    }
+
     render() {
+        const slidesToShowDefault = this.init.slidesToShow;
 
         const settings = {
             arrows: !this.state.isVertical,
@@ -166,9 +197,12 @@ export default class Wcca extends Component {
             dots: false,
             infinite: this.state.infinite,
             speed: 500,
-            slidesToShow: this.state.slidesToShow,
+            slidesToShow: this.init.slidesToShow,
             slidesToScroll: 1,
-            vertical: this.state.isVertical
+            vertical: this.state.isVertical,
+            swipe:          false,
+            touchMove:      false,
+            swipeToSlide:   false 
           };
 
           var divStyle = {
@@ -177,8 +211,11 @@ export default class Wcca extends Component {
             display:'block',
             //border:'1px solid blue'
         };
+        
+        console.log('this.state.infinite: ',this.state.infinite)
 
-       
+        this.handleResize(this.props.ResponsiveStore.wcContainerSize);
+
         return (
             <div>
                 <div className="WcCarousel"  style={divStyle} >                  

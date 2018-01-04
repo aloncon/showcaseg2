@@ -26,7 +26,7 @@ import EndpointSolutions from './custom_content/modules/endpoint-solutions';
 
 import { onProductsEnter } from './routers/route_callbacks';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
+//import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './css/index.css';
 //const css = require('./App.css'); 
 

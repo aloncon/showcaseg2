@@ -6,21 +6,13 @@ import {WcImg , WcPlayer , absolutizeSrc} from './WcResource';
 import play_thumbnails from "../resources/videoGallery/play_thumbnails.png";
 
 
-import videoTestSrc from '../../custom_content/assets/video/videoTest.mp4';
-import videoTestPoster from '../../custom_content/assets/video/posterTest.jpg'
-
-let newVideoDetails = [];
-
 
 function getDuration(url){
-  //  console.log(url);
     return new Promise((resolve,rej) => {
-       // console.log("duration 4");
         let videoElement = document.createElement('video');
             videoElement.src = url;
             videoElement.preload = 'metadata';
             let waitToDuration = setInterval(()=>{
-            console.log("videoElement.readyState",videoElement.readyState);
                 if(videoElement.readyState > 0){
                     window.URL.revokeObjectURL(videoElement.src);
                     let  durationVideo = videoElement.duration;
@@ -31,9 +23,9 @@ function getDuration(url){
             
     })
 }
+
 function getVideoDuration(videosTemp){
         let videos = videosTemp;
-        console.log("videos",videos)
         let temp = []
         return new Promise(res=>{
             videos.forEach(video => {
@@ -56,17 +48,32 @@ function getVideoDuration(videosTemp){
 
 
 export default class Wcvg extends Component {
-        
+
+    constructor(props) {
+        super(props)
+        this.s = this.props.data_settings;
+        this.init = {
+            autoPlay                    :   (this.s.autoPlay                    != null ? this.s.autoPlay                   : false),
+            playerWidth                 :   (this.s.playerWidth                 != null ? this.s.playerWidth                : '100%'),
+            thumbnailAlignment          :   (this.s.thumbnailAlignment          != null ? this.s.thumbnailAlignment         : 'left'),
+            thumbnailBackgroundColor    :   (this.s.thumbnailBackgroundColor    != null ? this.s.thumbnailBackgroundColor   : '#ffffff'),            
+            durationTextColor           :   (this.s.durationTextColor           != null ? this.s.durationTextColor          : '#ffffff'),
+            durationBackgroundColor     :   (this.s.durationBackgroundColor     != null ? this.s.durationBackgroundColor    : '#000000'),            
+        }
+    }
+     
         state = {
-            poster                  :           absolutizeSrc(this.props.data_info[0].videoPoster),
-            src                     :           absolutizeSrc(this.props.data_info[0].videoSrc),
-            videoObj                :           [],
-            flag                    :           false,
-            paused                  :           false,
-            progress                :           0,
-            duration                :           0,
-            activeIndex: 0
+            poster                      :   absolutizeSrc(this.props.data_info[0].videoPoster),
+            src                         :   absolutizeSrc(this.props.data_info[0].videoSrc),
+            videoObj                    :   [],
+            flag                        :   false,
+            activeIndex                 :   0,
+
         };  
+
+        componentDidMount() {
+            this.fetchData(this.props.data_info);              
+        }
 
         getIndex = (e) => {        
             var index = Number(e.target.dataset.id);
@@ -77,6 +84,7 @@ export default class Wcvg extends Component {
             });
 
         }
+
         fetchData = (data) =>{
             getVideoDuration(data)
             .then(result => {
@@ -84,10 +92,6 @@ export default class Wcvg extends Component {
                 this.setState({flag : true});
                 
             })   
-        }
-
-        componentDidMount() {
-            this.fetchData(this.props.data_info);              
         }
 
         displayDuration(duration){
@@ -105,54 +109,41 @@ export default class Wcvg extends Component {
 
         }
 
-
         render() {  
-            const {videoObj , flag} = this.state;
-
+            const {poster , src , videoObj , flag} = this.state;
+            const {autoPlay , playerWidth , thumbnailAlignment , thumbnailBackgroundColor , durationTextColor , durationBackgroundColor} = this.init;
 
             return (   
                 <div>
-                    <div className="wcVideoPlayerContainer">
+                    <div className="wcVideoPlayerContainer" style={{width: playerWidth}}>
                          <WcPlayer
                             playsInline
-                            poster={this.state.poster}
-                            src={this.state.src}
-                            
-                            onSubmit={(e)=>{e.preventDefault()}}
-                            
-                        > 
+                            poster={poster}
+                            src={src}
+                            autoPlay={autoPlay}
+                         >   
                             <BigPlayButton position="center" />
                         </WcPlayer> 
                     </div>                
                     <div className="wcPlayList">
-                            <ul className="wcPlayList">
-                            
-                            {flag && videoObj.map((video,index) => {
-                                const className = this.state.activeIndex === index ? 'wcCenterContainer wcMovieActive' : 'wcCenterContainer';
-                                return(
-                                    <li className="wcPlayListItem"  key={index}>
-                                        <div className="wcThumbnailWrap">
-                                            <a className={className} title={video.title} data-id={index} onClick={this.getIndex}>
-                                                <WcImg className="wcThumbnail wcCenter" title={video.videoTitle} src={video.poster} alt={video.title} data-id={index} onClick={this.getIndex}/>
-                                                <WcImg className="wcPlay wcCenter" title={video.title} src={play_thumbnails} alt="" data-id={index} onClick={this.getIndex}  />
-                                            </a>
-                                            <span className="wcDuration">{this.displayDuration(video.duration)}</span>                         
-                                        </div>
-                                    </li> 
-                                )
-                            })}
+                            <ul className="wcPlayList" style={{textAlign: thumbnailAlignment}}>                            
+                                {flag && videoObj.map((video,index) => {
+                                    const className = this.state.activeIndex === index ? 'wcCenterContainer wcMovieActive' : 'wcCenterContainer';
+                                    return(
+                                        <li className="wcPlayListItem"  key={index}>
+                                            <div className="wcThumbnailWrap">
+                                                <a className={className} title={video.title} data-id={index} onClick={this.getIndex}  style={{backgroundColor: thumbnailBackgroundColor}}>
+                                                    <WcImg className="wcThumbnail wcCenter" title={video.videoTitle} src={video.poster} alt={video.title} data-id={index} onClick={this.getIndex}/>
+                                                    <WcImg className="wcPlay wcCenter" title={video.title} src={play_thumbnails} alt="" data-id={index} onClick={this.getIndex}  />
+                                                </a>
+                                                <span className="wcDuration"   style={{backgroundColor: durationBackgroundColor,color: durationTextColor}}>{this.displayDuration(video.duration)}</span>                         
+                                            </div>
+                                        </li> 
+                                    )
+                                })}
                             </ul>
                         </div>
                     </div>                                        
             );
         }
     };
-
-      
-    
-    
-
-    
-    /*TODO:
-        - add correct dutation
-    */

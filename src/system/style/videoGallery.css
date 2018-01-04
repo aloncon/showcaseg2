@@ -1,6 +1,5 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root .wcVideoPlayerContainer {
-  width: 98%;
   border: 1px solid #000000;
 }
 #wc-showcase-root .wcPlayList {
@@ -75,7 +74,7 @@
   color: #ffffff;
   position: absolute;
   bottom: 0;
-  right: 2px;
+  right: 0;
 }
 #wc-showcase-root .video-react-icon-play-arrow:before {
   content: none !important;

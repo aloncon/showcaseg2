@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Announcements} from '../modules/Announcements';
-import {Wcca , Wcca1} from '../modules/Carousel';
-import {Wcvg} from '../modules/VideoGallery';
+import {VideoGallery} from '../modules/VideoGallery';
 import '../../system/style/App.css';
 import {WcLink} from '../../system/codes/WcResource';
 import ProductListing from '../../system/codes/list/ProductListing';
@@ -44,7 +43,8 @@ class ShowcaseBody extends React.Component {
       <div>
         <div>
           <h2>Carousel:</h2>
-          <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} carouselHeight='150px' />
+          <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} ImageHeight="80px" carouselHeight='200px' productWidth="150px" productHeight='150px'/>
+          {/* <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} carouselHeight='150px' /> */}
           <br/>
             {/* <ProductListing type="carousel" ids={["Carusel-Data-2"]} slidesToShow={4} carouselHeight='320px' ImageHeight='200px'/>  */}
           <br/>
@@ -58,19 +58,19 @@ class ShowcaseBody extends React.Component {
         <hr/>
         <h2>Video Gallery:</h2>
         <section>
-              <div style={rightSide}> 
+              {/* <div style={rightSide}> 
                  <div style={featuredTitle}>Recommended Products</div> 
-                 <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={3} carouselHeight='600px'  ImageHeight='100px'  productWidth="200px" productHeight='200px'/> 
+                 <ProductListing type="carousel" vertical={true} ids={["Carusel-Data"]} slidesToShow={3} carouselHeight='560px'  ImageHeight='100px'  productWidth="200px" productHeight='180px'/> 
              </div>    
              <div style={leftSide}> 
-                 <Wcvg /> 
+                 <VideoGallery /> 
              </div>  
-            <div className="wcClear"></div>     
+            <div className="wcClear"></div>      */}
             <div>
                 <br/>
                 <br/>
             </div>
-
+            <VideoGallery /> 
         </section>
       </div>
 

@@ -5,7 +5,7 @@ import Carousel from './Carousel'
 import { observer } from 'mobx-react'
 import Store from '../../../store/ProductData'
 import ChangeView from './ChangeView'
-
+import ResponsiveStore from '../../../store/ResponsiveStore';
 
 const ProductListingObserver = observer(({ store: { data , changeDisplay , setType} , orderNumber , settings ,id}) => {
     const   content = data,
@@ -44,7 +44,7 @@ const ProductListingObserver = observer(({ store: { data , changeDisplay , setTy
             break
         case "carousel": 
             return <div>
-                        {_isDisplay && <Carousel data={content} settings={settings}/>}
+                        {_isDisplay && <Carousel data={content} settings={settings}  ResponsiveStore={ResponsiveStore}/>}
                     </div>
             break               
         default:  return null

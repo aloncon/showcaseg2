@@ -1,62 +1,88 @@
 import React, { Component } from 'react'
-import VideoGallery , {getVideoDuration} from '../../system/codes/videoGallery.js';
+import VideoGalleryComp from '../../system/codes/videoGallery.js';
 
 import videoTest from '../assets/video/videoTest.mp4'
 import posterTest from '../assets/video/posterTest.jpg'
 
-//import video3 from '../assets/videoGallery/Avery Custom Print Flash Cards-1730775777001.mp4'
+/*
+##########Video Gallery Documention:##########
+##############################################
+
+This video gallery component based on our oldest webcollage video gallery that was on the old showcase. the design remains the same.
+
+The video gallery is fully responsive, flexabe, and adopted to mobile.
+
+**************************************************************************
+****************            Features:                     ****************
+**************************************************************************
+
+1. support mp4, webm files. 
+2. support both absulote links and local video sources.
+
+**************************************************************************
+****************           Fuctionality:                  ****************
+**************************************************************************
+
+1. Working with a built array.
+    1.1. each node of the array contains:
+        - videoTitle - title for the video      (optional)
+        - videoPoster - poster for the video    (mandatory)
+        - videoSrc - src for the video          (mandatory)
+2. CSS Settings:
+    2.1 cange width of player
+    2.2 cange background color for thumbnails
+    2.3 chnage background color/text color for duration tag.
+3. Autoplay - can autoplay the videos if chosen.
+
+**************************************************************************
+****************    Include the component at a page:      ****************
+**************************************************************************
+
+1. Import {VideoGallery} from '../modules/VideoGallery';
+2. Put <VideoGallery />  where you want the video galley.
 
 
+*/
 const wcvg_info = [
-    {   videoTitle: "Video 1" , 
+    {   
+        videoTitle: "Video 1" , 
         videoPoster: posterTest, 
         videoSrc: videoTest
     },
-    {   videoTitle:"Video 2" , 
-        videoPoster:"http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_PerfectSteam_Video-Still.jpg.w960.jpg", 
-        videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_PerfectSteam.mp4.mp4full.mp4"},
-    {   videoTitle: "Video 3" , 
+    {   
+        videoTitle: "Video 3" , 
         videoPoster:"http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem_Video-Still.jpg.w960.jpg", 
-        videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem.mp4.mp4full.mp4"}
-    ,{   videoTitle: "Video 4" , 
-        videoPoster:"https://cdn.vox-cdn.com/thumbor/JjF7WD0nHMvplJQbZYt9lb_ajLs=/800x0/filters:no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/8571065/spider_man_poster2.jpg", 
-        videoSrc: "http://media-itest3.webcollage.net/rlfp/wc/test/module/autodeskus/_wc/videos/future-of-making-things-video-pro-res-hq-1080p-en.mp4.mp4full.mp4"
+        videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem.mp4.mp4full.mp4"
     },
-    {   videoTitle: "Video 5" , 
-    videoPoster: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_SmartBoost_Video-Still.jpg.w960.jpg", 
-    videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_SmartBoost.mp4.mp4full.mp4"
-    },
-    {   videoTitle:"Video 6" , 
-        videoPoster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5nkTAXQirUOrhpxRNXHPY9SKhtcyC97uKbxLIzyF-oQmrJae9DA", 
-        videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_PerfectSteam.mp4.mp4full.mp4"},
-    {   videoTitle: "Video 7" , 
-        videoPoster:"https://i.imgur.com/zO4faen.jpg", 
-        videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem.mp4.mp4full.mp4"}
-    ,{   videoTitle: "Video 8" , 
-        videoPoster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjkFKsuwhSCt7EkIJLsbAnOtBNRTPuwXK6wHk_jLkr79lGeRlq", 
-        videoSrc: "http://media-itest3.webcollage.net/rlfp/wc/test/module/autodeskus/_wc/videos/future-of-making-things-video-pro-res-hq-1080p-en.mp4.mp4full.mp4"
+    {   
+        videoTitle: "Video 5" , 
+        videoPoster: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_SmartBoost_Video-Still.jpg.w960.jpg", 
+        videoSrc: "http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_SmartBoost.mp4.mp4full.mp4"
     }
 ]
 
+const videoGallerySettings = {
+    autoPlay                    :   false,   //  Boolean - 'false' as default
+    playerWidth                 :   '98%',   // (100% as Default)
+    thumbnailAlignment          :   '',      // Left/Center/Right ('Left' as Default)
+    thumbnailBackgroundColor    :   '',      // ('#ffffff' as  as Default)
+    durationBackgroundColor     :   '',      // ('#000000' as  as Default)
+    durationTextColor           :   '',      // ('#ffffff' as  as Default)
+    
+}
 
-//const vid = getVideoDuration(wcvg_info);
 
-
-
-
-const Wcvg_setting = '';
-
-class Wcvg extends Component {
+/* DO NOT CHANGE THIS PART UNLESS NECCESARY */
+class VideoGallery extends Component {
     render() {
       return (
         <div>               
-            {/* <VideoGallery data_vid={vid} data_info={wcvg_info} data_setting={Wcvg_setting}/>  */}
-            <VideoGallery data_info={wcvg_info} data_setting={Wcvg_setting}/> 
+            <VideoGalleryComp data_info={wcvg_info} data_settings={videoGallerySettings} /> 
         </div>
       );
     }
 }
 
 export {
-    Wcvg
+    VideoGallery
 } 

@@ -229,7 +229,7 @@
   height: 20px;
   background-repeat: no-repeat !important;
   z-index: 999;
-  margin-left: 3%;
+  left: 0;
   background-image: url("../resources/announcement/prev.png") !important;
 }
 #wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-next {
@@ -237,7 +237,7 @@
   height: 20px;
   background-repeat: no-repeat !important;
   z-index: 999;
-  margin-right: 3%;
+  right: 0;
   background-image: url("../resources/announcement/next.png") !important;
 }
 #wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-next:before {
