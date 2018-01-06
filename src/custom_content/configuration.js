@@ -8,7 +8,7 @@ import EndpointSolutions from '../custom_content/pages/endpoint-solutions';
 import iframe from '../custom_content/pages/iframe';
 import testingArea from '../custom_content/pages/testingArea';
 import ProductListing1 from '../custom_content/modules/product-listing1';
-// import PageTest from '../custom_content/pages/PageTest';
+import ResTest from '../custom_content/pages/ResTest';
 
 /**
  * Configuration data for the showcase.
@@ -44,13 +44,12 @@ const configuration = {
   moduleId: 'avery',
   headerDetails: {
     imgLogo: require('../custom_content/assets/images/avery_logo.jpg'),
-    headerTitle: 'Avery'
-   },
-   footerDetails:
-   {
-        imgProvidedBy: require('../system/resources/powered-by.png'),
-        backgroundColor: 'white'
-   },
+    headerTitle: 'Avery',
+  },
+  footerDetails: {
+    imgProvidedBy: require('../system/resources/powered-by.png'),
+    backgroundColor: 'white',
+  },
   staticRoutes: {
     routesDetails: [
       {
@@ -76,15 +75,14 @@ const configuration = {
         name: 'Endpoint Page Child',
         title: 'Endpoint Page Child',
       },
-/*       {
-        id: 'page-test',
+      {
+        id: 'res-test',
         parent: '/',
-        path: '/PageTest',
-        component: PageTest,
-        name: 'Page Test',
-        name: 'Testing JSON data',
-        assort: true
-      }, */
+        path: '/resTest',
+        component: ResTest,
+        name: 'Responsive Test',
+        title: 'Res Test',
+      },
       {
         id: 'page3',
         parent: '/',
@@ -148,9 +146,9 @@ const configuration = {
         path: '/ProductListing1',
         component: ProductListing1,
         name: 'Product Listing1',
-      }
+      },
     ],
-    routesExclude: '(product-listing-1)',
+    routesExclude: '(product-listing-1|res-test)',
     /* |endpoint-management|endpoint-solutions|page3-child1-grand1 */
   },
 };
@@ -163,7 +161,7 @@ const configuration = {
  * routeID:: The route ID we wish to check if needed to be excluded.
  *
  */
-configuration.staticRoutes.routesExcludeTest = routeID => {
+configuration.staticRoutes.routesExcludeTest = (routeID) => {
   let { routesExclude } = configuration.staticRoutes;
   if (!routesExclude || /^\(?\)?$/.test(routesExclude)) return false;
 
@@ -199,14 +197,14 @@ configuration.staticRoutes.getPath = (currentPath, parentPath) => {
  * Get all the routes children according to the provided parent path.
  */
 configuration.staticRoutes.getChildren = (parentPath) => {
-  return configuration.staticRoutes.routesDetails.filter(route => route.parent === parentPath)
-}
+  return configuration.staticRoutes.routesDetails.filter(route => route.parent === parentPath);
+};
 
 /**
  * Get all the root routes.
  */
 configuration.staticRoutes.getRootRoutes = () => {
   return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeTest(route.id) && route.path !== '/');
-}
+};
 
 export default configuration;
