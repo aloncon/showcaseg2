@@ -1,14 +1,14 @@
 import React from 'react';
 import '../../system/style/index.css'
 import WcpcAssortment from '../../system/codes/WcpcAssortment'
-import WcpcContent from '../../system/codes/WcpcContent'
+import ShouldDisplay from '../../system/codes/ShouldDisplay'
 
 const Page3Child1Grand1 = () => {
   return (
     <div>
       <h3>Page 3 child 1 Grand 1</h3>
       <hr/>
-      <WcpcContent call="itest1-box" ids={["Home-Networking-Orbi"]}>
+      <ShouldDisplay wc_section="itest1-box" ids={["Home-Networking-Orbi"]}>
         <h3>Test 1</h3>
       </WcpcContent>
 

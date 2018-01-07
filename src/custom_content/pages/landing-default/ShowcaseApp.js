@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import ShouldDisplay from '../../../system/codes/ShouldDisplay';
 import ReactDOM from 'react-dom';
 
-import WcpcContent from '../../../system/codes/WcpcContent';
 import '../../../system/style/index.css';
 import { Announcements } from '../../modules/Announcements';
 import Announcements2 from '../../modules/Announcement2';
@@ -13,7 +12,7 @@ class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
       <div className="wcShowcaseBody">
-            <h2>Webcollage (test) Showcase- please contact us by phone: <WcpcContent wc_property="phone"/></h2>
+            <h2>Webcollage (test) Showcase- please contact us by phone: <ShouldDisplay wc_property="phone"/></h2>
             <center> 
             <Announcements />
             </center> 

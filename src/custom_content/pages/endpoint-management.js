@@ -1,12 +1,12 @@
 import React from 'react';
-import WcpcContent from '../../system/codes/WcpcContent'
+import ShouldDisplay from '../../system/codes/ShouldDisplay'
 
 class EndpointManagement extends React.Component {
     render() {
         return(
             <div>
                 <h3>Endpoint Management</h3>
-                <WcpcContent wc_section="box1" ids={["Home-Networking-Router"]}>
+                <ShouldDisplay wc_section="box1" ids={["Home-Networking-Router"]}>
                     <ul className="wcCategoryUl">
                         <li className="wcCategoryLi">
                         <div className="wcCenteredCategoryText">
@@ -52,7 +52,7 @@ class EndpointManagement extends React.Component {
                     </li>
 
                     </ul>   
-                </WcpcContent> 
+                </ShouldDisplay> 
                 <h3>Endpoint Management</h3>
                 <h3>Endpoint Management</h3>
                 <h3>Endpoint Management</h3>

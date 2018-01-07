@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import WcShowcase from '../../system/codes/moduleInfo';
-import WcpcContent from '../../system/codes/WcpcContent';
+import ShouldDisplay from '../../system/codes/ShouldDisplay';
 import'../../system/style/iframe.css';
 
 class EntryPoint extends React.Component {
@@ -18,7 +18,7 @@ class EntryPoint extends React.Component {
     componentDidMount() {
         // console.log("xxxx",WcShowcase.siteName);
         let siteName = "?domain=" + window.location.host + "-domain"; // in the future change to : WcShowcase.siteName
-        const entry=  WcpcContent({wc_entry: "entry"}); 
+        const entry=  ShouldDisplay({wc_entry: "entry"}); 
         this.setState({
             "src": this.props.src + siteName + "?ismail=t-textmail=" + encodeURIComponent(entry.mailto.value) +"-endmail" 
         });

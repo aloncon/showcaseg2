@@ -1,7 +1,6 @@
-import React from 'react';
-import get from 'jsonp';
+import React, { Children } from 'react';
 import {partnerDef} from './moduleInfo'
-import WcpcAssortment from './WcpcAssortment'
+import WcpcAssortment from './WcpcAssortment' 
 
 export default ({wc_section, children, ids, wc_property ,wc_entry}) => {
     if(wc_property){
@@ -11,7 +10,7 @@ export default ({wc_section, children, ids, wc_property ,wc_entry}) => {
         return partnerDef.Entry
     }
     else{ 
-        let content  = ids ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children
+        let content  = (ids && partnerDef.Sections.wc_all_products) ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children
         let section = partnerDef.Sections[wc_section]=== undefined ? true : partnerDef.Sections[wc_section] 
         if(!children){
             return partnerDef.Sections[wc_section];

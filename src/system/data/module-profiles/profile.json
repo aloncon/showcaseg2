@@ -2,17 +2,17 @@
     "module": "adobe",
     "showcase": true,
     "partner" : "allassortment",
-	"Sections": {			
+    "Sections": {			
         "wc_header": false,
         "wc_navigation_horizontal": true,
         "wc_navigation_vertical" : true,
         "wc_bread_crumbs": true,
         "wc_footer": true,
-        "wc_all_module_products" : true,
+        "wc_all_products" : true,
         "box1":false
     },
     "Properties":{
-        "phone" : "111-9009002"
+        "phone" : "111-9009002556666"
     },
     "Entry":{
         "mailto":{

@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import React, { Component } from 'react';
 import { WcImg } from './WcResource';
 import'../style/header.css';
-import WcpcContent from './WcpcContent';
+import ShouldDisplay from './ShouldDisplay';
 
 export default class Header extends Component {
 
@@ -11,7 +11,7 @@ export default class Header extends Component {
         let logo = this.props.manufacturerLogo;
        
         return (
-            <WcpcContent wc_section="wc_header">
+            <ShouldDisplay wc_section="wc_header">
                 <div className="wcHeader">
             
                         <div className="wcHeaderTitle">
@@ -24,7 +24,7 @@ export default class Header extends Component {
                             </NavLink>
                         </div>
                 </div>
-            </WcpcContent>
+            </ShouldDisplay>
         );
         
     }

@@ -1,7 +1,6 @@
 import React from 'react';
 import EntryPoint from '../modules/entrypoint';
 import '../../system/style/App.css'; 
-import WcpcContent from '../../system/codes/WcpcContent'
 import { WcIframe } from '../../system/codes/WcResource';
 
 class Iframe extends React.Component {

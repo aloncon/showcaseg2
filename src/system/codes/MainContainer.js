@@ -2,12 +2,11 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 import { NavigationVertical } from './Navigation';
 import configuration from '../../custom_content/configuration';
-import WcShowcase from './moduleInfo';
-import WcpcContent from './WcpcContent';
+import WcShowcase, {partnerDefPromise} from './moduleInfo';
+import ShouldDisplay from './ShouldDisplay'
 
 const { staticRoutes, moduleName } = configuration;
 const { isStandalone } = WcShowcase;
-
 /**
  * This is the App main container, it checks if there is a need to display the vertical navigation or not.
  * While handling the width for it children which are all the App components.
@@ -26,11 +25,19 @@ const { isStandalone } = WcShowcase;
 class MainContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      profileJsonLoaded: false
+    }
     this.classNameWidth = this.getClassContainerFull();
     this.VerticalNavigation = null;
     this.mainContentStyle = undefined;
   }
-
+  componentWillMount(){
+    Promise.resolve(partnerDefPromise)
+    .then(function(value) {
+      this.setState({profileJsonLoaded:true});
+    }.bind(this));
+  }
   getClassContainerFull() {
     return 'wcContainer wcContainerFull';
   }
@@ -51,8 +58,8 @@ class MainContainer extends React.Component {
 
     return (
       <MediaQuery query="(min-width: 641px)">
-        {matches => {
-          if ( !isStandalone && WcpcContent({'wc_section': 'wc_navigation_vertical'}) && !this.mobileCheck() && matches ) {
+        {this.state.profileJsonLoaded ? matches => {
+          if ( !isStandalone && ShouldDisplay({'wc_section': 'wc_navigation_vertical'}) && !this.mobileCheck() && matches ) {
             this.classNameWidth = this.getClassContainerSmaller();
             this.mainContentStyle = {
               paddingLeft: "5px"
@@ -69,7 +76,7 @@ class MainContainer extends React.Component {
               <div className={`${this.classNameWidth}${customExtraClasses ? ' ' + customExtraClasses: ''}`} style={this.mainContentStyle}>{this.props.children}</div>
             </div>
           );
-        }}
+        }: null}
       </MediaQuery>
     );
   }
