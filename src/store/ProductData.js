@@ -1,25 +1,86 @@
 import { observable, action } from 'mobx'
-import VendorCategoryData from '../system/data/demo/v2/vendor-category-data-v2.json'
-import VendorData from '../system/data/demo/v2/vendor-data-v2.json'
+import VendorCategoryData from '../system/data/vendor-data/vendor-category-data.json'
+import VendorData from '../system/data/vendor-data/vendor-data.json'
 import api from './Api'
 import jsonpP from 'jsonp-p';
-const ProductStore = (id, callback) =>{
+
+console.log("VendorData",VendorData)
+
+const ProductDataStore = (wcpc , cp) => {
+    const store = observable({
+        cp : cp ? cp : null,
+        wcpc : wcpc
+    })
+    if(!cp){
+        api.getListOfVerifyWcpcs([wcpc])
+        .then(result => {
+            store.cp = result[0].cp ;
+        })
+    }
+
+    return store
+    
+    
+}
+
+class Allwcpc{
+    constructor(){
+        this.allproducts = new Map()
+    }
+    setId(wcpc , cp){
+        if(!this.allproducts.has(wcpc)){
+            this.allproducts.set(wcpc,new ProductDataStore(wcpc , cp))
+        }
+    }
+
+    getId(wcpc){
+        if(!this.allproducts.has(wcpc)){
+            this.setId(wcpc)
+        }
+        
+        return this.allproducts.get(wcpc)
+    }
+}
+
+let allWcpc = new Allwcpc()
+
+
+export const cpStore = (wcpc) => {
+    const productStore = allWcpc.getId(wcpc.toString());
+    const store = observable({
+        wcpcListing : productStore,
+        get data(){
+            let cp = store.wcpcListing.cp;
+            return  store.wcpcListing.cp ? 
+                            { 
+                                cp : store.wcpcListing.cp
+                            }
+                            : null
+        }
+    })
+    
+    return store
+}
+
+const ProductStore = (id) =>{
     const store = observable({
         id : id,
         caption : null,
         products : []
     })
     
-    
-    let _vendorCategoryData = VendorCategoryData.filter(item => item.id == id)[0];
-    let wcpcs = _vendorCategoryData.wcpcs;
+    let _vendorCategoryData,wcpcs;
+    _vendorCategoryData = VendorCategoryData.filter(item => item.id == id)[0];
+    wcpcs = _vendorCategoryData.wcpcs;
     store.caption = _vendorCategoryData.caption
+    
+    
 
     
     wcpcs = wcpcs.split(",")
+    
     let wcpcLength = wcpcs.length
     let subWcpcs;
-
     while(wcpcLength > 0){
 
         if(wcpcLength > 50){
@@ -31,9 +92,9 @@ const ProductStore = (id, callback) =>{
         wcpcLength-=50;
 
         api.getListOfVerifyWcpcs(subWcpcs)
-        .then(wcpcs => {
-            console.log('should wcps', wcpcs);
-            return store.products = store.products.concat(wcpcs);
+        .then(result => {
+            store.products = store.products.concat(result);
+            result.map(item => {allWcpc.setId(item.wcpc,item.cp)})
         })
         .catch(err => console.log("should No Data Fatch",err))
         
@@ -42,22 +103,9 @@ const ProductStore = (id, callback) =>{
 
 }
 
-class allProductsStore{
-    constructor(){
-        this.allProducts = new Map()
-    }
-    setProduct(wcpc , data){
-        if(!this.allProducts.has(wcpc))
-            this.allProducts.set(wcpc,data)
-    }
-    getProduct(wcpc){
-        if(this.allProducts.has(wcpc))
-            return this.allProducts.get(wcpc)
-        return null    
-    }
-}
 
-class allIdsStore{
+
+class AllIdsStore{
     constructor(){
         this.allIds = new Map()
     }
@@ -77,10 +125,13 @@ class allIdsStore{
     }
 }
 
-let _allIdsStore = new allIdsStore();
+
+let allIdsStore = new AllIdsStore();
+
+
 
 const ListingStore = (id , type) =>{
-    const productStore = _allIdsStore.getId(id.toString());
+    const productStore = allIdsStore.getId(id.toString());
     const store = observable({
             isDisplay : true,
             type : type,
@@ -88,9 +139,10 @@ const ListingStore = (id , type) =>{
             idListing : productStore,
             productStore,
             get data(){
+                let wcpcs = store.idListing.products.map(item => { return item.wcpc });
                 return  store.idListing.products ? 
                                         { 
-                                            products : VendorData.products.filter(item=> store.idListing.products.includes(item.wcpc)) , 
+                                            products : VendorData.products.filter(item=> wcpcs.includes(item.wcpc)) , 
                                             caption : store.idListing.caption,
                                             isDisplay : store.isDisplay,
                                             type : store.type,

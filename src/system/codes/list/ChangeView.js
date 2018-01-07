@@ -6,8 +6,8 @@
 */
 
 import React from 'react'
-import VendorCategoryData from '../../data/demo/v2/vendor-category-data-v2.json'
-import ShouldDisplay from '../ShouldDisplay'
+import VendorCategoryData from '../../data/vendor-data/vendor-category-data.json'
+import WcpcAssortment from '../WcpcAssortment'
 
 class CategoriesHeader extends React.Component{
     state = {
@@ -53,7 +53,7 @@ class CategoriesHeader extends React.Component{
                 {
                     ids.map((id, i)=>
                     { 
-                       return  <ShouldDisplay key={i} ids={[id]} callBack={ (temp) => this.handleVerifyIds(temp , i) }/> 
+                       return  <WcpcAssortment key={i} ids={[id]} callBack={ (temp) => this.handleVerifyIds(temp , i) }/> 
                     })
                 }
                 {categories}
