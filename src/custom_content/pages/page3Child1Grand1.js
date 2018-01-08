@@ -10,7 +10,7 @@ const Page3Child1Grand1 = () => {
       <hr/>
       <ShouldDisplay wc_section="itest1-box" ids={["Home-Networking-Orbi"]}>
         <h3>Test 1</h3>
-      </WcpcContent>
+      </ShouldDisplay>
 
       <WcpcAssortment ids={["Business-Networking-Smart-Managed-Switch"]}>
         <h3>Test 2</h3>
