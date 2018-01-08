@@ -32,7 +32,7 @@ export function mergeDeep(target, ...sources) {
     return new Promise((resolve)=>{
       const site = WcShowcase.siteName;
       const showcasePrefix = WcShowcase.showcasePrefix;
-      //if localhost use the local profiles
+      // if localhost use the local profiles
       if(site === "allassortment"){
         resolve(profile);
       }
@@ -41,7 +41,12 @@ export function mergeDeep(target, ...sources) {
         resolve(mergeDeep({},profile, partnerDef));
       }
       else{
-        jsonpP("https://scontent.webcollage.net/showcase-partner-center/resources/webcollage/"+site+"/context.json?6").promise
+        let config = {
+          param: 'callback',
+          timeout: 15000,
+          prefix: 'cbContext'
+        }
+        jsonpP("https://scontent.webcollage.net/showcase-partner-center/resources/webcollage/"+site+"/context.json?115", config).promise
         .then(result =>{
           resolve(mergeDeep({},profile, result));
         })
