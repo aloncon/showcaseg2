@@ -4,30 +4,30 @@ import {cpStore} from '../../store/ProductData'
 const partner = require('../codes/moduleInfo')
 
 
-
-//allassortment
-const Allassortment = ({children , show = true}) => (
-    <span>{show && children}</span>
+const Allassortment = ({children}) => (
+    <span>{children}</span>
 )
 
-//partner
-const Partner = ({children , siteName , cp}) => (
+
+const P2b = ({children , siteName , cp}) => (
     <a href={`http://content.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cp}`} target="_blank">{children}</a>
 )
 
-const ActionLinkObserver = observer(({store : {data} , type , show , children}) => {
+const MiniSite = ({children}) => (
+    <div style={{border:"1px solid red"}}>{children}</div>
+)
+
+const ActionLinkObserver = observer(({store : {data} , type , children}) => {
     let productId = data
-    const siteName = 'allassortment'//partner.default.siteName
-    console.log("show",show)
+    const siteName = partner.default.siteName //in case need to try with Allassortment change to --> 'allassortment'//
     switch(productId && type){
         case  'p2b' : return (siteName === 'allassortment') ? 
-                                                <Allassortment children = { children }
-                                                                show = {show} /> 
-                                                : <Partner children = { children }
+                                                <Allassortment children = { children } /> 
+                                                :<P2b children = { children }
                                                            cp = { productId.cp }
                                                            siteName = { siteName } />
 
-            
+        case  'mini-site' : return <MiniSite children = { children } />
         default : return null
     }
 })

@@ -13,21 +13,21 @@ class WideList extends React.Component{
         const { list  , data} = this.props;
         let content = data ? 
                 <table>
-                    <tbody>
+                    <tbody style={{width:"100%" , display:"block" }}>
                     {data.map((product,i) => {
                                     return(
-                                        <tr key={i} style={{marginBottom:10 , display:"block" , width:"150%"}}>
+                                        <tr key={i} style={{marginBottom:10}}>
                                             <td style={{width:"10%"}}>
                                                 {product.listImage ? 
-                                                <WcImg src={"/static/" + product.listImage} alt="" style={{height:100}}/>:<img src={placeholderPic} style={{height:100}}/>}
+                                                <WcImg src={"/static/" + product.listImage} alt="" style={{width:"85%"}}/>:<img src={placeholderPic} style={{width:"85%"}}/>}
                                                 
                                             </td>
-                                            <td style={{width:"80%" , paddingLeft:"2%", paddingRight:"5%"}}>
+                                            <td style={{width:"70%" , paddingLeft:"2%", paddingRight:"5%"}}>
                                                 <h4>{product.vendorProductName}</h4>
                                                 <p><NormalizeListDescription>{product.listDescription}</NormalizeListDescription></p>
                                             </td>
                                             <td style={{width:"12%"}}>
-                                                <ActionLink wcpc={product.wcpc} type="p2b" show={false}>
+                                                <ActionLink wcpc={product.wcpc} type="mini-site">
                                                     Proceed to buy
                                                 </ActionLink>
                                             </td>

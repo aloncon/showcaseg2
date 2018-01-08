@@ -74,7 +74,7 @@ class ChangeView extends React.Component{
         this.type = (name==="glyphicon glyphicon-th-list") ? "wide" : "grid"
         this.defaultActivateClass = (this.type === "wide") ? "glyphicon glyphicon-th-list" : "glyphicon glyphicon-th"
         this.props.callBack(this.type);
-                            
+                            //glyphicons glyphicons-list
     }
 
     
@@ -86,7 +86,7 @@ class ChangeView extends React.Component{
         {["glyphicon glyphicon-th-list","glyphicon glyphicon-th"].map((but , i)=>{
             return(
                 <button key={i}  style={{ outline:"none"}}
-                        className={this.defaultActivateClass === but ? "btn btn-default btn-xs btn-primary" : "btn btn-default btn-xs"} 
+                        className={this.defaultActivateClass === but ? "bt-btn btn-default bt-btn-xs bt-btn-primary" : "bt-btn bt-btn-default bt-btn-xs"} 
                         onClick={()=>this.onClickHandle(but)}>
                     <span className={but} />
                 </button> 
