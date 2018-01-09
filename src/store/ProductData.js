@@ -4,7 +4,7 @@ import VendorData from '../system/data/vendor-data/vendor-data.json'
 import api from './Api'
 import jsonpP from 'jsonp-p';
 
-console.log("VendorData",VendorData)
+let itmep = 0
 
 const ProductDataStore = (wcpc , cp) => {
     const store = observable({
@@ -14,6 +14,7 @@ const ProductDataStore = (wcpc , cp) => {
     if(!cp){
         api.getListOfVerifyWcpcs([wcpc])
         .then(result => {
+            console.log("testing...", cp)
             store.cp = result[0].cp ;
         })
     }
@@ -94,7 +95,7 @@ const ProductStore = (id) =>{
         api.getListOfVerifyWcpcs(subWcpcs)
         .then(result => {
             store.products = store.products.concat(result);
-            result.map(item => {allWcpc.setId(item.wcpc,item.cp)})
+            result.map(item => {allWcpc.setId(item.wcpc,item.cp) ; })
         })
         .catch(err => console.log("should No Data Fatch",err))
         

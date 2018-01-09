@@ -26,7 +26,7 @@ class WideList extends React.Component{
                                                 <h4>{product.vendorProductName}</h4>
                                                 <p><NormalizeListDescription>{product.listDescription}</NormalizeListDescription></p>
                                             </td>
-                                            <td style={{width:"12%"}}>
+                                            <td style={{width:"15%"}}>
                                                 <ActionLink wcpc={product.wcpc} type="mini-site">
                                                     Proceed to buy
                                                 </ActionLink>

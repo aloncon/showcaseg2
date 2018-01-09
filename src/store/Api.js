@@ -1,13 +1,11 @@
 
 import jsonpP from 'jsonp-p'
-// import WcpcContent from '../system/codes/WcpcContent'
-
-//https://json-preview.wcvlab.net/apps/json/quill/method/partner-products-data-by-wcpc?wcpc=142685906755211&moduleId=keurig&product-details=true 
 
 let moduleName = "xerox"
 let partnerName = "cdw"
 let apiKey = `moduleId=${moduleName}&product-details=true`
-let url = `https://json-preview.wcvlab.net/apps/json/${partnerName}/method/partner-products-data-by-wcpc?`
+
+let url = `https://sjson.webcollage.net/apps/json/${partnerName}/method/partner-products-data-by-wcpc?`
 
 class Api{
     // main function of the class 
