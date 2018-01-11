@@ -38,9 +38,9 @@ const RootStore = () => {
 
   (()=>{
     setTimeout(() => {
-      console.log('mendy','update!');
+      console.log('mendy',' ResponsiveStore timeout - update!');
       update();
-    }, 2000);
+    }, 200);
   })();
 
   window.addEventListener('resize', update);
