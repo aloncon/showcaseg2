@@ -38,18 +38,31 @@ import ResTest from '../custom_content/pages/ResTest';
  * getChildren
  * getRootRoutes
  */
+
+
 const configuration = {
   moduleName: 'Avery',
   presentationName: 'Avery (presentation)',
   moduleId: 'avery',
   headerDetails: {
     imgLogo: require('../custom_content/assets/images/avery_logo.jpg'),
-    headerTitle: 'Avery',
-  },
-  footerDetails: {
-    imgProvidedBy: require('../system/resources/powered-by.png'),
-    backgroundColor: 'white',
-  },
+    headerTitle: 'Avery'
+   },
+   footerDetails:
+   {
+        imgProvidedBy: require('../system/resources/powered-by.png'),
+        backgroundColor: 'white'
+   },
+   navigationDetails: {
+    horizontal: {
+      backgroundColor: "#e3f2fd",
+      color: "rgba(0, 0, 0, 0.5)"
+    },
+    vertical: {
+      backgroundColor: "#af0000",
+      color: "#ffffff"
+    }
+   },
   staticRoutes: {
     routesDetails: [
       {
@@ -205,6 +218,6 @@ configuration.staticRoutes.getChildren = (parentPath) => {
  */
 configuration.staticRoutes.getRootRoutes = () => {
   return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeTest(route.id) && route.path !== '/');
-};
-
+}
+export let verticalBackgroundColor = configuration.navigationDetails.verticalBackgroundColor
 export default configuration;

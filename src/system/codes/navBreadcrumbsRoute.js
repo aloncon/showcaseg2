@@ -8,6 +8,7 @@ import ResponsiveStore from '../../store/ResponsiveStore';
 
 const { staticRoutes } = configuration;
 
+
 /**
  * Component that hold the three components:
  *

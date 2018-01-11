@@ -14,6 +14,8 @@ import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
 
 import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcrumbsRoute';
+
+import './system/style/material-design-iconic/css/material-design-iconic-font.min.css';
 import './system/style/bootstrap-custom/css/wc.bootstrap.css';
 // import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './system/style/index.css';

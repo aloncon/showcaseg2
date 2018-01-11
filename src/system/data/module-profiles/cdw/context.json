@@ -2,7 +2,7 @@
     "module": "adobe",
     "showcase": true,
     "partner" : "cdw",
-	"Sections": {			
+	"Sections": {
         "wc_header": true,
         "wc_navigation_horizontal": true,
         "wc_navigation_vertical" : true,
@@ -12,7 +12,7 @@
         "box1":true
     },
     "Properties":{
-        
+
     },
     "Entry":{
         "mailto":{

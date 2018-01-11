@@ -1,29 +1,76 @@
 /* ***dev start: please add your styles bellow only!!!*** */
-#wc-showcase-root{
-    /* Horizontal Navigation*/
+
+// ~~~~~ Change these default values per module
+@background-color: #e3f2fd;
+@color: rgba(0, 0, 0, 0.5);
+@color-hover: rgba(0, 0, 0, 0.801);
+@background-color-hover: #d6edff;
+@hamburger-toggler-color: #EF9300;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#wc-showcase-root {
+  div#wc_showcase_root.app-size-sm nav.wcHorizontalNav ,
+  div#wc_showcase_root.app-size-xs nav.wcHorizontalNav {
+    flex-direction: column;
+    button.bt-navbar-toggler.wcHamburgerToggler {
+      display: block;
+      align-self: flex-end;
+    }
+    div.bt-navbar-collapse {
+      align-self: flex-start;
+      display: none !important;
+    }
+    div.bt-navbar-collapse.bt-show {
+      display: block !important;
+    }
+    ul.bt-navbar-nav {
+      flex-direction: column;
+    }
+  }
   #wc_showcase_root nav.wcHorizontalNav {
-    .bt-container {
-      justify-content: flex-end;
-    }
-    a {
-      text-decoration: none;
-    }
+    background-color: @background-color;
+    justify-content: flex-end;
+    padding-left: 0;
     .bt-dropdown-item {
       padding: 0 10px;
+    }
+    .bt-collapsed {
+      padding-left: 1em;
     }
     .wcNavbarTogglerRight {
       position: absolute;
       right: 1rem;
     }
-    .bt-navbar-toggler {
-      span.wcIconBar {
-        display: block;
-        width: 22px;
-        height: 2px;
-        border-radius: 1px;
-        background-color: #888;
-        + span.wcIconBar {
-          margin-top: 4px;
+    .bt-navbar-toggler.wcHamburgerToggler {
+      color: @hamburger-toggler-color;
+      border: 0;
+      &:focus {
+        outline: none;
+      }
+    }
+    ul.bt-navbar-nav {
+      margin-left: 0;
+      > li.bt-nav-item {
+        // width: auto;
+        > .dropdown-menu {
+          border-radius: 0 6px 6px 6px;
+        }
+        a.bt-nav-link {
+          color: @color;
+          font-family: Helvetica, Arial, sans-serif;
+          line-height: 18px;
+          font-size: 1rem;
+          text-decoration: none;
+          @media (min-width: 576px) {
+            padding-right: 0.4rem;
+            padding-left: 0.4rem;
+          }
+          &:hover {
+            background-color: @background-color-hover;
+            color: @color-hover;
+            border-radius: 8%;
+            // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+          }
         }
       }
     }
@@ -60,13 +107,6 @@
         }
       }
     }
-    .bt-navbar-nav {
-      > li {
-        > .dropdown-menu {
-          border-radius: 0 6px 6px 6px;
-        }
-      }
-    }
     .wcDropdownSubMenu.show {
       border-left-color: #fff;
       > .bt-dropdown-menu {
@@ -75,4 +115,5 @@
     }
   }
 }
+
 /* ***dev end: please add your styles above only!!!*** */

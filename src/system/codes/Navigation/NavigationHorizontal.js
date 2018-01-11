@@ -4,6 +4,10 @@ import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react';
 // import WcpcContent from '../WcpcContent';
 import '../../style/horizontalNavigation.css';
+import ResponsiveContainer from '../ResponsiveContainer';
+
+/* ~~~!! NOTE:: At the moment we disable sub-menus feature. !!~~~ */
+const ABLE_SUB_MENUS = false;
 
 /**
  * HOC Component, which gives to the provided Component two functions amd a prop that updated by those functions.
@@ -50,12 +54,12 @@ const MoreButtonResponsive = HasOpenClose(({ routes, excludes, getPath, getChild
   }
 
   return (
-    <ul className="bt-navbar-nav bt-mr-auto bt-mt-2 bt-mt-sm-0 wcMoreButtonResponsive" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+    <ul className="bt-navbar-nav bt-mr-auto bt-m-2 bt-mt-sm-0 wcMoreButtonResponsive" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
       <li className={`bt-nav-item bt-dropdown${isOpen ? ' bt-show' : ''}`}>
         <button className="bt-navbar-toggler bt-dropdown-toggle" style={moreStyle}>
           More
         </button>
-        <NestedItems routes={routes} exclude={excludes} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} isOpen={isOpen}/>
+        <NestedItems routes={routes} exclude={excludes} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} isOpen={isOpen} />
       </li>
     </ul>
   );
@@ -70,7 +74,7 @@ const MoreButtonResponsive = HasOpenClose(({ routes, excludes, getPath, getChild
 const SubMenu = HasOpenClose(
   class extends React.Component {
     render() {
-      const { route, children, linkTo, hasMoreResponsiveButton, handleOpen, handleClose, isOpen} = this.props;
+      const { route, children, linkTo, hasMoreResponsiveButton, handleOpen, handleClose, isOpen } = this.props;
       let classes = '';
 
       const show = isOpen ? ' bt-show ' : '';
@@ -79,17 +83,16 @@ const SubMenu = HasOpenClose(
       classes += 'bt-dropdown bt-nav-item ';
       classes += show;
 
-      /* console.log('mendy',children.length);
-      console.log('mendy',children[0]); */
+      const ableSubMenu = children[0] && ABLE_SUB_MENUS;
 
       return (
         <li key={route.id} className={classes} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
-          <NavLink className={`bt-nav-link ${children[0] ? 'bt-dropdown-toggle' : ''}`} to={linkTo}>
+          <NavLink className={`bt-nav-link ${ableSubMenu ? 'bt-dropdown-toggle' : ''}`} to={linkTo}>
             {route.name}
             {/* {route.parent === '/' && !hasMoreResponsiveButton && ' '} */}
             {/* {route.parent === '/' && !hasMoreResponsiveButton && <b className="caret" />} */}
           </NavLink>
-         {children[0] && <ul className={`bt-dropdown-menu${show}`}>{children}</ul>}
+          {ableSubMenu && <ul className={`bt-dropdown-menu${show}`}>{children}</ul>}
         </li>
       );
     }
@@ -117,7 +120,7 @@ class NestedItems extends React.Component {
 
       const linkTo = getPath(route.path, route.parent);
       const parent = route.path;
-      const isDropdownItem = (route.parent === '/') ? false : true;
+      const isDropdownItem = route.parent === '/' ? false : true;
 
       route.children = getChildren(parent);
 
@@ -143,12 +146,9 @@ class NestedItems extends React.Component {
     let routes = this.props.hasMoreResponsiveButton ? excludedRoutes.slice(this.props.limit * -1) : excludedRoutes;
 
     const dropDownClasses = `bt-dropdown-menu${this.props.isOpen ? ' bt-show' : ''}`;
-    const navClasses = 'bt-navbar-nav bt-mr-auto bt-mt-2 bt-mt-sm-0';
+    const navClasses = 'bt-navbar-nav bt-mr-auto bt-pr-sm-0 bt-mt-sm-0';
 
-    return (
-    <ul className={this.props.hasMoreResponsiveButton ? dropDownClasses : navClasses}>
-    {this.renderSubMenu(routes).map(listItem => listItem)}
-    </ul>);
+    return <ul className={this.props.hasMoreResponsiveButton ? dropDownClasses : navClasses}>{this.renderSubMenu(routes).map(listItem => listItem)}</ul>;
   }
 }
 
@@ -181,16 +181,10 @@ class MoreButtonCollapse extends React.Component {
 
   render() {
     return (
-      <button
-        type="button"
-        className="bt-navbar-toggler"
-        onClick={this.handleClick}
-      >
+      <button type="button" className="bt-navbar-toggler wcHamburgerToggler" onClick={this.handleClick}>
         <span className="bt-sr-only">Toggle navigation</span>
-        {/* <span className="bt-navbar-toggler-icon"></span> */}
-        <span className="wcIconBar"></span>
-        <span className="wcIconBar"></span>
-        <span className="wcIconBar"></span>
+
+        <i className="zmdi zmdi-menu zmdi-hc-2x wcIcon" />
       </button>
     );
   }
@@ -198,7 +192,7 @@ class MoreButtonCollapse extends React.Component {
 
 /**
  * Bootstrap v3 navigation - Create the nav links with looping the static routes from the configuration data using the [path,name].
- * The component use React-Bootstrap and regular bootstrap.
+ * The component use our custom bootstrap v4.
  *
  * Handle resize event which update the state values:
  *  * `navWidth`: The navigation width.
@@ -221,69 +215,74 @@ class MoreButtonCollapse extends React.Component {
  * mediumDimensionsCustomValues
  * smallDimensionsCustomValues
  */
-const NavigationHorizontal = observer(class NavigationHorizontal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.routesConfiguration = this.props.routesConfiguration;
-    //this.rootRoutes = this.props.routesConfiguration.getRootRoutes().filter(route => WcpcContent({ wc_section: route.id }));
-    this.rootRoutes = this.props.routesConfiguration.getRootRoutes();
+const NavigationHorizontal = observer(
+  class NavigationHorizontal extends React.Component {
+    constructor(props) {
+      super(props);
+      this.routesConfiguration = this.props.routesConfiguration;
+      //this.rootRoutes = this.props.routesConfiguration.getRootRoutes().filter(route => WcpcContent({ wc_section: route.id }));
+      this.rootRoutes = this.props.routesConfiguration.getRootRoutes();
 
-    this.state = {
-      collapse: false,
-    };
+      this.state = {
+        collapse: false,
+      };
 
-    this.values = {
-      containerSize: '',
-      countRoutes: this.rootRoutes.length,
-      countItemsNavItems: this.rootRoutes.length,
-      countItemsMoreButton: 0,
+      this.values = {
+        containerSize: '',
+        countRoutes: this.rootRoutes.length,
+        countItemsNavItems: this.rootRoutes.length,
+        countItemsMoreButton: 0,
+      };
     }
 
-  }
+    handleCountNavItems(containerSize) {
+      let count = this.values.countRoutes;
 
-  handleCountNavItems(containerSize) {
-    let count = this.values.countRoutes;
+      if (!ABLE_SUB_MENUS) return this.values.countRoutes;
 
-    if (containerSize === 'lg' && count > 7) {
-      count -= this.values.countRoutes / 4;
-    } else if (containerSize === 'md' && count > 5) {
-      count -= this.values.countRoutes / 3;
+      if (containerSize === 'lg') {
+        count -= this.values.countRoutes / 4;
+      } else if (containerSize === 'md') {
+        count -= this.values.countRoutes / 3;
+      }
+      /*  if (containerSize === 'lg' && count > 7) {
+        count -= this.values.countRoutes / 4;
+      } else if (containerSize === 'md' && count > 5) {
+        count -= this.values.countRoutes / 3;
+      } */
+
+      count = Math.floor(count);
+
+      return count;
     }
 
-    count = Math.floor(count);
+    handleCountMoreButton(containerSize) {
+      if (containerSize === 'sm') return 0;
+      return this.values.countRoutes - this.handleCountNavItems(containerSize);
+    }
 
-    return count;
-  }
-
-  handleCountMoreButton(containerSize) {
-    if (this.props.responsiveStore.wcContainerSize === 'sm') return 0;
-    return this.values.countRoutes - this.handleCountNavItems(containerSize);
-  }
-
-  updateDimensions(containerSize) {
+    updateDimensions(containerSize) {
       this.values.containerSize = containerSize;
-      this.values.countItemsNavItems =  this.handleCountNavItems(containerSize);
-      this.values.countItemsMoreButton =  this.handleCountMoreButton(containerSize);
-  }
+      this.values.countItemsNavItems = this.handleCountNavItems(containerSize);
+      this.values.countItemsMoreButton = this.handleCountMoreButton(containerSize);
+    }
 
-  componentDidMount() {
-    this.updateDimensions(this.props.responsiveStore.mainSize);
-  }
+    componentDidMount() {
+      this.updateDimensions(this.props.responsiveStore.mainSize);
+      // ResponsiveContainer({children:  this.updateDimensions});
+    }
 
-  isCollapseCallback(condition) {
-    this.setState({ collapse: condition });
-  }
+    isCollapseCallback(condition) {
+      this.setState({ collapse: condition });
+    }
 
-  render() {
+    render() {
+      this.updateDimensions(this.props.responsiveStore.wcContainerSize);
 
-    this.updateDimensions(this.props.responsiveStore.wcContainerSize);
-    // console.log('mendy',this.values);
-
-    return (
-      <nav style={{ backgroundColor: '#e3f2fd' }} className="wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light">
-        <div className="bt-container">
+      return (
+        <nav className="wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light">
           <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
-          <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse && 'bt-show bt-collapsed'}`} >
+          <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>
             <NestedItems
               routes={this.rootRoutes}
               exclude={this.routesConfiguration.routesExcludeTest}
@@ -292,7 +291,8 @@ const NavigationHorizontal = observer(class NavigationHorizontal extends React.C
               limit={this.values.countItemsNavItems}
             />
           </div>
-          {this.values.countItemsMoreButton !== 0 && (
+          {ABLE_SUB_MENUS &&
+            this.values.countItemsMoreButton !== 0 && (
               <MoreButtonResponsive
                 routes={this.rootRoutes}
                 exclude={this.routesConfiguration.routesExcludeTest}
@@ -301,12 +301,11 @@ const NavigationHorizontal = observer(class NavigationHorizontal extends React.C
                 limit={this.values.countItemsMoreButton}
               />
             )}
-        </div>
-      </nav>
-    );
-  }
-})
-
-
+          <div className="wcClear" />
+        </nav>
+      );
+    }
+  },
+);
 
 export default NavigationHorizontal;
