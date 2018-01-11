@@ -36,6 +36,13 @@ const RootStore = () => {
     requestAnimationFrame(update);
   });
 
+  (()=>{
+    setTimeout(() => {
+      console.log('mendy','update!');
+      update();
+    }, 2000);
+  })();
+
   window.addEventListener('resize', update);
 
   const store = observable({

@@ -159,7 +159,6 @@ class NestedItems extends React.Component {
  *
  * PROPS:: `callback` - Will run the callback when the onClick event has been fired.
  *
- * //TODO: See if we can use the bootstrap v4 SVG.
  */
 class MoreButtonCollapse extends React.Component {
   constructor(props) {
@@ -191,7 +190,7 @@ class MoreButtonCollapse extends React.Component {
 }
 
 /**
- * Bootstrap v3 navigation - Create the nav links with looping the static routes from the configuration data using the [path,name].
+ * Custom bootstrap v4 navigation - Create the nav links with looping the static routes from the configuration data using the [path,name].
  * The component use our custom bootstrap v4.
  *
  * Handle resize event which update the state values:
@@ -269,7 +268,6 @@ const NavigationHorizontal = observer(
 
     componentDidMount() {
       this.updateDimensions(this.props.responsiveStore.mainSize);
-      // ResponsiveContainer({children:  this.updateDimensions});
     }
 
     isCollapseCallback(condition) {
