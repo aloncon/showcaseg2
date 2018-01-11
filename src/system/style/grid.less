@@ -17,35 +17,41 @@
     position: absolute;
     background: #f9f9f9;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    
     box-shadow: 3px 3px 5px 6px #ccc;
     width: 250px;
     top: 0;
     left: 235px;
     z-index: 1;
     div {
-      padding: 2px 10px;
-      background: #428bca;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      padding: 1px 10px;
+      background: #a7adba;
       h3 {
+        text-align: center;  
         color: white;
       }
     }
     p {
-      padding: 1px 5px;
+      padding: 0px 15px 0px 5px;
     }
 
     &:before {
       content: '';
       position: absolute;
-      left: -13px;
-      top: 150px;
-      width: 25px;
-      height: 25px;
+      left: -8.2px;
+      top: 95px;
+      width: 15px;
+      height: 15px;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
       background: #f9f9f9;
       border-left: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
+
     }
     animation: openPopover 0.5s 1;
   }

@@ -32,7 +32,6 @@ class AllPopover{
     constructor(){
         this.map = new Map();
         this.prev = null;
-        this.current = null;
     }
     setNewPop(index){
         if(!this.map.has(index))
@@ -44,9 +43,10 @@ class AllPopover{
         return this.map.get(index).pop
     }
     openPop(index){
-        this.current = index
+        console.log("TEST",index)
         if(this.prev !== null && this.prev !== index){
             this.map.get(this.prev).pop.setOpen(false)
+            this.map.get(this.prev).isOpen = false
         }
             
         if(this.map.has(index)){
@@ -54,7 +54,7 @@ class AllPopover{
             temp.isOpen = !temp.isOpen
             temp.pop.setOpen(temp.isOpen)
         }
-        this.prev = this.current
+        this.prev = index
             
     }
 }
