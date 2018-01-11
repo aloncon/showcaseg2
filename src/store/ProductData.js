@@ -94,8 +94,11 @@ const ProductStore = (id) =>{
 
         api.getListOfVerifyWcpcs(subWcpcs)
         .then(result => {
-            store.products = store.products.concat(result);
             result.map(item => {allWcpc.setId(item.wcpc,item.cp) ; })
+            return result
+        })
+        .then((result)=>{
+            store.products = store.products.concat(result);
         })
         .catch(err => console.log("should No Data Fatch",err))
         

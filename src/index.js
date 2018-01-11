@@ -13,6 +13,7 @@ import ShowcaseHeader from './custom_content/modules/showcase-header';
 import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
 
+import './system/style/material-design-iconic/css/material-design-iconic-font.min.css';
 import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcrumbsRoute';
 
 import './system/style/material-design-iconic/css/material-design-iconic-font.min.css';

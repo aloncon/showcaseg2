@@ -1,5 +1,6 @@
 import React from 'react'
 import {observer} from 'mobx-react'
+import { withRouter } from 'react-router-dom';
 import {cpStore} from '../../store/ProductData'
 const partner = require('../codes/moduleInfo')
 
@@ -33,11 +34,11 @@ const ActionLinkObserver = observer(({store : {data} , type , children}) => {
 })
 
 
- const ActionLink = ({wcpc , type , show , children}) => (
-
-    <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} show={show}/>
+ const ActionLink = ({wcpc , type , show , children , location}) => {
+    const pathname = location.pathname.replace("/","");
+   return  <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} show={show}/>
 
         
- )
+ }
 
-export default ActionLink;
+export default withRouter(ActionLink);

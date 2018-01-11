@@ -5,9 +5,8 @@ import CategoryList from '../../system/codes/list/CategoryList'
 import ProductListing from '../../system/codes/list/ProductListing'
 
 const ids = [
-    "Business-Networking-Smart-Managed-Switch",
-    "Business-Networking-Access-Point",
-    "Business-Networking-Smart-Managed-Switch"
+    // "Business-Networking-Smart-Managed-Switch",
+    "Business-Networking-Access-Point"
 ];
 
 class EndpointSolution extends React.Component {

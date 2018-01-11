@@ -67,14 +67,13 @@ class ChangeView extends React.Component{
     constructor(props){
         super(props);
         this.type = this.props.type ? this.props.type : "wide";
-        this.defaultActivateClass = this.type=="wide" ? "glyphicon glyphicon-th-list" : "glyphicon glyphicon-th"
+        this.defaultActivateClass = this.type=="wide" ? "zmdi zmdi-format-list-bulleted" : "zmdi zmdi-apps"
     }
     onClickHandle = (e) => {
         let name = e
-        this.type = (name==="glyphicon glyphicon-th-list") ? "wide" : "grid"
-        this.defaultActivateClass = (this.type === "wide") ? "glyphicon glyphicon-th-list" : "glyphicon glyphicon-th"
+        this.type = (name==="zmdi zmdi-format-list-bulleted") ? "wide" : "grid"
+        this.defaultActivateClass = (this.type === "wide") ? "zmdi zmdi-format-list-bulleted" : "zmdi zmdi-apps"
         this.props.callBack(this.type);
-                            //glyphicons glyphicons-list
     }
 
     
@@ -83,12 +82,12 @@ class ChangeView extends React.Component{
         let {ids} = this.props
         
         let buttonGrid = <div className="btn-group" role="group" aria-label="..." style={{ float:"right", marginTop:2 }}> 
-        {["glyphicon glyphicon-th-list","glyphicon glyphicon-th"].map((but , i)=>{
+        {["zmdi zmdi-format-list-bulleted","zmdi zmdi-apps"].map((but , i)=>{
             return(
-                <button key={i}  style={{ outline:"none"}}
-                        className={this.defaultActivateClass === but ? "bt-btn btn-default bt-btn-xs bt-btn-primary" : "bt-btn bt-btn-default bt-btn-xs"} 
+                <button key={i}  style={{ outline:"none" , width:40}}
+                        className={this.defaultActivateClass === but ? "bt-btn btn-xs bt-btn-primary" : "bt-btn bt-btn-default btn-xs"} 
                         onClick={()=>this.onClickHandle(but)}>
-                    <span className={but} />
+                    <i className={but} style={{fontSize:"100%"}}/>
                 </button> 
             )
                     
