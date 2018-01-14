@@ -19,6 +19,7 @@
 }
 #wc-showcase-root #wc_showcase_root .wcContainerSmallerVerticalNav {
   width: 80%;
+  padding-left: 5px;
 }
 #wc-showcase-root #wc_showcase_root .wcShowcaseBody h2 {
   color: red;

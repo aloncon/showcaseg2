@@ -4,6 +4,22 @@ import { observable } from 'mobx';
 // The Mockup element
 const rootElement = document.getElementById('wc-showcase-root');
 
+const callCallbackOnPageReady = (callback) => {
+
+  if (
+      document.readyState === "complete" ||
+      (document.readyState !== "loading" && !document.documentElement.doScroll)
+  ) {
+    console.log('mendy run first ready');
+    callback();
+  } else {
+    console.log('mendy run second ready');
+    document.addEventListener("DOMContentLoaded", callback);
+  }
+}
+
+
+
 /**
  * Mobx Store that hold the values for:
  *  * `wcRootWidth`: The app's root div width
@@ -17,6 +33,7 @@ const rootElement = document.getElementById('wc-showcase-root');
  */
 const RootStore = () => {
   function update() {
+    console.log('mendy inside update');
     // const { width } = rootElement.getBoundingClientRect();
     const wcRootElement = rootElement.querySelector('#wc_showcase_root');
     const wcContainerElement = rootElement.querySelector('.wcContainer');
@@ -36,19 +53,19 @@ const RootStore = () => {
     requestAnimationFrame(update);
   });
 
-  (()=>{
+/*   (()=>{
     setTimeout(() => {
       console.log('mendy',' ResponsiveStore timeout - update!');
       update();
     }, 200);
-  })();
+  })(); */
 
   window.addEventListener('resize', update);
 
   const store = observable({
     // rootWidth: rootElement.getBoundingClientRect().width,
-    wcRootWidth: 0,
-    wcContainerWidth: 0,
+    wcRootWidth: 540,
+    wcContainerWidth: 540,
     get wcRootSize() {
       if (this.wcRootWidth < 370) return 'xs';
       if (this.wcRootWidth < 575) return 'sm';
@@ -71,9 +88,13 @@ const RootStore = () => {
     }, */
   });
 
+  store.callUpdate = update;
+
   return store;
 };
 
 const rootStore = RootStore();
+callCallbackOnPageReady(rootStore.callUpdate);
+// console.log('mendy-store', rootStore)
 
 export default rootStore;

@@ -44,6 +44,7 @@
 #wc-showcase-root #wc_showcase_root nav.wcHorizontalNav .bt-navbar-toggler.wcHamburgerToggler {
   color: #EF9300;
   border: 0;
+  cursor: pointer;
 }
 #wc-showcase-root #wc_showcase_root nav.wcHorizontalNav .bt-navbar-toggler.wcHamburgerToggler:focus {
   outline: none;

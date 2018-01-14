@@ -53,7 +53,7 @@ const MainComp = observer(({ configurationData, rootStore }) => {
             {/* <Dummy /> */}
             <hr />
           </div>
-          <MainContainer>
+          <MainContainer responsiveStore={ResponsiveStore}>
             {WcShowcase.isStandalone && <StandAlone />}
             {configurationData.staticRoutes.routesDetails.find(field => field.path === '/EndpointManagement').title}
             <ShowcaseHeader />

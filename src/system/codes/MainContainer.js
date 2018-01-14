@@ -2,8 +2,9 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 import { NavigationVertical } from './Navigation';
 import configuration from '../../custom_content/configuration';
-import WcShowcase, {partnerDefPromise} from './moduleInfo';
-import ShouldDisplay from './ShouldDisplay'
+import WcShowcase, { partnerDefPromise } from './moduleInfo';
+import ShouldDisplay from './ShouldDisplay';
+import ResponsiveContainer from './ResponsiveContainer';
 
 const { staticRoutes, moduleName } = configuration;
 const { isStandalone } = WcShowcase;
@@ -26,58 +27,62 @@ class MainContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileJsonLoaded: false
-    }
+      profileJsonLoaded: false,
+    };
     this.classNameWidth = this.getClassContainerFull();
     this.VerticalNavigation = null;
     this.mainContentStyle = undefined;
   }
-  componentWillMount(){
-    Promise.resolve(partnerDefPromise)
-    .then(function(value) {
-      this.setState({profileJsonLoaded:true});
-    }.bind(this));
+  componentWillMount() {
+    Promise.resolve(partnerDefPromise).then(
+      function(value) {
+        this.setState({ profileJsonLoaded: true });
+      }.bind(this),
+    );
   }
   getClassContainerFull() {
-    return 'wcContainer wcContainerFull';
+    return ' wcContainerFull';
   }
 
   getClassContainerSmaller() {
-    return 'wcContainer wcContainerSmallerVerticalNav';
+    return ' wcContainerSmallerVerticalNav';
   }
 
-  mobileCheck() {
+  mobileCheck(size) {
     const stringCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const viewPortElementCheck = document.querySelector('meta[name="viewport"]');
+    const smallSize = /xs|sm/;
 
-    return (stringCheck && viewPortElementCheck) ? true : false;
+    return (smallSize.test(size) || (stringCheck && viewPortElementCheck)) ? true : false;
+  }
+
+
+  setVariables(size) {
+    if (!isStandalone && ShouldDisplay({ wc_section: 'wc_navigation_vertical' }) && !this.mobileCheck(size)) {
+      this.classNameWidth = this.getClassContainerSmaller();
+      this.VerticalNavigation = <NavigationVertical routesConfiguration={staticRoutes} moduleName={moduleName} />;
+    } else {
+      this.classNameWidth = this.getClassContainerFull();
+      this.mainContentStyle = undefined;
+      this.VerticalNavigation = null;
+    }
+
+    return true;
   }
 
   render() {
     const { customExtraClasses } = this.props;
+    const size = this.props.responsiveStore.wcRootSize;
 
     return (
-      <MediaQuery query="(min-width: 641px)">
-        {this.state.profileJsonLoaded ? matches => {
-          if ( !isStandalone && ShouldDisplay({'wc_section': 'wc_navigation_vertical'}) && !this.mobileCheck() && matches ) {
-            this.classNameWidth = this.getClassContainerSmaller();
-            this.mainContentStyle = {
-              paddingLeft: "5px"
-            };
-            this.VerticalNavigation = <NavigationVertical routesConfiguration={staticRoutes} moduleName={moduleName} />;
-          } else {
-            this.classNameWidth = this.getClassContainerFull();
-            this.mainContentStyle = undefined;
-            this.VerticalNavigation = null;
-          }
-          return (
-            <div style={{ display: 'flex' }}>
-              {this.VerticalNavigation}
-              <div className={`${this.classNameWidth}${customExtraClasses ? ' ' + customExtraClasses: ''}`} style={this.mainContentStyle}>{this.props.children}</div>
-            </div>
-          );
-        }: null}
-      </MediaQuery>
+      this.state.profileJsonLoaded ? this.setVariables(size) &&
+      (<div style={{ display: 'flex' }}>
+        {this.VerticalNavigation}
+        <div className={`wcContainer${this.classNameWidth}${customExtraClasses ? ' ' + customExtraClasses : ''}`}>
+          {this.props.children}
+        </div>
+      </div>)
+      : null
     );
   }
 }
