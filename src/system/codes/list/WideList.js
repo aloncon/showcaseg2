@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 import ActionLink from '../ActionLink'
 import WcImg from '../WcResource/WcImg'
 import {NormalizeListDescription} from '../NormalizeListDescription'
+import '../../style/wide.css'
 
-const placeholderPic = require('./placeholder.png')
+const placeholderPic = require('../../resources/placeholder.png')
 
 class WideList extends React.Component{
     
@@ -13,17 +14,18 @@ class WideList extends React.Component{
         const { list  , data} = this.props;
         let content = data ? 
                 <table>
-                    <tbody style={{width:"100%" , display:"block" }}>
+                    <tbody>
                     {data.map((product,i) => {
                                     return(
-                                        <tr key={i} style={{marginBottom:10}}>
-                                            <td style={{width:"10%"}}>
+                                        <tr key={i}>
+                                            <td style={{width:"15%"}}>
                                                 {product.listImage ? 
-                                                <WcImg src={"/static/" + product.listImage} alt="" style={{width:"85%"}}/>:<img src={placeholderPic} style={{width:"85%"}}/>}
-                                                
+                                                <WcImg src={"/static/" + product.listImage} alt="" />:<img src={placeholderPic}/>}
                                             </td>
                                             <td style={{width:"70%" , paddingLeft:"2%", paddingRight:"5%"}}>
-                                                <h4>{product.vendorProductName}</h4>
+                                                <h4>
+                                                <ActionLink wcpc={product.wcpc} type="p2b">{product.vendorProductName}</ActionLink>
+                                                </h4>
                                                 <p><NormalizeListDescription>{product.listDescription}</NormalizeListDescription></p>
                                             </td>
                                             <td style={{width:"15%"}}>

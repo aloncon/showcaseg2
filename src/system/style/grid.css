@@ -2,24 +2,24 @@
 @keyframes openPopover {
   from {
     opacity: 0;
-    left: 350px;
+    top: 50px;
     box-shadow: none;
   }
   to {
     opacity: 1;
-    left: 235px;
+    top: -100px;
     box-shadow: 3px 3px 5px 6px #ccc;
   }
 }
 #wc-showcase-root #wc_showcase_root .wc-open-popover {
   position: absolute;
   background: #f9f9f9;
+  width: 220px;
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
-  width: 250px;
-  top: 0;
-  left: 235px;
+  top: -100px;
+  left: 0px;
   z-index: 1;
   animation: openPopover 0.5s 1;
 }
@@ -39,16 +39,64 @@
 #wc-showcase-root #wc_showcase_root .wc-open-popover:before {
   content: '';
   position: absolute;
-  left: -8.2px;
-  top: 95px;
+  left: 50px;
+  top: -8px;
   width: 15px;
   height: 15px;
   transform: rotate(45deg);
-  background: #f9f9f9;
+  background: #a7adba;
   border-left: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
 }
 #wc-showcase-root #wc_showcase_root .wc-close-popover {
   display: none;
+}
+#wc-showcase-root #wc_showcase_root .wc-card {
+  padding: 25px 10px 0px 10px;
+  width: 250px;
+  position: relative;
+  margin: 1%;
+  float: left;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-img-top {
+  width: 100%;
+  height: 150px;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-img-top img {
+  display: block;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-block {
+  height: 100px;
+  position: relative;
+  bottom: 0;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-block h4 a {
+  text-decoration: none;
+  color: black;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-block .wcGridCardFooter {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-block .wcGridCardFooter button {
+  float: left;
+  width: 40%;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-block .wcGridCardFooter a {
+  padding-left: 1.5%;
+  float: right;
+  line-height: 2.5em;
+}
+#wc-showcase-root #wc_showcase_root .wc-card .wc-card-block .wcGridCardFooter .wcCloseButtonPopover {
+  width: 25px;
+  position: absolute;
+  top: -26px;
+  right: -26px;
 }
 /* ***dev end: please add your styles above only!!!*** */

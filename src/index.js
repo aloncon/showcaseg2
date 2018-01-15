@@ -28,7 +28,7 @@ import MainContainer from './system/codes/MainContainer';
 import WcShowcase from '../src/system/codes/moduleInfo';
 import { WcCssLink } from './system/codes/WcResource';
 
-import vendorData from './system/data/demo/vendor-data';
+import vendorData from './system/data/vendor-data';
 
 import ResponsiveStore from './store/ResponsiveStore';
 

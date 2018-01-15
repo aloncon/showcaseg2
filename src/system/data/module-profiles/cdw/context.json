@@ -7,7 +7,7 @@
         "wc_navigation_horizontal": true,
         "wc_navigation_vertical" : true,
         "wc_bread_crumbs": true,
-        "wc_footer": false,
+        "wc_footer": true,
         "wc_all_module_products" : false,
         "box1":true
     },

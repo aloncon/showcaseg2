@@ -11,7 +11,7 @@ const Allassortment = ({children}) => (
 
 
 const P2b = ({children , siteName , cp}) => (
-    <a href={`http://content.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cp}`} target="_blank">{children}</a>
+    <a href={`http://content.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cp}`}>{children}</a>
 )
 
 const MiniSite = ({children}) => (
