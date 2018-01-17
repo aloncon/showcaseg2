@@ -7,7 +7,7 @@ import {
     Route,
     NavLink
 } from 'react-router-dom';
- 
+
 import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
 
@@ -27,8 +27,8 @@ import EndpointSolutions from './custom_content/modules/endpoint-solutions';
 import { onProductsEnter } from './routers/route_callbacks';
 
 //import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './css/index.css';
-//const css = require('./App.css'); 
+// import './css/index.css';
+//const css = require('./App.css');
 
 const getScriptElement = (function() {
     const scripts = document.getElementsByTagName('script');
@@ -44,9 +44,9 @@ const getParentElement = (function(){
     console.log("getParentElementtt")
     if(parent == null && typeof script != 'undefined'){
       console.log("getParentElementtt  parent NULL: " + script.parentNode  );
-      return function() { return script.parentNode  };    
-    } 
-    
+      return function() { return script.parentNode  };
+    }
+
     return function() { return parent  };
 })();
 
@@ -54,11 +54,11 @@ ReactDOM.render(
     <Provider store={store}>
     <HashRouter>
       <div id="wc_showcase_root" className="wcShowcaseRoot">
-        
+
         <div className="wcContainer">
 
-           
-            <ShowcaseHeader /> 
+
+            <ShowcaseHeader />
             <Navigation/>
 
             <Route exact path="/" component={ShowcaseApp}/>
@@ -66,19 +66,19 @@ ReactDOM.render(
             <Route path="/EndpointManagement" component={EndpointManagement}/>
             <Route path="/EndpointSolutions" component={EndpointSolutions}/>
             <Route path="/page3" component={Page3} onEnter={onProductsEnter}/>
-            
+
             <Route path="/ProductListing1" component={ProductListing1} onEnter={onProductsEnter}/>
             <hr/>
             <ShowcaseFooter/>
 
 
-        <basePath/>            
+        <basePath/>
 
-        </div>    
+        </div>
       </div>
-    </HashRouter>    
+    </HashRouter>
     </Provider>
-    , 
+    ,
     //document.getElementById('wc-showcase-root')
     getParentElement()
 );

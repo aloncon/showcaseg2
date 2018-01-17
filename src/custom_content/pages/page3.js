@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../system/style/index.css';
 import ProductListing from '../../system/codes/list/ProductListing';
 
 

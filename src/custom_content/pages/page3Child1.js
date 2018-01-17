@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../system/style/index.css';
 
 const Page3Child1 = () => {
   return (

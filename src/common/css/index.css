@@ -1,0 +1,4 @@
+/*!!!This file is for overwriting the existing-default css*/
+.wcTopAnnouncements .wcAnnouncements .wcAnnouncementImage {
+  width: 100%;
+}

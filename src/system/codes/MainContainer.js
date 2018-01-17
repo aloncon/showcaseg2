@@ -1,5 +1,4 @@
 import React from 'react';
-import MediaQuery from 'react-responsive';
 import { NavigationVertical } from './Navigation';
 import configuration from '../../custom_content/configuration';
 import WcShowcase, { partnerDefPromise } from './moduleInfo';

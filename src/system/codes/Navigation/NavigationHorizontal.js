@@ -5,6 +5,8 @@ import { observer } from 'mobx-react';
 // import WcpcContent from '../WcpcContent';
 import '../../style/horizontalNavigation.css';
 import ResponsiveContainer from '../ResponsiveContainer';
+import hamburgerSVGIcon from '../../resources/icons/svg/hamburger.svg';
+import { WcImg } from '../WcResource';
 
 /* ~~~!! NOTE:: At the moment we disable sub-menus feature. !!~~~ */
 const ABLE_SUB_MENUS = false;
@@ -182,8 +184,7 @@ class MoreButtonCollapse extends React.Component {
     return (
       <button type="button" className="bt-navbar-toggler wcHamburgerToggler" onClick={this.handleClick}>
         <span className="bt-sr-only">Toggle navigation</span>
-
-        <i className="zmdi zmdi-menu zmdi-hc-2x wcIcon" />
+        <WcImg src={hamburgerSVGIcon}/>
       </button>
     );
   }

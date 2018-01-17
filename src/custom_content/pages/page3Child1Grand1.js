@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../system/style/index.css'
 import WcpcAssortment from '../../system/codes/WcpcAssortment'
 import ShouldDisplay from '../../system/codes/ShouldDisplay'
 
