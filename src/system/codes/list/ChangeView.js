@@ -8,6 +8,9 @@
 import React from 'react'
 import VendorCategoryData from '../../data/vendor-data/vendor-category-data.json'
 import WcpcAssortment from '../WcpcAssortment'
+import WcImg from '../WcResource/WcImg'
+import gridIcon from '../../resources/icons/svg/grid.svg'
+import listIcon from '../../resources/icons/svg/list.svg'
 
 class CategoriesHeader extends React.Component{
     state = {
@@ -67,12 +70,12 @@ class ChangeView extends React.Component{
     constructor(props){
         super(props);
         this.type = this.props.type ? this.props.type : "wide";
-        this.defaultActivateClass = this.type=="wide" ? "zmdi zmdi-format-list-bulleted" : "zmdi zmdi-apps"
+        this.defaultActivateClass = this.type=="wide" ? "wideIcon" : "gridIcon"
     }
     onClickHandle = (e) => {
         let name = e
-        this.type = (name==="zmdi zmdi-format-list-bulleted") ? "wide" : "grid"
-        this.defaultActivateClass = (this.type === "wide") ? "zmdi zmdi-format-list-bulleted" : "zmdi zmdi-apps"
+        this.type = (name==="wideIcon") ? "wide" : "grid"
+        this.defaultActivateClass = (this.type === "wide") ? "wideIcon" : "gridIcon"
         this.props.callBack(this.type);
     }
 
@@ -82,12 +85,12 @@ class ChangeView extends React.Component{
         let {ids} = this.props
         
         let buttonGrid = <div className="btn-group" role="group" aria-label="..." style={{ float:"right", marginTop:2 }}> 
-        {["zmdi zmdi-format-list-bulleted","zmdi zmdi-apps"].map((but , i)=>{
+        {["wideIcon","gridIcon"].map((but , i)=>{
             return(
                 <button key={i}  style={{ outline:"none" , width:40}}
                         className={this.defaultActivateClass === but ? "bt-btn btn-xs bt-btn-primary" : "bt-btn bt-btn-default btn-xs"} 
                         onClick={()=>this.onClickHandle(but)}>
-                    <i className={but} style={{fontSize:"100%"}}/>
+                    <WcImg src={"wideIcon"=== but ? listIcon : gridIcon}  />
                 </button> 
             )
                     
