@@ -8,61 +8,41 @@
 import React from 'react'
 import VendorCategoryData from '../../data/vendor-data/vendor-category-data.json'
 import WcpcAssortment from '../WcpcAssortment'
+import ListingStore , {ShouldHeaderDisplay} from '../../../store/ProductData'
 import WcImg from '../WcResource/WcImg'
+import { observer } from 'mobx-react'
+
+
 import gridIcon from '../../resources/icons/svg/grid.svg'
 import listIcon from '../../resources/icons/svg/list.svg'
+import '../../style/changeview.css'
 
-class CategoriesHeader extends React.Component{
-    state = {
-        captions : []
-    }
-
+const CategoriesHeaderObserv = observer(({ store }) => {
     /* scrollToId function used for "Jump" to target (id), it  does similar 
     * function such as --> href="#id_name" (in a tag)
     **/
-    scrollToId = (id) =>{ 
+    const scrollToId = (id) =>{ 
+        console.log("SCROLL", id)
         let elm = document.getElementById(id);
         window.scrollTo(0, elm.getBoundingClientRect().y + window.scrollY);
     }
-
-    handleVerifyIds(temp, priority){
-        let captionsList = this.state.captions;
-        if(!captionsList.includes(temp)){
-            captionsList[priority] = temp
-            this.setState({ captions : captionsList })
-        }
-       
-    }
-    render(){
-        const {ids} = this.props
-        const {captions} = this.state
-        let categories = (captions.length > 1) ?
-        <div style={{float:"left", maxWidth:"80%"}}>
-                {captions.map((id, i)=>
-                    { 
-                        return <div key={i} style={{float:"left"}}>
+    return store.shouldDisplay && 
+            <div id="wcCategoryHeader">{store.shouldDisplay.map((item, i) => {
+                return <div key={i}>
                                          
-                                        <button style={{border:"none",color:"blue",background:"transparent" , outline:"none"}} 
-                                                onClick={()=>this.scrollToId(id)}>
-                                        {VendorCategoryData.filter(item=>item.id==id)[0].caption}
-                                        </button> 
-                                        {(i + 1 < captions.length) && <span> | </span>}
-                                </div>
-                    }
-                )}
-        </div> : null
-        return(
-            <div>
-                {
-                    ids.map((id, i)=>
-                    { 
-                       return  <WcpcAssortment key={i} ids={[id]} callBack={ (temp) => this.handleVerifyIds(temp , i) }/> 
-                    })
-                }
-                {categories}
-            </div>    
-        )
-    }
+                            <button className="wcCategoryHeaderButton" 
+                                    onClick={()=>scrollToId(item.id)}>
+                            {item.caption}
+                            </button> 
+                            {(i + 1 < store.shouldDisplay.length) && <span className="wcCategoryHeaderSpace">|</span>}
+                    </div>
+            })}</div>
+});
+
+// categories headline (link to the h2 of the caption)
+const CategoriesHeader = ({ ids }) => {
+    const listings = ShouldHeaderDisplay(ids.map(ListingStore));
+    return <CategoriesHeaderObserv store={listings}/>
 }
 
 class ChangeView extends React.Component{
@@ -72,6 +52,8 @@ class ChangeView extends React.Component{
         this.type = this.props.type ? this.props.type : "wide";
         this.defaultActivateClass = this.type=="wide" ? "wideIcon" : "gridIcon"
     }
+
+    // Change the type of the list (between wide list to grid)
     onClickHandle = (e) => {
         let name = e
         this.type = (name==="wideIcon") ? "wide" : "grid"
@@ -84,23 +66,23 @@ class ChangeView extends React.Component{
     render(){
         let {ids} = this.props
         
-        let buttonGrid = <div className="btn-group" role="group" aria-label="..." style={{ float:"right", marginTop:2 }}> 
-        {["wideIcon","gridIcon"].map((but , i)=>{
-            return(
-                <button key={i}  style={{ outline:"none" , width:40}}
-                        className={this.defaultActivateClass === but ? "bt-btn btn-xs bt-btn-primary" : "bt-btn bt-btn-default btn-xs"} 
-                        onClick={()=>this.onClickHandle(but)}>
-                    <WcImg src={"wideIcon"=== but ? listIcon : gridIcon}  />
-                </button> 
-            )
-                    
-        })}
-    </div>
+        let buttonGrid = <div className="wcViewChangeButtons"> 
+                            {["wideIcon","gridIcon"].map((but , i)=>{
+                                return(
+                                    <button key={i}
+                                            className={this.defaultActivateClass === but ? "wcBtnPrimary" : "wcBtnDefault"} 
+                                            onClick={()=>this.onClickHandle(but)}>
+                                        <WcImg src={"wideIcon"=== but ? listIcon : gridIcon}  />
+                                    </button> 
+                                )
+                                        
+                            })}
+                        </div>
         return(
-            <div style={{marginBottom : -12}}>
+            <div className="wcMainCahngeView">
                 {buttonGrid}
                 <CategoriesHeader ids={ids}/>
-                <div style={{clear:"both"}}/>
+                <div className="wcClear" />
             </div>
         )
     }

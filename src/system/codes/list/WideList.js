@@ -18,17 +18,17 @@ class WideList extends React.Component{
                     {data.map((product,i) => {
                                     return(
                                         <tr key={i}>
-                                            <td style={{width:"15%"}}>
+                                            <td id="wcWideListImg">
                                                 {product.listImage ? 
-                                                <WcImg src={"/static/" + product.listImage} alt="" />:<img src={placeholderPic}/>}
+                                                <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}/>}
                                             </td>
-                                            <td style={{width:"70%" , paddingLeft:"2%", paddingRight:"5%"}}>
+                                            <td id="wcWideListDesc">
                                                 <h4>
                                                 <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>{product.vendorProductName}</ActionLink>
                                                 </h4>
                                                 <p><NormalizeListDescription>{product.listDescription}</NormalizeListDescription></p>
                                             </td>
-                                            <td style={{width:"15%"}}>
+                                            <td id="wcWideListButton">
                                                 <ActionLink wcpc={product.wcpc} type="p2b">
                                                     Proceed to buy
                                                 </ActionLink>
@@ -44,7 +44,7 @@ class WideList extends React.Component{
                 : 
                 null
         return(
-            <div>
+            <div id="wcWideList">
                 {content}
             </div>
         )

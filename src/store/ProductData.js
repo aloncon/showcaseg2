@@ -4,7 +4,6 @@ import VendorData from '../system/data/vendor-data/vendor-data.json'
 import api from './Api'
 import jsonpP from 'jsonp-p';
 
-let itmep = 0
 
 const ProductDataStore = (wcpc , cp) => {
     const store = observable({
@@ -20,8 +19,7 @@ const ProductDataStore = (wcpc , cp) => {
     }
 
     return store
-    
-    
+ 
 }
 
 class Allwcpc{
@@ -108,7 +106,7 @@ const ProductStore = (id) =>{
 }
 
 
-
+// maintain for creating only one productStore for id
 class AllIdsStore{
     constructor(){
         this.allIds = new Map()
@@ -170,14 +168,28 @@ const ListingStore = (id , type) =>{
     return store
 }
 
+// WcpcAssortment.js uses this store --> WcpcAssortment component should determine if his children aka the content it wrap need to display
 export const ShouldDisplayStore = (listingStores) => {
     return observable({
         listingStores,
         get shouldDisplay() {
-            console.log("should computing... ", listingStores.reduce((x,y) => y.productStore ? x + y.productStore.products.length : x, 0));
+            // console.log("should computing... ", listingStores.reduce((x,y) => y.productStore ? x + y.productStore.products.length : x, 0));
             return listingStores.some(store => store.productStore && store.productStore.products.length > 0)
         }
     })
 };
+
+
+// CahngeView.js uses this store -->  ChangeViewHeader Component (determine which caption to show in the header section of productlisting)
+export const ShouldHeaderDisplay = (listingStores) => {
+    return observable({
+        listingStores,
+        get shouldDisplay(){
+            let temp = listingStores.filter(i=>i.productStore.products.length > 0)
+            // console.log("should computing 2... " , temp.length > 1 ? temp.map(i => i.productStore) : null)
+            return temp.length > 1 ? temp.map(i => i.productStore) : null
+        }
+    })
+}
 
 export default ListingStore

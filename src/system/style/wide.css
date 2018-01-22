@@ -1,14 +1,16 @@
 /* ***dev start: please add your styles bellow only!!!*** */
-#wc-showcase-root #wc_showcase_root tbody {
-  width: "100%";
+#wc-showcase-root #wc_showcase_root #wcWideList table {
+  width: 100%;
+}
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody {
   display: "block";
   background: #F2F2F2;
 }
-#wc-showcase-root #wc_showcase_root tbody tr {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr {
   display: -ms-flexbox;
   display: flex;
 }
-#wc-showcase-root #wc_showcase_root tbody tr td {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr td {
   border: none;
   background: white;
   min-height: 100px;
@@ -18,27 +20,38 @@
   padding-bottom: 2.5%;
   margin-bottom: 0.25%;
 }
-#wc-showcase-root #wc_showcase_root tbody tr td img {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr td img {
   display: block;
   width: 85%;
   position: relative;
   top: 0;
 }
-#wc-showcase-root #wc_showcase_root tbody tr td h4 {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr td h4 {
   position: relative;
   top: 0;
   margin-top: 0%;
   margin-bottom: 5%;
 }
-#wc-showcase-root #wc_showcase_root tbody tr td h4 a {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr td h4 a {
   text-decoration: none;
   color: black;
 }
-#wc-showcase-root #wc_showcase_root tbody tr td a {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr td a {
   position: absolute;
   top: 42.5%;
 }
-#wc-showcase-root #wc_showcase_root tbody tr:last-child {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr #wcWideListImg {
+  width: 15%;
+}
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr #wcWideListDesc {
+  width: 70%;
+  padding-left: 2%;
+  padding-right: 5%;
+}
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr #wcWideListButton {
+  width: 15%;
+}
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr:last-child {
   background: white;
 }
 /* ***dev end: please add your styles above only!!!*** */

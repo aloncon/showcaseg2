@@ -7,8 +7,9 @@ import ProductListing from '../../system/codes/list/ProductListing'
 
 
 const ids = [
-
-    "Business-Networking-Access-Point"
+    "Business-Networking-Unmanaged-Switch",
+    "Business-Networking-Access-Point",
+    "Home-Networking-Orbi"
 ];
 
 class EndpointSolution extends React.Component {

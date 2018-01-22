@@ -39,7 +39,6 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }
     const allProducts = ShouldDisplay({ "wc_section": "wc_all_module_products" })
 
     const allassortmentMode = init.allassortmentMode()
-    console.log("allasortment" , unlink)
     switch (productId && !allassortmentMode && type) {
         case 'p2b': return <P2b children={children}
                 cp={productId.cp}

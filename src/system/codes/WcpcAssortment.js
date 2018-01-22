@@ -6,7 +6,6 @@ import ListingStore, { ShouldDisplayStore } from '../../store/ProductData'
 
 
 const ShouldDisplayObsrv = observer(({ store, children }) => {
-
     return store.shouldDisplay && <span>{children}</span>
 });
 
