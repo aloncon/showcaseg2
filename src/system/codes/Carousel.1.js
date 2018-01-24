@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import { WcImg } from '../WcResource';
-import'../../style/carousel.css';
-import api from '../../../store/Api';
-import VendorData from '../../data/vendor-data.json'
+import { WcImg } from '../codes/WcResource';
+import'../style/carousel.css';
+import api from '../../store/Api';
+import VendorData from '../data/vendor-data'
 
 
 let productsList;
@@ -51,12 +51,12 @@ export default class Wcca extends Component {
             latestSlide             :           0,
             windowHeight            :           window.innerHeight,
             windowWidth             :           window.innerWidth,
-            productsList            :           this.props.data,  
+            productsList            :           this.props.data,
             maxImgHieght            :           null
-        };       
+        };
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         //NEEDED FOR THE VERTICAL lISTING - SO THEY CAN FULLY UPLODED
         setTimeout(() => {
             window.dispatchEvent(new Event('resize'))
@@ -75,8 +75,8 @@ export default class Wcca extends Component {
             this.setState({
                 maxImgHieght : this.state.productHeight
             });
-            
-            
+
+
     }
 
     componentWillUnmount() {
@@ -108,7 +108,7 @@ export default class Wcca extends Component {
     //control the arrows buttons of the slider (preview/next)
         // var totalSlides = Number(this.props.data_slides[0].products.length);
         var totalSlides = Number(productsList.length);
-        var maxSlides = totalSlides-this.state.slidesToShow; 
+        var maxSlides = totalSlides-this.state.slidesToShow;
 
         document.getElementById(this.state.carosulId+('_wcca_arrows_next')).disabled = true;
         document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = true;
@@ -151,9 +151,9 @@ export default class Wcca extends Component {
         if(imgHeight == null || imgHeight < img.height || img.height*0.85 <= this.state.productHeight)
         {
             imgHeight = img.height;
-            this.setState({ maxImgHieght : imgHeight });   
+            this.setState({ maxImgHieght : imgHeight });
         }
-    } 
+    }
 
     render() {
 
@@ -168,7 +168,7 @@ export default class Wcca extends Component {
             slidesToScroll: 1,
             vertical: this.state.isVertical
           };
-        
+
 
         var divStyle = {
             width: this.state.carouselWidth,
@@ -185,20 +185,20 @@ export default class Wcca extends Component {
         let maxImgHieght = { height : this.state.maxImgHieght }
         return (
             <div style={{border:'1px solid black'}}>
-                <div className="WcCarousel"  style={divStyle} >                  
+                <div className="WcCarousel"  style={divStyle} >
                     <div className={!this.state.isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
                         { this.state.isVertical &&
                             <div className="wcCarouselArrowsContainerVertical">
                                 <button id={this.state.carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
                                     <div className="wcLeft"></div>
-                                </button> 
-                            </div>                    
-                        }                   
+                                </button>
+                            </div>
+                        }
                         {
                             //  this.init.productsList.map((slide, index) => (
                             //  <div key={index} className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}>
-                            <div className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}  style={{border:'1px solid orange'}}> 
-                                     <Slider ref={ c => this.slider = c }{...settings} > 
+                            <div className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}  style={{border:'1px solid orange'}}>
+                                     <Slider ref={ c => this.slider = c }{...settings} >
                                         {
                                             // slide.products.map((product, index) => (
                                              this.state.productsList.products.map((product, index) => (
@@ -214,17 +214,17 @@ export default class Wcca extends Component {
                                                             </a>
                                                         </div>
                                                         { product.vendorProductName &&
-                                                            // <div className="wcCarouselProductTitle" data-rows="4" aria-hidden="true" ><a href=''>{product.vendorProductName}</a></div>           
-                                                            <div className="bt-card-text" data-rows="4" aria-hidden="true" ><a href=''>{product.vendorProductName}</a></div>           
+                                                            // <div className="wcCarouselProductTitle" data-rows="4" aria-hidden="true" ><a href=''>{product.vendorProductName}</a></div>
+                                                            <div className="bt-card-text" data-rows="4" aria-hidden="true" ><a href=''>{product.vendorProductName}</a></div>
                                                         }
                                                         { (product.link && this.state.productLink) &&
-                                                            <div className="wcCarouselProductLink"><a href=''>Take a Tour</a></div>           
-                                                        }                                                   
+                                                            <div className="wcCarouselProductLink"><a href=''>Take a Tour</a></div>
+                                                        }
                                                     </div>
                                                 </div>
                                             ))
                                         }
-                                     </Slider> 
+                                     </Slider>
                             </div>
                         //  ))
                         }
@@ -234,9 +234,9 @@ export default class Wcca extends Component {
                                     <div className="wcRight"></div>
                                 </button>
                             </div>
-                        }                           
+                        }
                     </div>
-                </div>         
+                </div>
             </div>
         )
     }

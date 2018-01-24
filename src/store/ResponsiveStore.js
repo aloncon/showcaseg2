@@ -1,23 +1,11 @@
 import React from 'react';
 import { observable } from 'mobx';
 
-// The Mockup element
-const rootElement = document.getElementById('wc-showcase-root');
-
-const callCallbackOnPageReady = (callback) => {
-
-  if (
-      document.readyState === "complete" ||
-      (document.readyState !== "loading" && !document.documentElement.doScroll)
-  ) {
-    console.log('mendy run first ready');
-    callback();
-  } else {
-    console.log('mendy run second ready');
-    document.addEventListener("DOMContentLoaded", callback);
-  }
-}
-
+// Global variables set
+const rootElement = document.getElementById('wc-showcase-root'); // The Mockup element
+const repeatTimes = 50; // The amount of times the requestAnimationFrame will fire.
+let requestAnimationGlobalID;
+//~~~~~~~~~~~~~~~~~~~~
 
 
 /**
@@ -29,12 +17,12 @@ const callCallbackOnPageReady = (callback) => {
  *  * `wcRootSize` : Return the root size.
  *  * `wcContainerSize`: Return the wcContainer size.
  *
- * TODO: Decide if we need the mockup root element or not.
+ * TODO: Decide if we need the mockup root element or not. :
+ * const { width } = rootElement.getBoundingClientRect();
+ * store.rootWidth = width;
  */
 const RootStore = () => {
   function update() {
-    console.log('mendy inside update');
-    // const { width } = rootElement.getBoundingClientRect();
     const wcRootElement = rootElement.querySelector('#wc_showcase_root');
     const wcContainerElement = rootElement.querySelector('.wcContainer');
 
@@ -45,15 +33,15 @@ const RootStore = () => {
       store.wcContainerWidth = wcContainerElement.getBoundingClientRect().width;
     }
 
-    // store.rootWidth = width;
+    //Call the requestAnimationFrame again until `repeatTimes`
+    if (requestAnimationGlobalID < repeatTimes) {
+      requestAnimationGlobalID = requestAnimationFrame(update);
+    }
   }
 
-  requestAnimationFrame(() => {
-    update();
-    requestAnimationFrame(update);
-  });
+  requestAnimationGlobalID = requestAnimationFrame(update);
 
-/*   (()=>{
+  /* (()=>{
     setTimeout(() => {
       console.log('mendy',' ResponsiveStore timeout - update!');
       update();
@@ -94,7 +82,5 @@ const RootStore = () => {
 };
 
 const rootStore = RootStore();
-callCallbackOnPageReady(rootStore.callUpdate);
-// console.log('mendy-store', rootStore)
 
 export default rootStore;

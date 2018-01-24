@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Player, ControlBar , PlayToggle , BigPlayButton } from 'video-react';
-import "../../../node_modules/video-react/dist/video-react.css";
 import "../../system/style/videoGallery.css";
 import {WcImg , WcPlayer , absolutizeSrc} from './WcResource';
 import play_thumbnails from "../resources/videoGallery/play_thumbnails.png";

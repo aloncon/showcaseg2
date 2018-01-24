@@ -1,4 +1,11 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+
+// ~~~~~ Change these default values per module
+@text-color: #4d4e53;
+@divader-content: "/ ";
+@divader-color: #cccccc;
+@current-breadcrumb-color: #EB32DC;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #wc-showcase-root{
 	div.wcBreadcrumbs {
 	ul {
@@ -8,7 +15,7 @@
 		>li {
 			a {
 				text-decoration: none;
-				color: #4d4e53;
+				color: @text-color;
 				&:hover {
 					text-decoration: underline;
 				 }
@@ -16,13 +23,13 @@
 			display: inline-block;
 			+ li {
 					&:before {
-						content: "/ ";
+						content: @divader-content;
 						padding: 0 5px;
-						color: #cccccc;
+						color: @divader-color;
 					}
 				}
 			&:last-child {
-				color: #EB32DC;
+				color:@current-breadcrumb-color;
 			}
 		}
 	}

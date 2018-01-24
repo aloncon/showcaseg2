@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react';
-// import WcpcContent from '../WcpcContent';
 import '../../style/horizontalNavigation.css';
 import ResponsiveContainer from '../ResponsiveContainer';
 import hamburgerSVGIcon from '../../resources/icons/svg/hamburger.svg';
@@ -46,7 +45,7 @@ const HasOpenClose = Component => {
  *
  * When the Navigation's width is under 600px, this component won't be display.
  */
-const MoreButtonResponsive = HasOpenClose(({ routes, excludes, getPath, getChildren, limit, handleOpen, handleClose, isOpen }) => {
+const MoreButtonResponsive = HasOpenClose(({ routes, exclude, getPath, getChildren, limit, handleOpen, handleClose, isOpen }) => {
   const moreStyle = {
     display: 'block',
   };
@@ -61,7 +60,7 @@ const MoreButtonResponsive = HasOpenClose(({ routes, excludes, getPath, getChild
         <button className="bt-navbar-toggler bt-dropdown-toggle" style={moreStyle}>
           More
         </button>
-        <NestedItems routes={routes} exclude={excludes} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} isOpen={isOpen} />
+        <NestedItems routes={routes} exclude={exclude} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} isOpen={isOpen} />
       </li>
     </ul>
   );
