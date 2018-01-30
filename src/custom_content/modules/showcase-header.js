@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import Header from '../../system/codes/Header.js';
-import configuration from '../configuration';
+import configuration from '../../system/codes/configuration';
 
 
 class ShowcaseHeader extends React.Component {

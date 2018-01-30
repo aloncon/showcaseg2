@@ -1,6 +1,6 @@
 {
   "moduleId": "xerox",
-  "date": "2018-01-04",
+  "date": "2018-01-28",
   "products": [
     {
       "wcpc": "106R01294",
@@ -13,7 +13,7 @@
       "mappingCues": "\n      Xerox Phaser 5550 Toner Cartridge 106R01294\n   "
     },
     {
-      "wcpc": "108R01016",
+      "wcpc": "106R01316",
       "type": "product",
       "vendorProductName": "Xerox® WorkCentre® 6400 Black High Capacity Toner Cartridge (106R01316)",
       "vendorCleanProductName": "Xerox WorkCentre 6400 Black High Capacity Toner Cartridge 106R01316",

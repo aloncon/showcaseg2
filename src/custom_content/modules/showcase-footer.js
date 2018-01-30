@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import configuration from '../configuration.js';
+import configuration from '../../system/codes/configuration';
 import { WcImg } from '../../system/codes/WcResource';
 import'../../system/style/footer.css';
 import ShouldDisplay from '../../system/codes/ShouldDisplay';

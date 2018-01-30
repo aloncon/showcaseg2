@@ -1,4 +1,4 @@
-import configuration from '../../custom_content/configuration';
+import configuration from '../codes/configuration';
 
 /*
 const getScriptURL = (function() {
@@ -26,8 +26,8 @@ function getSrcBase(scriptUrl) {
         environmentId = 'non_dev';
         return scriptUrl.replace(/\/build\/.*/,"/build/");
     }
-   
-   return null; 
+
+   return null;
 }
 
 
@@ -46,7 +46,7 @@ export default function getModuleInfo () {
     //let site = script.replace(/.*server\/([^\/]*)\/.*/,'$1');
 
     let site;
-    let module; 
+    let module;
 
     if(script.indexOf('media-preview')!=-1){
         module = script.replace(/.*\/module\/([^\/]*)\/.*/,'$1');
@@ -61,7 +61,7 @@ export default function getModuleInfo () {
          console.log("dev: " + module);
     }
 
-    module='xerox'; 
+    module='xerox';
 
     if(script.indexOf('site=')!=-1){
         site = script.replace(/.*site=([^&]*)&?.*/,'$1');
@@ -78,7 +78,7 @@ const presentationName = configuration.presentationName;
         module : module,
         site: site,
         id:id,
-        scriptsrcbaseurl:script,        
+        scriptsrcbaseurl:script,
         showcasePrefix:srcBase,
         presentationName:presentationName,
         environmentId: environmentId

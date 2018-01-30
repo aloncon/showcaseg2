@@ -2,7 +2,7 @@ import React from 'react';
 import RoutesGenerate from './routesGenerate';
 import { NavigationHorizontal } from './Navigation';
 import Breadcrumbs from './breadcrumbs';
-import configuration from '../../custom_content/configuration';
+import configuration from './configuration';
 import ShouldDisplay from '../../system/codes/ShouldDisplay';
 import ResponsiveStore from '../../store/ResponsiveStore';
 

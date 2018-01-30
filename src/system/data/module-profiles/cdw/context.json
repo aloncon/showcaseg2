@@ -9,7 +9,8 @@
         "wc_bread_crumbs": true,
         "wc_footer": true,
         "wc_all_module_products" : false,
-        "box1":true
+        "box1":true,
+        "page3": true
     },
     "Properties":{
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationVertical } from './Navigation';
-import configuration from '../../custom_content/configuration';
+import configuration from './configuration';
 import WcShowcase, { partnerDefPromise } from './moduleInfo';
 import ShouldDisplay from './ShouldDisplay';
 import ResponsiveContainer from './ResponsiveContainer';

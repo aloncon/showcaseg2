@@ -27,7 +27,7 @@ import './common/css/index.css'; // module global css
 //~~~~~~~
 
 // Configuration
-import configuration from './custom_content/configuration';
+import configuration from './system/codes/configuration';
 //~~~~~~~
 
 //const css = require('./App.css');
