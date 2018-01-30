@@ -1,13 +1,4 @@
 /* ***dev start: please add your styles bellow only!!!*** */
-#wc-showcase-root #wc_showcase_root .wcContainer * {
-  z-index: 0;
-}
-#wc-showcase-root #wc_showcase_root .wcContainer *::before {
-  z-index: 0;
-}
-#wc-showcase-root #wc_showcase_root .wcContainer *::after {
-  z-index: 0;
-}
 #wc-showcase-root #wc_showcase_root #wcWideList table {
   width: 100%;
 }
@@ -50,15 +41,16 @@
   position: absolute;
   top: 42.5%;
 }
-#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr #wcWideListImg {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr .wcWideListImg {
   width: 15%;
+  z-index: 0;
 }
-#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr #wcWideListDesc {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr .wcWideListDesc {
   width: 70%;
   padding-left: 2%;
   padding-right: 5%;
 }
-#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr #wcWideListButton {
+#wc-showcase-root #wc_showcase_root #wcWideList table tbody tr .wcWideListButton {
   width: 15%;
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr:last-child {

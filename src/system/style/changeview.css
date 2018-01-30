@@ -17,6 +17,9 @@
   color: blue;
   background: transparent;
 }
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader .wcCategoryHeaderButton:hover {
+  cursor: pointer;
+}
 #wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader .wcCategoryHeaderSpace {
   margin-left: 4px;
   margin-right: 4px;

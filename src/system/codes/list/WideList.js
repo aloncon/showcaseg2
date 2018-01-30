@@ -9,40 +9,40 @@ import '../../style/wide.css'
 const placeholderPic = require('../../resources/placeholder.png')
 
 class WideList extends React.Component{
-    
+
     render(){
         const { list  , data} = this.props;
-        let content = data ? 
+        let content = data ?
                 <table>
                     <tbody>
                     {data.map((product,i) => {
                                     return(
                                         <tr key={i}>
-                                            <td id="wcWideListImg">
-                                                <ActionLink wcpc={product.wcpc} type="mosaic" unlink={true}/>  
-                                                {product.listImage ? 
+                                            <td className="wcWideListImg">
+                                                <ActionLink wcpc={product.wcpc} type="mosaic" unlink={true}/>
+                                                {product.listImage ?
                                                 <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}/>}
                                             </td>
-                                            <td id="wcWideListDesc">
+                                            <td className="wcWideListDesc">
                                                 <h4>
                                                 <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>{product.vendorProductName}</ActionLink>
                                                 </h4>
                                                 <p><NormalizeListDescription>{product.listDescription}</NormalizeListDescription></p>
                                             </td>
-                                            <td id="wcWideListButton">
+                                            <td className="wcWideListButton">
                                                 <ActionLink wcpc={product.wcpc} type="p2b">
                                                     Proceed to buy
                                                 </ActionLink>
                                             </td>
                                         </tr>
                                     )
-                               
-                            
-                    
+
+
+
                                 })}
                                 </tbody>
-                </table> 
-                : 
+                </table>
+                :
                 null
         return(
             <div id="wcWideList">
