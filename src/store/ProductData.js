@@ -179,6 +179,16 @@ export const ShouldDisplayStore = (listingStores) => {
     })
 };
 
+export const PaginationStore = (listingStores) => {
+    return observable({
+        listingStores,
+        get shouldDisplay() {
+            // console.log("should computing... ", listingStores.reduce((x,y) => y.productStore ? x + y.productStore.products.length : x, 0));
+            return listingStores.some(store => store.productStore && store.productStore.products.length > 0)
+        }
+    })
+};
+
 
 // CahngeView.js uses this store -->  ChangeViewHeader Component (determine which caption to show in the header section of productlisting)
 export const ShouldHeaderDisplay = (listingStores) => {

@@ -95,9 +95,12 @@
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter .wcCloseButtonPopover {
   width: 20px;
+  background: white;
+  border: 5px solid white;
+  border-radius: 50%;
   cursor: "pointer";
   position: absolute;
-  top: -15px;
-  right: -10px;
+  top: 5px;
+  right: 5px;
 }
 /* ***dev end: please add your styles above only!!!*** */

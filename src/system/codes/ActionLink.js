@@ -29,9 +29,14 @@ const P2b = ({ children, siteName, cp }) => (
     <a href={`http://content.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cp}`}>{children}</a>
 )
 
-const MiniSite = ({ children }) => (
-    <div style={{ border: "1px solid red" }}>{children}</div>
+// const MiniSite = ({ children }) => (
+//     <div style={{ border: "1px solid red" }}>{children}</div>
+// )
+
+const Mosaic = ({ children, siteName, cp }) => (
+    <div className="wcMosaicImage" data-cpi={cp}>{children}</div>
 )
+
 
 const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }) => {
     let productId = data
@@ -42,7 +47,10 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }
     switch (productId && !allassortmentMode && type) {
         case 'p2b': return <P2b children={children}
                 cp={productId.cp}
-                siteName={siteName} />     
+                siteName={siteName} /> 
+        case 'mosaic': return <Mosaic   children={children}
+                                        cp={productId.cp}
+                                        siteName={siteName} />
        // case 'mini-site': return <MiniSite children={children} />
         default: return <Allassortment children={children} unlink={unlink} />
     }
@@ -58,9 +66,8 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }
 */
 const ActionLink = ({ wcpc, type, children, unlink ,location }) => {
     const pathname = location.pathname.replace("/", "");
+    type==='mosaic' && window.Webcollage.loadProductContentForProductListing(partner.default.siteName, {containerSelector: ".wcMosaicImage", cpiAttribute: "data-cpi"});
     return <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} unlink={unlink}/>
-
-
 }
 
 export default withRouter(ActionLink);

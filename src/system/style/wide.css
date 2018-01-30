@@ -22,7 +22,8 @@
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr td img {
   display: block;
-  width: 85%;
+  width: 100%;
+  padding: 0% 0% 0% 50%;
   position: relative;
   top: 0;
 }
@@ -53,5 +54,10 @@
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr:last-child {
   background: white;
+}
+#wc-showcase-root #wc_showcase_root .wcContainer *,
+#wc-showcase-root #wc_showcase_root .wcContainer *::before,
+#wc-showcase-root #wc_showcase_root .wcContainer *::after {
+  z-index: 0;
 }
 /* ***dev end: please add your styles above only!!!*** */

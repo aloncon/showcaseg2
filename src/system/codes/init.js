@@ -68,7 +68,7 @@ export default function getModuleInfo () {
         console.log("dev-site: " + site);
     }
 
-    site = 'cdw';
+    site = 'quill';
 
     console.log("default: module- " + module + " &&site- " + site);
 

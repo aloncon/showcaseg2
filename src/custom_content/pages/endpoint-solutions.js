@@ -15,7 +15,6 @@ const ids = [
 class EndpointSolution extends React.Component {
 
     render() {
-        console.log("should display render 1")
         return (
             <div className="sss">
                 <ShouldDisplay ids={ids}>
