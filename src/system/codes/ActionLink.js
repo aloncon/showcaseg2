@@ -8,6 +8,7 @@ const partner = require('../codes/moduleInfo')
 class Init {
     constructor() {
         this.allassortment = null
+        this.mosaicOn = false
     }
     allassortmentMode = () => {
 
@@ -15,6 +16,9 @@ class Init {
             return this.allassortment = ShouldDisplay({ "wc_section": "wc_all_module_products" }) || partner.default.siteName === 'allassortment'
         else
             return this.allassortment
+    }
+    enterMosaic = () =>{
+       !this.mosaicOn && (this.mosaicOn = true) && window.Webcollage.loadProductContentForProductListing(partner.default.siteName, {containerSelector: ".wcMosaicImage", cpiAttribute: "data-cpi"}) 
     }
 }
 
@@ -65,8 +69,8 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }
      or the partner is 'Allassortment' - ActionLink unlink if we add attr 'unlink={true}' otherwise disappear.   
 */
 const ActionLink = ({ wcpc, type, children, unlink ,location }) => {
-    const pathname = location.pathname.replace("/", "");
-    type==='mosaic' && window.Webcollage.loadProductContentForProductListing(partner.default.siteName, {containerSelector: ".wcMosaicImage", cpiAttribute: "data-cpi"});
+    const pathname = location.pathname.replace("/", "")
+    type==='mosaic' && init.enterMosaic()
     return <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} unlink={unlink}/>
 }
 
