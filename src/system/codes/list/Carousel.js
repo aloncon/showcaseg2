@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import { WcImg } from '../WcResource';
 import'../../style/carousel.css';
 import api from '../../../store/Api';
-import VendorData from '../../data/vendor-data.json'
 
 //arrows for horizonal carousel
 function SamplePrevArrow(props) {

@@ -21,6 +21,7 @@ import ResponsiveStore from './store/ResponsiveStore';
 //~~~~~~~
 
 // CSS files - every css file overwrite the previous one before it.
+import './system/style/wc_reset.css'; // module reset css
 import './system/style/bootstrap-custom/css/wc.bootstrap.css'; // our custom bootstrap
 import './system/style/index.css'; // system global css
 import './common/css/index.css'; // module global css

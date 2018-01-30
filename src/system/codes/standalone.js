@@ -5,11 +5,8 @@ import WcShowcase from '../codes/moduleInfo';
 export default class StandAlone extends Component{
   render() {
 
-    let siteName = 'allasortment';
+    let siteName = WcShowcase.siteName;
 
-    if(WcShowcase.siteName != undefined){
-      siteName = WcShowcase.siteName;
-    }
 
     let partnerDefsLink = 'https://scontent.webcollage.net/partner-defs/css?partner-id='+ siteName +'&showcase-format=popup&origin=showcase~MarkupType!document!PresentationFormat!html,';
 

@@ -1,9 +1,22 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root {
-
-    #wc_showcase_root #wcWideList table{
+    #wc_showcase_root{
+	
+	.wcContainer {
+				* {
+					z-index: 0;
+					&::before {
+						z-index: 0;
+					}
+					&::after {
+						z-index: 0;
+					}
+				}
+	}
+	
+	#wcWideList{
+	table{
         width : 100%; 
-
         tbody{
         display : "block";
         background : #F2F2F2;
@@ -69,10 +82,9 @@
                 
             }
         }
-        
+	}
+	}  
     }
-    #wc_showcase_root .wcContainer *, #wc_showcase_root .wcContainer *::before, #wc_showcase_root .wcContainer *::after{
-        z-index: 0;
-    }
+
 }
 /* ***dev end: please add your styles above only!!!*** */

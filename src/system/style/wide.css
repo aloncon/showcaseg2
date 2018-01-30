@@ -1,4 +1,13 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root #wc_showcase_root .wcContainer * {
+  z-index: 0;
+}
+#wc-showcase-root #wc_showcase_root .wcContainer *::before {
+  z-index: 0;
+}
+#wc-showcase-root #wc_showcase_root .wcContainer *::after {
+  z-index: 0;
+}
 #wc-showcase-root #wc_showcase_root #wcWideList table {
   width: 100%;
 }
@@ -54,10 +63,5 @@
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr:last-child {
   background: white;
-}
-#wc-showcase-root #wc_showcase_root .wcContainer *,
-#wc-showcase-root #wc_showcase_root .wcContainer *::before,
-#wc-showcase-root #wc_showcase_root .wcContainer *::after {
-  z-index: 0;
 }
 /* ***dev end: please add your styles above only!!!*** */

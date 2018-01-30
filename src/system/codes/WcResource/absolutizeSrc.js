@@ -9,7 +9,7 @@ const absolutizeSrc= (src) => {
       return src;
   }
 
-  if (scriptUrl.includes('localhost') && (window.location.href.indexOf("://localhost:")!== -1)){
+  if (scriptUrl.includes('localhost') && window.location.href.indexOf("://localhost:")!== -1 && window.location.href.indexOf("standalone/index.html")== -1) {
       return src;
   }
 

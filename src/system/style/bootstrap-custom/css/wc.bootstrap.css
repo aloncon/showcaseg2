@@ -7,7 +7,8 @@
  */
   /*# sourceMappingURL=bootstrap.css.map */
 @media print {
-  #wc_showcase_root .bt-navbar {
+  #wc_showcase_root .bt-navbar
+  {
     display: none;
   }
   #wc_showcase_root .bt-badge {

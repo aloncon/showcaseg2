@@ -67,9 +67,9 @@ export default function getModuleInfo () {
         site = script.replace(/.*site=([^&]*)&?.*/,'$1');
         console.log("dev-site: " + site);
     }
-
+    else{
     site = 'quill';
-
+    }
     console.log("default: module- " + module + " &&site- " + site);
 
 const presentationName = configuration.presentationName;

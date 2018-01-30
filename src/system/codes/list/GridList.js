@@ -90,7 +90,7 @@ class GridList extends React.Component {
             <div  className="wcGridList">
                 {data.map((item, i) =>
                     <div key={i} className="wc-card">
-                        <ActionLink wcpc={item.wcpc} type="p2b">
+                        <ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>
                             <div className="wc-card-img-top wc-img-fluid">
                                 {item.listImage === undefined ?
                                     <WcImg src={placeholderPic} alt="" />
@@ -99,7 +99,7 @@ class GridList extends React.Component {
                             </div>
                         </ActionLink>
                         <div className="wc-card-block">
-                            <h4 className="wc-card-title"><ActionLink wcpc={item.wcpc} type="p2b">{item.vendorProductName}</ActionLink></h4>
+                            <h4 className="wc-card-title"><ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>{item.vendorProductName}</ActionLink></h4>
                             <div className="wcGridCardFooter">
                                 {item.listDescription && <ObservPopover store={allPopovers.getPop(item.wcpc + caption)}
                                     index={item.wcpc + caption}

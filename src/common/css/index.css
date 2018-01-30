@@ -1,4 +1,6 @@
-/*!!!This file is for overwriting the existing-default css*/
-.wcTopAnnouncements .wcAnnouncements .wcAnnouncementImage {
+/* ***dev start: please add your styles bellow only!!!*** */
+/*!!!This file is for overriting the existing-default css*/
+#wc-showcase-root .wcTopAnnouncements .wcAnnouncements .wcAnnouncementImage {
   width: 100%;
 }
+/* ***dev end: please add your styles above only!!!*** */

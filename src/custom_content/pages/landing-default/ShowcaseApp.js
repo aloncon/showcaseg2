@@ -53,17 +53,6 @@ class ShowcaseBody extends React.Component {
     );
   }
 }
-
-// const checkSize = () => {
-
-//   const rootSizeElement = document.querySelector('#wc_showcase_root');
-//   const size = rootSizeElement.className.replace(/app-size-(.*)\s.*/,'$1');
-//   return size;
-// }
-
-// window.c = checkSize;
-
-
 class ShowcaseApp extends Component {
   render() {
     return (
