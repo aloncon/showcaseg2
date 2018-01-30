@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'jsonp';
-import WcShowcase from './moduleInfo'
-import jsonpP from 'jsonp-p'
+import WcShowcase from './moduleInfo';
+import jsonpP from 'jsonp-p';
 import profile from'../data/module-profiles/profile.json';
 import { resolve } from 'url';
 
@@ -41,16 +41,16 @@ export function mergeDeep(target, ...sources) {
         resolve(mergeDeep({},profile, partnerDef));
       }
       else{
+        const random = new Date().getMonth()+1 + Date().replace(/\s|\:|[a-z|A-Z]|\+.*/g,"");
         let config = {
-          param: 'callback',
-          timeout: 15000,
-          prefix: 'cbContext'
+        param: 'callback',
+        timeout: 15000,
+        prefix: 'cbContext'
         }
-        jsonpP("https://scontent.webcollage.net/showcase-partner-center/resources/webcollage/"+site+"/context.json?115", config).promise
+        jsonpP("https://scontent.webcollage.net/showcase-partner-center/resources/webcollage/"+site+"/context.json?"+random, config).promise
         .then(result =>{
-          resolve(mergeDeep({},profile, result));
+        resolve(mergeDeep({},profile, result));
         })
-      }
-        
+        }
     })
 }
