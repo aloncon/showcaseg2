@@ -4,13 +4,12 @@
     "partner" : "quill",
 	"Sections": {
         "wc_header": true,
-        "wc_navigation_horizontal": false,
+        "wc_navigation_horizontal": true,
         "wc_navigation_vertical" : true,
         "wc_bread_crumbs": true,
         "wc_footer": true,
         "wc_all_module_products" : false,
-        "box1":true,
-        "page3" : false
+        "box1":true
     },
     "Properties":{
 
