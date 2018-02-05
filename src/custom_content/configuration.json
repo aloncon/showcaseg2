@@ -108,13 +108,6 @@
         "component": "testingArea",
         "name": "testing Video",
         "title": ""
-      },
-      {
-        "id": "product-listing-1",
-        "parent": "/",
-        "path": "/ProductListing1",
-        "component": "ProductListing1",
-        "name": "Product Listing1"
       }
     ],
     "routesExclude": "(product-listing-1|res-test)"

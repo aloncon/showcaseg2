@@ -11,7 +11,6 @@ import Page3Child1Grand1 from './page3Child1Grand1';
 import EndpointSolutions from './endpoint-solutions';
 import iframe from './iframe';
 import testingArea from './testingArea';
-import ProductListing1 from '../modules/product-listing1';
 import ResTest from './ResTest';
 
 export const pageComponentsArray = {
@@ -24,6 +23,5 @@ export const pageComponentsArray = {
   EndpointSolutions,
   iframe,
   testingArea,
-  ProductListing1,
   ResTest,
 };

@@ -33,26 +33,40 @@ import { pageComponentsArray } from '../../custom_content/pages/pageComponentsAr
  */
 
 const configurationTemplate = {
-  moduleName: '',
-  presentationName: '',
-  moduleId: '',
+  moduleName: 'SHOWCASE-TEMPLATE Module Name',
+  presentationName: 'SHOWCASE-TEMPLATE (presentation)',
+  moduleId: 'SHOWCASE-TEMPLATE-moduleId',
   headerDetails: {
-    imgLogo: '',
+    imgLogo: 'images/default_logo.jpg',
     headerTitle: ''
   },
   footerDetails: {
-    imgProvidedBy: '',
+    imgProvidedBy: 'powered-by.png',
     backgroundColor: ''
   },
   staticRoutes: {
-    routesDetails: [],
+    routesDetails: [
+      {
+        "id": "template-showcase",
+        "parent": "/",
+        "path": "/",
+        "component": "ShowcaseApp",
+        "name": "Template Showcase"
+      },
+    ],
     routesExclude: '()'
   }
 }
 
-// update the images paths in the configuration parameter to the actual images.
+/**
+ * Update the images paths in the configuration parameter to the actual images.
+ * If there was no value for the logo it will not try to load from custom_content.
+ */
 const loadImages = (configuration) => {
-  configuration.headerDetails.imgLogo = require(`../../custom_content/assets/${configuration.headerDetails.imgLogo}`);
+  const regexCheckIsDefaultLogo = new RegExp(/default_logo.jpg|data:image/);
+  if (!regexCheckIsDefaultLogo.test(configuration.headerDetails.imgLogo)) {
+    configuration.headerDetails.imgLogo = require(`../../custom_content/assets/${configuration.headerDetails.imgLogo}`);
+  }
   configuration.footerDetails.imgProvidedBy = require(`../resources/${configuration.footerDetails.imgProvidedBy}`);
 }
 
@@ -64,6 +78,25 @@ const loadPageComponents = (configuration) => {
   }))
 }
 
+// load default values in case the input in configuration.json is empty.
+const loadDefaultValues = (configuration) => {
+  if (!configuration.moduleName.length) {
+    configuration.moduleName = 'SHOWCASE-TEMPLATE Module Name'
+    console.error('Please set the `moduleName` in the custom_content/configuration.json');
+  }
+  if (!configuration.presentationName.length) {
+    configuration.presentationName = 'SHOWCASE-TEMPLATE (presentation)';
+    console.error('Please set the `presentationName` in the custom_content/configuration.json');
+  }
+  if (!configuration.moduleId.length) {
+    configuration.moduleId = 'SHOWCASE-TEMPLATE-moduleId';
+    console.error('Please set the `moduleId` in the custom_content/configuration.json');
+  }
+  if (!configuration.headerDetails.imgLogo.length) {
+    configuration.headerDetails.imgLogo = require('../resources/default_logo.jpg');
+  }
+}
+
 /**
  * Initialize the configuration object
  *
@@ -72,8 +105,9 @@ const loadPageComponents = (configuration) => {
  *  * Load the actual components.
  **/
 const configuration = Object.assign(configurationTemplate, configurationJSON);
-loadImages(configuration);
 loadPageComponents(configuration);
+loadDefaultValues(configuration);
+loadImages(configuration);
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
