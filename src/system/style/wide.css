@@ -4,7 +4,7 @@
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody {
   display: "block";
-  background: #F2F2F2;
+  background: #f2f2f2;
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr {
   display: -ms-flexbox;
@@ -43,7 +43,7 @@
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr .wcWideListImg {
   width: 15%;
-  z-index: 0;
+  z-index: 10;
 }
 #wc-showcase-root #wc_showcase_root #wcWideList table tbody tr .wcWideListDesc {
   width: 70%;

@@ -90,13 +90,16 @@ class GridList extends React.Component {
             <div  className="wcGridList">
                 {data.map((item, i) =>
                     <div key={i} className="wc-card">
-                        <ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>
-                            <div className="wc-card-img-top wc-img-fluid">
-                                {item.listImage === undefined ?
-                                    <WcImg src={placeholderPic} alt="" />
-                                    : <WcImg src={"/static/" + item.listImage} alt="" />
-                                }
-                            </div>
+                        
+                        <ActionLink wcpc={item.wcpc} type="mosaic-list" mosaicConfig={{position:"bottom-left"}}>
+                            <ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>
+                                <div className="wc-card-img-top wc-img-fluid">
+                                    {item.listImage === undefined ?
+                                        <WcImg src={placeholderPic} alt="" />
+                                        : <WcImg src={"/static/" + item.listImage} alt="" />
+                                    }
+                                </div>
+                            </ActionLink> 
                         </ActionLink>
                         <div className="wc-card-block">
                             <h4 className="wc-card-title"><ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>{item.vendorProductName}</ActionLink></h4>

@@ -30,6 +30,7 @@
 }
 #wc-showcase-root #wc_showcase_root .wcMainCahngeView .wcViewChangeButtons .wcBtnPrimary,
 #wc-showcase-root #wc_showcase_root .wcMainCahngeView .wcViewChangeButtons .wcBtnDefault {
+  cursor: pointer;
   margin: 1px;
   height: 35px;
   width: 35px;

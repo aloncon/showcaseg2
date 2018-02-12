@@ -5,10 +5,11 @@ import { cpStore } from '../../store/ProductData'
 import ShouldDisplay from './ShouldDisplay'
 const partner = require('../codes/moduleInfo')
 
+
 class Init {
     constructor() {
         this.allassortment = null
-        this.mosaicOn = false
+        this.mosaicListOn = false
     }
     allassortmentMode = () => {
 
@@ -17,8 +18,20 @@ class Init {
         else
             return this.allassortment
     }
-    enterMosaic = () =>{
-       !this.mosaicOn && (this.mosaicOn = true) && window.Webcollage.loadProductContentForProductListing(partner.default.siteName, {containerSelector: ".wcMosaicImage", cpiAttribute: "data-cpi"}) 
+    enterMosaicListProducts = () =>{
+        function hasMosaicBoardContentCallback (){
+            console.log("HI")
+        }  
+      !this.mosaicListOn && (this.mosaicOn = true) && window.Webcollage.loadProductContentForProductListing(partner.default.siteName, {containerSelector: ".wcMosaicImage",  layout: "one-button", cpiAttribute: "data-cpi",buttonPosition:"bottom-left" , buttonType:"hotspot", hasMosaicBoardContentCallback }) 
+    }
+
+    enterMosaicProduct = (siteName, cp) => {
+        setTimeout(
+            ()=>{
+                window.Webcollage.loadProductContent(siteName, cp, {"mosaic-board":{containerSelector:`#wcMosaicImage_${cp}`, layout: "tiles",buttonPosition:"bottom-left"}}); 
+                console.log(document.querySelectorAll(`#wcMosaicImage_${cp}`).length) 
+                } , 500
+        )
     }
 }
 
@@ -37,22 +50,31 @@ const P2b = ({ children, siteName, cp }) => (
 //     <div style={{ border: "1px solid red" }}>{children}</div>
 // )
 
-const Mosaic = ({ children, siteName, cp }) => (
+const MosaicList = ({ children, siteName, cp }) => (
     <div className="wcMosaicImage" data-cpi={cp}>{children}</div>
 )
 
+const Mosaic = ({ children, siteName, cp }) => {
+    init.enterMosaicProduct(siteName, cp)
+    return <div id={`wcMosaicImage_${cp}`}>{children}</div>
+}
 
-const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }) => {
+
+
+const ActionLinkObserver = observer(({ store: { data }, type, unlink, children , mosaicConfig}) => {
     let productId = data
     const siteName = partner.default.siteName
     const allProducts = ShouldDisplay({ "wc_section": "wc_all_module_products" })
-
+    console.log("mosaicConfig",mosaicConfig,this);
     const allassortmentMode = init.allassortmentMode()
     switch (productId && !allassortmentMode && type) {
         case 'p2b': return <P2b children={children}
                 cp={productId.cp}
                 siteName={siteName} /> 
-        case 'mosaic': return <Mosaic   children={children}
+        case 'mosaic': return <Mosaic  children={children}
+                                        cp={productId.cp}
+                                        siteName={siteName} />
+        case 'mosaic-list': return <MosaicList  children={children}
                                         cp={productId.cp}
                                         siteName={siteName} />
        // case 'mini-site': return <MiniSite children={children} />
@@ -62,16 +84,16 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }
 
 /*
     ActionLink usage : 
-     one needed to control content which has a link, currently, there is only one type - 'p2b' (proceed to buy),
+     when needed to control content which has a link, currently, there is only one type - 'p2b' (proceed to buy),
      in the future in case need to add more types - create a new case in upper component 'ActionLinkObserver'.
 
      In case the configuration of the current partner of this module is 'show all products' (in contextfile configuration)
      or the partner is 'Allassortment' - ActionLink unlink if we add attr 'unlink={true}' otherwise disappear.   
 */
-const ActionLink = ({ wcpc, type, children, unlink ,location }) => {
+const ActionLink = ({ wcpc, type, children, unlink ,location ,mosaicConfig}) => {
     const pathname = location.pathname.replace("/", "")
-    type==='mosaic' && init.enterMosaic()
-    return <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} unlink={unlink}/>
+    type==='mosaic-list' && init.enterMosaicListProducts()
+    return <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} unlink={unlink} mosaicConfig={mosaicConfig}/>
 }
 
 export default withRouter(ActionLink);

@@ -19,9 +19,10 @@ class WideList extends React.Component{
                                     return(
                                         <tr key={i}>
                                             <td className="wcWideListImg">
-                                               {/*  <ActionLink wcpc={product.wcpc} type="mosaic" unlink={true}/> */}
-                                                {product.listImage ?
+                                                <ActionLink wcpc={product.wcpc} type="mosaic-list" mosaicConfig={{position:"bottom-left"}}> 
+                                                {product.listImage ? 
                                                 <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}/>}
+                                                </ActionLink>
                                             </td>
                                             <td className="wcWideListDesc">
                                                 <h4>
