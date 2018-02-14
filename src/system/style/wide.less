@@ -2,37 +2,35 @@
 #wc-showcase-root {
   #wc_showcase_root {
     #wcWideList {
-      table {
-        width: 100%;
-        tbody {
-          display: "block";
-          background: #f2f2f2;
-
-          tr {
-            display: flex;
-
-            td {
-              border: none;
-              background: white;
-              min-height: 100px;
-
+      background: #f2f2f2;
+          .wcWideListProducts{
+            background: white;
+            width: 100%;
+            margin-bottom: 0.2%;
+            padding-top: 0.5%;
+            padding-bottom: 0.5%;
+           .wcMosaicWideList{
+            //  float: left;
+             margin-top:0.5%;
+             width:10%;
+             height: 40px;
+           }
+            .wcWideListImg{
               float: left;
-              position: relative;
-              padding-top: 2.5%;
-              padding-bottom: 2.5%;
-              margin-bottom: 0.25%;
-
-              img {
+              width: 15%;
+              img{
                 display: block;
                 width: 100%;
-                padding: 0% 0% 0% 50%;
+                // padding: 0% 0% 0% 50%;
                 position: relative;
                 top: 0;
               }
-
-              h4 {
+            }
+            .wcWideListDesc{
+              h4{
                 position: relative;
                 top: 0;
+                padding-left: 2%; 
                 margin-top: 0%;
                 margin-bottom: 5%;
 
@@ -41,35 +39,17 @@
                   color: black;
                 }
               }
-
-              a {
-                position: absolute;
-                top: 42.5%;
-              }
+              float: left;
+              width: 60%;
             }
-
-            .wcWideListImg {
+            .wcWideListButton{
+              float: left;
               width: 15%;
-              z-index: 10;
-            }
-
-            .wcWideListDesc {
-              width: 70%;
-              padding-left: 2%;
-              padding-right: 5%;
-            }
-
-            .wcWideListButton {
-              width: 15%;
-            }
-
-            &:last-child {
-              background: white;
+              padding-top:5%;
             }
           }
-        }
-      }
     }
+
   }
 }
 /* ***dev end: please add your styles above only!!!*** */

@@ -5,16 +5,16 @@ import api from './Api'
 import jsonpP from 'jsonp-p';
 
 
-const ProductDataStore = (wcpc , cp) => {
+const ProductDataStore = (wcpc , cpi) => {
     const store = observable({
-        cp : cp ? cp : null,
+        cpi : cpi ? cpi : null,
         wcpc : wcpc
     })
-    if(!cp){
+    if(!cpi){
         api.getListOfVerifyWcpcs([wcpc])
         .then(result => {
-            console.log("testing...", cp)
-            store.cp = result[0].cp ;
+            console.log("testing...", cpi)
+            store.cpi = result[0].cpi ;
         })
     }
 
@@ -26,9 +26,9 @@ class Allwcpc{
     constructor(){
         this.allproducts = new Map()
     }
-    setId(wcpc , cp){
+    setId(wcpc , cpi){
         if(!this.allproducts.has(wcpc)){
-            this.allproducts.set(wcpc,new ProductDataStore(wcpc , cp))
+            this.allproducts.set(wcpc,new ProductDataStore(wcpc , cpi))
         }
     }
 
@@ -49,10 +49,10 @@ export const cpStore = (wcpc) => {
     const store = observable({
         wcpcListing : productStore,
         get data(){
-            let cp = store.wcpcListing.cp;
-            return  store.wcpcListing.cp ? 
+            let cpi = store.wcpcListing.cpi;
+            return  store.wcpcListing.cpi ? 
                             { 
-                                cp : store.wcpcListing.cp
+                                cpi : store.wcpcListing.cpi
                             }
                             : null
         }
@@ -92,7 +92,7 @@ const ProductStore = (id) =>{
 
         api.getListOfVerifyWcpcs(subWcpcs)
         .then(result => {
-            result.map(item => {allWcpc.setId(item.wcpc,item.cp) ; })
+            result.map(item => {allWcpc.setId(item.wcpc,item.cpi) ; })
             return result
         })
         .then((result)=>{
@@ -141,10 +141,14 @@ const ListingStore = (id , type) =>{
             idListing : productStore,
             productStore,
             get data(){
-                let wcpcs = store.idListing.products.map(item => { return item.wcpc });
+                let items = store.idListing.products//.map(item => { return item  });
+                let wcpcs = items.map(item => item.wcpc)
                 return  store.idListing.products ? 
                                         { 
-                                            products : VendorData.products.filter(item=> wcpcs.includes(item.wcpc)) , 
+                                            products : VendorData.products.filter(item=> wcpcs.includes(item.wcpc))
+                                                                                .map(item => {
+                                                                                    return Object.assign({cpi:items.find((itemTemp)=> (itemTemp.wcpc === item.wcpc)).cpi},item)
+                                                                                }), 
                                             caption : store.idListing.caption,
                                             isDisplay : store.isDisplay,
                                             type : store.type,

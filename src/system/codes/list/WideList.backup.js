@@ -13,36 +13,33 @@ class WideList extends React.Component{
     render(){
         const { list  , data} = this.props;
         let content = data ?
-                <div>
-                      {data.map((product,i) => {
-                                    console.log("product cpi",product)
+                <table>
+                    <tbody>
+                    {data.map((product,i) => {
                                     return(
-                                        <div key={i} className="wcWideListProducts">
-                                            <div className="wcMosaicWideList">
-                                            {/* <ActionLink wcpc={product.wcpc} type="mosaic" />  */}
-
-                                                <div className="wcMosaic" data-cpi={product.cpi}/>
-                                            </div>
-                                            <div className="wcWideListImg">
+                                        <tr key={i}>
+                                            <td className="wcWideListImg">
+                                                <ActionLink wcpc={product.wcpc} type="mosaic" mosaicConfig={{position:"bottom-left"}}> 
                                                 {product.listImage ? 
                                                 <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}/>}
-                                            </div>
-                                            <div className="wcWideListDesc">
+                                                </ActionLink>
+                                            </td>
+                                            <td className="wcWideListDesc">
                                                 <h4>
                                                 <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>{product.vendorProductName}</ActionLink>
                                                 </h4>
                                                 <p><NormalizeListDescription>{product.listDescription}</NormalizeListDescription></p>
-                                            </div>
-                                            <div className="wcWideListButton">
+                                            </td>
+                                            <td className="wcWideListButton">
                                                 <ActionLink wcpc={product.wcpc} type="p2b">
                                                     Proceed to buy
                                                 </ActionLink>
-                                            </div>
-                                            <div style={{clear:"both"}}/>
-                                        </div>
+                                            </td>
+                                        </tr>
                                     )
                                 })}
-                </div>
+                                </tbody>
+                </table>
                 :
                 null
         return(

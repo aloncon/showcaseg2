@@ -8,6 +8,7 @@ const getScriptURL = (function() {
     return function() { return myScript.src; };
 })();
 */
+ 
 const getScriptURL = (function() {
     const scripts = document.getElementsByTagName('script');
     const index = scripts.length - 1;
@@ -71,6 +72,18 @@ export default function getModuleInfo () {
      site = 'quill';
     //site = 'cdw';
     }
+
+    // const siteMosaic = allproducts() ? "generic" : site
+
+    //Call Mosica (Product listing)
+    window.Webcollage.loadProductContentForProductListing( site, 
+                                                            {containerSelector : ".wcMosaic",  
+                                                            layout : "hero-ribbon",
+                                                            buttonType : "hidden",
+                                                            // menuOrientation :"top-to-bottom",
+                                                            buttonPosition : "left-top", 
+                                                            cpiAttribute : "data-cpi" }) 
+
     console.log("default: module- " + module + " &&site- " + site);
 
 const presentationName = configuration.presentationName;

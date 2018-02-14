@@ -17,6 +17,7 @@ class EndpointSolution extends React.Component {
     render() {
         return (
             <div className="sss">
+                
                 <ShouldDisplay ids={ids}>
                     <div>
                         <h2>Testing Area 2</h2>

@@ -42,7 +42,7 @@ class Api {
                         let resultPartner = result[partnerKey]
                         let keys = Object.keys(resultPartner)
                         if (Boolean(keys.length)) {
-                            let temp = keys.map(key => { return { wcpc: key, cp: Object.keys((resultPartner[key]).cpis)[0] } })
+                            let temp = keys.map(key => { return { wcpc: key, cpi: Object.keys((resultPartner[key]).cpis)[0] } })
                             resolve(temp);
                         }
                         else reject({ err: `message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}` });
@@ -55,7 +55,7 @@ class Api {
 
             }
             else {
-                let allWcpcs = wcpcs.map(item => { return { wcpc: item, cp: 0 } })
+                let allWcpcs = wcpcs.map(item => { return { wcpc: item, cpi: 0 } })
                 return Promise.resolve(allWcpcs);
             }
         })
