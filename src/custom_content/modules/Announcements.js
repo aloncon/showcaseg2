@@ -5,7 +5,6 @@ import wcan1_asset from '../assets/announcements/assets/Kaspersky_Magic_Quadrant
 import wcan2_asset from '../assets/announcements/assets/Q4_16_KSV_New_Customer.pdf';
 import wcan3_asset from '../assets/announcements/assets/Q4_16_VSB_Customer_Provantage.pdf';
 import wcan4_asset from '../assets/announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
-//import wcan5_asset from '../assets/announcements/assets/Kaspersky_Magic_Quadrant_2016.pdf';
 
 
 import wcan1_img from '../assets/announcements/banners/1.jpg';
@@ -53,7 +52,7 @@ This Announcement component is fully responsive, flexabe, and adopted to mobile.
       [      id       ,   wcan_asset   ,   wcan_asset_id    ,  title  , wcan_img  , wcan_img_s ,     startDate     ,   endDate       ]
 
       0)    id - a UNIQUE string/number.
-      1)    wcan_asset      -      if asset is local Link: string of the path for the destination as configue in configuration.js (For Example: '')
+      1)    wcan_asset      -      if asset is Local Link: string of the path for the destination as configue in configuration.js (For Example: 'showcase.js')
                                    if asset is External Link: string of the external Link (For Example: 'www.webcollage.com')
                                    if asset is pdf/imagevideo: the name of the import you added (For Example: wcan_asset)
                                    if the asset is video: the name of the import you added (For Example: wcan_asset) 
@@ -85,12 +84,12 @@ This Announcement component is fully responsive, flexabe, and adopted to mobile.
 
     /*    DO NOT CHANGE THE ORDER OF THE ARRAY!!!!!!    */
     const announcements_slides = [
-        [0 , wcan1_asset  , 'Asset'        , 'KSV 25% Discount'              , wcan1_img , wcan1_img_s , false , false],
-        [1 , wcan2_asset  , 'Asset'        , 'Q4_16_KSV_New_Customer'        , wcan2_img , wcan2_img_s , false , false],
-        [2 , wcan3_asset  , 'Asset'        , 'Q4_16_VSB_Customer_Provantage' , wcan3_img , wcan3_img_s , false , false],
-        [3 , wcan4_asset  , 'Asset'        , 'KSV 25% Discount'              , wcan4_img , wcan4_img_s , false , false],
-        [4 , '/iframe'    , 'LocalLink'    , 'Q4_16_KSV_New_Customer'        , wcan5_img , wcan5_img_s , false , false],
-        [5 , '0'          , 'videoLink'    , ''                         , '' , '' , false , false]
+        [0 , wcan1_asset  , 'Asset'        , 'KSV 25% Discount'              , wcan1_img , wcan1_img_s , 'cdw' ,  false , false],
+        [1 , wcan2_asset  , 'Asset'        , 'Q4_16_KSV_New_Customer'        , wcan2_img , wcan2_img_s , 'cdw' ,  false , false],
+        [2 , wcan3_asset  , 'Asset'        , 'Q4_16_VSB_Customer_Provantage' , wcan3_img , wcan3_img_s , 'all' ,  false , false],
+        [3 , wcan4_asset  , 'Asset'        , 'KSV 25% Discount'              , wcan4_img , wcan4_img_s , 'all' ,  false , false],
+        [4 , '/iframe'    , 'LocalLink'    , 'Q4_16_KSV_New_Customer'        , wcan5_img , wcan5_img_s , 'all' ,  false , false],
+        [5 , '0'          , 'videoLink'    , ''                         , '' , '' , 'all' ,  false , false]
     ]
 
     const announcements_video = [
@@ -101,7 +100,7 @@ This Announcement component is fully responsive, flexabe, and adopted to mobile.
     //********Slider Settings  CHANGE ONLY BY REQUEST!! ****************//
     const announcements_setting = {
         isDots                  :       true,           //  Show navigation as dots                                     (Boolean - true as Default  (false will show numbers as dots)  )
-        autoplay                :       true,           //  Should the scroller auto scroll?                            (Boolean - false as Default)
+        autoplay                :       false,           //  Should the scroller auto scroll?                            (Boolean - false as Default)
         autoplayArrows          :       false,          //  Should the Arrows turn on auto scroll?                      (Boolean - false as Default)
         autoplayPagination      :       false,          //  Should the Pagination turn on  auto scroll?                 (Boolean - false as Default)
         autoplaySpeed           :       3000,           //  Delay between each auto scoll. in ms                        (Integer)

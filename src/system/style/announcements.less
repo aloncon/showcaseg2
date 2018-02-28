@@ -28,75 +28,76 @@
 
 
 .wcAnnounceUl {
-	list-style-type: none;
+	list-style-type: none!important;
 	/*margin: 0px 0 0 -40px;*/
 	margin: 0; padding: 0;
     cursor: pointer;
     
     li{
-    
-    .wcAnnounceArrow{
-        background: none;
-		border: 0;
-        color: inherit;
-        font: inherit;
-		line-height: normal;
-        overflow: visible;
-        padding: 0;
-		-webkit-appearance: button;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		-ms-user-select: none;
-        float: right;
-        width: 16px;
-        height: 16px;
-        &:focus {
-			outline: none;
+	    list-style-type: none;
+		.wcAnnounceArrow{
+			background: none;
+			border: 0;
+			color: inherit;
+			font: inherit;
+			line-height: normal;
+			overflow: visible;
+			padding: 0;
+			-webkit-appearance: button;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			float: right;
+			width: 16px;
+			height: 16px;
+			&:focus {
+				outline: none;
+			}
 		}
-	}
 
-	.wcAnnouncePlay {
-		background-position: 90% 0;
-		&:hover {
-			background-position: 90% 50%;
+		.wcAnnouncePlay {
+			background-position: 90% 0;
+			&:hover {
+				background-position: 90% 50%;
+			}
 		}
-	}
 
-    .wcAnnouncePrev {
-		.wcAnnounceArrow;
-		background-image: url("@{imagesDir}prev.png");
-	}
-	.wcAnnounceNext {
-        .wcAnnounceArrow;
-		background-image: url("@{imagesDir}next.png");
-	}
-	.wcAnnounceItemNum {
-		width: 23px;
-		height: 23px;
-		background-image: url("@{imagesDir}control-bar.png");
-	}
+		.wcAnnouncePrev {
+			.wcAnnounceArrow;
+			background-image: url("@{imagesDir}prev.png");
+		}
+		.wcAnnounceNext {
+			.wcAnnounceArrow;
+			background-image: url("@{imagesDir}next.png");
+		}
+		.wcAnnounceItemNum {
+			width: 23px;
+			height: 23px;
+			background-image: url("@{imagesDir}control-bar.png");
+		}
 	
-	//Announcements Positioning Loop
-	.AnnouncementsPositionLoop (1) {}
-	.AnnouncementsPositionLoop (@index) when (@index > 0) {
-	  .wcAnnounce@{index} {
-		background-position: (@index - 1)*10% 0;
-		&:hover, &:focus {
-			background-position: (@index - 1)*10% 50%;
+		//Announcements Positioning Loop
+		.AnnouncementsPositionLoop (1) {}
+		.AnnouncementsPositionLoop (@index) when (@index > 0) {
+		.wcAnnounce@{index} {
+			background-position: (@index - 1)*10% 0;
+			&:hover, &:focus {
+				background-position: (@index - 1)*10% 50%;
+			}
 		}
-	  }
-	  .wcAnnounce@{index}Active {
-		background-position: (@index - 1)*10% 100%;
-	  }
-	  .AnnouncementsPositionLoop(@index - 1);
+		.wcAnnounce@{index}Active {
+			background-position: (@index - 1)*10% 100%;
+		}
+		.AnnouncementsPositionLoop(@index - 1);
+		}
+		.AnnouncementsPositionLoop(9);
+		//Announcements Positioning Loop end
 	}
-	.AnnouncementsPositionLoop(9);
-	//Announcements Positioning Loop end
-}
 }
 
 .wcAnnounceLink {
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .wcAnnounceItemNum {
@@ -160,6 +161,10 @@
 	  .slick-dots li button:before{
 		font-size: 20px!important;
 		font-family: 'times-new-roman'!important;
+	  }
+
+	  .slick-dots{
+		  width: 100%!important;
 	  }
 }
 }

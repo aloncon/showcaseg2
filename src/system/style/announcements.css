@@ -27,11 +27,14 @@
   margin-top: 2%;
 }
 #wc-showcase-root .wcAnnounceUl {
-  list-style-type: none;
+  list-style-type: none!important;
   /*margin: 0px 0 0 -40px;*/
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+#wc-showcase-root .wcAnnounceUl li {
+  list-style-type: none;
 }
 #wc-showcase-root .wcAnnounceUl li .wcAnnounceArrow {
   background: none;
@@ -195,6 +198,7 @@
 }
 #wc-showcase-root .wcAnnounceLink {
   text-decoration: none;
+  cursor: pointer;
 }
 #wc-showcase-root .wcAnnounceItemNum {
   float: left;
@@ -249,5 +253,8 @@
 #wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-dots li button:before {
   font-size: 20px!important;
   font-family: 'times-new-roman' !important;
+}
+#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-dots {
+  width: 100%!important;
 }
 /* ***dev end: please add your styles above only!!!*** */

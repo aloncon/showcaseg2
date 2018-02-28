@@ -8,6 +8,7 @@ import '../style/videoGallery.css';
 
 import { Link } from 'react-router-dom';
 import { Player, ControlBar , PlayToggle , BigPlayButton } from 'video-react';
+import moduleInfo from '../codes/moduleInfo'
 
 
 
@@ -46,8 +47,8 @@ const Wcan = observer(class Wcan extends React.Component {
             sliderWidth         :   (this.s.sliderWidth                 ? this.s.sliderWidth : '100%'),
             sliderHeight        :   this.s.sliderHeight,
             isDots              :   (this.s.isDots!=null                ? this.s.isDots : true),
-            isArrows            :   (this.s.isArrows!=null              ? this.s.isArrows : true),     
-            isAutoplay          : false
+            isArrows            :   (this.s.isArrows!=null              ? this.s.isArrows : true),    
+            isAutoplay          :   false
         };
         this.state = {
             //NOT TO EDIT - USES AS FLAGS
@@ -91,13 +92,15 @@ const Wcan = observer(class Wcan extends React.Component {
 
 
           for (var i = 0; i < this.props.data_slides.length; i++) {
-            var startDate   =   (this.props.data_slides[i][6] !== false ?  new Date(this.props.data_slides[i][6]) : false )
-            var endDate     =   (this.props.data_slides[i][7] !== false ?  new Date(this.props.data_slides[i][7]) : false )
+            var assort = this.props.data_slides[i][6];             
+            var startDate   =   (this.props.data_slides[i][7] !== false ?  new Date(this.props.data_slides[i][7]) : false )
+            var endDate     =   (this.props.data_slides[i][8] !== false ?  new Date(this.props.data_slides[i][8]) : false )            
 
-            if  (   (   (startDate ===  false) && (endDate ===  false)          )    || //1
-                    (   (startDate <= currentDate) && (endDate ===  false)      )    || //2
-                    (   (startDate ===  false) && (endDate >= currentDate)      )    || //3
-                    (   (startDate <=  currentDate) && (endDate >= currentDate) )       //4
+            if  ( (     (   (startDate ===  false) && (endDate ===  false)          )    || //1
+                        (   (startDate <= currentDate) && (endDate ===  false)      )    || //2
+                        (   (startDate ===  false) && (endDate >= currentDate)      )    || //3
+                        (   (startDate <=  currentDate) && (endDate >= currentDate) )    )  //4  
+                        &&  (assort === 'all' || assort === moduleInfo.siteName)
                 ){
                 slidesArr.push(this.props.data_slides[i]);
             }
@@ -272,7 +275,7 @@ const Wcan = observer(class Wcan extends React.Component {
 
         const settings = {
             arrows:         isDots,
-            autoplay:       this.init.isDots,
+            autoplay:       this.init.autoplay,
             dots:           this.init.isDots,
             infinite:       this.init.infinite,
             pauseOnHover:   this.init.pauseOnHover,
