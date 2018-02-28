@@ -49,7 +49,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
             break
         case "carousel":
             return <div>
-                        {_isDisplay && <Carousel data={content} settings={settings} ResponsiveStore={ResponsiveStore} />}
+                        {_isDisplay && <Carousel data={content} settings={settings} responsiveStore={ResponsiveStore}/>}
                     </div>
             break
         default: return null

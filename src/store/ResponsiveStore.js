@@ -41,12 +41,11 @@ const RootStore = () => {
 
   requestAnimationGlobalID = requestAnimationFrame(update);
 
-  /* (()=>{
+  (()=>{
     setTimeout(() => {
-      console.log('mendy',' ResponsiveStore timeout - update!');
       update();
-    }, 200);
-  })(); */
+    }, 500);
+  })();
 
   window.addEventListener('resize', update);
 

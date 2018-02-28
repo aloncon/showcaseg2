@@ -5,6 +5,10 @@
 
 //Horizontal Carousel
 .WcCarousel {
+	// gitit - check - overlay
+	position: relative;
+	z-index: 4;
+
 	.wcCarouselWrap {
 		.wcCarouselSliderContainer {
 			margin: 0 auto;
@@ -104,7 +108,6 @@
 			filter: alpha(opacity=80);
 		}
 	}
-
 	a.wcLeft {
 		background-position: 0 0;
 		&:active {
@@ -178,6 +181,11 @@
 			margin: 0 auto !important;
 		}
 	}
+
+	.wcCarouselArrowsContainerVerticalTop{
+		margin-bottom: 15px;
+	}
+	
 }
 
 .wcCarouselProductContainer {
@@ -214,6 +222,7 @@
 	letter-spacing: normal;
 	word-spacing: normal;
 	line-height: normal;
+		text-align: center;
 	a {
 		font-weight: bold;
 		font-size: 0.750em;

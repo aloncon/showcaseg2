@@ -2,6 +2,10 @@
 #wc-showcase-root {
   /* USER CAROUSEL CLASSES */
 }
+#wc-showcase-root .WcCarousel {
+  position: relative;
+  z-index: 4;
+}
 #wc-showcase-root .WcCarousel .wcCarouselWrap .wcCarouselSliderContainer {
   margin: 0 auto;
   padding: 42px;
@@ -145,6 +149,9 @@
   display: inline-block !important;
   margin: 0 auto !important;
 }
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselArrowsContainerVerticalTop {
+  margin-bottom: 15px;
+}
 #wc-showcase-root .wcCarouselProductContainer {
   text-align: center !important;
 }
@@ -174,6 +181,7 @@
   letter-spacing: normal;
   word-spacing: normal;
   line-height: normal;
+  text-align: center;
 }
 #wc-showcase-root .wcCarouselProductTitle a {
   font-weight: bold;

@@ -52,6 +52,9 @@
 #wc-showcase-root #wc_showcase_root nav.wcHorizontalNav ul.bt-navbar-nav {
   margin-left: 0;
 }
+#wc-showcase-root #wc_showcase_root nav.wcHorizontalNav ul.bt-navbar-nav > li.bt-nav-item {
+  list-style-type: none;
+}
 #wc-showcase-root #wc_showcase_root nav.wcHorizontalNav ul.bt-navbar-nav > li.bt-nav-item > .dropdown-menu {
   border-radius: 0 6px 6px 6px;
 }

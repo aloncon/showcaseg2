@@ -49,13 +49,15 @@ const MainComp = observer(({ configurationData, rootStore }) => {
             <hr />
           </div>
           <MainContainer responsiveStore={ResponsiveStore}>
-            {WcShowcase.isStandalone && <StandAlone />}
-            {configurationData.staticRoutes.routesDetails.find(field => field.path === '/EndpointManagement').title}
-            <ShowcaseHeader />
-            <ModuleNavBreadcrumbsRoute rootStore={rootStore} />
-            <hr />
-            <ShowcaseFooter />
-            <basePath />
+            <div   id="wc-reset">
+              {WcShowcase.isStandalone && <StandAlone />}
+              {configurationData.staticRoutes.routesDetails.find(field => field.path === '/EndpointManagement').title}
+              <ShowcaseHeader />
+              <ModuleNavBreadcrumbsRoute rootStore={rootStore} />
+              <hr />
+              <ShowcaseFooter />
+              <basePath />
+              </div>
           </MainContainer>
         </div>
       </HashRouter>

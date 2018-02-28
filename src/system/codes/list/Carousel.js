@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { observer } from 'mobx-react';
+
 import { WcImg } from '../WcResource';
 import'../../style/carousel.css';
 import api from '../../../store/Api';
+
+
+const placeholderPic = require('../../resources/placeholder_small.png')
 
 //arrows for horizonal carousel
 function SamplePrevArrow(props) {
@@ -24,7 +29,7 @@ function SampleNextArrow(props) {
 }
 //TODO: the user needs to give an height to the carousel
 
-export default class Wcca extends Component {
+const Wcca = observer (class extends Component {
     constructor(props) {
         super(props)
         this.sliderArrows = this.sliderArrows.bind(this);
@@ -174,20 +179,23 @@ export default class Wcca extends Component {
         }
     } 
 
-    handleResize(size) {     
-        if(size === 'sm'){
-            this.init.slidesToShow = this.init.slidesToShowDefault - 2;
-            if(this.init.slidesToShowDefault - 2 <= 0){this.init.slidesToShow = this.init.slidesToShowDefault}
+    handleResize(size) {    
+        if(size === 'xs'){
+            this.init.slidesToShow = 1;
+        }else if(size === 'sm'){
+            this.init.slidesToShow = 2;
         }else if(size === 'md'){
-            this.init.slidesToShow = this.init.slidesToShowDefault - 1;
-            if(this.init.slidesToShowDefault - 2 <= 0){this.init.slidesToShow = this.init.slidesToShowDefault}   
+            this.init.slidesToShow = 3; 
         }else{
-            this.init.slidesToShow = this.init.slidesToShowDefault
+            this.init.slidesToShow = this.init.slidesToShowDefault;
         }
     }
 
     render() {
-        const slidesToShowDefault = this.init.slidesToShow;
+       // const slidesToShowDefault = this.init.slidesToShow;
+       
+       this.handleResize(this.props.responsiveStore.wcContainerSize);
+
 
         const settings = {
             arrows: !this.state.isVertical,
@@ -213,14 +221,15 @@ export default class Wcca extends Component {
         
         console.log('this.state.infinite: ',this.state.infinite)
 
-        this.handleResize(this.props.ResponsiveStore.wcContainerSize);
+        
+        
 
         return (
             <div>
                 <div className="WcCarousel"  style={divStyle} >                  
                     <div className={!this.state.isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
                         { this.state.isVertical &&
-                            <div className="wcCarouselArrowsContainerVertical">
+                            <div className="wcCarouselArrowsContainerVertical wcCarouselArrowsContainerVerticalTop">
                                 <button id={this.state.carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
                                     <div className="wcLeft"></div>
                                 </button> 
@@ -237,7 +246,7 @@ export default class Wcca extends Component {
                                                         <div className="wcCarouselProductImage" style={!this.state.isVertical ? {height:this.state.ImageHeight ,width:this.state.ImageWidth ,display:'block',position: 'relative'} : {height:this.state.ImageHeight ,width:this.state.ImageWidth}}>
                                                             <a href={product.link}>
                                                                {/* <WcImg src={"/static"+product.listImage} alt="" style={!this.state.isVertical ? {maxWidth:'100%', maxHeight:'100%',position: 'absolute', bottom: 0}: {}} /> */}
-                                                               <WcImg src={"/static"+product.listImage} alt="" style={!this.state.isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                               <WcImg src={product.listImage ? ("/static"+product.listImage) : placeholderPic } alt="" style={!this.state.isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
                                                             </a>
                                                         </div>
                                                         { product.vendorProductName &&
@@ -255,7 +264,7 @@ export default class Wcca extends Component {
                         //  ))
                         }
                         { this.state.isVertical &&
-                            <div className="wcCarouselArrowsContainerVertical">
+                            <div className="wcCarouselArrowsContainerVertical wcCarouselArrowsContainerVerticalBottom">
                                 <button id={this.state.carosulId+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className="wcNext wcCarouselArrowsBrowseVertical">
                                     <div className="wcRight"></div>
                                 </button>
@@ -266,4 +275,6 @@ export default class Wcca extends Component {
             </div>
         )
     }
-}
+})
+
+export default Wcca;

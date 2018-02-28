@@ -4,8 +4,10 @@ import ShouldDisplay from '../../../system/codes/ShouldDisplay';
 import ReactDOM from 'react-dom';
 
 import { Announcements } from '../../modules/Announcements';
-// import Announcements2 from '../../modules/Announcement2';
 import ProductListing from '../../../system/codes/list/ProductListing';
+import ResponsiveContainer from '../../../system/codes/ResponsiveContainer';
+
+
 
 class ShowcaseBodyHeader extends React.Component{
   render() {
@@ -41,10 +43,23 @@ class ShowcaseBody extends React.Component {
           </ul>
           </div>
         </div>
-        <div className='wcAppIntroCarousel'>
-          <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} ImageHeight="80px" carouselHeight='230px' productWidth="150px" productHeight='150px'/>
+        <div className="wcAppIntroCarousel">
+
+            
+
+       <ResponsiveContainer>
+          {size => {
+            if (size === 'sm') return <h3 style={{ backgroundColor: '#e238cc' }}>{size}</h3>;
+            if (size === 'md') return <h3 style={{ backgroundColor: '#65f796' }}>{size}</h3>;
+            if (size === 'lg') return <h3 style={{ backgroundColor: '#fcff7c' }}>{size}</h3>;
+            if (size === 'xl') return <h3 style={{ backgroundColor: '#ffa0e2' }}>{size}</h3>;
+            //The null is important in case of not checking all the cases (sm,md etc').
+            return null;
+          }}
+      </ResponsiveContainer> 
+      
         </div>
-        {/* <div className="wcClear"></div>  */}
+
       </div>
 
     );
@@ -53,7 +68,7 @@ class ShowcaseBody extends React.Component {
 class ShowcaseApp extends Component {
   render() {
     return (
-      <div className="wcShowcase" id="wc-reset">
+      <div className="wcShowcase">
 
         <ShowcaseBodyHeader />
         <ShowcaseBody />
