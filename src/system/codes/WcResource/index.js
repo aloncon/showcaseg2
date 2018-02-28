@@ -5,10 +5,10 @@ import WcIframe from './WcIframe';
 import WcPlayer from './WcPlayer';
 import WcOverlayVideo from './WcOverlayVideo';
 import absolutizeSrc from './absolutizeSrc';
-
+import absolutizeSrcExternal from './absolutizeSrcExternal';
 
 export {
-  WcImg, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc 
+  WcImg, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc , absolutizeSrcExternal
 }
 
 //TODO: write description and how to use manual for each Wc componenet.

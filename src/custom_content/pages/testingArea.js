@@ -3,7 +3,7 @@ import {Announcements} from '../modules/Announcements';
 import {VideoGallery} from '../modules/VideoGallery';
 import '../../system/style/App.css';
 import '../../common/css/index.less';
-import {WcLink , WcOverlayVideo} from '../../system/codes/WcResource';
+import {WcLink , WcOverlayVideo , absolutizeSrcExternal , absolutizeSrc} from '../../system/codes/WcResource';
 import ProductListing from '../../system/codes/list/ProductListing';
 
 import videoTest from '../assets/video/videoTest.mp4';
@@ -55,6 +55,19 @@ class In2EcosystemHeader extends React.Component{
                 <WcLink href="./testingArea.html" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>
                   <div className="btn" style={{cursor:'pointer'}}>Open Internal Link</div>
                 </WcLink>
+                <br/><br/>
+                <div className="btn" style={{cursor:'pointer'}} onClick={()=>absolutizeSrcExternal('mailto:test@gmail.com','ext')}>
+                    Open Mailto Link (by absolutizeSrcExternal())
+                </div>
+                <br/><br/>
+                <div className="btn" style={{cursor:'pointer'}} onClick={()=>absolutizeSrcExternal('www.gmail.com','ext')}>
+                    Open External Link (by absolutizeSrcExternal() and not WcLink)
+                </div>                
+                <br/><br/>
+                {/* <div className="btn" style={{cursor:'pointer'}} onClick={()=>absolutizeSrcExternal('./EndpointSolutions','int')}>
+                    Open internal Link (by absolutizeSrcExternal() and not WcLink) 
+                </div>   */}
+
               </div>
       )
   }   
