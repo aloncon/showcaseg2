@@ -123,26 +123,28 @@ export default class Wcvg extends Component {
                          >   
                             <BigPlayButton position="center" />
                         </WcPlayer> 
-                    </div>                
-                    <div className="wcPlayList">
-                            <ul className="wcPlayList" style={{textAlign: thumbnailAlignment}}>                            
-                                {flag && videoObj.map((video,index) => {
-                                    const className = this.state.activeIndex === index ? 'wcCenterContainer wcMovieActive' : 'wcCenterContainer';
-                                    return(
-                                        <li className="wcPlayListItem"  key={index}>
-                                            <div className="wcThumbnailWrap">
-                                                <a className={className} title={video.title} data-id={index} onClick={this.getIndex}  style={{backgroundColor: thumbnailBackgroundColor}}>
-                                                    <WcImg className="wcThumbnail wcCenter" title={video.videoTitle} src={video.poster} alt={video.title} data-id={index} onClick={this.getIndex}/>
-                                                    <WcImg className="wcPlay wcCenter" title={video.title} src={play_thumbnails} alt="" data-id={index} onClick={this.getIndex}  />
-                                                </a>
-                                                <span className="wcDuration"   style={{backgroundColor: durationBackgroundColor,color: durationTextColor}}>{this.displayDuration(video.duration)}</span>                         
-                                            </div>
-                                        </li> 
-                                    )
-                                })}
-                            </ul>
-                        </div>
-                    </div>                                        
+                    </div> 
+                    {flag && videoObj.length > 1 &&                                  
+                        <div className="wcPlayList">
+                                <ul className="wcPlayList" style={{textAlign: thumbnailAlignment}}>                            
+                                    {flag && videoObj.map((video,index) => {
+                                        const className = this.state.activeIndex === index ? 'wcCenterContainer wcMovieActive' : 'wcCenterContainer';
+                                        return(
+                                            <li className="wcPlayListItem"  key={index}>
+                                                <div className="wcThumbnailWrap">
+                                                    <a className={className} title={video.title} data-id={index} onClick={this.getIndex}  style={{backgroundColor: thumbnailBackgroundColor}}>
+                                                        <WcImg className="wcThumbnail wcCenter" title={video.videoTitle} src={video.poster} alt={video.title} data-id={index} onClick={this.getIndex}/>
+                                                        <WcImg className="wcPlay wcCenter" title={video.title} src={play_thumbnails} alt="" data-id={index} onClick={this.getIndex}  />
+                                                    </a>
+                                                    <span className="wcDuration"   style={{backgroundColor: durationBackgroundColor,color: durationTextColor}}>{this.displayDuration(video.duration)}</span>                         
+                                                </div>
+                                            </li> 
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                    }
+                </div>                                                         
             );
         }
     };
