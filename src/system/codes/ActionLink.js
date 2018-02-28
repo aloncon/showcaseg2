@@ -26,29 +26,8 @@ class InitActionLink {
         else
             return this.allassortment
     }
-    enterMosaicListProducts = (mosaicConfiguration) =>{ 
-    //   const config = this.mosaicConfiguration(mosaicConfiguration);
-    //   !this.mosaicListOn && 
-    //   (this.mosaicListOn = true) && 
-    //   window.Webcollage.loadProductContentForProductListing( partner.default.siteName, 
-    //                                                         {containerSelector : ".wcMosaicImage",  
-    //                                                          layout : config.layout,
-    //                                                          buttonType : config.buttonType,
-    //                                                          buttonPosition : config.buttonPosition, 
-    //                                                          cpiAttribute : "data-cpi" }) 
-    }
-
-    enterMosaicProduct = (cpi , mosaicConfiguration) => {
-        const config = this.mosaicConfiguration(mosaicConfiguration);
-        console.log("config",config , mosaicConfiguration) 
-        setTimeout(
-            ()=>{window.Webcollage.loadProductContent(  partner.default.siteName, 
-                                                        cpi, 
-                                                        {"mosaic-board": {  containerSelector :`#wcMosaicImage_${cpi}`, 
-                                                                                        layout : config.layout , 
-                                                                                        buttonType : config.buttonType,
-                                                                                        buttonPosition : config.buttonPosition}})} , 500
-        )
+    enterMosaic = () =>{
+       !this.mosaicOn && (this.mosaicOn = true) && window.Webcollage.loadProductContentForProductListing(partner.default.siteName, {containerSelector: ".wcMosaicImage", layout: "hero-ribbon",cpiAttribute: "data-cpi"}) 
     }
 }
 

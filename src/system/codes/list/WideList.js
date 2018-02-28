@@ -17,14 +17,10 @@ class WideList extends React.Component{
                       {data.map((product,i) => {
                                     console.log("product cpi",product)
                                     return(
-                                        <div key={i} className="wcWideListProducts">
-                                            <div className="wcMosaicWideList">
-                                            {/* <ActionLink wcpc={product.wcpc} type="mosaic" />  */}
-
-                                                <div className="wcMosaic" data-cpi={product.cpi}/>
-                                            </div>
+                                        <div key={i}>
                                             <div className="wcWideListImg">
-                                                {product.listImage ? 
+                                                <ActionLink wcpc={product.wcpc} type="mosaic" unlink={true}/>
+                                                {product.listImage ?
                                                 <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}/>}
                                             </div>
                                             <div className="wcWideListDesc">

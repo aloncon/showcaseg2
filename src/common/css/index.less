@@ -1,6 +1,190 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 /*!!!This file is for overriting the existing-default css*/
 #wc-showcase-root{
+
+    @buttonsDir: "../../custom_content/assets/images/buttons/";
+    @theme-color: #3cc8be;
+/* ***dev start: please add your styles bellow only!!!*** */
+  
+
+
+.wc-in2-main-wrap{
+    li {
+        font-family: Arial, Helvetica, sans-serif;
+        list-style: none !important;
+        &::before {
+            content: '\00b7';
+            position: absolute;
+            margin-left: -1.25rem;
+            margin-right: .3125rem;
+            color: @theme-color;
+            font-size: 187.5%;
+            display: inline-block;
+            margin-top: -5px;
+        }
+    }
+    div.in2-header {
+        height: 307px;
+        background-image: url('../../custom_content/assets/images/ecosystem.png');
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        div#content {
+            position: absolute;
+            bottom: 73px;
+            margin-left: 20px;
+            a {
+                text-decoration: none;
+                padding: 3px;
+            }
+        }
+        h1 {
+            color: #fff;
+        }
+        h1.caption {
+            font-size: 45px;
+            font-weight: bold;
+            margin: 0;
+        }
+        p.description {
+            font-size: 26.25px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: normal !important;
+            color: #fff;
+        }
+        div.btn {
+            height: 50px;
+            width: 170px;
+        }
+    }
+    div.btn {
+        color: @theme-color;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: inline-block;
+    }
+    a {
+        &:any-link {
+            text-decoration: none;
+        }
+    }
+    div.info {
+        div.btn {
+            height: 37px;
+            width: 179px;
+        }
+        h1 {
+            color: @theme-color;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-top: 0;
+            padding: 10px 0;
+            font-size: 15px;
+        }
+        ul {
+            margin: 0 20px;
+            li {
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+        }
+        padding: 15px 30px;
+        div.info-item {
+            display: table-row;
+        }
+    }
+    div#btn-video-play {
+        background-image: url('@{buttonsDir}play-video.png');
+        &:hover {
+            background-image: url('@{buttonsDir}play-video-hover.png');
+        }
+    }
+    div#btn-brochure {
+        background-image: url('@{buttonsDir}brochure.png');
+        &:hover {
+            background-image: url('@{buttonsDir}brochure-hover.png');
+        }
+    }
+    div#btn-learn-more {
+        background-image: url('@{buttonsDir}learn-more.png');
+        margin: 10px 10px 20px 0;
+        &:hover {
+            background-image: url('@{buttonsDir}learn-more-hover.png');
+        }
+    }
+    div.info-header {
+        >hr {
+            width: 83%;
+            margin-bottom: 20px;
+            margin-left: -25px;
+            display: inline-block;
+        }
+    }
+    div.info-item {
+        h1 {
+            font-size: 20px;
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        hr {
+            width: 100%;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-top: 0;
+        }
+    }
+    div.list-by-side {
+        margin-top: 15px;
+        ul {
+            font-size: 15px;
+            margin: 0;
+            padding: 0 0 0 15px;
+        }
+        li {
+            font-size: 15px;
+            margin: 0;
+            padding: 0 0 0 15px;
+        }
+    }
+    div.videos {
+        padding-top: 20px;
+        clear: both;
+        padding-left: 20px;
+        padding-right: 20px;
+        >h1 {
+            color: @theme-color;
+            font-size: 32px;
+            margin: 0;
+        }
+        >hr {
+            width: 25%;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            margin-left: -15px;
+            display: inline-block;
+        }
+         div.video-item {
+            padding-top:10px;
+            h1 {
+                font-size: 0.94em;
+                margin-bottom: 7px;
+                font-weight: bold;
+            }
+         }
+    }
+    }
+
+/*****************************************/
+
 .wcTopAnnouncements{
     .wcAnnouncements{
         .wcAnnouncementImage {
@@ -8,6 +192,11 @@
         }
     }
 }
+
 }
    /* ***dev end: please add your styles above only!!!*** */
+
+   /* TESTING FOR wcOverlayVideo */
+
+
 

@@ -1,6 +1,180 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 /*!!!This file is for overriting the existing-default css*/
+#wc-showcase-root {
+  /* ***dev start: please add your styles bellow only!!!*** */
+  /*****************************************/
+}
+#wc-showcase-root .wc-in2-main-wrap li {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none !important;
+}
+#wc-showcase-root .wc-in2-main-wrap li::before {
+  content: '\00b7';
+  position: absolute;
+  margin-left: -1.25rem;
+  margin-right: .3125rem;
+  color: #3cc8be;
+  font-size: 187.5%;
+  display: inline-block;
+  margin-top: -5px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header {
+  height: 307px;
+  background-image: url('../../custom_content/assets/images/ecosystem.png');
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header div#content {
+  position: absolute;
+  bottom: 73px;
+  margin-left: 20px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header div#content a {
+  text-decoration: none;
+  padding: 3px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header h1 {
+  color: #fff;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header h1.caption {
+  font-size: 45px;
+  font-weight: bold;
+  margin: 0;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header p.description {
+  font-size: 26.25px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: normal !important;
+  color: #fff;
+}
+#wc-showcase-root .wc-in2-main-wrap div.in2-header div.btn {
+  height: 50px;
+  width: 170px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.btn {
+  color: #3cc8be;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+}
+#wc-showcase-root .wc-in2-main-wrap a:-webkit-any-link {
+  text-decoration: none;
+}
+#wc-showcase-root .wc-in2-main-wrap a:any-link {
+  text-decoration: none;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info {
+  padding: 15px 30px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info div.btn {
+  height: 37px;
+  width: 179px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info h1 {
+  color: #3cc8be;
+  margin-bottom: 10px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info p {
+  margin-top: 0;
+  padding: 10px 0;
+  font-size: 15px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info ul {
+  margin: 0 20px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info ul li {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info div.info-item {
+  display: table-row;
+}
+#wc-showcase-root .wc-in2-main-wrap div#btn-video-play {
+  background-image: url('../../custom_content/assets/images/buttons/play-video.png');
+}
+#wc-showcase-root .wc-in2-main-wrap div#btn-video-play:hover {
+  background-image: url('../../custom_content/assets/images/buttons/play-video-hover.png');
+}
+#wc-showcase-root .wc-in2-main-wrap div#btn-brochure {
+  background-image: url('../../custom_content/assets/images/buttons/brochure.png');
+}
+#wc-showcase-root .wc-in2-main-wrap div#btn-brochure:hover {
+  background-image: url('../../custom_content/assets/images/buttons/brochure-hover.png');
+}
+#wc-showcase-root .wc-in2-main-wrap div#btn-learn-more {
+  background-image: url('../../custom_content/assets/images/buttons/learn-more.png');
+  margin: 10px 10px 20px 0;
+}
+#wc-showcase-root .wc-in2-main-wrap div#btn-learn-more:hover {
+  background-image: url('../../custom_content/assets/images/buttons/learn-more-hover.png');
+}
+#wc-showcase-root .wc-in2-main-wrap div.info-header > hr {
+  width: 83%;
+  margin-bottom: 20px;
+  margin-left: -25px;
+  display: inline-block;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info-item h1 {
+  font-size: 20px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info-item img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info-item hr {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.info-item p {
+  margin-top: 0;
+}
+#wc-showcase-root .wc-in2-main-wrap div.list-by-side {
+  margin-top: 15px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.list-by-side ul {
+  font-size: 15px;
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.list-by-side li {
+  font-size: 15px;
+  margin: 0;
+  padding: 0 0 0 15px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.videos {
+  padding-top: 20px;
+  clear: both;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.videos > h1 {
+  color: #3cc8be;
+  font-size: 32px;
+  margin: 0;
+}
+#wc-showcase-root .wc-in2-main-wrap div.videos > hr {
+  width: 25%;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-left: -15px;
+  display: inline-block;
+}
+#wc-showcase-root .wc-in2-main-wrap div.videos div.video-item {
+  padding-top: 10px;
+}
+#wc-showcase-root .wc-in2-main-wrap div.videos div.video-item h1 {
+  font-size: 0.94em;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
 #wc-showcase-root .wcTopAnnouncements .wcAnnouncements .wcAnnouncementImage {
   width: 100%;
 }
 /* ***dev end: please add your styles above only!!!*** */
+/* TESTING FOR wcOverlayVideo */
