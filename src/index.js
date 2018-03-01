@@ -9,6 +9,8 @@ import registerServiceWorker from './registerServiceWorker';
 import basePath from './basePath';
 import store from './store';
 
+import 'babel-polyfill';
+
 // Our Components
 import ShowcaseHeader from './custom_content/modules/showcase-header';
 import ShowcaseFooter from './custom_content/modules/showcase-footer';
