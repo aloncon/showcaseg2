@@ -7,7 +7,7 @@
   }
   to {
     opacity: 1;
-    top: -100px;
+    top: -70px;
     box-shadow: 3px 3px 5px 6px #ccc;
   }
 }
@@ -18,9 +18,9 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
-  top: -100px;
+  top: -70px;
   left: 0px;
-  z-index: 1;
+  z-index: 60 !important;
   animation: openPopover 0.5s 1;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover div {
@@ -52,13 +52,17 @@
   display: none;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card {
+  z-index: 50 !important;
   padding: 25px 10px 0px 10px;
   width: 250px;
-  position: relative;
   margin: 1%;
   float: left;
   border: 1px solid #D1D1D1;
   border-radius: 5px;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wcMosaicGrid {
+  width: 100%;
+  height: 20px;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-img-top {
   width: 100%;

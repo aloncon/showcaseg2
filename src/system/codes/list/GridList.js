@@ -98,22 +98,25 @@ class GridList extends React.Component {
                                     }
                                 </div>
                             </ActionLink> 
-                            <div className="wcMosaic" data-cpi={item.cpi}/>
-
-                        <div className="wc-card-block">
-                            <h4 className="wc-card-title"><ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>{item.vendorProductName}</ActionLink></h4>
-                            <div className="wcGridCardFooter">
-                                {item.listDescription && <ObservPopover store={allPopovers.getPop(item.wcpc + caption)}
-                                    index={item.wcpc + caption}
-                                    wcpc={item.wcpc}
-                                    title={item.vendorProductName}
-                                    text={item.listDescription} />}
-
-                                <ActionLink wcpc={item.wcpc} type="p2b">Procced to buy</ActionLink>
+                           
+                            <div className="wcMosaicGrid">
+                                <div className="wcMosaic" data-cpi={item.cpi}/>
                             </div>
-                            <div className="wcClear" />
+
+                            <div className="wc-card-block">
+                                <h4 className="wc-card-title"><ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>{item.vendorProductName}</ActionLink></h4>
+                                <div className="wcGridCardFooter">
+                                    {item.listDescription && <ObservPopover store={allPopovers.getPop(item.wcpc + caption)}
+                                        index={item.wcpc + caption}
+                                        wcpc={item.wcpc}
+                                        title={item.vendorProductName}
+                                        text={item.listDescription} />}
+
+                                    <ActionLink wcpc={item.wcpc} type="p2b">Procced to buy</ActionLink>
+                                </div>
+                                <div className="wcClear" />
+                            </div>
                         </div>
-                    </div>
                 )}
                 <div className="wcClear" />
             </div>
