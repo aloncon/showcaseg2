@@ -8,14 +8,14 @@ const getScriptURL = (function() {
     return function() { return myScript.src; };
 })();
 */
- 
+
+
 const getScriptURL = (function() {
     const scripts = document.getElementsByTagName('script');
     const index = scripts.length - 1;
     const myScript = scripts[index];
     return function() { return myScript.src; };
 })();
-
 
 function getSrcBase(scriptUrl) {
     if (scriptUrl.includes('localhost:')) {
@@ -31,22 +31,22 @@ function getSrcBase(scriptUrl) {
    return null;
 }
 
-
-const scriptUrl = getScriptURL();
-console.log('original JS src', scriptUrl);
-let environmentId = 'dev';
-const srcBase = getSrcBase(scriptUrl);
-console.log('environmentId', environmentId);
-console.log('base Src' + srcBase);
-
-export default function getModuleInfo () {
-    let id= '168262d34ae47d7642f15af14eb6c95d';
-    let script = getScriptURL();
-    //script = 'https://itest2.webcollage.net/qa/creport/test-michal/build/static/js/main.js?module=xerox&site=cdw';
-    //let module = script.replace(/.*www\.[^\.]*\.([^\.]*)\..*/,'$1');
-    //let site = script.replace(/.*server\/([^\/]*)\/.*/,'$1');
-
+function getSiteIdFromScriptSrc(script){
     let site;
+
+    if(script.indexOf('site=')!=-1){
+        site = script.replace(/.*site=([^&]*)&?.*/,'$1');
+        console.log("dev-site: " + site);
+    }
+    else{
+     site = 'quill';
+    //site = 'cdw';
+    }
+   
+    return site;
+}
+
+function getModuleIdFromScriptSrc(script){
     let module;
 
     if(script.indexOf('media-preview')!=-1){
@@ -64,15 +64,31 @@ export default function getModuleInfo () {
 
     module='xerox';
 
-    if(script.indexOf('site=')!=-1){
-        site = script.replace(/.*site=([^&]*)&?.*/,'$1');
-        console.log("dev-site: " + site);
-    }
-    else{
-     site = 'quill';
-    //site = 'cdw';
-    }
+    return module;
+}
 
+
+let script = getScriptURL();
+let environmentId = 'dev';
+const srcBase = getSrcBase(script);    
+
+
+export default function getModuleInfo () {
+    let id= '168262d34ae47d7642f15af14eb6c95d';
+    let site;
+    let module;
+
+    let webcollageObj = window.WebcollageShowcase;
+    if(typeof webcollageObj != 'undefined'){
+        console.log("object from site page : " + webcollageObj);
+        site = webcollageObj.partnerId;
+        module = webcollageObj.moduleId;
+    }else{
+        console.log("script src from site page : " + script);
+        site   = getSiteIdFromScriptSrc(script);
+        module = getModuleIdFromScriptSrc(script);
+    }
+   
     // const siteMosaic = allproducts() ? "generic" : site
 
     //Call Mosica (Product listing)
