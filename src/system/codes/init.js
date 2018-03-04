@@ -70,7 +70,7 @@ function getModuleIdFromScriptSrc(script){
 
 let script = getScriptURL();
 let environmentId = 'dev';
-const srcBase = getSrcBase(script);    
+let srcBase = getSrcBase(script);    
 
 
 export default function getModuleInfo () {
@@ -79,10 +79,13 @@ export default function getModuleInfo () {
     let module;
 
     let webcollageObj = window.WebcollageShowcase;
+    
     if(typeof webcollageObj != 'undefined'){
         console.log("object from site page : " + webcollageObj);
         site = webcollageObj.partnerId;
         module = webcollageObj.moduleId;
+        script = webcollageObj.scriptSrc;
+        srcBase = webcollageObj.srcBase;
     }else{
         console.log("script src from site page : " + script);
         site   = getSiteIdFromScriptSrc(script);
