@@ -25,12 +25,42 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Webcollage Showcase: Standalone</title>
+    <script src="https://scontent.webcollage.net/api/v2/product-content"></script>
     <script>                 
         if (document.location.origin.indexOf("localhost")==-1){ 
           document.write('<link rel="stylesheet" type="text/css" href="../static/css/main.css">'); 
         }
     </script>
-    
+
+    <script type="text/javascript">
+      var WebcollageShowcase = {};
+
+      function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+        function(m,key,value) {
+          vars[key] = value;
+        });
+        return vars;
+      }
+      
+      function initWebcollageVar() {
+        var params = getUrlVars();
+                
+        var baseUrl = location.href.replace(/standalone\/index.html.*/,""); 
+        //location.protocol+ "//" + location.host;
+          
+        WebcollageShowcase.moduleId  = params.module;
+        WebcollageShowcase.partnerId = params.site;
+        WebcollageShowcase.scriptSrc = baseUrl + "/static/js/bundle.js?site="+ WebcollageShowcase.partnerId;
+        WebcollageShowcase.srcBase   = baseUrl;	  
+        WebcollageShowcase.cssLink   = null;
+        console.log("WebcollageShowcase: ", WebcollageShowcase);
+       } 
+       
+       initWebcollageVar()
+      </script>
+  
     </head>
   <body>
     <noscript>
@@ -41,20 +71,10 @@
       <!-- Standalone has to be located here -->
         <div id="wc-showcase-root"></div>
     </span>
-    
+   
     <script id="wcmain" type="text/javascript" src="../static/js/bundle.js"></script>
     
   </body>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+  
 </html>
 
