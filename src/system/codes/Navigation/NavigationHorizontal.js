@@ -278,29 +278,31 @@ const NavigationHorizontal = observer(
       this.updateDimensions(this.props.responsiveStore.wcContainerSize);
 
       return (
-        <nav className="wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light">
-          <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
-          <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>
-            <NestedItems
-              routes={this.rootRoutes}
-              exclude={this.routesConfiguration.routesExcludeTest}
-              getPath={this.routesConfiguration.getPath}
-              getChildren={this.routesConfiguration.getChildren}
-              limit={this.values.countItemsNavItems}
-            />
-          </div>
-          {ABLE_SUB_MENUS &&
-            this.values.countItemsMoreButton !== 0 && (
-              <MoreButtonResponsive
+        this.rootRoutes.length > 1 ? 
+          <nav className="wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light">
+            <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
+            <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>
+              <NestedItems
                 routes={this.rootRoutes}
                 exclude={this.routesConfiguration.routesExcludeTest}
                 getPath={this.routesConfiguration.getPath}
                 getChildren={this.routesConfiguration.getChildren}
-                limit={this.values.countItemsMoreButton}
+                limit={this.values.countItemsNavItems}
               />
-            )}
-          <div className="wcClear" />
-        </nav>
+            </div>
+            {ABLE_SUB_MENUS &&
+              this.values.countItemsMoreButton !== 0 && (
+                <MoreButtonResponsive
+                  routes={this.rootRoutes}
+                  exclude={this.routesConfiguration.routesExcludeTest}
+                  getPath={this.routesConfiguration.getPath}
+                  getChildren={this.routesConfiguration.getChildren}
+                  limit={this.values.countItemsMoreButton}
+                />
+              )}
+            <div className="wcClear" />
+          </nav>
+        : null
       );
     }
   },

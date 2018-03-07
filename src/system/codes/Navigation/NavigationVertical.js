@@ -26,13 +26,15 @@ const VerticalNavItem = ({ route, getPath }) => {
  */
 const NavigationVertical = ({ routesConfiguration, moduleName } ) => {
   return (
-    <div className="wcNavigationVertical">
-      <div className="wcNavHeader">
-        <h1>{moduleName}</h1>
-      </div>
+    routesConfiguration.getRootRoutes().lenght > 1 ?
+      <div className="wcNavigationVertical">
+        <div className="wcNavHeader">
+          <h1>{moduleName}</h1>
+        </div>
 
-      <ul className="wcNavigationBox">{routesConfiguration.getRootRoutes().map(route => VerticalNavItem({ route, getPath: routesConfiguration.getPath }))}</ul>
-    </div>
+        <ul className="wcNavigationBox">{routesConfiguration.getRootRoutes().map(route => VerticalNavItem({ route, getPath: routesConfiguration.getPath }))}</ul>
+      </div>
+    : null
   );
 };
 
