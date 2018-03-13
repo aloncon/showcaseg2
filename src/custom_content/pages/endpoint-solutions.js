@@ -1,16 +1,10 @@
 import React from 'react';
-import ShouldDisplay from '../../system/codes/ShouldDisplay'
-import ActionLink from '../../system/codes/ActionLink'
-import CategoryList from '../../system/codes/list/CategoryList'
-import ProductListing from '../../system/codes/list/ProductListing'
+import ShouldDisplay from '../../system/codes/ShouldDisplay';
+import CategoryList from '../../system/codes/list/CategoryList';
 
 
 
-const ids = [
-    "Business-Networking-Unmanaged-Switch",
-    "Business-Networking-Access-Point",
-    "Home-Networking-Orbi"
-];
+const CATEGORY_IDS = ["Business-Networking-Unmanaged-Switch","Business-Networking-Access-Point","Home-Networking-Orbi"];
 
 class EndpointSolution extends React.Component {
 
@@ -18,10 +12,10 @@ class EndpointSolution extends React.Component {
         return (
             <div className="sss">
                 
-                <ShouldDisplay ids={ids}>
+                <ShouldDisplay ids={CATEGORY_IDS}>
                     <div>
                         <h2>Testing Area 2</h2>
-                        <CategoryList ids={ids} />
+                        <CategoryList ids={CATEGORY_IDS} />
                     </div>
                 </ShouldDisplay>
             </div>

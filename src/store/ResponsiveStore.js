@@ -1,4 +1,3 @@
-import React from 'react';
 import { observable } from 'mobx';
 
 // Global variables set
@@ -54,14 +53,14 @@ const RootStore = () => {
     wcRootWidth: 540,
     wcContainerWidth: 540,
     get wcRootSize() {
-      if (this.wcRootWidth < 370) return 'xs';
+      if (this.wcRootWidth < 408) return 'xs';
       if (this.wcRootWidth < 575) return 'sm';
       if (this.wcRootWidth < 767) return 'md';
       if (this.wcRootWidth < 1200) return 'lg';
       return 'xl';
     },
     get wcContainerSize() {
-      if (this.wcContainerWidth < 370) return 'xs';
+      if (this.wcContainerWidth < 408) return 'xs';
       if (this.wcContainerWidth < 575) return 'sm';
       if (this.wcContainerWidth < 767) return 'md';
       if (this.wcContainerWidth < 1200) return 'lg';

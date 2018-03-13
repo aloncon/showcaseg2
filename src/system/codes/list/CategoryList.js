@@ -12,7 +12,7 @@ class CategoryList extends React.Component{
         }
 
         handleChangeTypeView = (returnedType) =>{
-            if(this.state.typeName != returnedType){
+            if(this.state.typeName !== returnedType){
                 this.type = returnedType
                 this.setState({ typeName : returnedType })
             }

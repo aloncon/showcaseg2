@@ -1,26 +1,20 @@
 {
-    "module": "adobe",
+    "module": "Xerox",
     "showcase": true,
     "partner" : "allassortment",
+	"landing_entry_point":"landingpageDefault",
     "Sections": {
-        "wc_header": false,
+        "wc_header": true,
         "wc_navigation_horizontal": true,
         "wc_navigation_vertical" : true,
         "wc_bread_crumbs": true,
         "wc_footer": true,
-        "wc_all_products" : true,
-        "box1":false
+        "wc_all_module_products" : true
     },
     "Properties":{
         "phone" : "111-9009002556666"
     },
     "Entry":{
-        "mailto":{
-            "title"       :   "Email Software Questions field 3#",
-            "description" :   "Change Email Software Questions field 3#",
-            "group"       :   "adobe-bp-group-custom",
-            "defaultValue":   "mailto:adobeSupperEmailAddress@adobeSupperEmailAddress.com",
-            "value"       :   "angelika.yupatov@webcollage.com"
-        }
+        
     }
 }

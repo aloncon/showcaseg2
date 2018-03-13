@@ -1,6 +1,5 @@
 
 import jsonpP from 'jsonp-p'
-import WcShowcase, { partnerDefPromise } from '../system/codes/moduleInfo.js'
 import ShouldDisplay from '../system/codes/ShouldDisplay'
 const partner = require('../system/codes/moduleInfo')
 
@@ -8,6 +7,7 @@ class Api {
     constructor() {
         this.site = null
         this.module = null
+        this.shouldDisplay = null
     }
 
     // main function of the class 
@@ -18,13 +18,16 @@ class Api {
     getListOfVerifyWcpcs = (wcpcs) => {
 
         return new Promise((resolve, reject) => {
-            this.site = partner.default.siteName
+            this.site =  partner.default.siteName
             this.module = partner.default.moduleName
+            this.shouldDisplay = ShouldDisplay({"wc_section":"wc_all_module_products"})
             let apiKey = `moduleId=${this.module}&product-details=true`
             let url = `https://sjson.webcollage.net/apps/json/${this.site}/method/partner-products-data-by-wcpc?`
-
+            
+            
             const { displayWithoutAssortment } = this.partner === 'allassortment' ? true : false
-            if (!displayWithoutAssortment) {
+            
+            if (!displayWithoutAssortment && !this.shouldDisplay) {
 
                 let config = {
                     param: 'callback',
@@ -34,8 +37,7 @@ class Api {
                 let fixWcpcs = "";
                 wcpcs.map(wcpc => fixWcpcs += "wcpc=" + wcpc + "&")
                 let request = url + fixWcpcs + apiKey;
-                let response;
-                console.log(request)
+                //console.log(request)
                 jsonpP(request, config).promise
                     .then(result => {
                         let partnerKey = Object.keys(result)
@@ -56,7 +58,7 @@ class Api {
             }
             else {
                 let allWcpcs = wcpcs.map(item => { return { wcpc: item, cpi: 0 } })
-                return Promise.resolve(allWcpcs);
+                resolve(allWcpcs);
             }
         })
     }

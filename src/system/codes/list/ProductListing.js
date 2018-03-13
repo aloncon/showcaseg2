@@ -1,31 +1,30 @@
-import React from 'react'
-import WideList from './WideList'
-import GridList from './GridList'
-import Carousel from './Carousel'
-import { observer } from 'mobx-react'
-import Store from '../../../store/ProductData'
-import ChangeView from './ChangeView'
+import React from 'react';
+import WideList from './WideList';
+import GridList from './GridList';
+import Carousel from './Carousel';
+import { observer } from 'mobx-react';
+import Store from '../../../store/ProductData';
 import ResponsiveStore from '../../../store/ResponsiveStore';
-import WcImg from '../WcResource/WcImg'
-import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg'
-import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg'
-
-import '../../style/productlisting.css'
+import WcImg from '../WcResource/WcImg';
+import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
+import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
+import '../../style/productlisting.css';
 
 const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id }) => {
     const content = data,
         _type = content.type,
-        _isDisplay = content.isDisplay,
-        _length = content.productsLength
+        _isDisplay = content.isDisplay;
+       // _length = content.productsLength
 
-    const change = changeDisplay
-    const { isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = settings
+    const change = changeDisplay;
+    //const { isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = settings;
+    const { isSubCategory } = settings;
 
-    let imgButtonOpenClose = _isDisplay ? closeIcon : openIcon
+    let imgButtonOpenClose = _isDisplay ? closeIcon : openIcon;
     let buttonOepnClose = 
                 <button className="wcListHeaderButton"
                         onClick={change}>
-                            <WcImg src={imgButtonOpenClose} />
+                            <WcImg src={imgButtonOpenClose} alt="Open/Close Button"/>
                 </button>
     let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}{buttonOepnClose}</h2> : null
 
@@ -38,7 +37,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                         </div>
                         {_isDisplay && <WideList data={content.products} />}
                     </div>
-            break
+            //break
         case "grid":
             return <div>
                         <div className="wcListBackground">
@@ -46,12 +45,12 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                         </div>
                         {_isDisplay && <GridList data={content.products} caption={content.caption}/>}
                     </div>
-            break
+            //break
         case "carousel":
             return <div>
                         {_isDisplay && <Carousel data={content} settings={settings} responsiveStore={ResponsiveStore}/>}
                     </div>
-            break
+            //break
         default: return null
     }
 });

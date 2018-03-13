@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import ShouldDisplay from '../../../system/codes/ShouldDisplay';
-import ReactDOM from 'react-dom';
-
 import { Announcements } from '../../modules/Announcements';
-import ProductListing from '../../../system/codes/list/ProductListing';
 import ResponsiveContainer from '../../../system/codes/ResponsiveContainer';
 
 
@@ -71,7 +67,7 @@ class ShowcaseBody extends React.Component {
 class ShowcaseApp extends Component {
   render() {
     return (
-      <div className="wcShowcase">
+      <div className="wcShowcase" id="wc-reset">
 
         <ShowcaseBodyHeader />
         <ShowcaseBody />

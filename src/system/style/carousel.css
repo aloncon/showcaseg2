@@ -23,7 +23,7 @@
 }
 #wc-showcase-root .WcCarousel .wcCarouselWrap a.wcNext {
   background-position: 0 0;
-  right: -13px;
+  right: 0;
 }
 #wc-showcase-root .WcCarousel .wcCarouselWrap a.wcNext:active {
   background-position: 0 -30px;
@@ -71,7 +71,7 @@
 }
 #wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse .wcCarouselArrowsBrowseHorizonal {
   position: absolute;
-  margin-top: -40px;
+  margin-top: -55px;
   outline: 0;
   width: 32px;
   height: 100px;
@@ -181,16 +181,23 @@
   letter-spacing: normal;
   word-spacing: normal;
   line-height: normal;
-  text-align: center;
+  text-align: left;
+  margin-top: 15px;
 }
 #wc-showcase-root .wcCarouselProductTitle a {
   font-weight: bold;
-  font-size: 0.750em;
+  font-size: 0.90em;
   color: #000000;
-  text-decoration: none;
+  text-decoration: none!important;
   text-align: center;
   width: auto;
   height: auto;
+}
+#wc-showcase-root .wcCarouselProductTitle a:visited {
+  text-decoration: none!important;
+}
+#wc-showcase-root .wcCarouselProductTitle a:hover {
+  text-decoration: underline!important;
 }
 #wc-showcase-root .slick-disabled {
   filter: alpha(opacity=35);
@@ -199,5 +206,8 @@
 }
 #wc-showcase-root .slick-slide {
   height: auto!important;
+}
+#wc-showcase-root .slick-list {
+  margin-left: 15px;
 }
 /* ***dev end: please add your styles above only!!!*** */

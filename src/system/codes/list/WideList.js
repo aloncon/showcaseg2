@@ -1,6 +1,4 @@
 import React from 'react'
-import { observer } from 'mobx-react';
-import { Link } from 'react-router-dom'
 import ActionLink from '../ActionLink'
 import WcImg from '../WcResource/WcImg'
 import {NormalizeListDescription} from '../NormalizeListDescription'
@@ -11,11 +9,11 @@ const placeholderPic = require('../../resources/placeholder.png')
 class WideList extends React.Component{
 
     render(){
-        const { list  , data} = this.props;
+        const {data} = this.props;
         let content = data ?
                 <div>
                       {data.map((product,i) => {
-                                    console.log("product cpi",product)
+                                    // console.log("product cpi",product)
                                     return(
                                         <div key={i} className="wcWideProduct">
                                             <div className="bt-row">
@@ -26,7 +24,7 @@ class WideList extends React.Component{
                                             <div className="bt-row">
                                                     <div className="wcWideListImg">
                                                         {product.listImage ? 
-                                                        <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}/>}
+                                                        <WcImg src={"/static/" + product.listImage} alt={product.vendorProductName} />:<img src={placeholderPic}  alt={product.vendorProductName}/>}
                                                     </div>
                                                     <div className="wcWideListDesc">
                                                         <h4>

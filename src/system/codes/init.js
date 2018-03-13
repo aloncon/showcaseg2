@@ -27,20 +27,17 @@ function getSrcBase(scriptUrl) {
         environmentId = 'non_dev';
         return scriptUrl.replace(/\/build\/.*/,"/build/");
     }
-
-   return null;
 }
 
 function getSiteIdFromScriptSrc(script){
     let site;
 
-    if(script.indexOf('site=')!=-1){
+    if(script.indexOf('site=')!==-1){
         site = script.replace(/.*site=([^&]*)&?.*/,'$1');
         console.log("dev-site: " + site);
     }
     else{
-     site = 'quill';
-    //site = 'cdw';
+        site = 'quill';
     }
    
     return site;
@@ -48,26 +45,11 @@ function getSiteIdFromScriptSrc(script){
 
 function getModuleIdFromScriptSrc(script){
     let module;
+     module= configuration.moduleId;
 
-    if(script.indexOf('media-preview')!=-1){
-        module = script.replace(/.*\/module\/([^\/]*)\/.*/,'$1');
-        console.log("live: " + module);
-    }
-    else if(script.indexOf('media.stage')!=-1 || script.indexOf('www.test')!=-1){
-        module = script.replace(/.*\.([^\.]*)\.webcollage.*/,'$1');
-        console.log("stage/test: " + module);
-    }
-    else{ //if(script.indexOf('module=')!=-1)
-        module = script.replace(/.*module=([^&]*)&?.*/,'$1');
-         console.log("dev: " + module);
-    }
-
-    module='xerox';
 
     return module;
 }
-
-
 let script = getScriptURL();
 let environmentId = 'dev';
 let srcBase = getSrcBase(script);    
@@ -80,7 +62,7 @@ export default function getModuleInfo () {
 
     let webcollageObj = window.WebcollageShowcase;
     
-    if(typeof webcollageObj != 'undefined'){
+    if(typeof webcollageObj !== 'undefined'){
         console.log("object from site page : " + webcollageObj);
         site = webcollageObj.partnerId;
         module = webcollageObj.moduleId;

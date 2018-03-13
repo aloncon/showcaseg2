@@ -1,8 +1,8 @@
 import React from 'react';
-import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
+import GenerateBodyContent from '../../system/codes/GenerateBodyContent';
 
 /**
- * Local Module NavBreadcrumbsRoute
+ * Local Module GenerateBodyContent
  *
  * In order to change the navigation/breadcrumbs or the routes, you needed to change the configuration.js in the custom content.
  *
@@ -16,8 +16,8 @@ import NavBreadcrumbsRoute from '../../system/codes/navBreadcrumbsRoute';
  *
  * For more information, please look in the component itself.
  */
-const ModuleNavBreadcrumbsRoute = () => (
-  <NavBreadcrumbsRoute options={{displayRootNameAsHome: true, addHorizontalRule: true}} />
+const ModuleGenerateBodyContent = () => (
+  <GenerateBodyContent options={{displayRootNameAsHome: true, addHorizontalRule: true}} />
 )
 
-export default ModuleNavBreadcrumbsRoute;
+export default ModuleGenerateBodyContent;

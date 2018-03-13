@@ -1,38 +1,6 @@
 
 /*** ALL */
- /* #wc-reset, #wc-reset * {
-    background-image: none;
-    background-repeat: repeat;
-    background-position: 0px;
-  
-    color: black;
-    font-family: Arial,Verdana,Helvetica,sans-serif;
-    font-size: 13px;
-    font-weight: normal;
-    font-style: normal;
-    text-decoration: none;
-    text-align: left;
-    text-transform: none;
-    text-indent: 0px;
-    vertical-align: baseline;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-  
-    padding: 0;
-    margin: 0;
-  
-    list-style-type: none;
-    list-style-position: inside;
-  
-    clear: none;
-    float: none;
-  
-    table-layout: auto;
-    border-collapse: collapse;
-    border-spacing: 0px;
-    empty-cells: show;
-  } */
+
   
   #wc-reset,
   #wc-reset table,

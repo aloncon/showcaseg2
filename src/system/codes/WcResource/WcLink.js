@@ -1,3 +1,6 @@
+/* eslint-disable  jsx-a11y/anchor-has-content */
+/* The component's children are in the props */
+
 import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
 

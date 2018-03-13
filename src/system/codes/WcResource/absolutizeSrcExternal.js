@@ -1,10 +1,8 @@
-import WcShowcase from '../moduleInfo';
-import index from 'jsonp-p';
 import absolutizeSrc from './absolutizeSrc';
 
 const absolutizeSrcExternal = (href,type) => {
   let fixHref = href;
-  if(type=='ext'){
+  if(type==='ext'){
     if (href.startsWith('mailto:')) {
       document.location = fixHref;
     }

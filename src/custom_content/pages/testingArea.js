@@ -3,39 +3,14 @@ import {Announcements} from '../modules/Announcements';
 import {VideoGallery} from '../modules/VideoGallery';
 import '../../system/style/App.css';
 import '../../common/css/index.less';
-import {WcLink , WcOverlayVideo , absolutizeSrcExternal , absolutizeSrc} from '../../system/codes/WcResource';
+import {WcLink , WcOverlayVideo , absolutizeSrcExternal} from '../../system/codes/WcResource';
 import ProductListing from '../../system/codes/list/ProductListing';
-
 import videoTest from '../assets/video/videoTest.mp4';
-
 import ecosystem_brochure42017 from '../assets/pdf/76544_1_wwecosystem_brochure_42017.pdf';
-
-import in2ecosystem_header_video from '../assets/video/alaris-in2-ecosystem-take-the-complexity-out-of-information-capture.mp4';
-
-
 import { observer } from 'mobx-react'
-import ResponsiveContainer from '../../system/codes/ResponsiveContainer';
 import ResponsiveStore from '../../store/ResponsiveStore';
 
 
-var featuredTitle = {
-  width: '100%',
-  fontWeight: 'bold',
-  textAlign: 'center',
-  fontFamily: 'Helvetica Neue LT St, Helvetica',
-  fontSize:   '16px'
-};
-var leftSide = {
-  float:'left',
-  display: 'block',
-  width: '80%'
-}
-var rightSide = {
-  float:'right',
-  borderLeft: '1px solid rgb(204, 204, 204)',
-  paddingLeft: '10px',
-  width: '20%'
-}
 
 class In2EcosystemHeader extends React.Component{
   render(){
@@ -75,15 +50,13 @@ class In2EcosystemHeader extends React.Component{
 
 class ToggleCarousel extends React.Component{
   render(){
-
-    let _size = '';
    
     const Carousel = observer(({responsiveStore}) => {
       if (responsiveStore.wcContainerSize === 'xs' || responsiveStore.wcContainerSize === 'sm') {
-        return <ProductListing type="carousel"  infinite={false}  vertical={true} ids={["Carusel-Data"]} slidesToShow={3} ImageHeight="80px" carouselHeight='450px' productWidth="200px" productHeight='200px'/>;
+        return <div><h4>Carousel 03:</h4><ProductListing type="carousel"  vertical={true} ids={["Carusel-Data"]} carosulId={'03'}/></div>;
       }
 
-      return <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} ImageHeight="80px" carouselHeight='230px' productWidth="150px" productHeight='150px'/>;
+      return <div><h4>Carousel 02:</h4><ProductListing type="carousel" ids={["Carusel-Data"]} carosulId={'02'}/></div>;
       
     });
 
@@ -123,8 +96,24 @@ class ShowcaseBody extends React.Component {
           </div>
           <hr/>
           <div>
+            <h2>Mosaic testing:</h2>
+            <div >
+              {/* <div className="wcMosaic" data-cpi={53028274}/> */}
+            </div>
+            <br/>
+          </div>
+          <hr/>          
+          <div>
+            <h2>Carousel without toggle between horizonal and vertical - vertical:</h2>
+            <h4>Carousel 00:</h4>
+            <ProductListing type="carousel" infinite={false} ids={["Business-Networking-Access-Point"]} carosulId={'00'}/>
+            {/* <ProductListing type="carousel"  vertical={true} ids={["Carusel-Data-2"]} carosulId={'00'}/> */}
+          </div>
+          <br/> 
+          <div>
             <h2>Carousel without toggle between horizonal and vertical:</h2>
-            <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4} ImageHeight="80px" carouselHeight='200px' productWidth="150px" productHeight='150px'/>
+            <h4>Carousel 01:</h4>
+            {/* <ProductListing type="carousel" ids={["Carusel-Data"]} carosulId={'01'}/> */}
           </div>
           <br/> 
           <div>

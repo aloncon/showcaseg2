@@ -21,12 +21,12 @@ const { staticRoutes } = configuration;
  * options (OPTIONAL):: Options for the Breadcrumbs component. Holds displayRootNameAsHome, isDisplayBreadcrumbRoot and customRender.
  *
  */
-const NavBreadcrumbsRoute = ({ options }) => (
+const GenerateBodyContent = ({ options }) => (
   <div>
     <ShouldDisplay wc_section="wc_navigation_horizontal"> <NavigationHorizontal routesConfiguration={staticRoutes} responsiveStore={ResponsiveStore}/> </ShouldDisplay>
-    <ShouldDisplay wc_section="wc_bread_crumbs"><Breadcrumbs config={staticRoutes.routesDetails} options={options} getPath={staticRoutes.getPath}/> </ShouldDisplay>
-    <RoutesGenerate config={staticRoutes.routesDetails} getPath={staticRoutes.getPath}/>
+    <ShouldDisplay wc_section="wc_bread_crumbs"><Breadcrumbs config={staticRoutes.getRoutes()} options={options} getPath={staticRoutes.getPath}/> </ShouldDisplay>
+    <RoutesGenerate config={staticRoutes.getRoutes()} getPath={staticRoutes.getPath}/>
   </div>
 );
 
-export default NavBreadcrumbsRoute;
+export default GenerateBodyContent;

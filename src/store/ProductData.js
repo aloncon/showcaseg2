@@ -1,8 +1,7 @@
-import { observable, action } from 'mobx'
+import { observable } from 'mobx'
 import VendorCategoryData from '../system/data/vendor-data/vendor-category-data.json'
 import VendorData from '../system/data/vendor-data/vendor-data.json'
 import api from './Api'
-import jsonpP from 'jsonp-p';
 
 
 const ProductDataStore = (wcpc , cpi) => {
@@ -13,7 +12,7 @@ const ProductDataStore = (wcpc , cpi) => {
     if(!cpi){
         api.getListOfVerifyWcpcs([wcpc])
         .then(result => {
-            console.log("testing...", cpi)
+            //console.log("testing...", cpi)
             store.cpi = result[0].cpi ;
         })
     }
@@ -49,7 +48,6 @@ export const cpStore = (wcpc) => {
     const store = observable({
         wcpcListing : productStore,
         get data(){
-            let cpi = store.wcpcListing.cpi;
             return  store.wcpcListing.cpi ? 
                             { 
                                 cpi : store.wcpcListing.cpi
@@ -69,7 +67,7 @@ const ProductStore = (id) =>{
     })
     
     let _vendorCategoryData,wcpcs;
-    _vendorCategoryData = VendorCategoryData.filter(item => item.id == id)[0];
+    _vendorCategoryData = VendorCategoryData.filter(item => item.id === id)[0];
     wcpcs = _vendorCategoryData.wcpcs;
     store.caption = _vendorCategoryData.caption
     
@@ -92,7 +90,7 @@ const ProductStore = (id) =>{
 
         api.getListOfVerifyWcpcs(subWcpcs)
         .then(result => {
-            result.map(item => {allWcpc.setId(item.wcpc,item.cpi) ; })
+            result.map(item => {allWcpc.setId(item.wcpc,item.cpi) ; return null})
             return result
         })
         .then((result)=>{
@@ -122,7 +120,7 @@ class AllIdsStore{
             this.setId(id)
         }
         //else console.log("ID Exist")
-        let idData = this.allIds.get(id);
+        //let idData = this.allIds.get(id);
         return this.allIds.get(id)
     }
 }

@@ -1,3 +1,5 @@
+/* eslint-disable no-script-url */
+
 import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
 import "../../../../node_modules/video-react/dist/video-react.css";
@@ -9,9 +11,6 @@ function ShowOverlay() {
     document.getElementById('video-view').style.display = "block";
 }
 
-function closeOverlay() {
-    document.getElementById('wcOverlay').style.display = "none"
-}
 
 const WcOverlayVideo = ({ ...props}) => {
      props.src = absolutizeSrc(props.src);

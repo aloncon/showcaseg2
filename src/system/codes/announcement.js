@@ -1,3 +1,4 @@
+/* eslint-disable react/no-direct-mutation-state */
 import React from 'react'
 import Slider from 'react-slick';
 import { observer } from 'mobx-react';
@@ -7,7 +8,7 @@ import '../style/announcements.css';
 import '../style/videoGallery.css';
 
 import { Link } from 'react-router-dom';
-import { Player, ControlBar , PlayToggle , BigPlayButton } from 'video-react';
+import {BigPlayButton } from 'video-react';
 import moduleInfo from '../codes/moduleInfo'
 
 
@@ -233,7 +234,7 @@ const Wcan = observer(class Wcan extends React.Component {
               }
               else if(!this.init.infinite && (Number(e) === 1) )
               {
-                    console.log('no next');
+                    //console.log('no next');
                     document.getElementById('wcAnnouncePrev').className = 'wcAnnouncePrev wcAnnounceDisable';
                     document.getElementById('wcAnnouncePrev').disabled = true;
               }
@@ -271,7 +272,7 @@ const Wcan = observer(class Wcan extends React.Component {
 
     render() {
         const videoData = this.props.data_video;
-        const {isDots , infinite} = this.init;
+        const {isDots} = this.init;
 
         const settings = {
             arrows:         isDots,

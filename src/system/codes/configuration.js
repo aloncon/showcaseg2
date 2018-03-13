@@ -1,7 +1,7 @@
-import React from 'react';
 import ShouldDisplay from './ShouldDisplay';
 import configurationJSON from '../../custom_content/configuration.json';
 import { pageComponentsArray } from '../../custom_content/pages/pageComponentsArray';
+
 
 /**
  * Configuration data for the showcase.
@@ -45,7 +45,7 @@ const configurationTemplate = {
     backgroundColor: ''
   },
   staticRoutes: {
-    routesDetails: [
+    landingpageDefault: [
       {
         "id": "template-showcase",
         "parent": "/",
@@ -72,9 +72,16 @@ const loadImages = (configuration) => {
 
 // update the components name string in the configuration parameter to the actual components.
 const loadPageComponents = (configuration) => {
-  configuration.staticRoutes.routesDetails.map((router => {
+  configuration.staticRoutes.landingpageDefault.map((router => {
     const Component = pageComponentsArray[router.component];
     router.component = Component;
+    return null;
+  }))
+  
+  configuration.staticRoutes.entryPoints.map((router => {
+    const Component = pageComponentsArray[router.component];
+    router.component = Component;
+    return null;
   }))
 }
 
@@ -96,7 +103,6 @@ const loadDefaultValues = (configuration) => {
     configuration.headerDetails.imgLogo = require('../resources/default_logo.jpg');
   }
 }
-
 /**
  * Initialize the configuration object
  *
@@ -104,13 +110,37 @@ const loadDefaultValues = (configuration) => {
  *  * Load the actual images.
  *  * Load the actual components.
  **/
+
+let landingEntryPoint;
 const configuration = Object.assign(configurationTemplate, configurationJSON);
 loadPageComponents(configuration);
 loadDefaultValues(configuration);
 loadImages(configuration);
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+configuration.staticRoutes.setEntry = (entryId) => {
+  // landing page display
+  const configEntries = configuration.staticRoutes.entryPoints;
+  if(entryId.toLowerCase() !== 'landingpagedefault'){
+    entryId = [configEntries.find(function (obj) { return obj.id.toLowerCase() === entryId.toLowerCase(); })];
+    if(entryId){
+      landingEntryPoint = entryId;
+    }
+    else{
+      landingEntryPoint = "Wrong entry"
+      console.error("WC-ERROR: wrong entry in context [" , entryId ,"]");
+    }
+  }
+}
+
+configuration.staticRoutes.getRoutes = () => {
+  if (landingEntryPoint) {
+    return landingEntryPoint;
+  }
+  return configuration.staticRoutes.landingpageDefault;
+}
 /**
  * The function checks if the provided route ID needed to be excluded by assortment or by configuration.staticRoutes.routesExclude
  *
@@ -121,7 +151,7 @@ loadImages(configuration);
  */
 configuration.staticRoutes.routesExcludeCheck = (routeID) => {
   // If the route have assort: true, it will check the context by ShouldDisplay.
-  const assort = configuration.staticRoutes.routesDetails.filter(route => route.id === routeID)[0].assort;
+  const assort = configuration.staticRoutes.getRoutes().filter(route => route.id === routeID)[0].assort;
 
   if (assort) {
     return !ShouldDisplay({ wc_section: routeID });
@@ -149,10 +179,15 @@ configuration.staticRoutes.routesExcludeCheck = (routeID) => {
  * parentPath ::= The parent path of the relative path
  */
 configuration.staticRoutes.getPath = (currentPath, parentPath) => {
+ 
   const buildPath = (currentPath, parentPath) => {
-    if (!parentPath || parentPath === '/') return currentPath;
+    if (!parentPath || parentPath === '/') {
+      return currentPath;
+    
+    }
+    
 
-    let parent = configuration.staticRoutes.routesDetails.find(route => route.path === parentPath);
+    let parent = configuration.staticRoutes.getRoutes().find(route => route.path === parentPath);
 
     return buildPath(`${parentPath}${currentPath}`, parent.parent);
   };
@@ -164,14 +199,14 @@ configuration.staticRoutes.getPath = (currentPath, parentPath) => {
  * Get all the routes children according to the provided parent path, excludes the routes by the routesExcludeCheck.
  */
 configuration.staticRoutes.getChildren = (parentPath) => {
-  return configuration.staticRoutes.routesDetails.filter(route => route.parent === parentPath && !configuration.staticRoutes.routesExcludeCheck(route.id));
+  return configuration.staticRoutes.getRoutes().filter(route => route.parent === parentPath && !configuration.staticRoutes.routesExcludeCheck(route.id));
 };
 
 /**
  * Get all the root routes, excludes the routes by the routesExcludeCheck.
  */
 configuration.staticRoutes.getRootRoutes = () => {
-  return configuration.staticRoutes.routesDetails.filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeCheck(route.id) && route.path !== '/');
+  return configuration.staticRoutes.getRoutes().filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeCheck(route.id) && route.path !== '/');
 }
 
 export default configuration;

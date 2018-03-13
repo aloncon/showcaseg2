@@ -5,24 +5,20 @@
         in advance in case of categorylist it also create "categories" line with all the caption of the ids to "fast" scroll
 */
 
-import React from 'react'
-import VendorCategoryData from '../../data/vendor-data/vendor-category-data.json'
-import WcpcAssortment from '../WcpcAssortment'
-import ListingStore , {ShouldHeaderDisplay} from '../../../store/ProductData'
-import WcImg from '../WcResource/WcImg'
-import { observer } from 'mobx-react'
-
-
-import gridIcon from '../../resources/icons/svg/grid.svg'
-import listIcon from '../../resources/icons/svg/list.svg'
-import '../../style/changeview.css'
+import React from 'react';
+import ListingStore , {ShouldHeaderDisplay} from '../../../store/ProductData';
+import WcImg from '../WcResource/WcImg';
+import { observer } from 'mobx-react';
+import gridIcon from '../../resources/icons/svg/grid.svg';
+import listIcon from '../../resources/icons/svg/list.svg';
+import '../../style/changeview.css';
 
 const CategoriesHeaderObserv = observer(({ store }) => {
     /* scrollToId function used for "Jump" to target (id), it  does similar 
     * function such as --> href="#id_name" (in a tag)
     **/
     const scrollToId = (id) =>{ 
-        console.log("SCROLL", id)
+        //console.log("SCROLL", id)
         let elm = document.getElementById(id);
         window.scrollTo(0, elm.getBoundingClientRect().y + window.scrollY);
     }
@@ -50,7 +46,7 @@ class ChangeView extends React.Component{
     constructor(props){
         super(props);
         this.type = this.props.type ? this.props.type : "wide";
-        this.defaultActivateClass = this.type=="wide" ? "wideIcon" : "gridIcon"
+        this.defaultActivateClass = this.type==="wide" ? "wideIcon" : "gridIcon"
     }
 
     // Change the type of the list (between wide list to grid)

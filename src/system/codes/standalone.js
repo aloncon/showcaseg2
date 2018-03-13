@@ -1,6 +1,11 @@
+/* eslint-disable no-script-url */
+/* the code for the `wc-close` div come as is from the partner */
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import WcShowcase from '../codes/moduleInfo';
+
+
 
 export default class StandAlone extends Component{
   render() {
@@ -9,7 +14,6 @@ export default class StandAlone extends Component{
 
 
     let partnerDefsLink = 'https://scontent.webcollage.net/partner-defs/css?partner-id='+ siteName +'&showcase-format=popup&origin=showcase~MarkupType!document!PresentationFormat!html,';
-
 
     return(
     <span id="wc-reset">

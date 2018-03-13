@@ -1,12 +1,10 @@
-import React from 'react'
-import { observer } from 'mobx-react'
-import { observable } from 'mobx'
-import { Link } from 'react-router-dom'
-import WcImg from '../WcResource/WcImg'
-import ActionLink from '../ActionLink'
-import { NormalizeListDescription } from '../NormalizeListDescription'
-
-import '../../style/grid.css'
+import React from 'react';
+import { observer } from 'mobx-react';
+import { observable } from 'mobx';
+import WcImg from '../WcResource/WcImg';
+import ActionLink from '../ActionLink';
+import { NormalizeListDescription } from '../NormalizeListDescription';
+import '../../style/grid.css';
 
 const placeholderPic = require('../../resources/placeholder.png')
 let openPopList = [];
@@ -69,7 +67,9 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
         <div className={classIsOpen}>
             <WcImg src={require("../../resources/icons/svg/icon-close_.svg")}
                 onClick={() => { allPopovers.openPop(index) }}
-                className="wcCloseButtonPopover" />
+                className="wcCloseButtonPopover" 
+                alt="Grid Button"
+                />
             <div><h3>{title}</h3></div>
 
             <p><NormalizeListDescription>{text}</NormalizeListDescription></p>
@@ -93,8 +93,8 @@ class GridList extends React.Component {
                             <ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>
                                 <div className="wc-card-img-top wc-img-fluid">
                                     {item.listImage === undefined ?
-                                        <WcImg src={placeholderPic} alt="" />
-                                        : <WcImg src={"/static/" + item.listImage} alt="" />
+                                        <WcImg src={placeholderPic} alt={item.vendorProductName} />
+                                        : <WcImg src={"/static/" + item.listImage} alt={item.vendorProductName} />
                                     }
                                 </div>
                             </ActionLink> 

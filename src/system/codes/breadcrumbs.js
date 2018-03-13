@@ -124,8 +124,6 @@ const Breadcrumbs = ({config, options, getPath, location}) => {
     // add the root path
     pathsRoute[0] = homePath;
 
-    const currentBread = config.find( route => route.path === extractCurrentPath(pathname));
-
     if (pathname !== homePath) {
       pathname.split('/').reduce((previousPath, currentPath, index) => {
         pathsRoute[index] = `${previousPath}/${currentPath}`;
@@ -144,7 +142,7 @@ const Breadcrumbs = ({config, options, getPath, location}) => {
             {breadcrumbs}
           </ul>
           { addHorizontalRule && <hr />}
-        </div>
+        </div> 
       : null
     );
   }

@@ -1,9 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { NavLink } from 'react-router-dom';
 import { observer } from 'mobx-react';
 import '../../style/horizontalNavigation.css';
-import ResponsiveContainer from '../ResponsiveContainer';
 import hamburgerSVGIcon from '../../resources/icons/svg/hamburger.svg';
 import { WcImg } from '../WcResource';
 
@@ -50,9 +48,9 @@ const MoreButtonResponsive = HasOpenClose(({ routes, exclude, getPath, getChildr
     display: 'block',
   };
 
-  function show(condition) {
-    return condition ? 'bt-show' : '';
-  }
+  // function show(condition) {
+  //   return condition ? 'bt-show' : '';
+  // }
 
   return (
     <ul className="bt-navbar-nav bt-mr-auto bt-m-2 bt-mt-sm-0 wcMoreButtonResponsive" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
@@ -117,7 +115,7 @@ class NestedItems extends React.Component {
     const { exclude, getPath, getChildren, hasMoreResponsiveButton, limit } = this.props;
 
     const menuRoutes = routes.map((route, index) => {
-      if ((exclude && exclude(route.id)) || index >= limit) return;
+      if ((exclude && exclude(route.id)) || index >= limit) return null;
 
       const linkTo = getPath(route.path, route.parent);
       const parent = route.path;
@@ -183,7 +181,7 @@ class MoreButtonCollapse extends React.Component {
     return (
       <button type="button" className="bt-navbar-toggler wcHamburgerToggler" onClick={this.handleClick}>
         <span className="bt-sr-only">Toggle navigation</span>
-        <WcImg src={hamburgerSVGIcon}/>
+        <WcImg src={hamburgerSVGIcon} alt="Navigation Button"/>
       </button>
     );
   }

@@ -8,7 +8,7 @@ class ShowcaseHeader extends React.Component {
       render() {
 
         const pathname = this.props.location.pathname;
-        const route = configuration.staticRoutes.routesDetails.find(element => element.path === pathname);
+        const route = configuration.staticRoutes.getRoutes().find(element => element.path === pathname);
         const pageName  = route ? route.title : '';
 
         let nameToShow = pageName ? pageName : configuration.headerDetails.headerTitle ? configuration.headerDetails.headerTitle : ' ';

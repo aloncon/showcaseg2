@@ -3,10 +3,10 @@ import { NavigationVertical } from './Navigation';
 import configuration from './configuration';
 import WcShowcase, { partnerDefPromise } from './moduleInfo';
 import ShouldDisplay from './ShouldDisplay';
-import ResponsiveContainer from './ResponsiveContainer';
 
 const { staticRoutes, moduleName } = configuration;
 const { isStandalone } = WcShowcase;
+
 /**
  * This is the App main container, it checks if there is a need to display the vertical navigation or not.
  * While handling the width for it children which are all the App components.
@@ -35,6 +35,7 @@ class MainContainer extends React.Component {
   componentWillMount() {
     Promise.resolve(partnerDefPromise).then(
       function(value) {
+        staticRoutes.setEntry(value.landing_entry_point);
         this.setState({ profileJsonLoaded: true });
       }.bind(this),
     );

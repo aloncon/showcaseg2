@@ -20,7 +20,7 @@ export default class Header extends Component {
                     
                         <div className="wcHeaderLogo">
                             <NavLink to="/">
-                            <WcImg src={logo}/>
+                            <WcImg src={logo} alt="Logo"/>
                             </NavLink>
                         </div>
                 </div>

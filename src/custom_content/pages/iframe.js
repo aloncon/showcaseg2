@@ -1,5 +1,4 @@
 import React from 'react';
-import EntryPoint from '../modules/entrypoint';
 import '../../system/style/App.css'; 
 import { WcIframe } from '../../system/codes/WcResource';
 
@@ -8,7 +7,7 @@ class Iframe extends React.Component {
         return <div id="iframeContainer" style={{width:'98%' ,margin:'0px auto',height:'auto'}}>
                         <WcIframe
                         id={"entryPoint"}
-                        src={'./siteadditions/adobe-creative-cloud-for-teams/index.html'}
+                        src={"./siteadditions/adobe-creative-cloud-for-teams/index.html?domain=" + window.location.host + "-domain"}
                         title="adobe-creative-cloud-for-teams"/>
                     </div>
     }

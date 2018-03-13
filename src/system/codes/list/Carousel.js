@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { observer } from 'mobx-react';
-
 import { WcImg } from '../WcResource';
 import'../../style/carousel.css';
-import api from '../../../store/Api';
 
 
 const placeholderPic = require('../../resources/placeholder_small.png')
@@ -37,134 +35,105 @@ const Wcca = observer (class extends Component {
         this.onImgLoad = this.onImgLoad.bind(this);
         this.s = this.props.settings;
         this.init = {
-            slidesToShow            :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  1       ),
-            slidesToShowDefault     :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  1       ),
+            slidesToShow            :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  4       ),
+            slidesToShowDefault     :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  4       ),
         }
         this.state = {
-            carosulId               :           (this.props.settings.id!=null                ? this.props.settings.id               : '00'     ),
-            isVertical              :           (this.props.settings.vertical!=null          ? this.props.settings.vertical         :  false   ),
-            infinite                :           (this.props.settings.infinite != null        ? this.props.settings.infinite         :  true    ),
-            responsive              :           (this.props.settings.responsive != null      ? this.props.settings.responsive       :  false   ),
-            responsiveWidth         :           (this.props.settings.responsiveWidth         ? this.props.settings.responsiveWidth  :  600     ),
-            carouselWidth           :           (this.props.settings.carouselWidth!=null     ? this.props.settings.carouselWidth    :  '100%'  ),
-            carouselHeight          :           (this.props.settings.carouselHeight!=null    ? this.props.settings.carouselHeight   :  '100px'  ),
-            productHeight           :           (this.props.settings.productHeight!=null     ? this.props.settings.productHeight    :  '100%'  ),
-            productWidth            :           (this.props.settings.productWidth!=null      ? this.props.settings.productWidth     :  '100%'  ),
-            ImageHeight             :           (this.props.settings.ImageHeight!=null       ? this.props.settings.ImageHeight      :  '60px'  ),
-            ImageWidth              :           (this.props.settings.ImageWidth!=null        ? this.props.settings.ImageWidth       :  '100%'  ),
-            productLink             :           (this.props.productLink!=null                ? this.props.productLink               :   true  ),
+            carosulId               :           (this.s.carosulId!=null                 ? this.s.carosulId        : '00'     ),
+            isVertical              :           (this.s.vertical!=null                  ? this.s.vertical         :  false   ),
+            infinite                :           (this.s.infinite != null                ? this.s.infinite         :  true    ),
+            carouselWidth           :           (this.s.carouselWidth!=null             ? this.s.carouselWidth    :  '100%'  ),
+            carouselHeight          :           (this.s.carouselHeight!=null            ? this.s.carouselHeight   :  'auto'  ),
+            productHeight           :           (this.s.productHeight!=null             ? this.s.productHeight    :  'auto'  ),
+            productHeightVertical   :           (this.s.productHeightVertical!=null     ? this.s.productHeightVertical    :  '300px' ),
+            productWidth            :           (this.s.productWidth!=null              ? this.s.productWidth     :  '160px'  ),
+            ImageHeight             :           (this.s.ImageHeight!=null               ? this.s.ImageHeight      :  '160px'  ),
+            ImageWidth              :           (this.s.ImageWidth!=null                ? this.s.ImageWidth       :  '160px'  ),
+            productLink             :           (this.props.productLink!=null           ? this.props.productLink  :   true  ),
             //NOT TO EDIT - USES AS FLAGS
             latestSlide             :           0,
-            windowHeight            :           window.innerHeight,
-            windowWidth             :           window.innerWidth,
             productsList            :           this.props.data,  
-            maxImgHieght            :           null
+            maxImgHieght            :           null,
+            showArrowsV             :           true,
+            showArrowsH             :           true,
         };       
     }
 
     componentDidMount() { 
-        //NEEDED FOR THE VERTICAL lISTING - SO THEY CAN FULLY UPLODED
-       // setTimeout(() => {
-       //    window.dispatchEvent(new Event('resize'))
-       // }, 500);
-
-        //For responsive
-            //Enable responsive only on horizonal carusel
-            //if(this.state.responsive && this.state.isVertical){
-            //    this.state.responsive = false;
-                //this.setState({
-                //    responsive : false
-                //});
-            //}
-            //Detect resize and if requested change from horizonal to vertical carusel
-            //this.handleResize();
+        let {isVertical , productHeight , productWidth , productsList , } = this.state
+        let {slidesToShowDefault} = this.init
+        this.setState({
+            maxImgHieght : productHeight
+        });
+            
+        if(isVertical){
             this.setState({
-                maxImgHieght : this.state.productHeight
+                carouselWidth : productWidth
             });
-            
-            if(this.state.isVertical){
+        }
+
+        if(Number(productsList.products.length) <= Number(slidesToShowDefault)){
+            this.setState({
+                infinite : false,
+                showArrowsV : false,
+            });
+
+            if(!isVertical){
                 this.setState({
-                    carouselWidth : this.state.productWidth
-                });
+                    showArrowsH : false,
+                }); 
             }
-            
+        }
+        
+        
+
     }
-
-    // componentWillUnmount() {
-    //     //For responsive - Detect resize and if requested change from Horizonal to Vertical carusel
-    //         this.handleResize();
-    //         window.removeEventListener('resize', this.handleResize);
-    // }
-
-    //For responsive - Detect resize and if requested change from Horizonal to Vertical carusel
-//     handleResize(e) {
-//         this.setState({
-//             windowHeight: window.innerHeight,
-//             windowWidth: window.innerWidth,
-//         });
-//        if(this.state.responsive === true){
-//            if(window.innerWidth >= this.state.responsiveWidth){
-//                this.setState({
-//                    isVertical : false
-//                });
-//            }else{
-//             this.setState({
-//                 isVertical : true
-//             });
-//            }
-//        }
-//    }
 
     sliderArrows(e) {
     //control the arrows buttons of the slider (preview/next)
-        // var totalSlides = Number(this.props.data_slides[0].products.length);
-        var totalSlides = Number(this.state.productsList.products.length);
-        var maxSlides = totalSlides-this.init.slidesToShow; 
+        const {carosulId , infinite, productsList, slidesToShow} = this.state
+        let {latestSlide} = this.state
+
+        var totalSlides = Number(productsList.products.length);
+        var maxSlides = totalSlides-slidesToShow; 
 
        
 
-        document.getElementById(this.state.carosulId+('_wcca_arrows_next')).disabled = true;
-        document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = true;              
+        document.getElementById(carosulId+('_wcca_arrows_next')).disabled = true;
+        document.getElementById(carosulId+('_wcca_arrows_previous')).disabled = true;              
 
-
-         
-      
-        // if(this.state.latestSlide===0 && !this.state.infinite){
-        //     document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
-        // }
-
-        if(e.target.dataset.id === 'previous' && this.state.latestSlide!==0)
+        if(e.target.dataset.id === 'previous' && latestSlide!==0)
         {
-                document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
-                document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
+                document.getElementById(carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
+                document.getElementById(carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
 
                 this.slider.slickPrev();
-                this.state.latestSlide = this.state.latestSlide - 1;
+                latestSlide = latestSlide - 1;
 
-                if(this.state.latestSlide===0 && !this.state.infinite){
-                    document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
+                if(latestSlide===0 && ! infinite){
+                    document.getElementById(carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical wcDisabled';
                 }
         }
-        else if(e.target.dataset.id === 'next' && this.state.latestSlide!==maxSlides)
+        else if(e.target.dataset.id === 'next' && latestSlide!==maxSlides)
         {
-            document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
-            document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
+            document.getElementById(carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical';
+            document.getElementById(carosulId+('_wcca_arrows_previous')).className = 'wcPrev wcCarouselArrowsBrowseVertical';
 
             this.slider.slickNext();
-            this.state.latestSlide = this.state.latestSlide  + 1;
+            latestSlide = latestSlide  + 1;
 
-            if(this.state.latestSlide===maxSlides && !this.state.infinite){
-                document.getElementById(this.state.carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical wcDisabled';
+            if(latestSlide===maxSlides && !infinite){
+                document.getElementById(carosulId+('_wcca_arrows_next')).className = 'wcNext wcCarouselArrowsBrowseVertical wcDisabled';
             }
-        }else if (e.target.dataset.id === 'previous' && this.state.infinite){
+        }else if (e.target.dataset.id === 'previous' && infinite){
             this.slider.slickPrev();
-        }else if (e.target.dataset.id === 'next' && this.state.infinite){
-            this.slider.slickNext();
+        }else if (e.target.dataset.id === 'next' && infinite){
+            this.slider.slickNext();    
         }
 
          setTimeout(() => {
-             document.getElementById(this.state.carosulId+('_wcca_arrows_next')).disabled = false;
-             document.getElementById(this.state.carosulId+('_wcca_arrows_previous')).disabled = false;
+             document.getElementById(carosulId+('_wcca_arrows_next')).disabled = false;
+             document.getElementById(carosulId+('_wcca_arrows_previous')).disabled = false;
          }, 500);
 
     }
@@ -179,7 +148,7 @@ const Wcca = observer (class extends Component {
         }
     } 
 
-    handleResize(size) {    
+    handleResize(size) {         
         if(size === 'xs'){
             this.init.slidesToShow = 1;
         }else if(size === 'sm'){
@@ -190,71 +159,71 @@ const Wcca = observer (class extends Component {
             this.init.slidesToShow = this.init.slidesToShowDefault;
         }
     }
-
     render() {
-       // const slidesToShowDefault = this.init.slidesToShow;
-       
-       this.handleResize(this.props.responsiveStore.wcContainerSize);
+        const {responsiveStore} = this.props        
+        this.handleResize(responsiveStore.wcContainerSize);
 
+        const {carosulId, isVertical, productsList, infinite, showArrowsV , showArrowsH, carouselWidth, carouselHeight, productWidth, productHeightVertical, ImageWidth, ImageHeight} = this.state 
+        const {slidesToShow} = this.init
 
         const settings = {
-            arrows: !this.state.isVertical,
+            arrows: showArrowsH,
             nextArrow: <SampleNextArrow />,
             prevArrow: <SamplePrevArrow />,
             dots: false,
-            infinite: this.state.infinite,
+            infinite: infinite,
             speed: 500,
-            slidesToShow: this.init.slidesToShow,
+            slidesToShow: slidesToShow,
             slidesToScroll: 1,
-            vertical: this.state.isVertical,
+            vertical: isVertical,
             swipe:          false,
             touchMove:      false,
             swipeToSlide:   false 
-          };
-
-          var divStyle = {
-            width: this.state.carouselWidth,
-            height: this.state.carouselHeight,
-            display:'block',
-            //border:'1px solid blue'
+            };
+        var divStyle = {
+            width: carouselWidth,
+            height: carouselHeight,
+            display:'block'
         };
-        
-        console.log('this.state.infinite: ',this.state.infinite)
-
-        
-        
-
+               
         return (
             <div>
                 <div className="WcCarousel"  style={divStyle} >                  
-                    <div className={!this.state.isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
-                        { this.state.isVertical &&
+                    <div className={!isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
+                        { (isVertical && showArrowsV) &&
                             <div className="wcCarouselArrowsContainerVertical wcCarouselArrowsContainerVerticalTop">
-                                <button id={this.state.carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!this.state.infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
+                                <button id={carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
                                     <div className="wcLeft"></div>
                                 </button> 
                             </div>                    
                         }                   
-                        {
-                           <div className={!this.state.isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}> 
+                        { (productsList.products) &&
+                           <div className={!isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}> 
                                      <Slider ref={ c => this.slider = c }{...settings} > 
                                         {
-                                             this.state.productsList.products.map((product, index) => (
-                                                <div key={index}  style={{width:'95%'}}>
+                                             productsList.products.map((product, index) => (
+                                                <div key={index}  style={{width:'100%'}}>
                                                     
-                                                    <div className={!this.state.isVertical ? 'wcCarouselProductBrowse' :'wcCarouselProductBrowseVertical'} style={{height:this.state.productHeight ,width:this.state.productWidth}} >
-                                                        <div className="wcCarouselProductImage" style={!this.state.isVertical ? {height:this.state.ImageHeight ,width:this.state.ImageWidth ,display:'block',position: 'relative'} : {height:this.state.ImageHeight ,width:this.state.ImageWidth}}>
+                                                    <div className={!isVertical ? 'wcCarouselProductBrowse' :'wcCarouselProductBrowseVertical'} style={isVertical ? {height: productHeightVertical ,width:productWidth} : {width:productWidth}} >
+                                                        <div className="wcCarouselProductImage" style={!isVertical ? {height:ImageHeight ,width:ImageWidth ,display:'block',position: 'relative'} : {height:ImageHeight ,width:ImageWidth}}>
                                                             <a href={product.link}>
-                                                               {/* <WcImg src={"/static"+product.listImage} alt="" style={!this.state.isVertical ? {maxWidth:'100%', maxHeight:'100%',position: 'absolute', bottom: 0}: {}} /> */}
-                                                               <WcImg src={product.listImage ? ("/static"+product.listImage) : placeholderPic } alt="" style={!this.state.isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                               <WcImg src={product.listImage ? ("/static"+product.listImage) : placeholderPic } alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
                                                             </a>
                                                         </div>
+                                                        { (product.cpi !== 0) &&
+                                                            <div style={{ width: "100%",height: "20px",marginTop: '-10px'}} className="">
+                                                                <div className="wcMosaic" data-cpi={product.cpi} animation="true"/>                                                               
+                                                            </div> 
+                                                              
+                                                         }
                                                         { product.vendorProductName &&
-                                                            <div className="wcCarouselProductTitle"><a href=''>{product.vendorProductName}</a></div>           
-                                                        }
-                                                        { (product.link && this.state.productLink) &&
-                                                            <div><a href=''>Take a Tour</a></div>           
-                                                        }                                                   
+                                                        <div className="wcCarouselProductTitle" >
+                                                            {/* <br/> */}
+                                                            <a href='' title={product.vendorProductName}>
+                                                                {Number(product.vendorProductName.length) > 80 ? product.vendorProductName.trim().substring(0, 80).concat('...') : product.vendorProductName}
+                                                            </a></div>           
+                                                        }                                                          
+                                                         {/* <div className="wcMosaic" data-cpi={53028274}/>                                                  */}
                                                     </div>
                                                 </div>
                                             ))
@@ -263,9 +232,9 @@ const Wcca = observer (class extends Component {
                             </div>
                         //  ))
                         }
-                        { this.state.isVertical &&
+                        { (isVertical && showArrowsV) &&
                             <div className="wcCarouselArrowsContainerVertical wcCarouselArrowsContainerVerticalBottom">
-                                <button id={this.state.carosulId+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className="wcNext wcCarouselArrowsBrowseVertical">
+                                <button id={carosulId+('_wcca_arrows_next')} data-id='next' onClick={this.sliderArrows} className="wcNext wcCarouselArrowsBrowseVertical">
                                     <div className="wcRight"></div>
                                 </button>
                             </div>

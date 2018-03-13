@@ -1,13 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { observable } from 'mobx';
 import { observer } from 'mobx-react';
-import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
 import registerServiceWorker from './registerServiceWorker';
-import basePath from './basePath';
-import store from './store';
 
 import 'babel-polyfill';
 
@@ -15,10 +11,9 @@ import 'babel-polyfill';
 import ShowcaseHeader from './custom_content/modules/showcase-header';
 import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
-import ModuleNavBreadcrumbsRoute from './custom_content/modules/moduleNavBreadcrumbsRoute';
+import ModuleGenerateBodyContent from './custom_content/modules/moduleGenerateBodyContent';
 import MainContainer from './system/codes/MainContainer';
 import WcShowcase from '../src/system/codes/moduleInfo';
-import { WcCssLink } from './system/codes/WcResource';
 import ResponsiveStore from './store/ResponsiveStore';
 //~~~~~~~
 
@@ -29,48 +24,44 @@ import './system/style/index.css'; // system global css
 import './common/css/index.css'; // module global css
 //~~~~~~~
 
-// Configuration
-import configuration from './system/codes/configuration';
+
 //~~~~~~~
 
 //const css = require('./App.css');
 
-const MainComp = observer(({ configurationData, rootStore }) => {
+const MainComp = observer(({  rootResponsiveStore }) => {
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <HashRouter>
-        <div id="wc_showcase_root" className={`app-size-${rootStore.wcContainerSize} wcShowcaseRoot`}>
-          <div>wcRootWidth: {rootStore.wcRootWidth}</div>
-          <div>wcContainerWidth: {rootStore.wcContainerWidth}</div>
-          <div className={`size-${rootStore.wcContainerSize}`}>
-            wcRootSize: {rootStore.wcRootSize}
+        <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
+          <div>wcRootWidth: {rootResponsiveStore.wcRootWidth}</div>
+          <div>wcContainerWidth: {rootResponsiveStore.wcContainerWidth}</div>
+          <div className={`size-${rootResponsiveStore.wcContainerSize}`}>
+            wcRootSize: {rootResponsiveStore.wcRootSize}
             <br />
-            wcContainerSize: {rootStore.wcContainerSize}
+            wcContainerSize: {rootResponsiveStore.wcContainerSize}
             <br />
-            {/* <Dummy /> */}
             <hr />
           </div>
-          <MainContainer responsiveStore={ResponsiveStore}>
+          <MainContainer responsiveStore={rootResponsiveStore}>
             <div   id="wc-reset">
               {WcShowcase.isStandalone && <StandAlone />}
-              {configurationData.staticRoutes.routesDetails.find(field => field.path === '/EndpointManagement').title}
               <ShowcaseHeader />
-              <ModuleNavBreadcrumbsRoute rootStore={rootStore} />
+              <ModuleGenerateBodyContent />
               <hr />
               <ShowcaseFooter />
-              <basePath />
               </div>
           </MainContainer>
         </div>
       </HashRouter>
-    </Provider>
+    // </Provider>
   );
 });
 
 const el = document.getElementById('wc-showcase-root');
 
 ReactDOM.render(
-  <MainComp configurationData={configuration} rootStore={ResponsiveStore} />,
+  <MainComp rootResponsiveStore={ResponsiveStore} />,
   el,
   //getParentElement()
   //document.getElementById('root')

@@ -1,10 +1,10 @@
 import React from 'react';
-import EntryPoint from '../../../custom_content/modules/entrypoint';
+import IframExecutor from '../IframExecutor';
 import absolutizeSrc from './absolutizeSrc';
 
 const WcIframe = ({ ...props}) => {
   props.src = absolutizeSrc(props.src);
-  return <EntryPoint {...props}/>
+  return <IframExecutor {...props}/>
 };
 
 export default WcIframe;

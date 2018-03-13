@@ -7,7 +7,7 @@ class Page3 extends React.Component {
 
         return(
             <div>
-               <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={3} carouselHeight='350px'/>
+               <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4}/>
 
             </div>
         );

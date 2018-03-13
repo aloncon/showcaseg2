@@ -10,5 +10,3 @@ import absolutizeSrcExternal from './absolutizeSrcExternal';
 export {
   WcImg, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc , absolutizeSrcExternal
 }
-
-//TODO: write description and how to use manual for each Wc componenet.

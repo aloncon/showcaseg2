@@ -28,7 +28,8 @@
 		}
 		a.wcNext {
 			background-position: 0 0;
-			right: -13px;
+			// right: -13px;
+			right: 0;
 			&:active {
 				background-position: 0 -30px;
 			}
@@ -92,7 +93,7 @@
 				content: '';
 			}
 			position: absolute;
-			margin-top: -40px;
+			margin-top: -55px;
 			outline: 0;
 			width: 32px;
 			height: 100px;
@@ -222,15 +223,22 @@
 	letter-spacing: normal;
 	word-spacing: normal;
 	line-height: normal;
-		text-align: center;
+	text-align: left;
+	margin-top: 15px;
 	a {
 		font-weight: bold;
-		font-size: 0.750em;
+		font-size: 0.90em;
 		color: #000000;
-		text-decoration: none;
+		text-decoration: none!important;
 		text-align: center;
 		width: auto;
 		height: auto;
+	}
+	a:visited {
+		text-decoration: none!important;
+	}
+	a:hover {
+		text-decoration: underline!important;
 	}
 }
 
@@ -242,6 +250,10 @@
 
 .slick-slide{
 	height: auto!important;
+}
+
+.slick-list {
+	margin-left: 15px;
 }
 
 }

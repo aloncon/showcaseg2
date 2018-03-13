@@ -1,7 +1,7 @@
 {
   "moduleName": "Avery",
   "presentationName": "Avery (presentation)",
-  "moduleId": "avery",
+  "moduleId": "xerox",
   "headerDetails": {
     "imgLogo": "images/avery_logo.jpg",
     "headerTitle": "Avery"
@@ -10,18 +10,8 @@
     "imgProvidedBy": "powered-by.png",
     "backgroundColor": "white"
   },
-  "navigationDetails": {
-    "horizontal": {
-      "backgroundColor": "#e3f2fd",
-      "color": "rgba(0, 0, 0, 0.5)"
-    },
-    "vertical": {
-      "backgroundColor": "#af0000",
-      "color": "#ffffff"
-    }
-  },
   "staticRoutes": {
-    "routesDetails": [
+    "landingpageDefault": [
       {
         "id": "symantec-showcase",
         "parent": "/",
@@ -110,6 +100,7 @@
         "title": ""
       }
     ],
-    "routesExclude": "(product-listing-1|res-test)"
+    "routesExclude": "(product-listing-1|res-test)",
+    "entryPoints":[]
   }
 }

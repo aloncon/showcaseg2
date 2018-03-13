@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
 import { cpStore } from '../../store/ProductData'
@@ -13,7 +13,7 @@ class Init {
     allassortmentMode = () => {
 
         if (!this.allassortment)
-            return this.allassortment = ShouldDisplay({ "wc_section": "wc_all_products" }) || partner.default.siteName === 'allassortment'
+            return this.allassortment = ShouldDisplay({ "wc_section": "wc_all_module_products" }) || partner.default.siteName === 'allassortment'
         else
             return this.allassortment
     }
@@ -34,10 +34,10 @@ const P2b = ({ children, siteName, cpi }) => (
 const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }) => {
     let productId = data
     const siteName = partner.default.siteName
-    const allProducts = ShouldDisplay({ "wc_section": "wc_all_products" })
+    //const allProducts = ShouldDisplay({ "wc_section": "wc_all_module_products" })
 
     const allassortmentMode = init.allassortmentMode()
-    console.log("allassortmentMode",productId,ShouldDisplay({ "wc_section": "wc_all_products" }))
+    //console.log("allassortmentMode",productId,ShouldDisplay({ "wc_section": "wc_all_module_products" }))
     switch (productId && !allassortmentMode && type) {
         case 'p2b': return <P2b children={children}
                                 cpi={productId.cpi}
@@ -55,7 +55,7 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children }
      or the partner is 'Allassortment' - ActionLink unlink if we add attr 'unlink={true}' otherwise disappear.   
 */
 const ActionLink = ({ wcpc, type, children, unlink ,location }) => {
-    const pathname = location.pathname.replace("/", "")
+    //const pathname = location.pathname.replace("/", "")
     return <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} unlink={unlink}/>
 }
 
