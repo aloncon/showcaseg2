@@ -15,11 +15,14 @@
   text-decoration: underline;
 }
 #wc-showcase-root div.wcBreadcrumbs ul > li + li:before {
-  content: "/ ";
+  content: '/ ';
   padding: 0 5px;
   color: #cccccc;
 }
 #wc-showcase-root div.wcBreadcrumbs ul > li:last-child {
-  color: #EB32DC;
+  color: #eb32dc;
+}
+#wc-showcase-root div.wcBreadcrumbs hr#breadcrumbHr {
+  border: 0.5px solid #333;
 }
 /* ***dev end: please add your styles above only!!!*** */

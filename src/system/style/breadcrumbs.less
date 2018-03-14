@@ -2,37 +2,40 @@
 
 // ~~~~~ Change these default values per module
 @text-color: #4d4e53;
-@divader-content: "/ ";
-@divader-color: #cccccc;
-@current-breadcrumb-color: #EB32DC;
+@divider-content: '/ ';
+@divider-color: #cccccc;
+@current-breadcrumb-color: #eb32dc;
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#wc-showcase-root{
-	div.wcBreadcrumbs {
-	ul {
-		padding: 15px 0 0 15px;
-		list-style: none;
-		margin: 0;
-		>li {
-			a {
-				text-decoration: none;
-				color: @text-color;
-				&:hover {
-					text-decoration: underline;
-				 }
-			}
-			display: inline-block;
-			+ li {
-					&:before {
-						content: @divader-content;
-						padding: 0 5px;
-						color: @divader-color;
-					}
-				}
-			&:last-child {
-				color:@current-breadcrumb-color;
-			}
-		}
-	}
-}
+#wc-showcase-root {
+   div.wcBreadcrumbs {
+      ul {
+         padding: 15px 0 0 15px;
+         list-style: none;
+         margin: 0;
+         > li {
+            a {
+               text-decoration: none;
+               color: @text-color;
+               &:hover {
+                  text-decoration: underline;
+               }
+            }
+            display: inline-block;
+            + li {
+               &:before {
+                  content: @divider-content;
+                  padding: 0 5px;
+                  color: @divider-color;
+               }
+            }
+            &:last-child {
+               color: @current-breadcrumb-color;
+            }
+         }
+      }
+      hr#breadcrumbHr {
+         border: 0.5px solid #333;
+      }
+   }
 }
 /* ***dev end: please add your styles above only!!!*** */

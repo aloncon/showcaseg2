@@ -136,13 +136,13 @@ const Breadcrumbs = ({config, options, getPath, location}) => {
     const breadcrumbs = generateBreadcrumbItems(pathsRoute, routes, pathsRouteLength);
 
     return (
-      routes.length > 1 ?
+      Object.keys(routes).length > 1 ?
         <div className="wcBreadcrumbs">
           <ul>
             {breadcrumbs}
           </ul>
-          { addHorizontalRule && <hr />}
-        </div> 
+          { addHorizontalRule && <hr className="breadcrumbHr"/>}
+        </div>
       : null
     );
   }

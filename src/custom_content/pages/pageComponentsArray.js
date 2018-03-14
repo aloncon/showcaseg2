@@ -12,6 +12,7 @@ import EndpointSolutions from './endpoint-solutions';
 import iframe from './iframe';
 import testingArea from './testingArea';
 import ResTest from './ResTest';
+import homeNetworking from './home_networking';
 
 export const pageComponentsArray = {
   ShowcaseApp,
@@ -24,4 +25,5 @@ export const pageComponentsArray = {
   iframe,
   testingArea,
   ResTest,
+  homeNetworking
 };

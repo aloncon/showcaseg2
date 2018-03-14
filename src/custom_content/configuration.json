@@ -22,14 +22,14 @@
       {
         "id": "endpoint-management",
         "parent": "/",
-        "path": "/EndpointManagement",
+        "path": "/endpoint-management",
         "component": "EndpointManagement",
         "name": "Endpoint Management",
         "title": ""
       },
       {
         "id": "endpoint-page-child",
-        "parent": "/EndpointManagement",
+        "parent": "/endpoint-management",
         "path": "/EndpointPageChild",
         "component": "Page3Child1Grand1",
         "name": "Endpoint Page Child",
@@ -46,30 +46,30 @@
       {
         "id": "page3",
         "parent": "/",
-        "path": "/Page3",
+        "path": "/page3",
         "component": "Page3",
         "name": "Page 3",
         "assort": true
       },
       {
         "id": "page3-child1",
-        "parent": "/Page3",
-        "path": "/page3child1",
+        "parent": "/page3",
+        "path": "/page3Child1",
         "component": "Page3Child1",
         "name": "Page3 Child1",
         "title": "Page3 Child1"
       },
       {
         "id": "page3-child2",
-        "parent": "/Page3",
-        "path": "/page3child2",
+        "parent": "/page3",
+        "path": "/page3Child2",
         "component": "Page3Child2",
         "name": "Page3 Child2",
         "title": "Page3 Child2"
       },
       {
         "id": "page3-child1-grand1",
-        "parent": "/page3child1",
+        "parent": "/page3Child1",
         "path": "/page3Child1Grand1",
         "component": "Page3Child1Grand1",
         "name": "Page3 Child1 Grand1",
@@ -78,7 +78,7 @@
       {
         "id": "endpoint-solutions",
         "parent": "/",
-        "path": "/EndpointSolutions",
+        "path": "/endpoint-solutions",
         "component": "EndpointSolutions",
         "name": "Endpoint Solutions",
         "title": "Endpoint Solutions"
@@ -98,6 +98,14 @@
         "component": "testingArea",
         "name": "testing Video",
         "title": ""
+      },
+      {
+        "id": "home_networking",
+        "parent": "/page3",
+        "path": "/home_networking",
+        "component": "homeNetworking",
+        "name": "Home Networking",
+        "title": "Test only single WCPCs"
       }
     ],
     "routesExclude": "(product-listing-1|res-test)",
