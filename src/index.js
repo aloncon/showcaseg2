@@ -22,6 +22,7 @@ import './system/style/wc_reset.css'; // module reset css
 import './system/style/bootstrap-custom/css/wc.bootstrap.css'; // our custom bootstrap
 import './system/style/index.css'; // system global css
 import './common/css/index.css'; // module global css
+import './common/css/header.css'; // module global css
 //~~~~~~~
 
 

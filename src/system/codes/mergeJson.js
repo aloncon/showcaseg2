@@ -23,7 +23,7 @@ export function mergeDeep(target, ...sources) {
 }
 
  export default function merge(){
-    
+
     return new Promise((resolve)=>{
       const site = WcShowcase.siteName;
       const moduleName     = WcShowcase.moduleName;
@@ -33,26 +33,23 @@ export function mergeDeep(target, ...sources) {
       if(site === "allassortment"){
         resolve(profile);
       }
-      else if(showcasePrefix.indexOf("localhost") !== -1 || 
-              showcasePrefix.match(/media-itest\d\.webcollage\.net.*/) != null ){
-        //const partnerDef = require('../data/module-profiles/'+site+'/context.json');
+      else{
+        if(showcasePrefix.indexOf("localhost") !== -1 ||
+        showcasePrefix.match(/media-itest\d\.webcollage\.net.*/) != null ){
         contextPrefix = showcasePrefix + "/partners/" + site + "/context.json";
-        //const partnerDef = require('../../partners/'+site+'/context.json');
-       
-        //resolve(mergeDeep({},profile, partnerDef));
       }
-      //else{
         const random = new Date().getMonth()+1 + Date().replace(/\s|\:|[a-z|A-Z]|\+.*/g,"");
         let config = {
         param: 'callback',
         timeout: 15000,
         prefix: 'cbContext'
         }
-        //console.log("path xxxxxxxxxxxxx" , `${contextPrefix}?${random}`)
         jsonpP(`${contextPrefix}?${random}`, config).promise
         .then(result =>{
         resolve(mergeDeep({},profile, result));
         })
-        //}
+        .catch(err => console.error('WC-ERROR: Missing Context File for this partner!'))
+      }
+
     })
 }

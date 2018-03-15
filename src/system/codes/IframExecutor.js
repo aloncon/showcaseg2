@@ -23,8 +23,8 @@ class IframExecutor extends React.Component {
             loader : false
         }); 
         const {id} = this.props
-        const {iFrameHeight, loader } = this.state
-        let scrollH = document.getElementById(id).offsetTop -200;   
+        const { loader } = this.state
+        let scrollH = document.getElementById(id).offsetTop -200;
         if(!loader){ eventer = window[eventRemoveMethod];}
         else{eventer = window[eventMethod];}
         

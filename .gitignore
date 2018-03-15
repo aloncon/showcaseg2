@@ -9,9 +9,9 @@ node_modules
 # production
 #/build
 #public
-build/static/css
-build/static/js
-!static/css/main.css
+build/static/css/*
+build/static/js/*
+!build/static/css/main.css
 !build/static/css/main.inner.css
 !build/static/js/bundle.js
 DELETE
