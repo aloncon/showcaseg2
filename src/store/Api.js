@@ -10,7 +10,7 @@ class Api {
         this.shouldDisplay = null
     }
 
-    // main function of the class 
+    // main function of the class
     // first check if needed to go to service api for JSON result (or allassortment is allow)
     // after in case there is more then 25 wcpcs it will split them for several request (by using function 'splitRequsts')
     // and only after will get all the
@@ -23,8 +23,8 @@ class Api {
             this.shouldDisplay = ShouldDisplay({"wc_section":"wc_all_module_products"})
             let apiKey = `moduleId=${this.module}&product-details=true`
             let url = `https://sjson.webcollage.net/apps/json/${this.site}/method/partner-products-data-by-wcpc?`
-            
-            
+
+
             const { displayWithoutAssortment } = this.partner === 'allassortment' ? true : false
             
             if (!displayWithoutAssortment && !this.shouldDisplay) {

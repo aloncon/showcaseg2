@@ -2,7 +2,6 @@
 #wc-showcase-root {
   @import '~slick-carousel/slick/slick.css';
   @import '~slick-carousel/slick/slick-theme.css';
-  /************************************************************* TESTING: **************/
 }
 #wc-showcase-root #wc_showcase_root {
   margin: 0;

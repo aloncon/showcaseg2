@@ -38,6 +38,7 @@ function getSiteIdFromScriptSrc(script){
     }
     else{
         site = 'quill';
+        //site = 'allassortment';
     }
    
     return site;

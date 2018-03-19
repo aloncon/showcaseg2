@@ -73,6 +73,7 @@ class IframExecutor extends React.Component {
                     frameBorder="0"
                     id={id}
                     title={title}
+                    allowFullScreen="true"
                 />
             </div>
         );
