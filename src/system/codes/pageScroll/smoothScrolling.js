@@ -1,6 +1,6 @@
 
 
-export const scrollIt = function scrollIt(destination, duration = 200, easing = 'linear', callback) {
+const scrollIt = function scrollIt(destination, duration = 200, easing = 'linear', callback) {
   const easings = {
     linear(t) {
       return t;
@@ -85,3 +85,4 @@ export const scrollIt = function scrollIt(destination, duration = 200, easing = 
 }
 
 
+export default scrollIt;
