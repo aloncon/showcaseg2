@@ -2,14 +2,33 @@
 @keyframes openPopover {
   from {
     opacity: 0;
-    top: 50px;
+    top: 150px;
     box-shadow: none;
   }
   to {
     opacity: 1;
-    top: -70px;
+    top: 45px;
     box-shadow: 3px 3px 5px 6px #ccc;
   }
+}
+#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card {
+  width: 45%;
+  margin: 2%;
+}
+#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card .wcGridCardFooter {
+  font-size: 100%;
+}
+#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card .wcGridCardFooter a {
+  font-size: 80%;
+}
+#wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wc-open-popover {
+  left: 10px;
+  width: 95%;
+}
+#wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wc-card {
+  width: 100%;
+  margin: 0%;
+  margin-bottom: 1.5%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover {
   position: absolute;
@@ -18,8 +37,8 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 3px 3px 5px 6px #ccc;
-  top: -70px;
-  left: 0px;
+  top: 45px;
+  left: -20px;
   z-index: 60 !important;
   animation: openPopover 0.5s 1;
 }
@@ -78,6 +97,7 @@
   height: 100px;
   position: relative;
   bottom: 0;
+  margin-top: 6%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block h4 a {
   text-decoration: none;
@@ -85,7 +105,7 @@
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter {
   position: absolute;
-  bottom: 0%;
+  bottom: 2%;
   width: 100%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter button {

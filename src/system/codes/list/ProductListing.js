@@ -10,17 +10,17 @@ import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
 import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
 import '../../style/productlisting.css';
 
-const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id }) => {
-    const content = data,
-        _type = content.type,
-        _isDisplay = content.isDisplay;
-       // _length = content.productsLength
-
+const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id ,rsponsiveStore}) => {
+    const content = data
+    let type = content.type
+    const isDisplay = content.isDisplay;
+    const sizeResponsive = rsponsiveStore.wcContainerSize
+    if(((sizeResponsive == 'sm' || sizeResponsive == 'xs')) && type === 'wide')
+        type = 'grid'
     const change = changeDisplay;
-    //const { isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = settings;
     const { isSubCategory } = settings;
-
-    let imgButtonOpenClose = _isDisplay ? closeIcon : openIcon;
+    
+    let imgButtonOpenClose = isDisplay ? closeIcon : openIcon;
     let buttonOepnClose = 
                 <button className="wcListHeaderButton"
                         onClick={change}>
@@ -29,28 +29,25 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
     let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}{buttonOepnClose}</h2> : null
 
   // Choosing the type of the listing ( currently between wide/grid/carousel)
-    switch (content.products.length > 0 && _type) {
+    switch (content.products.length > 0 && type) {
         case "wide":
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
                         </div>
-                        {_isDisplay && <WideList data={content.products} />}
+                        {isDisplay && <WideList data={content.products} />}
                     </div>
-            //break
         case "grid":
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
                         </div>
-                        {_isDisplay && <GridList data={content.products} caption={content.caption}/>}
+                        {isDisplay && <GridList data={content.products} caption={content.caption}/>}
                     </div>
-            //break
         case "carousel":
             return <div>
-                        {_isDisplay && <Carousel data={content} settings={settings} responsiveStore={ResponsiveStore}/>}
+                        {isDisplay && <Carousel data={content} settings={settings} responsiveStore={ResponsiveStore}/>}
                     </div>
-            //break
         default: return null
     }
 });
@@ -64,7 +61,7 @@ class ProductListing extends React.Component {
     
         const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth }
         return  <div>
-                    {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} />)}
+                    {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} rsponsiveStore={ResponsiveStore}/>)}
                 </div>
     }
 

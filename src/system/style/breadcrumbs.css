@@ -9,7 +9,7 @@
 }
 #wc-showcase-root div.wcBreadcrumbs ul > li a {
   text-decoration: none;
-  color: #4d4e53;
+  color: #777;
 }
 #wc-showcase-root div.wcBreadcrumbs ul > li a:hover {
   text-decoration: underline;
@@ -20,9 +20,9 @@
   color: #cccccc;
 }
 #wc-showcase-root div.wcBreadcrumbs ul > li:last-child {
-  color: #eb32dc;
+  color: #333;
 }
-#wc-showcase-root div.wcBreadcrumbs hr#breadcrumbHr {
+#wc-showcase-root div.wcBreadcrumbs hr.breadcrumbHr {
   border: 0.5px solid #333;
 }
 /* ***dev end: please add your styles above only!!!*** */

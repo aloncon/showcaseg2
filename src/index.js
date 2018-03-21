@@ -14,6 +14,8 @@ import StandAlone from '../src/system/codes/standalone';
 import ModuleGenerateBodyContent from './custom_content/modules/moduleGenerateBodyContent';
 import MainContainer from './system/codes/MainContainer';
 import WcShowcase from '../src/system/codes/moduleInfo';
+import { WcCssLink } from './system/codes/WcResource';
+
 import ResponsiveStore from './store/ResponsiveStore';
 //~~~~~~~
 
@@ -35,6 +37,7 @@ const MainComp = observer(({  rootResponsiveStore }) => {
     // <Provider store={store}>
       <HashRouter>
         <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
+          <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
           <div>wcRootWidth: {rootResponsiveStore.wcRootWidth}</div>
           <div>wcContainerWidth: {rootResponsiveStore.wcContainerWidth}</div>
           <div className={`size-${rootResponsiveStore.wcContainerSize}`}>
@@ -63,7 +66,7 @@ const el = document.getElementById('wc-showcase-root');
 
 ReactDOM.render(
   <MainComp rootResponsiveStore={ResponsiveStore} />,
-  el,
+  el
   //getParentElement()
   //document.getElementById('root')
 );

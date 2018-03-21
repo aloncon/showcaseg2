@@ -13,7 +13,6 @@ class WideList extends React.Component{
         let content = data ?
                 <div>
                       {data.map((product,i) => {
-                                    // console.log("product cpi",product)
                                     return(
                                         <div key={i} className="wcWideProduct">
                                             <div className="bt-row">
@@ -35,7 +34,7 @@ class WideList extends React.Component{
                                                 <div className="wcWideListButton" style={{height:150}}>
                                                     <span>
                                                         <ActionLink wcpc={product.wcpc} type="p2b" >
-                                                        Proceed to buy  
+                                                        Proceed To Buy  
                                                         </ActionLink>
                                                     </span>
                                                 </div>

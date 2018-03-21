@@ -1,11 +1,11 @@
 
 import jsonpP from 'jsonp-p'
 import ShouldDisplay from '../system/codes/ShouldDisplay'
-const partner = require('../system/codes/moduleInfo')
+const moduleInfo = require('../system/codes/moduleInfo')
 
 class Api {
     constructor() {
-        this.site = null
+        this.partner = null
         this.module = null
         this.shouldDisplay = null
     }
@@ -16,19 +16,17 @@ class Api {
     // and only after will get all the
     // responds he need he will send back one promise with the result
     getListOfVerifyWcpcs = (wcpcs) => {
-
         return new Promise((resolve, reject) => {
-            this.site =  partner.default.siteName
-            this.module = partner.default.moduleName
+            this.partner =  moduleInfo.default.siteName
+            this.module = moduleInfo.default.moduleName
             this.shouldDisplay = ShouldDisplay({"wc_section":"wc_all_module_products"})
             let apiKey = `moduleId=${this.module}&product-details=true`
-            let url = `https://sjson.webcollage.net/apps/json/${this.site}/method/partner-products-data-by-wcpc?`
-
-
-            const { displayWithoutAssortment } = this.partner === 'allassortment' ? true : false
+            let url = `https://sjson.webcollage.net/apps/json/${this.partner}/method/partner-products-data-by-wcpc?`
             
-            if (!displayWithoutAssortment && !this.shouldDisplay) {
-
+            
+            const  displayAllAssortment  = (this.partner === 'allassortment' ) ? true : false
+            
+            if (!(displayAllAssortment || this.shouldDisplay)) {
                 let config = {
                     param: 'callback',
                     timeout: 15000,
@@ -36,8 +34,7 @@ class Api {
                 }
                 let fixWcpcs = "";
                 wcpcs.map(wcpc => fixWcpcs += "wcpc=" + wcpc + "&")
-                let request = url + fixWcpcs + apiKey;
-                //console.log(request)
+                let request = url + fixWcpcs + apiKey
                 jsonpP(request, config).promise
                     .then(result => {
                         let partnerKey = Object.keys(result)
@@ -47,11 +44,11 @@ class Api {
                             let temp = keys.map(key => { return { wcpc: key, cpi: Object.keys((resultPartner[key]).cpis)[0] } })
                             resolve(temp);
                         }
-                        else reject({ err: `message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}` });
+                        else reject({ err: `message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}` })
 
                     })
                     .catch((err) => {
-                        reject(`ErrorMsg ${err}`);
+                        reject(`ErrorMsg ${err}`)
                     })
 
 
