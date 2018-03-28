@@ -2,7 +2,7 @@
     "module": "Xerox",
     "showcase": true,
     "partner" : "allassortment",
-	"landing_entry_point":"landingpageDefault",
+	"landing_entry_point":"landingpage-default",
     "Sections": {
         "wc_header": true,
         "wc_navigation_horizontal": true,

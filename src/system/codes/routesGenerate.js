@@ -13,6 +13,7 @@ const RoutesGenerate = ({ config, getPath }) => {
   return (
     <div>
       {routesConfig.map(route => {
+        
         const propsRoutes = {
           key: route.path,
           path: route.path,
@@ -20,9 +21,9 @@ const RoutesGenerate = ({ config, getPath }) => {
         };
 
         propsRoutes.path = getPath(route.path,route.parent);
+        
 
         if (route.notExact === undefined || route.notExact === false) propsRoutes['exact'] = true;
-
         // TODO: Add provider center check, is there way if not exists in thr JSON file to show the content by default?
         return <Route {...propsRoutes} />;
       })}

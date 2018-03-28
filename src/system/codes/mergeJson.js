@@ -23,27 +23,28 @@ export function mergeDeep(target, ...sources) {
 }
 
  export default function merge(){
-
+    
     return new Promise((resolve)=>{
       const site = WcShowcase.siteName;
       const moduleName     = WcShowcase.moduleName;
       const showcasePrefix = WcShowcase.showcasePrefix;
       let   contextPrefix  = "https://scontent.webcollage.net/showcase-partner-center/resources/"+ moduleName +"/" + site+"/context.json";
-
-      if(showcasePrefix.indexOf("localhost") !== -1 ||
+      if(showcasePrefix.indexOf("localhost") !== -1 || 
         showcasePrefix.match(/media-itest\d\.webcollage\.net.*/) != null ){
         contextPrefix = showcasePrefix + "/partners/" + site + "/context.json";
       }
-      const random = new Date().getMonth()+1 + Date().replace(/\s|\:|[a-z|A-Z]|\+.*/g,"");
-      let config = {
-      param: 'callback',
-      timeout: 15000,
-      prefix: 'cbContext'
-      }
-      jsonpP(`${contextPrefix}?${random}`, config).promise
-      .then(result =>{
-      resolve(mergeDeep({},profile, result));
-      })
-      .catch(err => console.error('WC-ERROR: Missing Context File for this partner!'))
+
+        const random = new Date().getMonth()+1 + Date().replace(/\s|:|[a-z|A-Z]|\+.*/g,"");
+        let config = {
+        param: 'callback',
+        timeout: 15000,
+        prefix: 'cbContext'
+        }
+        jsonpP(`${contextPrefix}?${random}`, config).promise
+        .then(result =>{
+        resolve(mergeDeep({},profile, result));
+        }).catch(function (err) {
+          console.error("WC-ERROR: Context file for this partner is missing")
+        });
     })
 }

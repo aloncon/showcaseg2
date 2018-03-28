@@ -1,7 +1,23 @@
+/* eslint-disable no-eval */
 import React from 'react';
 import {partnerDef} from './moduleInfo'
 import WcpcAssortment from './WcpcAssortment' 
 
+
+
+const checkSection = (wc_section) =>{
+    return partnerDef.Sections[wc_section]=== undefined ? false : partnerDef.Sections[wc_section] 
+}
+const reBuild = (expArray) => {
+    if(expArray.match(/,/g) && !expArray.match(/&&|\|\||!|\(|\)/g)){
+        expArray = expArray.replace(/,{2,}/g,",").replace(/,/g, "||")
+    }
+    const variables = expArray.replace(/\s?(&&|\|\||!|\(|\))\s?/g , ",").replace(/,{2,}/g,",").replace(/^,|,$/g ,"").split(",");
+    variables.forEach(element => {
+        expArray = expArray.replace(element , checkSection(element))
+    });
+    return expArray;
+}
 
 export default ({wc_section, children, ids, wc_property ,wc_entry, wc_entryObj, wc_exitObj}) => {
     if(wc_property){
@@ -15,15 +31,18 @@ export default ({wc_section, children, ids, wc_property ,wc_entry, wc_entryObj, 
     }
     else{ 
         let content  = (ids && partnerDef.Sections.wc_all_products) ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children
-        let section = partnerDef.Sections[wc_section]=== undefined ? true : partnerDef.Sections[wc_section] 
+        let section = eval(reBuild(wc_section));
         if(!children){
             return section;
         }
         if(section && content){
-            return <React.Fragment>{content} </React.Fragment>
+            return <React.Fragment>{content}</React.Fragment>
         }
         else{
             return (null);
         }
     }
 };
+
+
+

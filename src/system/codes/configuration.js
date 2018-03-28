@@ -1,6 +1,7 @@
 import ShouldDisplay from './ShouldDisplay';
 import configurationJSON from '../../custom_content/configuration.json';
 import { pageComponentsArray } from '../../custom_content/pages/pageComponentsArray';
+import WcShowcase from './moduleInfo'
 
 
 /**
@@ -45,7 +46,7 @@ const configurationTemplate = {
     backgroundColor: ''
   },
   staticRoutes: {
-    landingpageDefault: [
+    "landingpage-default": [
       {
         "id": "template-showcase",
         "parent": "/",
@@ -72,17 +73,15 @@ const loadImages = (configuration) => {
 
 // update the components name string in the configuration parameter to the actual components.
 const loadPageComponents = (configuration) => {
-  configuration.staticRoutes.landingpageDefault.map((router => {
-    const Component = pageComponentsArray[router.component];
-    router.component = Component;
-    return null;
-  }))
-  
-  configuration.staticRoutes.entryPoints.map((router => {
-    const Component = pageComponentsArray[router.component];
-    router.component = Component;
-    return null;
-  }))
+  for (var property in configuration.staticRoutes) {
+    if (property !== "routesExclude") {
+        configuration.staticRoutes[property].map((router => {
+          const Component = pageComponentsArray[router.component];
+          router.component = Component;
+          return null;
+        }))
+    }
+  }
 }
 
 // load default values in case the input in configuration.json is empty.
@@ -120,18 +119,25 @@ loadImages(configuration);
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-configuration.staticRoutes.setEntry = (entryId) => {
-  // landing page display
+configuration.staticRoutes.setEntry = (entry) => {
   const configEntries = configuration.staticRoutes.entryPoints;
-  if(entryId.toLowerCase() !== 'landingpagedefault'){
-    entryId = [configEntries.find(function (obj) { return obj.id.toLowerCase() === entryId.toLowerCase(); })];
+  let entryId
+  
+  if(entry.toLowerCase() !== 'landingpage-default'){
+    entryId = configEntries.find(function (obj) { return obj.id.toLowerCase() === entry.toLowerCase(); });
     if(entryId){
-      landingEntryPoint = entryId;
+      landingEntryPoint = [entryId];
     }
     else{
       landingEntryPoint = "Wrong entry"
       console.error("WC-ERROR: wrong entry in context [" , entryId ,"]");
     }
+  }
+  else{
+
+    const siteName    = WcShowcase.siteName
+    const landingpage = "landingpage-"+siteName 
+    landingEntryPoint = (configuration.staticRoutes.hasOwnProperty(landingpage))?configuration.staticRoutes[landingpage]:configuration.staticRoutes['landingpage-default']
   }
 }
 
@@ -139,7 +145,8 @@ configuration.staticRoutes.getRoutes = () => {
   if (landingEntryPoint) {
     return landingEntryPoint;
   }
-  return configuration.staticRoutes.landingpageDefault;
+ 
+  return configuration.staticRoutes['landingpage-default'];
 }
 /**
  * The function checks if the provided route ID needed to be excluded by assortment or by configuration.staticRoutes.routesExclude
@@ -185,8 +192,6 @@ configuration.staticRoutes.getPath = (currentPath, parentPath) => {
       return currentPath;
     
     }
-    
-
     let parent = configuration.staticRoutes.getRoutes().find(route => route.path === parentPath);
 
     return buildPath(`${parentPath}${currentPath}`, parent.parent);

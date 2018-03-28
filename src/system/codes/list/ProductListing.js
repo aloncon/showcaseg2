@@ -15,7 +15,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
     let type = content.type
     const isDisplay = content.isDisplay;
     const sizeResponsive = rsponsiveStore.wcContainerSize
-    if(((sizeResponsive == 'sm' || sizeResponsive == 'xs')) && type === 'wide')
+    if(((sizeResponsive === 'sm' || sizeResponsive === 'xs')) && type === 'wide')
         type = 'grid'
     const change = changeDisplay;
     const { isSubCategory } = settings;

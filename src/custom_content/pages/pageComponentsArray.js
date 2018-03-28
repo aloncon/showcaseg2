@@ -13,6 +13,8 @@ import iframe from './iframe';
 import testingArea from './testingArea';
 import ResTest from './ResTest';
 import homeNetworking from './home_networking';
+import externaliframe from './externaliframe';
+import ShowcaseAppStaples from './landing-default/ShowcaseAppStaples';
 
 export const pageComponentsArray = {
   ShowcaseApp,
@@ -25,5 +27,7 @@ export const pageComponentsArray = {
   iframe,
   testingArea,
   ResTest,
-  homeNetworking
+  homeNetworking,
+  externaliframe,
+  ShowcaseAppStaples
 };

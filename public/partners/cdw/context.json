@@ -2,7 +2,7 @@ cbContext0({
     "module": "adobe",
     "showcase": true,
     "partner": "cdw",
-    "landing_entry_point": "landingpageDefault",
+    "landing_entry_point":"landingpage-default",
     "Sections": {
         "wc_header": false,
         "wc_navigation_horizontal": false,

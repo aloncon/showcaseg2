@@ -11,7 +11,7 @@
     "backgroundColor": "white"
   },
   "staticRoutes": {
-    "landingpageDefault": [
+    "landingpage-default": [
       {
         "id": "symantec-showcase",
         "parent": "/",
@@ -88,8 +88,16 @@
         "parent": "/",
         "path": "/iframe",
         "component": "iframe",
-        "name": "iframe",
+        "name": "Custome iframe",
         "title": "Iframe"
+      },
+      {
+        "id": "externaliframe",
+        "parent": "/",
+        "path": "/externaliframe",
+        "component": "externaliframe",
+        "name": "External iFrame",
+        "title": "externaliframe"
       },
       {
         "id": "testingArea",
@@ -106,6 +114,32 @@
         "component": "homeNetworking",
         "name": "Home Networking",
         "title": "Test only single WCPCs"
+      }
+    ],
+    "landingpage-staples": [
+      {
+        "id": "ShowcaseAppStaples",
+        "parent": "/",
+        "path": "/",
+        "component": "ShowcaseAppStaples",
+        "name": "Module-Name Showcase Staples",
+        "title": "Module-Name Showcase Staples"
+      },
+      {
+        "id": "endpoint-management",
+        "parent": "/",
+        "path": "/endpoint-management",
+        "component": "EndpointManagement",
+        "name": "Endpoint Management",
+        "title": ""
+      },
+      {
+        "id": "testingArea",
+        "parent": "/",
+        "path": "/testingArea",
+        "component": "testingArea",
+        "name": "testing Video",
+        "title": ""
       }
     ],
     "routesExclude": "(product-listing-1|res-test)",
