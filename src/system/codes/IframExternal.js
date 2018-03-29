@@ -9,15 +9,15 @@ class IframExternal extends React.Component {
         const width = this.props.width ? this.props.width : "100%"
         let display = true;
         let fullSrc
-        
-        if(WcParameters !== "true" && WcParameters !== "false" ){
+        if(WcParameters !== "true" && WcParameters !== "false" && WcParameters !== undefined ){
             console.error("WC-ERROR: Please enter a boolean value in @WcParameters")
             display = false;
         }else{
-            fullSrc = (WcParameters === "true") ? `${src}?_wcsite=${WcShowcase.siteName}?_wcworkspace=${WcShowcase.moduleName}?_wcenvironment=${WcShowcase.environmentId}`:src // ?_wcclient=${}
+            const wcclient = (typeof window.orientation !== 'undefined')?  "mobile" :  "desktop"
+            fullSrc = (WcParameters === "true") ? `${src}?_wcsite=${WcShowcase.siteName}?_wcworkspace=${WcShowcase.moduleName}?_wcenvironment=${WcShowcase.environmentId}?_wcclient=${wcclient}`:src 
         }
         
-        if(supportsHttps !== "true" && supportsHttps !== "false" ){
+        if(supportsHttps !== "true" && supportsHttps !== "false" && supportsHttps !== undefined ){
             console.error("WC-ERROR: Please enter a boolean value in @supportsHttps")
             display = false;
         }

@@ -37,8 +37,8 @@ function getSiteIdFromScriptSrc(script){
         console.log("dev-site: " + site);
     }
     else{
-        // site = 'quill';
-        site = 'allassortment';
+        site = 'quill';
+        // site = 'allassortment';
     }
    
     return site;

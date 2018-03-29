@@ -1,6 +1,7 @@
 import React from 'react';
 import'../style/iframe.css';
 import { absolutizeSrcExternal } from './WcResource';
+import WcShowcase from './moduleInfo'
 
 let eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 let eventRemoveMethod = window.removeEventListener ? "removeEventListener" : "removeEvent";
@@ -59,16 +60,27 @@ class IframExecutor extends React.Component {
     }
     render() {
         
-        const {id , title, src} = this.props
+        const {id , title, src, WcParameters} = this.props
         const { iFrameHeight ,loader } = this.state
+        let display = true;
+        let fullSrc
+
+        if(WcParameters !== "true" && WcParameters !== "false" && WcParameters !== undefined ){
+            console.error("WC-ERROR: Please enter a boolean value in @WcParameters")
+            display = false;
+        }else{
+            const wcclient = (typeof window.orientation !== 'undefined')?  "mobile" :  "desktop"
+            fullSrc = (WcParameters === "true") ? `${src}?_wcsite=${WcShowcase.siteName}?_wcworkspace=${WcShowcase.moduleName}?_wcenvironment=${WcShowcase.environmentId}?_wcclient=${wcclient}`:src 
+        }
+
         return (
             <div>
-                {loader && <div id="loader"></div>}
+                {loader && display && <div id="loader"></div>}
                 <iframe sandbox = "allow-same-origin allow-scripts"
                     style={{width:'100%', height:iFrameHeight, overflow:'visible'}}
                     onLoad={this.onLoad}
                     ref="iframe" 
-                    src={src} 
+                    src={fullSrc} 
                     scrolling="no" 
                     frameBorder="0"
                     id={id}

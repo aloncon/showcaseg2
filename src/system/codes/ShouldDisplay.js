@@ -10,7 +10,6 @@ const checkSection = (wc_section) =>{
 }
 const reBuild = (expArray) => {
     if(expArray.match(/,/g) && !expArray.match(/&&|\|\||!|\(|\)/g)){
-
         expArray = expArray.replace(/,{2,}/g,",").replace(/,/g, "||")
     }
     const variables = expArray.replace(/\s?(&&|\|\||!|\(|\))\s?/g , ",").replace(/,{2,}/g,",").replace(/^,|,$/g ,"").split(",");
@@ -22,11 +21,8 @@ const reBuild = (expArray) => {
 
 
 
-export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitObj}) => {
-    if(wc_property){
-        return (<span>{partnerDef.Properties[wc_property]}</span>)
-    }
-    else if(wc_entryObj){
+export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitObj , wc_remove}) => {
+    if(wc_entryObj){
         return partnerDef.Properties[wc_entryObj]
     }
     else if(wc_exitObj){
@@ -34,18 +30,18 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
     }
     else{ 
         let content  = (ids && partnerDef.Sections.wc_all_products) ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children
-        let section = wc_section ? eval(reBuild(wc_section)): undefined;
-        if(!children){
-            return section;
-        }
+        let section  = wc_section ? eval(reBuild(wc_section)): undefined;
+        
         if(section && content){
             return <React.Fragment>{content}</React.Fragment>
         }
+        
+        if((section && wc_property) || (!wc_section && wc_property)){
+            return (<span>{partnerDef.Properties[wc_property]}</span>)
+        }
+
         else{
             return (null);
         }
     }
 };
-
-
-
