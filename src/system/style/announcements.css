@@ -228,7 +228,7 @@
 #wc-showcase-root .wcAnnounceUl.wcAnnouncePlay:focus {
   background-position: 90% 50%;
 }
-#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-prev {
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-prev {
   width: 20px;
   height: 20px;
   background-repeat: no-repeat !important;
@@ -236,7 +236,7 @@
   left: 0;
   background-image: url("../resources/announcement/prev.png") !important;
 }
-#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-next {
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-next {
   width: 20px;
   height: 20px;
   background-repeat: no-repeat !important;
@@ -244,17 +244,17 @@
   right: 0;
   background-image: url("../resources/announcement/next.png") !important;
 }
-#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-next:before {
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-next:before {
   font-size: 0!important;
 }
-#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-prev:before {
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-prev:before {
   font-size: 0!important;
 }
-#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-dots li button:before {
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-dots li button:before {
   font-size: 20px!important;
   font-family: 'times-new-roman' !important;
 }
-#wc-showcase-root #wc_showcase_root .AnnouncementSlick .slick-dots {
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-dots {
   width: 100%!important;
 }
 /* ***dev end: please add your styles above only!!!*** */

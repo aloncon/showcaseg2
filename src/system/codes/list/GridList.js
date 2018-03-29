@@ -60,7 +60,7 @@ const allPopovers = new AllPopover();
 
 const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
     let isOpen = store && store.isOpen
-    let classIsOpen = isOpen ? "wc-open-popover" : "wc-close-popover"
+    let classIsOpen = isOpen ? "wcOpenPopover" : "wcClosePopover"
     return store ? 
     <div>
         <button type="button" className="bt-btn bt-btn-primary bt-btn-sm" onClick={() => { allPopovers.openPop(index) }}>See more</button>

@@ -300,7 +300,7 @@ const Wcan = observer(class Wcan extends React.Component {
 
         return (
             <div>
-                <div className="AnnouncementSlick" style={divStyle}>
+                <div className="wcAnnouncementSlick" style={divStyle}>
                     <Slider ref={ (c) => this.slider = c } beforeChange={!this.init.isDots && this.changeClass.bind(this)} {...settings}>
                         {this.state.slidesNew.map((slide, index) => (
                             <div key={index}>

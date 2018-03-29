@@ -10,10 +10,11 @@
 		margin-bottom: 1px;
 		background: @background;
 		height: @logo-height + @logo-margin;
-
+		
 		.wcHeaderTitle {
 			width: 50%;
 			text-align: left;
+			
 			h1 {
 				color: @header-color;
 				line-height: @logo-height + @logo-margin;
@@ -26,7 +27,18 @@
 			height: @logo-height + @logo-margin;
 			width: 50%;
 			text-align: right;
+			img{
+				max-height: 100%;
+			}
 		}
+	}
+
+	.app-size-sm{
+		.wcHeader{
+			.wcHeaderTitle{
+				
+			}
+		} 	
 	}
 
 	.app-size-xs{
@@ -36,6 +48,9 @@
 			.wcHeaderTitle {
 				width: 100%;
 				text-align: center;
+				h1{
+					font-size: 1rem;
+				}
 			}
 			.wcHeaderLogo {
 				width: 100%;

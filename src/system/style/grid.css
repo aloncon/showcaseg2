@@ -21,7 +21,7 @@
 #wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card .wcGridCardFooter a {
   font-size: 80%;
 }
-#wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wc-open-popover {
+#wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wcOpenPopover {
   left: 10px;
   width: 95%;
 }
@@ -30,7 +30,7 @@
   margin: 0%;
   margin-bottom: 1.5%;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover {
   position: absolute;
   background: #f9f9f9;
   width: 220px;
@@ -42,20 +42,20 @@
   z-index: 60 !important;
   animation: openPopover 0.5s 1;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover div {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover div {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   padding: 1px 10px;
   background: #a7adba;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover div h3 {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover div h3 {
   text-align: center;
   color: white;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover p {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover p {
   padding: 0px 15px 0px 5px;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-open-popover:before {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover:before {
   content: '';
   position: absolute;
   left: 50px;
@@ -67,7 +67,7 @@
   border-left: 1px solid #ccc;
   border-top: 1px solid #ccc;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-close-popover {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcClosePopover {
   display: none;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card {
