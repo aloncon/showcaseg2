@@ -3,6 +3,7 @@
 
 import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
+import '../../style/wcLink.css';
 
 const WcLink = ({ ...props}) => {
   const href = absolutizeSrc(props.href);
@@ -20,6 +21,12 @@ const WcLink = ({ ...props}) => {
   delete props.WcOpenAs;
   delete props.WcHeight;
   delete props.WcWidth;
+
+  if (props.className) {
+      props.className = `${props.className} wcLink`;
+  } else {
+      props.className = 'wcLink';
+  }
 
   return <a {...props} />
 };

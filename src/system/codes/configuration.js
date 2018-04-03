@@ -122,7 +122,6 @@ loadImages(configuration);
 configuration.staticRoutes.setEntry = (entry) => {
   const configEntries = configuration.staticRoutes.entryPoints;
   let entryId
-  
   if(entry.toLowerCase() !== 'landingpage-default'){
     entryId = configEntries.find(function (obj) { return obj.id.toLowerCase() === entry.toLowerCase(); });
     if(entryId){
@@ -134,9 +133,8 @@ configuration.staticRoutes.setEntry = (entry) => {
     }
   }
   else{
-
     const siteName    = WcShowcase.siteName
-    const landingpage = "landingpage-"+siteName 
+    const landingpage = "landingpage-"+siteName
     landingEntryPoint = (configuration.staticRoutes.hasOwnProperty(landingpage))?configuration.staticRoutes[landingpage]:configuration.staticRoutes['landingpage-default']
   }
 }
@@ -145,7 +143,6 @@ configuration.staticRoutes.getRoutes = () => {
   if (landingEntryPoint) {
     return landingEntryPoint;
   }
- 
   return configuration.staticRoutes['landingpage-default'];
 }
 /**
@@ -186,11 +183,11 @@ configuration.staticRoutes.routesExcludeCheck = (routeID) => {
  * parentPath ::= The parent path of the relative path
  */
 configuration.staticRoutes.getPath = (currentPath, parentPath) => {
- 
+
   const buildPath = (currentPath, parentPath) => {
     if (!parentPath || parentPath === '/') {
       return currentPath;
-    
+
     }
     let parent = configuration.staticRoutes.getRoutes().find(route => route.path === parentPath);
 

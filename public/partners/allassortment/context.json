@@ -1,5 +1,5 @@
 cbContext0({
-   "module": "moudleName",
+    "module": "moudleName",
     "showcase": true,
     "partner" : "allassortment",
 	"landing_entry_point":"landingpage-default",

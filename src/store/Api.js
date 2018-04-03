@@ -22,10 +22,10 @@ class Api {
             this.shouldDisplay = ShouldDisplay({"wc_section":"wc_all_module_products"})
             let apiKey = `moduleId=${this.module}&product-details=true`
             let url = `https://sjson.webcollage.net/apps/json/${this.partner}/method/partner-products-data-by-wcpc?`
-            
-            
+
+
             const  displayAllAssortment  = (this.partner === 'allassortment' ) ? true : false
-            
+
             if (!(displayAllAssortment || this.shouldDisplay)) {
                 let config = {
                     param: 'callback',

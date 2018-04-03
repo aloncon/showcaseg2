@@ -23,7 +23,7 @@ export function mergeDeep(target, ...sources) {
 }
 
  export default function merge(){
-    
+
     return new Promise((resolve)=>{
       const site = WcShowcase.siteName;
       const moduleName     = WcShowcase.moduleName;
