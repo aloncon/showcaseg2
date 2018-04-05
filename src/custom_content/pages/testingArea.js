@@ -37,27 +37,27 @@ class In2EcosystemHeader extends React.Component{
                 <br/><br/>
                 <div className="btn" style={{cursor:'pointer'}} onClick={()=>absolutizeSrcExternal('www.gmail.com','ext')}>
                     Open External Link (by absolutizeSrcExternal() and not WcLink)
-                </div>                
+                </div>
                 <br/><br/>
                 {/* <div className="btn" style={{cursor:'pointer'}} onClick={()=>absolutizeSrcExternal('./EndpointSolutions','int')}>
-                    Open internal Link (by absolutizeSrcExternal() and not WcLink) 
+                    Open internal Link (by absolutizeSrcExternal() and not WcLink)
                 </div>   */}
 
               </div>
       )
-  }   
+  }
 }
 
 class ToggleCarousel extends React.Component{
   render(){
-   
+
     const Carousel = observer(({responsiveStore}) => {
       if (responsiveStore.wcContainerSize === 'xs' || responsiveStore.wcContainerSize === 'sm') {
         return <div><h4>Carousel 03:</h4><ProductListing type="carousel"  vertical={true} ids={["Carusel-Data"]} carosulId={'03'}/></div>;
       }
 
       return <div><h4>Carousel 02:</h4><ProductListing type="carousel" ids={["Carusel-Data"]} carosulId={'02'}/></div>;
-      
+
     });
 
     return(
@@ -71,8 +71,8 @@ class ToggleCarousel extends React.Component{
 class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
-      <div className="wcShowcaseBody">
-            <h1>Demos for Components:</h1>     
+      <div className="wcShowcaseBodyHeader">
+            <h1>Demos for Components:</h1>
       </div>
     );
   }
@@ -81,14 +81,14 @@ class ShowcaseBodyHeader extends React.Component{
 class ShowcaseBody extends React.Component {
   render() {
     return (
-      <div className="testingAreaGeneralDiv">
-          <hr/>  
+      <div className="wcShowcaseBody testingAreaGeneralDiv">
+          <hr/>
           <div>
             <h2>Announcements:</h2>
             <Announcements />
             <br/>
           </div>
-          <hr/> 
+          <hr/>
           <div>
             <h2>Overlay Video + Popup Window:</h2>
             <In2EcosystemHeader/>
@@ -102,29 +102,29 @@ class ShowcaseBody extends React.Component {
             </div>
             <br/>
           </div>
-          <hr/>          
+          <hr/>
           <div>
             <h2>Carousel without toggle between horizonal and vertical - vertical:</h2>
             <h4>Carousel 00:</h4>
             <ProductListing type="carousel" infinite={false} ids={["Business-Networking-Access-Point"]} carosulId={'00'}/>
             {/* <ProductListing type="carousel"  vertical={true} ids={["Carusel-Data-2"]} carosulId={'00'}/> */}
           </div>
-          <br/> 
+          <br/>
           <div>
             <h2>Carousel without toggle between horizonal and vertical:</h2>
             <h4>Carousel 01:</h4>
             {/* <ProductListing type="carousel" ids={["Carusel-Data"]} carosulId={'01'}/> */}
           </div>
-          <br/> 
+          <br/>
           <div>
             <h2>Carousel with toggle between horizonal and vertical:</h2>
             <ToggleCarousel/>
-          </div> 
-          <hr/> 
+          </div>
+          <hr/>
           <div>
           <h2>Video Gallery:</h2>
-          <VideoGallery /> 
-          </div>               
+          <VideoGallery />
+          </div>
       </div>
 
     );

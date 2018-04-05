@@ -2,18 +2,21 @@
 #wc-showcase-root{
   @import '~slick-carousel/slick/slick.css';
   @import '~slick-carousel/slick/slick-theme.css';
-  
+
   #wc_showcase_root {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
     max-width: 1000px;
     background-color: #fff;
-
+    .wcShowcase,
+    .wcShowcaseBody {
+      margin-top: 10px;
+    }
     .WcDisplayNone{
       display: none!important;
     }
-        
+
     .wcContainerFull {
       width: 100%;
     }
@@ -21,13 +24,13 @@
       width: 80%;
       padding-left: 5px;
     }
-    .wcShowcaseBody {
+    .wcShowcaseBodyHeader {
+      margin-top: 10px;
       h2 {
         color: red;
         font-size: 18px;
       }
     }
-  
     .wcShowcaseRoot {
       margin: 0;
       padding: 0;
@@ -36,7 +39,7 @@
       background-color: #fff;
     }
   }
-  
+
     .wcContainer {
       background-color: #fff;
       text-align: left;
@@ -52,7 +55,7 @@
         margin-right: 10px;
         margin-left: 10px;
         list-style-type: none;
-  
+
         .wcCategoryLi {
           padding-top: 15px;
           border-bottom: 1px solid #cbcbcb;
@@ -61,7 +64,7 @@
           border: medium none black;
           width: auto;
           height: auto;
-  
+
           .wcCenteredCategoryText {
             float: left;
             padding-right: 12px;
@@ -75,4 +78,3 @@
   }
   }
   /* ***dev end: please add your styles above only!!!*** */
-  

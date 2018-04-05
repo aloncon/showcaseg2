@@ -10,6 +10,10 @@
   max-width: 1000px;
   background-color: #fff;
 }
+#wc-showcase-root #wc_showcase_root .wcShowcase,
+#wc-showcase-root #wc_showcase_root .wcShowcaseBody {
+  margin-top: 10px;
+}
 #wc-showcase-root #wc_showcase_root .WcDisplayNone {
   display: none!important;
 }
@@ -20,7 +24,10 @@
   width: 80%;
   padding-left: 5px;
 }
-#wc-showcase-root #wc_showcase_root .wcShowcaseBody h2 {
+#wc-showcase-root #wc_showcase_root .wcShowcaseBodyHeader {
+  margin-top: 10px;
+}
+#wc-showcase-root #wc_showcase_root .wcShowcaseBodyHeader h2 {
   color: red;
   font-size: 18px;
 }

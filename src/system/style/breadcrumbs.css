@@ -1,4 +1,7 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root div.wcBreadcrumbs {
+  margin-bottom: 10px;
+}
 #wc-showcase-root div.wcBreadcrumbs ul {
   padding: 15px 0 0 15px;
   list-style: none;

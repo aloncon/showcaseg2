@@ -5,30 +5,37 @@ import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
 import '../../style/wcLink.css';
 
-const WcLink = ({ ...props}) => {
-  const href = absolutizeSrc(props.href);
-  let type   = props.WcOpenAs || '_blank';
-  let height = props.WcHeight || '600';
-  let width  = props.WcWidth || '600';
+const WcLink = ({ ...props }) => {
+   const href = absolutizeSrc(props.href);
+   const type = props.WcOpenAs || '_blank';
+   const height = props.WcHeight || '600';
+   const width = props.WcWidth || '600';
+   const onClickFunc = props.onClick || null;
 
-  if (type === 'popup') {
-      props.onClick = () => window.open(href,'_blank',`height=${height},width=${width}`);
-  } else {
-      props.onClick = () => window.open(href,'_blank');
-  }
-  // delete un-html attributes
-  delete props.href;
-  delete props.WcOpenAs;
-  delete props.WcHeight;
-  delete props.WcWidth;
+   if (type === 'popup') {
+      props.onClick = event => {
+         event.preventDefault();
+         if (onClickFunc) {
+            onClickFunc();
+         }
+         window.open(href, '_blank', `height=${height},width=${width}`);
+      };
+   } else {
+      props.target = type;
+   }
 
-  if (props.className) {
+   // delete un-html attributes
+   delete props.WcOpenAs;
+   delete props.WcHeight;
+   delete props.WcWidth;
+
+   if (props.className) {
       props.className = `${props.className} wcLink`;
-  } else {
+   } else {
       props.className = 'wcLink';
-  }
+   }
 
-  return <a {...props} />
+   return <a {...props} />;
 };
 
 export default WcLink;

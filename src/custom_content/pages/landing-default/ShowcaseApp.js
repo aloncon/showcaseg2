@@ -8,7 +8,7 @@ import ResponsiveContainer from '../../../system/codes/ResponsiveContainer';
 class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
-      <div className="wcShowcaseBody">
+      <div className="wcShowcaseBodyHeader">
             <h2>Webcollage (test) Showcase- please contact us by phone: <ShouldDisplay wc_property="phone"/></h2>
             <center>
             <Announcements />
@@ -32,7 +32,7 @@ class ShowcaseBody extends React.Component {
 
 
     return (
-      <div>
+      <div className="wcShowcaseBody">
         <div className="wcAppIntro">
           <u>Body Content (showcaseBody) ..... </u>
           <div>
@@ -44,7 +44,7 @@ class ShowcaseBody extends React.Component {
         </div>
         <div className="wcAppIntroCarousel">
 
-            
+
 
        <ResponsiveContainer>
           {size => {
@@ -55,8 +55,8 @@ class ShowcaseBody extends React.Component {
             //The null is important in case of not checking all the cases (sm,md etc').
             return null;
           }}
-      </ResponsiveContainer> 
-      
+      </ResponsiveContainer>
+
         </div>
 
       </div>
