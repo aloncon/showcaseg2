@@ -9,7 +9,8 @@ class Header extends Component {
     render() {
         let title = this.props.title;
         let logo = this.props.manufacturerLogo;
-       
+        const landingpageRouteID = `/${this.props.landingpageRouteID}`;
+
         const pathname = this.props.location.pathname;
         let LogoLink = null;
 
@@ -17,13 +18,13 @@ class Header extends Component {
             document.location.reload();
         }
 
-        if (pathname === '/') {
+        if (pathname === landingpageRouteID) {
             LogoLink = (<a href="" onClick={handleClick}>
                          <WcImg src={logo}/>
                        </a>)
-        } 
+        }
         else {
-            LogoLink = (<Link to="/">
+            LogoLink = (<Link to={landingpageRouteID}>
                          <WcImg src={logo}/>
                        </Link>)
         }
@@ -40,7 +41,7 @@ class Header extends Component {
                 </div>
             </ShouldDisplay>
         );
-        
+
     }
 };
 

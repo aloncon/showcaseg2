@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ShouldDisplay from '../../../system/codes/ShouldDisplay'
+
 class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
@@ -21,7 +22,7 @@ class ShowcaseBody extends React.Component {
   }
 }
 
-class ShowcaseAppStaples extends Component {
+class LandingpageStaples extends Component {
   render() {
     return (
       <div className="wcShowcase" id="wc-reset">
@@ -35,4 +36,4 @@ class ShowcaseAppStaples extends Component {
   }
 }
 
-export default ShowcaseAppStaples;
+export default LandingpageStaples;

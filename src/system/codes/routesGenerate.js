@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Route } from 'react-router-dom';
+import React from 'react';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 /**
  * Generate the routes looping the static routes from the configuration data.
@@ -8,27 +8,26 @@ import { Route } from 'react-router-dom';
  *
  * config (MANDATORY):: JSON object, holds the the static routes configuration.
  */
-const RoutesGenerate = ({ config, getPath }) => {
+const RoutesGenerate = ({ landingpageRouteID, config, getPath }) => {
   const routesConfig = config;
 
   return (
-    <Fragment>
+    <Switch>
       {routesConfig.map(route => {
         const propsRoutes = {
-          key: route.path,
-          path: route.path,
+          key: route.id,
+          path: route.id,
           component: route.component,
         };
 
-        propsRoutes.path = getPath(route.path,route.parent);
-
+        propsRoutes.path = `/${getPath(route.id,route.parent)}`;
 
         if (route.notExact === undefined || route.notExact === false) propsRoutes['exact'] = true;
 
-        // TODO: Add provider center check, is there way if not exists in thr JSON file to show the content by default?
         return <Route {...propsRoutes} />;
       })}
-    </Fragment>
+      <Redirect from="/" to={landingpageRouteID} />
+    </Switch>
   );
 };
 

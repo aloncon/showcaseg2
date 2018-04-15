@@ -12,7 +12,7 @@ import '../style/breadcrumbs.css';
 const getRoutesConfig = (config) => {
   let newConfig = {};
   config.forEach(route => {
-    const [path, name] = [route.path, route.name];
+    const [path, name] = [`/${route.id}`, route.name];
     newConfig[path] = name;
   });
 
@@ -104,10 +104,10 @@ const BreadcrumbItem = ({ index, pathsRouteLength, name, path}) => {
  * addHorizontalRule (OPTIONAL):: Boolean, true to display <hr /> element under the breadcrumbs. False by default.
  *
  */
-const Breadcrumbs = ({config, options, getPath, location}) => {
+const Breadcrumbs = ({landingpageRouteID, config, options, getPath, location}) => {
     const pathname = location.pathname;
     const routes = getRoutesConfig(config);
-    const homePath = '/';
+    const homePath = `/${landingpageRouteID}`;
     const { isDisplayBreadcrumbRoot, displayRootNameAsHome, addHorizontalRule } = options;
     let pathsRoute = [];
 

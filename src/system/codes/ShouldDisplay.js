@@ -33,6 +33,8 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
         let content  = (ids) ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children
         let section  = wc_section ? eval(reBuild(wc_section)): undefined;
 
+
+
         if(section === undefined && content){
             return content
         }
@@ -43,6 +45,10 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
 
         if(wc_property !== "" && ((section && wc_property) || (!wc_section && wc_property))){
             return (<span>{partnerDef.Properties[wc_property]}</span>)
+        }
+
+        if(section){
+            return section
         }
 
         else{

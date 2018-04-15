@@ -117,8 +117,8 @@ class NestedItems extends React.Component {
     const menuRoutes = routes.map((route, index) => {
       if ((exclude && exclude(route.id)) || index >= limit) return null;
 
-      const linkTo = getPath(route.path, route.parent);
-      const parent = route.path;
+      const linkTo = getPath(route.id, route.parent);
+      const parent = route.id;
       const isDropdownItem = route.parent === '/' ? false : true;
 
       route.children = getChildren(parent);
@@ -211,6 +211,8 @@ class MoreButtonCollapse extends React.Component {
  * maxDimensionsCustomValues
  * mediumDimensionsCustomValues
  * smallDimensionsCustomValues
+ *
+ * TODO: Don't show all the navigation items even in lg width if there is no room.
  */
 const NavigationHorizontal = observer(
   class NavigationHorizontal extends React.Component {
@@ -276,7 +278,7 @@ const NavigationHorizontal = observer(
       this.updateDimensions(this.props.responsiveStore.wcContainerSize);
 
       return (
-        this.rootRoutes.length > 0 ? 
+        this.rootRoutes.length > 0 ?
           <nav className="wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light">
             <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
             <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>

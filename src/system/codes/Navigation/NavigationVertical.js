@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import '../../style/partner-def/verticalNavigation.css';
 
 const VerticalNavItem = ({ route, getPath }) => {
-  const linkTo = getPath(route.path, route.parent);
+  const linkTo = getPath(route.id, route.parent);
 
   return (
     <li key={route.id}>
@@ -26,7 +26,7 @@ const VerticalNavItem = ({ route, getPath }) => {
  */
 const NavigationVertical = ({ routesConfiguration, moduleName } ) => {
   return (
-    routesConfiguration.getRootRoutes().lenght > 1 ?
+    routesConfiguration.getRootRoutes().length > 0 ?
       <div className="wcNavigationVertical">
         <div className="wcNavHeader">
           <h1>{moduleName}</h1>

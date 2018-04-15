@@ -24,8 +24,8 @@ const { staticRoutes } = configuration;
 const GenerateBodyContent = ({ options }) => (
   <div>
     <ShouldDisplay wc_section="wc_navigation_horizontal"> <NavigationHorizontal routesConfiguration={staticRoutes} responsiveStore={ResponsiveStore}/> </ShouldDisplay>
-    <ShouldDisplay wc_section="wc_bread_crumbs"><Breadcrumbs config={staticRoutes.getRoutes()} options={options} getPath={staticRoutes.getPath}/> </ShouldDisplay>
-    <RoutesGenerate config={staticRoutes.getRoutes()} getPath={staticRoutes.getPath}/>
+    <ShouldDisplay wc_section="wc_bread_crumbs"><Breadcrumbs landingpageRouteID={staticRoutes.getLandingpageRouteID()} config={staticRoutes.getRoutes()} options={options} getPath={staticRoutes.getPath}/> </ShouldDisplay>
+    <RoutesGenerate landingpageRouteID={staticRoutes.getLandingpageRouteID()} config={staticRoutes.getRoutes()} getPath={staticRoutes.getPath}/>
   </div>
 );
 

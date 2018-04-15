@@ -64,7 +64,7 @@ class ShowcaseBody extends React.Component {
     );
   }
 }
-class ShowcaseApp extends Component {
+class LandingpageDefault extends Component {
   render() {
     return (
       <div className="wcShowcase" id="wc-reset">
@@ -78,4 +78,4 @@ class ShowcaseApp extends Component {
   }
 }
 
-export default ShowcaseApp;
+export default LandingpageDefault;

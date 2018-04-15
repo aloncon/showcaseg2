@@ -20,14 +20,22 @@ class In2EcosystemHeader extends React.Component{
                     <div id="content">
                         <br/><br/><br/>
                         <p className="description">A demo for overlay video and pop up window</p>
-                        <WcOverlayVideo src={videoTest} playsInline autoPlay={false} tag='div' className="btn" id="btn-video-play"/>
+                        <WcOverlayVideo src={videoTest}
+                                        playsInline
+                                        autoPlay={false}
+                                        wrapContentOptions ={{
+                                          id: "btn-video-play",
+                                          className: "btn",
+                                          tag: 'div'
+                                        }}
+                        />
                         <WcLink WcOpenAs="popup" href={ecosystem_brochure42017}>
                           <div className="btn" id="btn-brochure"></div>
                         </WcLink>
                     </div>
                 </div>
                 <br/>
-                <WcLink href="./testingArea.html" WcOpenAs='popup' WcHeight={1000} WcWidth={1000}>
+                <WcLink href="./testingArea.html" WcOpenAs={{type: 'popup', WcHeight: 1000, WcWidth:1000}}>
                   <div className="btn" style={{cursor:'pointer'}}>Open Internal Link</div>
                 </WcLink>
                 <br/><br/>

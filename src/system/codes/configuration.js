@@ -1,24 +1,28 @@
 import ShouldDisplay from './ShouldDisplay';
 import configurationJSON from '../../custom_content/configuration.json';
 import { pageComponentsArray } from '../../custom_content/pages/pageComponentsArray';
-import WcShowcase from './moduleInfo'
+import WcShowcase from './moduleInfo';
 
 
 /**
  * Configuration data for the showcase.
  *
  * headerDetails:: Holds all the header information
- * imgLogo[optional]: may be require('../custom_content/assets/images/SYM-BLK.png') or null or just delete it
+ * imgLogo[optional]: There is three options:
+ *          * Image from the `src/custom_content/assets/` for example: `images/product-logo.jpg`.
+ *          * Empty string - Will use the image: `src/system/resources/default_logo.jpg`.
+ *          * Delete it if not needed.
  * headerTitle[optional]: may be text as "Symantec", empty string, or just delete it
  *
- * footerDetails:: Holds all the footer information (imgProvidedBy, backgroundColor)
+ * footerDetails::
+ *          * backgroundColor - Enter the color for the background.
+ *          * imgProvidedBy - Always will be `src/system/resources/powered-by.png`.
  *
- * staticRoutes:: Holds all the routes information, [id, path, component, name, title, assort]. Used for generating the routes, breadcrumbs and navigation.
+ * staticRoutes:: Holds all the routes information, [id, component, name, title, assort]. Used for generating the routes, breadcrumbs and navigation.
  * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be exact, add 'notExact : true' to the parent.
  *
- * `id`: The route ID.
- * `parent`: The route's parent relative path, if this is a root path it will be: '/' .
- * `path`: The route's relative path.
+ * `id`: The route ID, the convention is the file name in lowercase with no spaces use dash (`-`).
+ * `parent`: The route's parent ID, if this is a root path it will be the first route ID.
  * `component`: Which component to use for this route.
  * `name`: The name to use for the breadcrumbs / navigation.
  * `title` [optional]: Will display specific title for certain page, may be text, or empty string.
@@ -27,37 +31,15 @@ import WcShowcase from './moduleInfo'
  * routesExclude:: String , hold the names which we wish to exclude from the navigation.
  *
  * functions inside staticRoutes:: =
+ * setEntry
+ * getRoutes
  * routesExcludeCheck
  * getPath
  * getChildren
+ * getLandingpageRouteID
  * getRootRoutes
  */
 
-const configurationTemplate = {
-  moduleName: 'SHOWCASE-TEMPLATE Module Name',
-  presentationName: 'SHOWCASE-TEMPLATE (presentation)',
-  moduleId: 'SHOWCASE-TEMPLATE-moduleId',
-  headerDetails: {
-    imgLogo: 'images/default_logo.jpg',
-    headerTitle: ''
-  },
-  footerDetails: {
-    imgProvidedBy: 'powered-by.png',
-    backgroundColor: ''
-  },
-  staticRoutes: {
-    "landingpage-default": [
-      {
-        "id": "template-showcase",
-        "parent": "/",
-        "path": "/",
-        "component": "ShowcaseApp",
-        "name": "Template Showcase"
-      },
-    ],
-    routesExclude: '()'
-  }
-}
 
 /**
  * Update the images paths in the configuration parameter to the actual images.
@@ -65,13 +47,20 @@ const configurationTemplate = {
  */
 const loadImages = (configuration) => {
   const regexCheckIsDefaultLogo = new RegExp(/default_logo.jpg|data:image/);
-  if (!regexCheckIsDefaultLogo.test(configuration.headerDetails.imgLogo)) {
+  const imageLogoExists = configuration.headerDetails.imgLogo !== undefined;
+  const isNotDefaultImageLogo = !regexCheckIsDefaultLogo.test(configuration.headerDetails.imgLogo);
+
+  // Found an image logo in the configuration.json, and is not the default_logo.jpg.
+  if (imageLogoExists && isNotDefaultImageLogo) {
     configuration.headerDetails.imgLogo = require(`../../custom_content/assets/${configuration.headerDetails.imgLogo}`);
   }
-  configuration.footerDetails.imgProvidedBy = require(`../resources/${configuration.footerDetails.imgProvidedBy}`);
+
+  configuration.footerDetails.imgProvidedBy = require('../resources/powered-by.png');
 }
 
-// update the components name string in the configuration parameter to the actual components.
+/**
+ * Update the components name string in the configuration parameter to the actual components.
+ */
 const loadPageComponents = (configuration) => {
   for (var property in configuration.staticRoutes) {
     if (property !== "routesExclude") {
@@ -84,7 +73,9 @@ const loadPageComponents = (configuration) => {
   }
 }
 
-// load default values in case the input in configuration.json is empty.
+/**
+ * Load default values in case the input in configuration.json is empty.
+ */
 const loadDefaultValues = (configuration) => {
   if (!configuration.moduleName.length) {
     configuration.moduleName = 'SHOWCASE-TEMPLATE Module Name'
@@ -98,10 +89,11 @@ const loadDefaultValues = (configuration) => {
     configuration.moduleId = 'SHOWCASE-TEMPLATE-moduleId';
     console.error('Please set the `moduleId` in the custom_content/configuration.json');
   }
-  if (!configuration.headerDetails.imgLogo.length) {
+  if (configuration.headerDetails.imgLogo !== undefined && !configuration.headerDetails.imgLogo.length) {
     configuration.headerDetails.imgLogo = require('../resources/default_logo.jpg');
   }
 }
+
 /**
  * Initialize the configuration object
  *
@@ -111,14 +103,20 @@ const loadDefaultValues = (configuration) => {
  **/
 
 let landingEntryPoint;
-const configuration = Object.assign(configurationTemplate, configurationJSON);
+const configuration = Object.assign({}, configurationJSON);
 loadPageComponents(configuration);
 loadDefaultValues(configuration);
 loadImages(configuration);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
+/**
+ * Set the showcase entry-point according to the `entry` param.
+ *
+ *  * landingpage-default
+ *  * landingpage-[PARTNER]
+ *  * specific entry-point
+ */
 configuration.staticRoutes.setEntry = (entry) => {
   const configEntries = configuration.staticRoutes.entryPoints;
   let entryId
@@ -139,19 +137,19 @@ configuration.staticRoutes.setEntry = (entry) => {
   }
 }
 
+/**
+ * @return {object} All the showcase routes
+ */
 configuration.staticRoutes.getRoutes = () => {
-  if (landingEntryPoint) {
-    return landingEntryPoint;
-  }
-  return configuration.staticRoutes['landingpage-default'];
+  return landingEntryPoint;
 }
+
 /**
  * The function checks if the provided route ID needed to be excluded by assortment or by configuration.staticRoutes.routesExclude
  *
- * return a boolean result.
+ * @param {string} routeID The route ID we wish to check if needed to be excluded.
  *
- * routeID:: The route ID we wish to check if needed to be excluded.
- *
+ * @return {boolean} True or false if this route can be used.
  */
 configuration.staticRoutes.routesExcludeCheck = (routeID) => {
   // If the route have assort: true, it will check the context by ShouldDisplay.
@@ -179,19 +177,19 @@ configuration.staticRoutes.routesExcludeCheck = (routeID) => {
  *
  * PARAMS::
  *
- * currentPath ::= The relative path.
- * parentPath ::= The parent path of the relative path
+ * @param {string} currentPath The relative path.
+ * @param {string} parentPath The parent path of the relative path
  */
 configuration.staticRoutes.getPath = (currentPath, parentPath) => {
 
   const buildPath = (currentPath, parentPath) => {
-    if (!parentPath || parentPath === '/') {
+    if (!parentPath || parentPath === configuration.staticRoutes.getLandingpageRouteID()) {
       return currentPath;
 
     }
-    let parent = configuration.staticRoutes.getRoutes().find(route => route.path === parentPath);
+    let parent = configuration.staticRoutes.getRoutes().find(route => route.id === parentPath);
 
-    return buildPath(`${parentPath}${currentPath}`, parent.parent);
+    return buildPath(`${parentPath}/${currentPath}`, parent.parent);
   };
 
   return buildPath(currentPath, parentPath);
@@ -205,10 +203,17 @@ configuration.staticRoutes.getChildren = (parentPath) => {
 };
 
 /**
+ * @returns {string} Return the main landingpage route ID.
+ */
+configuration.staticRoutes.getLandingpageRouteID = () => {
+  return configuration.staticRoutes.getRoutes()[0].id;
+}
+
+/**
  * Get all the root routes, excludes the routes by the routesExcludeCheck.
  */
 configuration.staticRoutes.getRootRoutes = () => {
-  return configuration.staticRoutes.getRoutes().filter(route => route.parent === '/' && !configuration.staticRoutes.routesExcludeCheck(route.id) && route.path !== '/');
+  return configuration.staticRoutes.getRoutes().filter(route => route.parent === configuration.staticRoutes.getLandingpageRouteID() && !configuration.staticRoutes.routesExcludeCheck(route.id) && route.id !== configuration.staticRoutes.getLandingpageRouteID());
 }
 
 export default configuration;

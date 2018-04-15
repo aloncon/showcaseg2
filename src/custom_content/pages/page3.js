@@ -8,11 +8,11 @@ class Page3 extends React.Component {
         return(
             <div>
             <p>
-               Click to go to <Link to="/page3/home_networking">Home Networking</Link>
+               Click to go to <Link to="/page3/home-networking">Home Networking</Link>
                <br/>
-               Click to go to <Link to="/page3/page3Child1">Page 3 Child 1</Link>
+               Click to go to <Link to="/page3/page3-child1">Page 3 Child 1</Link>
                <br/>
-               Click to go to <Link to="/page3/page3Child2">Page 3 Child 2</Link>
+               Click to go to <Link to="/page3/page3-child2">Page 3 Child 2</Link>
             </p>
                <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4}/>
 

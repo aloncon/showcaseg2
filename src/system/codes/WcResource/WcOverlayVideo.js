@@ -28,42 +28,52 @@ function HideOverlay() {
    bodyElem.style.paddingRight = '0';
 }
 
-const WcOverlayVideo = ({ ...props }) => {
+/**
+ *
+ * @param {object} props All the `WcPlayer` props.
+ * @param {object} wrapContentOptions (*MUST HAVE*)
+ * * **id** - The id of the specific wrap element video overlay.
+ * * **className** - The className of the all wrap elements video overlay in the component.
+ * * **tag** - The type of the wrap element, the *+default+* is `<span>`, it could be also `<a>` or `<div>`
+ * * **value** - The wrap element content.
+ * @returns {React.Component} A `wrapContent` (depends the values in _`wrapContentOptions`_), onClick it will open a `WcPlayer` component which display as overlay video on the current page.
+ */
+const WcOverlayVideo = ({ wrapContentOptions, ...props }) => {
    props.src = absolutizeSrc(props.src);
+
+   if (!wrapContentOptions) {
+      console.error('The prop: wrapContentOptions, is undefined. You have to pass it to WcOverlayVideo');
+   }
 
    const style = {
       cursor: 'pointer',
    };
 
-   if (props.childImage) {
-      style.backgroundImage = `url(${props.childImage.src})`;
-      style.backgroundRepeat = 'no-repeat';
-      style.backgroundPosition = 'center';
-      style.backgroundSize = 'cover';
-      // style.display = 'inline-block';
-      style.height = props.childImage.height;
-      style.width = props.childImage.width;
+   let WrapContent;
+
+   if (wrapContentOptions.tag === 'a') {
+      WrapContent = () => (
+         <a href="javascript:void(0)" onClick={() => ShowOverlay()}>
+            {wrapContentOptions.value}
+         </a>
+      );
+   } else if (wrapContentOptions.tag === 'div') {
+      WrapContent = () => (
+         <div id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay()} style={style}>
+            {wrapContentOptions.value}
+         </div>
+      );
+   } else {
+      WrapContent = () => (
+         <span id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay()} style={style}>
+            {wrapContentOptions.value}
+         </span>
+      );
    }
+
    return (
       <div style={{ display: 'inline' }}>
-         {props.tag === 'a' ? (
-            <a href="javascript:void(0)" onClick={() => ShowOverlay()}>
-               {props.value}
-            </a>
-         ) : props.tag === 'div' ? (
-            <div id={props.id} className={props.className} onClick={() => ShowOverlay()} style={style}>
-               {props.value}
-            </div>
-         ) : (
-            <span id={props.id} className={props.className} onClick={() => ShowOverlay()} style={style}>
-               {props.value}
-            </span>
-         )}
-         {delete props.id}
-         {delete props.className}
-         {delete props.tag}
-         {delete props.value}
-
+         <WrapContent />
          <div id="video-view">
             <div className="wcOverlay" />
             <div className="wcOverlayVideo">
@@ -77,10 +87,6 @@ const WcOverlayVideo = ({ ...props }) => {
          </div>
       </div>
    );
-   // return (
-   //
-   // )
-   // ;
 };
 
 export default WcOverlayVideo;

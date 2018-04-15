@@ -17,7 +17,8 @@ class ShowcaseHeader extends React.Component {
             <Header
                 title={nameToShow}
                 moduleName={configuration.moduleName}
-                manufacturerLogo={configuration.headerDetails.imgLogo}/>
+                manufacturerLogo={configuration.headerDetails.imgLogo}
+                landingpageRouteID={configuration.staticRoutes.getLandingpageRouteID()} />
           )
       }
   }

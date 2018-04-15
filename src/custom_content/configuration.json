@@ -13,104 +13,91 @@
   "staticRoutes": {
     "landingpage-default": [
       {
-        "id": "symantec-showcase",
-        "parent": "/",
-        "path": "/",
-        "component": "ShowcaseApp",
+        "id": "landingpage-default",
+        "parent": "landingpage-default",
+        "component": "LandingpageDefault",
         "name": "Symantec Showcase"
       },
       {
         "id": "endpoint-management",
-        "parent": "/",
-        "path": "/endpoint-management",
+        "parent": "landingpage-default",
         "component": "EndpointManagement",
         "name": "Endpoint Management",
         "title": ""
       },
       {
         "id": "endpoint-page-child",
-        "parent": "/endpoint-management",
-        "path": "/EndpointPageChild",
+        "parent": "endpoint-management",
         "component": "Page3Child1Grand1",
         "name": "Endpoint Page Child",
         "title": "Endpoint Page Child"
       },
       {
         "id": "res-test",
-        "parent": "/",
-        "path": "/resTest",
+        "parent": "landingpage-default",
         "component": "ResTest",
         "name": "Responsive Test",
         "title": "Res Test"
       },
       {
         "id": "page3",
-        "parent": "/",
-        "path": "/page3",
+        "parent": "landingpage-default",
         "component": "Page3",
         "name": "Page 3",
         "assort": true
       },
       {
         "id": "page3-child1",
-        "parent": "/page3",
-        "path": "/page3Child1",
+        "parent": "page3",
         "component": "Page3Child1",
         "name": "Page3 Child1",
         "title": "Page3 Child1"
       },
       {
         "id": "page3-child2",
-        "parent": "/page3",
-        "path": "/page3Child2",
+        "parent": "page3",
         "component": "Page3Child2",
         "name": "Page3 Child2",
         "title": "Page3 Child2"
       },
       {
         "id": "page3-child1-grand1",
-        "parent": "/page3Child1",
-        "path": "/page3Child1Grand1",
+        "parent": "page3-child1",
         "component": "Page3Child1Grand1",
         "name": "Page3 Child1 Grand1",
         "title": "Page3 Child1 Grand1"
       },
       {
         "id": "endpoint-solutions",
-        "parent": "/",
-        "path": "/endpoint-solutions",
+        "parent": "landingpage-default",
         "component": "EndpointSolutions",
         "name": "Endpoint Solutions",
         "title": "Endpoint Solutions"
       },
       {
         "id": "iframe",
-        "parent": "/",
-        "path": "/iframe",
+        "parent": "landingpage-default",
         "component": "iframe",
         "name": "Custome iframe",
         "title": "Iframe"
       },
       {
         "id": "externaliframe",
-        "parent": "/",
-        "path": "/externaliframe",
+        "parent": "landingpage-default",
         "component": "externaliframe",
         "name": "External iFrame",
         "title": "externaliframe"
       },
       {
         "id": "testingArea",
-        "parent": "/",
-        "path": "/testingArea",
+        "parent": "landingpage-default",
         "component": "testingArea",
         "name": "testing Video",
         "title": ""
       },
       {
-        "id": "home_networking",
-        "parent": "/page3",
-        "path": "/home_networking",
+        "id": "home-networking",
+        "parent": "page3",
         "component": "homeNetworking",
         "name": "Home Networking",
         "title": "Test only single WCPCs"
@@ -118,25 +105,22 @@
     ],
     "landingpage-staples": [
       {
-        "id": "ShowcaseAppStaples",
-        "parent": "/",
-        "path": "/",
-        "component": "ShowcaseAppStaples",
+        "id": "landingpage-staples",
+        "parent": "landingpage-staples",
+        "component": "LandingpageStaples",
         "name": "Module-Name Showcase Staples",
         "title": "Module-Name Showcase Staples"
       },
       {
         "id": "endpoint-management",
-        "parent": "/",
-        "path": "/endpoint-management",
+        "parent": "landingpage-staples",
         "component": "EndpointManagement",
         "name": "Endpoint Management",
         "title": ""
       },
       {
         "id": "testingArea",
-        "parent": "/",
-        "path": "/testingArea",
+        "parent": "landingpage-staples",
         "component": "testingArea",
         "name": "testing Video",
         "title": ""
