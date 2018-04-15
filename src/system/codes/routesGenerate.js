@@ -20,7 +20,7 @@ const RoutesGenerate = ({ landingpageRouteID, config, getPath }) => {
           component: route.component,
         };
 
-        propsRoutes.path = `/${getPath(route.id,route.parent)}`;
+        propsRoutes.path = getPath(route.id,route.parent);
 
         if (route.notExact === undefined || route.notExact === false) propsRoutes['exact'] = true;
 

@@ -192,7 +192,7 @@ configuration.staticRoutes.getPath = (currentPath, parentPath) => {
     return buildPath(`${parentPath}/${currentPath}`, parent.parent);
   };
 
-  return buildPath(currentPath, parentPath);
+  return `/${buildPath(currentPath, parentPath)}`;
 };
 
 /**
