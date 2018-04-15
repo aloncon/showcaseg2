@@ -2,14 +2,15 @@ cbContext0({
     "module": "adobe",
     "showcase": true,
     "partner": "cdw",
-    "landing_entry_point": "landingpageDefault",
+    "landing_entry_point":"landingpage-default",
     "Sections": {
         "wc_header": false,
         "wc_navigation_horizontal": false,
         "wc_navigation_vertical": false,
         "wc_bread_crumbs": true,
         "wc_footer": true,
-        "wc_all_module_products": true
+        "wc_all_module_products": true,
+        "page3": false
     },
     "Properties": {
         "Acrobat_DC": {
