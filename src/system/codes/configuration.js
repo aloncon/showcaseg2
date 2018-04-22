@@ -15,7 +15,6 @@ import WcShowcase from './moduleInfo';
  * headerTitle[optional]: may be text as "Symantec", empty string, or just delete it
  *
  * footerDetails::
- *          * backgroundColor - Enter the color for the background.
  *          * imgProvidedBy - Always will be `src/system/resources/powered-by.png`.
  *
  * staticRoutes:: Holds all the routes information, [id, component, name, title, assort]. Used for generating the routes, breadcrumbs and navigation.
@@ -55,6 +54,8 @@ const loadImages = (configuration) => {
     configuration.headerDetails.imgLogo = require(`../../custom_content/assets/${configuration.headerDetails.imgLogo}`);
   }
 
+  // If there is a need to change the Provided by image, please change it here:
+  configuration.footerDetails = {};
   configuration.footerDetails.imgProvidedBy = require('../resources/powered-by.png');
 }
 

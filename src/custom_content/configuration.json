@@ -6,10 +6,6 @@
     "imgLogo": "images/avery_logo.jpg",
     "headerTitle": "Avery"
   },
-  "footerDetails": {
-    "imgProvidedBy": "powered-by.png",
-    "backgroundColor": "white"
-  },
   "staticRoutes": {
     "landingpage-default": [
       {

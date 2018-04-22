@@ -10,23 +10,23 @@ import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
 import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
 import '../../style/productlisting.css';
 
-const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id ,rsponsiveStore}) => {
-    const content = data
-    let type = content.type
+const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id ,responsiveStore}) => {
+    const content = data;
+    let type = content.type;
     const isDisplay = content.isDisplay;
-    const sizeResponsive = rsponsiveStore.wcContainerSize
+    const sizeResponsive = responsiveStore.wcContainerSize;
     if(((sizeResponsive === 'sm' || sizeResponsive === 'xs')) && type === 'wide')
         type = 'grid'
     const change = changeDisplay;
     const { isSubCategory } = settings;
-    
+
     let imgButtonOpenClose = isDisplay ? closeIcon : openIcon;
-    let buttonOepnClose = 
+    let buttonOpenClose =
                 <button className="wcListHeaderButton"
                         onClick={change}>
                             <WcImg src={imgButtonOpenClose} alt="Open/Close Button"/>
                 </button>
-    let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}{buttonOepnClose}</h2> : null
+    let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}{buttonOpenClose}</h2> : null
 
   // Choosing the type of the listing ( currently between wide/grid/carousel)
     switch (content.products.length > 0 && type) {
@@ -57,11 +57,12 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
 class ProductListing extends React.Component {
 
     render() {
-        const { ids, type = "wide", isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = this.props
-    
-        const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth }
+        const { ids, type = "wide", isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = this.props;
+
+        const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth };
+
         return  <div>
-                    {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} rsponsiveStore={ResponsiveStore}/>)}
+                    {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} responsiveStore={ResponsiveStore}/>)}
                 </div>
     }
 
