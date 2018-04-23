@@ -82,6 +82,12 @@
   color: rgba(0, 0, 0, 0.801);
   box-shadow: inset 0 -5px 0 #FFD903;
 }
+#wc-showcase-root #wc_showcase_root nav.wcHorizontalNav ul.bt-navbar-nav > li.bt-nav-item a.bt-nav-link.active {
+  background-color: #d6edff;
+  color: rgba(0, 0, 0, 0.801);
+  box-shadow: inset 0 -5px 0 #FFD903;
+  background-color: transparent;
+}
 #wc-showcase-root #wc_showcase_root nav.wcHorizontalNav .bt-dropdown-menu {
   padding: 0;
 }
@@ -117,5 +123,11 @@
 }
 #wc-showcase-root #wc_showcase_root nav.wcHorizontalNav .wcDropdownSubMenu.show > .bt-dropdown-menu {
   display: block;
+}
+#wc-showcase-root #wc_showcase_root div.wcContainer.wcContainerSmallerVerticalNav nav.wcHorizontalNav:not(.notWrap) ul.bt-navbar-nav li.bt-dropdown-item {
+  white-space: normal;
+}
+#wc-showcase-root #wc_showcase_root div.wcContainer.wcContainerSmallerVerticalNav nav.wcHorizontalNav:not(.notWrap) ul.bt-navbar-nav li.bt-dropdown-item a.bt-nav-link {
+  line-height: 18.5px;
 }
 /* ***dev end: please add your styles above only!!!*** */

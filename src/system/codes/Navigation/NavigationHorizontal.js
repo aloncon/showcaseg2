@@ -16,23 +16,23 @@ const ABLE_SUB_MENUS = false;
  * `handleClose`
  */
 const HasOpenClose = Component => {
-  return class extends React.Component {
-    state = {
-      isOpen: false,
-    };
+   return class extends React.Component {
+      state = {
+         isOpen: false,
+      };
 
-    handleOpen = () => {
-      this.setState({ isOpen: true });
-    };
+      handleOpen = () => {
+         this.setState({ isOpen: true });
+      };
 
-    handleClose = () => {
-      this.setState({ isOpen: false });
-    };
+      handleClose = () => {
+         this.setState({ isOpen: false });
+      };
 
-    render() {
-      return <Component {...this.props} handleOpen={this.handleOpen} handleClose={this.handleClose} isOpen={this.state.isOpen} />;
-    }
-  };
+      render() {
+         return <Component {...this.props} handleOpen={this.handleOpen} handleClose={this.handleClose} isOpen={this.state.isOpen} />;
+      }
+   };
 };
 
 /**
@@ -44,24 +44,24 @@ const HasOpenClose = Component => {
  * When the Navigation's width is under 600px, this component won't be display.
  */
 const MoreButtonResponsive = HasOpenClose(({ routes, exclude, getPath, getChildren, limit, handleOpen, handleClose, isOpen }) => {
-  const moreStyle = {
-    display: 'block',
-  };
+   const moreStyle = {
+      display: 'block',
+   };
 
-  // function show(condition) {
-  //   return condition ? 'bt-show' : '';
-  // }
+   // function show(condition) {
+   //   return condition ? 'bt-show' : '';
+   // }
 
-  return (
-    <ul className="bt-navbar-nav bt-mr-auto bt-m-2 bt-mt-sm-0 wcMoreButtonResponsive" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
-      <li className={`bt-nav-item bt-dropdown${isOpen ? ' bt-show' : ''}`}>
-        <button className="bt-navbar-toggler bt-dropdown-toggle" style={moreStyle}>
-          More
-        </button>
-        <NestedItems routes={routes} exclude={exclude} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} isOpen={isOpen} />
-      </li>
-    </ul>
-  );
+   return (
+      <ul className="bt-navbar-nav bt-mr-auto bt-m-2 bt-mt-sm-0 wcMoreButtonResponsive" onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+         <li className={`bt-nav-item bt-dropdown${isOpen ? ' bt-show' : ''}`}>
+            <button className="bt-navbar-toggler bt-dropdown-toggle" style={moreStyle}>
+               More
+            </button>
+            <NestedItems routes={routes} exclude={exclude} getPath={getPath} getChildren={getChildren} hasMoreResponsiveButton={true} limit={limit} isOpen={isOpen} />
+         </li>
+      </ul>
+   );
 });
 
 /**
@@ -71,31 +71,31 @@ const MoreButtonResponsive = HasOpenClose(({ routes, exclude, getPath, getChildr
  * FIXME: Fix the no left padding for the sub-menus when the screen width is under 600px.
  */
 const SubMenu = HasOpenClose(
-  class extends React.Component {
-    render() {
-      const { route, children, linkTo, hasMoreResponsiveButton, handleOpen, handleClose, isOpen } = this.props;
-      let classes = '';
+   class extends React.Component {
+      render() {
+         const { route, children, linkTo, hasMoreResponsiveButton, handleOpen, handleClose, isOpen } = this.props;
+         let classes = '';
 
-      const show = isOpen ? ' bt-show ' : '';
+         const show = isOpen ? ' bt-show ' : '';
 
-      classes += route.parent !== '/' || hasMoreResponsiveButton ? 'wcDropdownSubMenu bt-dropdown-item ' : '';
-      classes += 'bt-dropdown bt-nav-item ';
-      classes += show;
+         classes += route.parent !== '/' || hasMoreResponsiveButton ? 'wcDropdownSubMenu bt-dropdown-item ' : '';
+         classes += 'bt-dropdown bt-nav-item ';
+         classes += show;
 
-      const ableSubMenu = children[0] && ABLE_SUB_MENUS;
+         const ableSubMenu = children[0] && ABLE_SUB_MENUS;
 
-      return (
-        <li key={route.id} className={classes} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
-          <NavLink className={`bt-nav-link ${ableSubMenu ? 'bt-dropdown-toggle' : ''}`} to={linkTo}>
-            {route.name}
-            {/* {route.parent === '/' && !hasMoreResponsiveButton && ' '} */}
-            {/* {route.parent === '/' && !hasMoreResponsiveButton && <b className="caret" />} */}
-          </NavLink>
-          {ableSubMenu && <ul className={`bt-dropdown-menu${show}`}>{children}</ul>}
-        </li>
-      );
-    }
-  },
+         return (
+            <li key={route.id} className={classes} onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+               <NavLink className={`bt-nav-link ${ableSubMenu ? 'bt-dropdown-toggle' : ''}`} to={linkTo}>
+                  {route.name}
+                  {/* {route.parent === '/' && !hasMoreResponsiveButton && ' '} */}
+                  {/* {route.parent === '/' && !hasMoreResponsiveButton && <b className="caret" />} */}
+               </NavLink>
+               {ableSubMenu && <ul className={`bt-dropdown-menu${show}`}>{children}</ul>}
+            </li>
+         );
+      }
+   }
 );
 
 /**
@@ -106,49 +106,49 @@ const SubMenu = HasOpenClose(
  * have only the remain routes.
  */
 class NestedItems extends React.Component {
-  constructor(props) {
-    super(props);
-    this.length = this.props.routes.length;
-  }
+   constructor(props) {
+      super(props);
+      this.length = this.props.routes.length;
+   }
 
-  renderSubMenu(routes) {
-    const { exclude, getPath, getChildren, hasMoreResponsiveButton, limit } = this.props;
+   renderSubMenu(routes) {
+      const { exclude, getPath, getChildren, hasMoreResponsiveButton, limit } = this.props;
 
-    const menuRoutes = routes.map((route, index) => {
-      if ((exclude && exclude(route.id)) || index >= limit) return null;
+      const menuRoutes = routes.map((route, index) => {
+         if ((exclude && exclude(route.id)) || index >= limit) return null;
 
-      const linkTo = getPath(route.id, route.parent);
-      const parent = route.id;
-      const isDropdownItem = route.parent === '/' ? false : true;
+         const linkTo = getPath(route.id, route.parent);
+         const parent = route.id;
+         const isDropdownItem = route.parent === '/' ? false : true;
 
-      route.children = getChildren(parent);
+         route.children = getChildren(parent);
 
-      if (route.children && route.children.length > 0) {
-        return <SubMenu key={route.id} route={route} children={this.renderSubMenu(route.children)} linkTo={linkTo} hasMoreResponsiveButton={hasMoreResponsiveButton} />;
-      }
+         if (route.children && route.children.length > 0) {
+            return <SubMenu key={route.id} route={route} children={this.renderSubMenu(route.children)} linkTo={linkTo} hasMoreResponsiveButton={hasMoreResponsiveButton} />;
+         }
 
-      return (
-        <li key={route.id} className={`bt-nav-item${isDropdownItem ? ' bt-dropdown-item' : ''}`}>
-          <NavLink className="bt-nav-link" to={linkTo}>
-            {route.name}
-          </NavLink>
-        </li>
-      );
-    });
+         return (
+            <li key={route.id} className={`bt-nav-item${isDropdownItem ? ' bt-dropdown-item' : ''}`}>
+               <NavLink className="bt-nav-link" to={linkTo}>
+                  {route.name}
+               </NavLink>
+            </li>
+         );
+      });
 
-    return menuRoutes;
-  }
+      return menuRoutes;
+   }
 
-  render() {
-    const excludedRoutes = this.exclude ? this.props.routes.filter(route => this.exclude(route.id)) : this.props.routes;
+   render() {
+      const excludedRoutes = this.exclude ? this.props.routes.filter(route => this.exclude(route.id)) : this.props.routes;
 
-    let routes = this.props.hasMoreResponsiveButton ? excludedRoutes.slice(this.props.limit * -1) : excludedRoutes;
+      let routes = this.props.hasMoreResponsiveButton ? excludedRoutes.slice(this.props.limit * -1) : excludedRoutes;
 
-    const dropDownClasses = `bt-dropdown-menu${this.props.isOpen ? ' bt-show' : ''}`;
-    const navClasses = 'bt-navbar-nav bt-mr-auto bt-pr-sm-0 bt-mt-sm-0';
+      const dropDownClasses = `bt-dropdown-menu${this.props.isOpen ? ' bt-show' : ''}`;
+      const navClasses = 'bt-navbar-nav bt-mr-auto bt-pr-sm-0 bt-mt-sm-0';
 
-    return <ul className={this.props.hasMoreResponsiveButton ? dropDownClasses : navClasses}>{this.renderSubMenu(routes).map(listItem => listItem)}</ul>;
-  }
+      return <ul className={this.props.hasMoreResponsiveButton ? dropDownClasses : navClasses}>{this.renderSubMenu(routes).map(listItem => listItem)}</ul>;
+   }
 }
 
 /**
@@ -160,31 +160,31 @@ class NestedItems extends React.Component {
  *
  */
 class MoreButtonCollapse extends React.Component {
-  constructor(props) {
-    super(props);
+   constructor(props) {
+      super(props);
 
-    this.state = {
-      clicked: false,
-    };
-    this.callback = this.props.callback;
-  }
+      this.state = {
+         clicked: false,
+      };
+      this.callback = this.props.callback;
+   }
 
-  handleClick = () => {
-    this.callback(!this.state.clicked);
+   handleClick = () => {
+      this.callback(!this.state.clicked);
 
-    this.setState({
-      clicked: !this.state.clicked,
-    });
-  };
+      this.setState({
+         clicked: !this.state.clicked,
+      });
+   };
 
-  render() {
-    return (
-      <button type="button" className="bt-navbar-toggler wcHamburgerToggler" onClick={this.handleClick}>
-        <span className="bt-sr-only">Toggle navigation</span>
-        <WcImg src={hamburgerSVGIcon} alt="Navigation Button"/>
-      </button>
-    );
-  }
+   render() {
+      return (
+         <button type="button" className="bt-navbar-toggler wcHamburgerToggler" onClick={this.handleClick}>
+            <span className="bt-sr-only">Toggle navigation</span>
+            <WcImg src={hamburgerSVGIcon} alt="Navigation Button" />
+         </button>
+      );
+   }
 }
 
 /**
@@ -212,100 +212,99 @@ class MoreButtonCollapse extends React.Component {
  * mediumDimensionsCustomValues
  * smallDimensionsCustomValues
  *
- * TODO: Don't show all the navigation items even in lg width if there is no room.
+ * TODO: Don't show all the navigation items even in lg width if there is no room. For now we have the `notWrap` className.
+ * In case there is a vertical navigation the text items in the horizontal navigation are wrap, unless its less then 6 nav items.
  */
 const NavigationHorizontal = observer(
-  class NavigationHorizontal extends React.Component {
-    constructor(props) {
-      super(props);
-      this.routesConfiguration = this.props.routesConfiguration;
-      //this.rootRoutes = this.props.routesConfiguration.getRootRoutes().filter(route => WcpcContent({ wc_section: route.id }));
-      this.rootRoutes = this.props.routesConfiguration.getRootRoutes();
+   class NavigationHorizontal extends React.Component {
+      constructor(props) {
+         super(props);
+         this.routesConfiguration = this.props.routesConfiguration;
+         //this.rootRoutes = this.props.routesConfiguration.getRootRoutes().filter(route => WcpcContent({ wc_section: route.id }));
+         this.rootRoutes = this.props.routesConfiguration.getRootRoutes();
 
-      this.state = {
-        collapse: false,
-      };
+         this.state = {
+            collapse: false,
+         };
 
-      this.values = {
-        containerSize: '',
-        countRoutes: this.rootRoutes.length,
-        countItemsNavItems: this.rootRoutes.length,
-        countItemsMoreButton: 0,
-      };
-    }
-
-    handleCountNavItems(containerSize) {
-      let count = this.values.countRoutes;
-
-      if (!ABLE_SUB_MENUS) return this.values.countRoutes;
-
-      if (containerSize === 'lg') {
-        count -= this.values.countRoutes / 4;
-      } else if (containerSize === 'md') {
-        count -= this.values.countRoutes / 3;
+         this.values = {
+            containerSize: '',
+            countRoutes: this.rootRoutes.length,
+            countItemsNavItems: this.rootRoutes.length,
+            countItemsMoreButton: 0,
+         };
       }
-      /*  if (containerSize === 'lg' && count > 7) {
+
+      handleCountNavItems(containerSize) {
+         let count = this.values.countRoutes;
+
+         if (!ABLE_SUB_MENUS) return this.values.countRoutes;
+
+         if (containerSize === 'lg') {
+            count -= this.values.countRoutes / 4;
+         } else if (containerSize === 'md') {
+            count -= this.values.countRoutes / 3;
+         }
+         /*  if (containerSize === 'lg' && count > 7) {
         count -= this.values.countRoutes / 4;
       } else if (containerSize === 'md' && count > 5) {
         count -= this.values.countRoutes / 3;
       } */
 
-      count = Math.floor(count);
+         count = Math.floor(count);
 
-      return count;
-    }
+         return count;
+      }
 
-    handleCountMoreButton(containerSize) {
-      if (containerSize === 'sm') return 0;
-      return this.values.countRoutes - this.handleCountNavItems(containerSize);
-    }
+      handleCountMoreButton(containerSize) {
+         if (containerSize === 'sm') return 0;
+         return this.values.countRoutes - this.handleCountNavItems(containerSize);
+      }
 
-    updateDimensions(containerSize) {
-      this.values.containerSize = containerSize;
-      this.values.countItemsNavItems = this.handleCountNavItems(containerSize);
-      this.values.countItemsMoreButton = this.handleCountMoreButton(containerSize);
-    }
+      updateDimensions(containerSize) {
+         this.values.containerSize = containerSize;
+         this.values.countItemsNavItems = this.handleCountNavItems(containerSize);
+         this.values.countItemsMoreButton = this.handleCountMoreButton(containerSize);
+      }
 
-    componentDidMount() {
-      this.updateDimensions(this.props.responsiveStore.mainSize);
-    }
+      componentDidMount() {
+         this.updateDimensions(this.props.responsiveStore.mainSize);
+      }
 
-    isCollapseCallback(condition) {
-      this.setState({ collapse: condition });
-    }
+      isCollapseCallback(condition) {
+         this.setState({ collapse: condition });
+      }
 
-    render() {
-      this.updateDimensions(this.props.responsiveStore.wcContainerSize);
+      render() {
+         this.updateDimensions(this.props.responsiveStore.wcContainerSize);
 
-      return (
-        this.rootRoutes.length > 0 ?
-          <nav className="wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light">
-            <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
-            <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>
-              <NestedItems
-                routes={this.rootRoutes}
-                exclude={this.routesConfiguration.routesExcludeTest}
-                getPath={this.routesConfiguration.getPath}
-                getChildren={this.routesConfiguration.getChildren}
-                limit={this.values.countItemsNavItems}
-              />
-            </div>
-            {ABLE_SUB_MENUS &&
-              this.values.countItemsMoreButton !== 0 && (
-                <MoreButtonResponsive
-                  routes={this.rootRoutes}
-                  exclude={this.routesConfiguration.routesExcludeTest}
-                  getPath={this.routesConfiguration.getPath}
-                  getChildren={this.routesConfiguration.getChildren}
-                  limit={this.values.countItemsMoreButton}
-                />
-              )}
-            <div className="wcClear" />
-          </nav>
-        : null
-      );
-    }
-  },
+         return this.rootRoutes.length > 0 ? (
+            <nav className={`wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light${this.values.countRoutes < 6 ? ' notWrap' : ''}`}>
+               <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
+               <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>
+                  <NestedItems
+                     routes={this.rootRoutes}
+                     exclude={this.routesConfiguration.routesExcludeTest}
+                     getPath={this.routesConfiguration.getPath}
+                     getChildren={this.routesConfiguration.getChildren}
+                     limit={this.values.countItemsNavItems}
+                  />
+               </div>
+               {ABLE_SUB_MENUS &&
+                  this.values.countItemsMoreButton !== 0 && (
+                     <MoreButtonResponsive
+                        routes={this.rootRoutes}
+                        exclude={this.routesConfiguration.routesExcludeTest}
+                        getPath={this.routesConfiguration.getPath}
+                        getChildren={this.routesConfiguration.getChildren}
+                        limit={this.values.countItemsMoreButton}
+                     />
+                  )}
+               <div className="wcClear" />
+            </nav>
+         ) : null;
+      }
+   }
 );
 
 export default NavigationHorizontal;
