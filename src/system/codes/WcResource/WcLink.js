@@ -26,7 +26,7 @@ import '../../style/wcLink.css';
  * @param {object} props All the regular `<a>` attribute, like: _href_, _alt_, _className_, _onClick_ etc.
  */
 const WcLink = ({ WcOpenAs, ...props }) => {
-   const href = absolutizeSrc(props.href);
+   const absolutizeHref = absolutizeSrc(props.href);
    const type = (WcOpenAs && WcOpenAs.type) || (typeof(WcOpenAs) === 'string' && WcOpenAs) || '_blank';
    const height = (WcOpenAs && WcOpenAs.WcHeight) || '600';
    const width = (WcOpenAs && WcOpenAs.WcWidth) || '600';
@@ -38,11 +38,14 @@ const WcLink = ({ WcOpenAs, ...props }) => {
          if (onClickFunc) {
             onClickFunc();
          }
-         window.open(href, '_blank', `height=${height},width=${width}`);
+         window.open(absolutizeHref, '_blank', `height=${height},width=${width}`);
       };
    } else {
       props.target = type;
    }
+
+   // replace the local href to absolutize
+   props.href = absolutizeHref;
 
    // delete un-html attributes
    delete props.WcOpenAs;
