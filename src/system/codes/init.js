@@ -41,7 +41,7 @@ function getSiteIdFromScriptSrc(script){
         // site = 'staples';
         // site = 'allassortment';
     }
-
+   
     return site;
 }
 
@@ -54,7 +54,7 @@ function getModuleIdFromScriptSrc(script){
 }
 let script = getScriptURL();
 let environmentId = 'dev';
-let srcBase = getSrcBase(script);
+let srcBase = getSrcBase(script);    
 
 
 export default function getModuleInfo () {
@@ -63,7 +63,7 @@ export default function getModuleInfo () {
     let module;
 
     let webcollageObj = window.WebcollageShowcase;
-
+    
     if(typeof webcollageObj !== 'undefined'){
         console.log("object from site page : " + webcollageObj);
         site = webcollageObj.partnerId;
@@ -75,17 +75,17 @@ export default function getModuleInfo () {
         site   = getSiteIdFromScriptSrc(script);
         module = getModuleIdFromScriptSrc(script);
     }
-
+   
     // const siteMosaic = allproducts() ? "generic" : site
 
     //Call Mosica (Product listing)
-    window.Webcollage.loadProductContentForProductListing( site,
-                                                            {containerSelector : ".wcMosaic",
+    window.Webcollage.loadProductContentForProductListing( site, 
+                                                            {containerSelector : ".wcMosaic",  
                                                             layout : "hero-ribbon",
                                                             buttonType : "hidden",
                                                             // menuOrientation :"top-to-bottom",
-                                                            buttonPosition : "left-top",
-                                                            cpiAttribute : "data-cpi" })
+                                                            buttonPosition : "left-top", 
+                                                            cpiAttribute : "data-cpi" }) 
 
     console.log("default: module- " + module + " &&site- " + site);
 

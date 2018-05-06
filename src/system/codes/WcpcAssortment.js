@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import {observer}  from 'mobx-react';
-import ListingStore, { ShouldDisplayStore } from '../../store/ProductData'
+import ListingStore, { ShouldDisplayStore } from '../../store/ProductData';
 
 
 

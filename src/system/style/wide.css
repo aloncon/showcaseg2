@@ -43,6 +43,10 @@
   text-decoration: none;
   color: black;
 }
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc h4.wcOnlyTitle,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4.wcOnlyTitle {
+  margin: 0;
+}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton {
   width: 15%;

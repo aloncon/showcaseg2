@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ActionLink from '../ActionLink';
 import WcImg from '../WcResource/WcImg';
 import { NormalizeListDescription } from '../NormalizeListDescription';
@@ -41,9 +41,9 @@ const WideListProduct = ({ product }) => {
 };
 
 const WideListFamilyProduct = ({ product }) => {
-   return (
-      <Fragment>
-         {product.cpi.map((childProduct, childProductIndex) => (
+   const { vendorCleanProductName } = product;
+
+   return product.cpi.map((childProduct, childProductIndex) => (
             <div key={childProductIndex} className="wcWideProduct">
                <div className="bt-row">
                   <div className="wcMosaicWideList ">
@@ -52,17 +52,21 @@ const WideListFamilyProduct = ({ product }) => {
                </div>
                <div className="bt-row">
                   <div className="wcWideListDesc">
-                     <h4>
-                        <ActionLink cpi={childProduct.cpi} type="p2b">
+               <h4 className="wcOnlyTitle">
+                  {childProductIndex === 0 ? (
+                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                        {vendorCleanProductName}
+                     </ActionLink>
+                  ) : (
+                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
                            {childProduct.channelProductName}
                         </ActionLink>
+                  )}
                      </h4>
                   </div>
                </div>
             </div>
-         ))}
-      </Fragment>
-   );
+   ));
 };
 
 class WideList extends React.Component {

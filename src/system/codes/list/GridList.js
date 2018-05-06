@@ -61,13 +61,13 @@ const allPopovers = new AllPopover();
 const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
     let isOpen = store && store.isOpen
     let classIsOpen = isOpen ? "wcOpenPopover" : "wcClosePopover"
-    return store ? 
+    return store ?
     <div>
         <button type="button" className="bt-btn bt-btn-primary bt-btn-sm" onClick={() => { allPopovers.openPop(index) }}>See more</button>
         <div className={classIsOpen}>
             <WcImg src={require("../../resources/icons/svg/icon-close_.svg")}
                 onClick={() => { allPopovers.openPop(index) }}
-                className="wcCloseButtonPopover" 
+                className="wcCloseButtonPopover"
                 alt="Grid Button"
                 />
             <div><h3>{title}</h3></div>
@@ -78,50 +78,94 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
 
 })
 
+const GridListProduct = ({ product, caption }) => {
+    return (
+       <div className="wc-card">
+          <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
+             <div className="wc-card-img-top wc-img-fluid">
+                {product.listImage === undefined ? <WcImg src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
+             </div>
+          </ActionLink>
 
+          <div className="wcMosaicGrid">
+             <div className="wcMosaic" data-cpi={product.cpi} />
+          </div>
 
-class GridList extends React.Component {
-
-
-    render() {
-        const { caption , data } = this.props;
-        
-        return (
-            <div  className="wcGridList">
-                {data.map((item, i) =>
-                    <div key={i} className="wc-card">
-                            <ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>
-                                <div className="wc-card-img-top wc-img-fluid">
-                                    {item.listImage === undefined ?
-                                        <WcImg src={placeholderPic} alt={item.vendorProductName} />
-                                        : <WcImg src={"/static/" + item.listImage} alt={item.vendorProductName} />
-                                    }
-                                </div>
-                            </ActionLink> 
-                           
-                            <div className="wcMosaicGrid">
-                                <div className="wcMosaic" data-cpi={item.cpi}/>
-                            </div>
-
-                            <div className="wc-card-block">
-                                <h4 className="wc-card-title"><ActionLink wcpc={item.wcpc} type="p2b" unlink={true}>{item.vendorProductName}</ActionLink></h4>
-                                <div className="wcGridCardFooter">
-                                    {item.listDescription && <ObservPopover store={allPopovers.getPop(item.wcpc + caption)}
-                                        index={item.wcpc + caption}
-                                        wcpc={item.wcpc}
-                                        title={item.vendorProductName}
-                                        text={item.listDescription} />}
-
-                                    <ActionLink wcpc={item.wcpc} type="p2b">Procced to buy</ActionLink>
-                                </div>
-                                <div className="wcClear" />
-                            </div>
-                        </div>
+          <div className="wc-card-block">
+             <h4 className="wc-card-title">
+                <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
+                   {product.vendorProductName}
+                </ActionLink>
+             </h4>
+             <div className="wcGridCardFooter">
+                {product.listDescription && (
+                   <ObservPopover
+                      store={allPopovers.getPop(product.wcpc + caption)}
+                      index={product.wcpc + caption}
+                      wcpc={product.wcpc}
+                      title={product.vendorProductName}
+                      text={product.listDescription}
+                   />
                 )}
-                <div className="wcClear" />
-            </div>
-        )
+
+                <ActionLink wcpc={product.wcpc} type="p2b">
+                   Proceed to buy
+                </ActionLink>
+             </div>
+             <div className="wcClear" />
+          </div>
+       </div>
+    );
+ };
+
+ const GridListFamilyProduct = ({ product }) => {
+    const { vendorCleanProductName } = product;
+
+    return product.cpi.map((childProduct, childProductIndex) => (
+       <div key={childProductIndex} className="wc-card">
+          <div className="wcMosaicGrid">
+             <div className="wcMosaic" data-cpi={childProduct.cpi} />
+          </div>
+          <div className="wc-card-block">
+             <h4 className="wc-card-title">
+                {childProductIndex === 0 ? (
+                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                     {vendorCleanProductName}
+                  </ActionLink>
+                  ) : (
+                    <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                    {childProduct.channelProductName}
+                 </ActionLink>
+                  )}
+             </h4>
+             <div className="wcGridCardFooter">
+                <ActionLink cpi={childProduct.cpi} type="p2b">
+                   Proceed to buy
+                </ActionLink>
+             </div>
+             <div className="wcClear" />
+          </div>
+       </div>
+    ));
+ };
+ class GridList extends React.Component {
+    render() {
+       const { caption, data } = this.props;
+
+       return (
+          <div className="wcGridList">
+             {data.map((item, i) => {
+                // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
+                if (typeof item.cpi === 'string' || item.cpi === 0) {
+                   return <GridListProduct key={i} product={item} caption={caption} />;
+                } else {
+                   return <GridListFamilyProduct key={i} product={item} caption={caption} />;
+                }
+             })}
+             <div className="wcClear" />
+          </div>
+       );
     }
-}
+ }
 
 export default GridList;

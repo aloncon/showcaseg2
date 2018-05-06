@@ -24,31 +24,29 @@ const reBuild = (expArray) => {
 
 export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitObj , wc_remove}) => {
     if(wc_entryObj){
-        return partnerDef.Properties[wc_entryObj]
+        return partnerDef.Properties[wc_entryObj];
     }
     else if(wc_exitObj){
-        return partnerDef.Exit_Points[wc_exitObj]
+        return partnerDef.Exit_Points[wc_exitObj];
     }
     else{
-        let content  = (ids) ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children
+        let content  = (ids) ? <WcpcAssortment ids={ids}> {children} </WcpcAssortment> : children;
         let section  = wc_section ? eval(reBuild(wc_section)): undefined;
 
-
-
         if(section === undefined && content){
-            return content
+            return content;
         }
 
         if((section || wc_property) && content){
-            return <React.Fragment>{content}</React.Fragment>
+            return <React.Fragment>{content}</React.Fragment>;
         }
 
         if(wc_property !== "" && ((section && wc_property) || (!wc_section && wc_property))){
-            return (<span>{partnerDef.Properties[wc_property]}</span>)
+            return (<span>{partnerDef.Properties[wc_property]}</span>);
         }
 
         if(section){
-            return section
+            return section;
         }
 
         else{
