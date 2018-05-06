@@ -12,6 +12,7 @@ node_modules
 build/static/css/*
 build/static/js/*
 !build/static/css/main.css
+!build/static/css/public.css
 !build/static/css/main.inner.css
 !build/static/js/bundle.js
 DELETE
