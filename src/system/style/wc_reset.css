@@ -1,7 +1,7 @@
 
 /*** ALL */
 
-  
+
   #wc-reset,
   #wc-reset table,
   #wc-reset tr,
@@ -51,39 +51,45 @@
   #wc-reset s {
       text-decoration: line-through;
     }
-    
+
     /*** HEADINGS */
   #wc-reset h1, #wc-reset h1 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 32px;
       font-weight: bold;
+      text-transform: initial;
     }
   #wc-reset h2, #wc-reset h2 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 24px;
       font-weight: bold;
+      text-transform: initial;
     }
   #wc-reset h3, #wc-reset h3 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 18px;
       font-weight: bold;
+      text-transform: initial;
     }
   #wc-reset h4, #wc-reset h4 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 16px;
       font-weight: bold;
+      text-transform: initial;
     }
   #wc-reset h5, #wc-reset h5 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 13px;
       font-weight: bold;
+      text-transform: initial;
     }
   #wc-reset h6, #wc-reset h6 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 10px;
       font-weight: bold;
+      text-transform: initial;
     }
-    
+
     /*** LINKS */
   #wc-reset a:link, #wc-reset a:link * {
       text-decoration: underline;
@@ -93,7 +99,7 @@
       text-decoration: underline;
       color: rgb(85,26,139);
     }
-    
+
   #wc-reset a:active, #wc-reset a:active * {
       text-decoration: underline;
     }
@@ -103,7 +109,7 @@
   #wc-reset a.wc-image-link:link, #wc-reset a.wc-image-link:visited, #wc-reset a.wc-image-link:active, #wc-reset a.wc-image-link:hover {
       text-decoration: none;
     }
-    
+
     /*** INLINES */
   #wc-reset i, #wc-reset i *, #wc-reset em, #wc-reset em * {
       font-style: italic;
@@ -125,12 +131,12 @@
       vertical-align: sub;
       font-size: 70%;
     }
-    
+
     /*** BLOCKS */
   #wc-reset pre, #wc-reset pre * {
       font-family: monospace;
     }
-    
+
     /*** LISTS */
   #wc-reset ul li {
       margin-left: 0;
@@ -161,12 +167,12 @@
       font-size: 12px;
       margin: 0;
     }
-    
+
     /*** FORM */
   #wc-reset fieldset {
       padding: 0.35em 0.625em 0.75em 0.625em;
     }
-    
+
   #wc-reset center,
   #wc-reset center *
     {
@@ -174,4 +180,9 @@
       text-align: -moz-center;
       _text-align: center;
     }
-    
+
+  #wc-reset button {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }

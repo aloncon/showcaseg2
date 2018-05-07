@@ -7,6 +7,10 @@
   padding-top: 0.5%;
   padding-bottom: 0.5%;
 }
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .bt-row,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .bt-row {
+  line-height: 12px;
+}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcMosaicWideList,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcMosaicWideList {
   margin-top: 0.5%;
@@ -46,6 +50,8 @@
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc h4.wcOnlyTitle,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4.wcOnlyTitle {
   margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton {
