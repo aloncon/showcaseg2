@@ -8,17 +8,16 @@
   bottom: 0;
   height: 100%;
   width: 100%;
-  z-index: 101;
+  z-index: 1000;
 }
 #wc-showcase-root #video-view .wcOverlay {
   background: rgba(51, 51, 51, 0.7);
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 8;
 }
 #wc-showcase-root #video-view .wcOverlayVideo {
-  z-index: 101;
+  z-index: 1000;
   position: fixed;
   top: 20%;
   right: 0;
@@ -30,7 +29,7 @@
   max-width: 700px;
 }
 #wc-showcase-root #video-view .wcOverlayVideo .wcCloseVideo {
-  z-index: 110;
+  z-index: 1;
   position: absolute;
   right: -15px;
   top: -15px;

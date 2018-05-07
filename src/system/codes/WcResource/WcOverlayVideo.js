@@ -35,7 +35,7 @@ function HideOverlay(videoId) {
    bodyElem.style.paddingRight = '0';
 }
 
-const normalizeIdName = name => `${name.charAt(0).toLocaleUpperCase()}${name.substr(1).toLocaleLowerCase()}`;
+const normalizeIdName = name => `${name.charAt(0).toLocaleUpperCase()}${name.substr(1)}`;
 
 /**
  *
