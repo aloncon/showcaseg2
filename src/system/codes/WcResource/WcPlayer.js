@@ -1,6 +1,7 @@
 import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
 import "../../../../node_modules/video-react/dist/video-react.css";
+import '../../style/wcPlayer.css';
 import { Player } from 'video-react';
 
 const WcPlayer = ({ ...props}) => {

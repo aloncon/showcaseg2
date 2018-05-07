@@ -1,7 +1,12 @@
 /* ***dev start: please add your styles bellow only!!!*** */
-#wc-showcase-root{
-#video-view {
-      display:none;
+#wc-showcase-root {
+
+  @z-index-container-top: 101;
+  @z-index-overlay: 8;
+  @z-index-close-video: 110;
+
+   #video-view {
+      display: none;
       position: fixed;
       top: 0;
       right: 0;
@@ -9,28 +14,29 @@
       bottom: 0;
       height: 100%;
       width: 100%;
-    
+      z-index: @z-index-container-top;
+
       .wcOverlay {
-        background:rgba(51, 51, 51, 0.7);
-        position: absolute;
-        height:100%;
-        width:100%;
-        z-index:8;
+         background: rgba(51, 51, 51, 0.7);
+         position: absolute;
+         height: 100%;
+         width: 100%;
+         z-index: @z-index-overlay;
       }
       .wcOverlayVideo {
-        z-index: 101;
-        position: fixed;
-        top:20%;
-        right:0;
-        left:0;
-        bottom:0;
-        text-align: center;
-        margin: 0 auto;
-        width: 94%;
-        max-width: 700px;
-      
-            .wcCloseVideo {
-            z-index: 110;
+         z-index: @z-index-container-top;
+         position: fixed;
+         top: 20%;
+         right: 0;
+         left: 0;
+         bottom: 0;
+         text-align: center;
+         margin: 0 auto;
+         width: 94%;
+         max-width: 700px;
+
+         .wcCloseVideo {
+            z-index: @z-index-close-video;
             position: absolute;
             right: -15px;
             top: -15px;
@@ -40,15 +46,15 @@
             background: black;
             border-radius: 50%;
             border: 2px solid white;
-            
-            img{
-                margin: 4px;
+
+            img {
+               margin: 4px;
             }
-            }
-            .wcCloseVideo:hover {
+         }
+         .wcCloseVideo:hover {
             border: 2px solid #ddd;
-            }
+         }
       }
-    }
+   }
 }
 /* ***dev end: please add your styles above only!!!*** */

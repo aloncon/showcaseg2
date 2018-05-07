@@ -10,23 +10,32 @@ import ClosingBut from '../../resources/icons/svg/icon-close-white_.svg';
 
 var bodyElem = document.getElementsByTagName('body')[0];
 
-function ShowOverlay() {
-   document.querySelector('.wcOverlayVideo video').load();
-   document.getElementById('video-view').style.display = 'block';
+function ShowOverlay(videoId) {
+   document.querySelector(`#wc-showcase-root #${videoId} .wcOverlayVideo video`).load();
+   document.querySelector(`#wc-showcase-root #${videoId} #video-view`).style.display = 'block';
 
    //calculate scrollbar size
    var previousWidth = bodyElem.offsetWidth;
    bodyElem.style.overflow = 'hidden';
    var scrollBarWidth = bodyElem.offsetWidth - previousWidth;
    bodyElem.style.paddingRight = scrollBarWidth + 'px';
+
+   //start the video
+   setTimeout(() => {
+      const bt = document.querySelector(`#wc-showcase-root #${videoId} .video-react-big-play-button`);
+      bt.click();
+      bt.classList.add('big-play-button-hide');
+   }, 300);
 }
 
-function HideOverlay() {
-   document.querySelector('.wcOverlayVideo video').pause();
-   document.getElementById('video-view').style.display = 'none';
+function HideOverlay(videoId) {
+   document.querySelector(`#wc-showcase-root #${videoId} .wcOverlayVideo video`).pause();
+   document.querySelector(`#wc-showcase-root #${videoId} #video-view`).style.display = 'none';
    bodyElem.style.overflow = 'auto';
    bodyElem.style.paddingRight = '0';
 }
+
+const normalizeIdName = name => `${name.charAt(0).toLocaleUpperCase()}${name.substr(1).toLocaleLowerCase()}`;
 
 /**
  *
@@ -41,6 +50,8 @@ function HideOverlay() {
 const WcOverlayVideo = ({ wrapContentOptions, ...props }) => {
    props.src = absolutizeSrc(props.src);
 
+   const wcOverlayContainerId = `wcOverlayVideoContainer${normalizeIdName(wrapContentOptions.id)}`;
+
    if (!wrapContentOptions) {
       console.error('The prop: wrapContentOptions, is undefined. You have to pass it to WcOverlayVideo');
    }
@@ -53,31 +64,31 @@ const WcOverlayVideo = ({ wrapContentOptions, ...props }) => {
 
    if (wrapContentOptions.tag === 'a') {
       WrapContent = () => (
-         <a href="javascript:void(0)" onClick={() => ShowOverlay()}>
+         <a id={wrapContentOptions.id} href="javascript:void(0)" onClick={() => ShowOverlay(wcOverlayContainerId)}>
             {wrapContentOptions.value}
          </a>
       );
    } else if (wrapContentOptions.tag === 'div') {
       WrapContent = () => (
-         <div id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay()} style={style}>
+         <div id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay(wcOverlayContainerId)} style={style}>
             {wrapContentOptions.value}
          </div>
       );
    } else {
       WrapContent = () => (
-         <span id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay()} style={style}>
+         <span id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay(wcOverlayContainerId)} style={style}>
             {wrapContentOptions.value}
          </span>
       );
    }
 
    return (
-      <div style={{ display: 'inline' }}>
+      <div style={{ display: 'inline' }} id={wcOverlayContainerId}>
          <WrapContent />
          <div id="video-view">
             <div className="wcOverlay" />
             <div className="wcOverlayVideo">
-               <div className="wcCloseVideo" onClick={() => HideOverlay()}>
+               <div className="wcCloseVideo" onClick={() => HideOverlay(wcOverlayContainerId)}>
                   <WcImg src={ClosingBut} />
                </div>
                <Player {...props}>
