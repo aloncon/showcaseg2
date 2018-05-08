@@ -22,7 +22,6 @@ class In2EcosystemHeader extends React.Component{
                         <p className="description">A demo for overlay video and pop up window</p>
                         <WcOverlayVideo src={videoTest}
                                         playsInline
-                                        autoPlay={false}
                                         wrapContentOptions ={{
                                           id: "btn-video-play",
                                           className: "btn",

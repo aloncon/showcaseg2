@@ -1,8 +1,8 @@
 import React from 'react';
-import GenerateBodyContent from '../../system/codes/GenerateBodyContent';
+import GenerateNavigationContent from '../../system/codes/GenerateNavigationContent';
 
 /**
- * Local Module GenerateBodyContent
+ * Local Module GenerateNavigationContent
  *
  * In order to change the navigation/breadcrumbs or the routes, you needed to change the configuration.js in the custom content.
  *
@@ -16,8 +16,8 @@ import GenerateBodyContent from '../../system/codes/GenerateBodyContent';
  *
  * For more information, please look in the component itself.
  */
-const ModuleGenerateBodyContent = () => (
-  <GenerateBodyContent options={{displayRootNameAsHome: true, addHorizontalRule: true}} />
+const ModuleGenerateNavigationContent = () => (
+  <GenerateNavigationContent options={{displayRootNameAsHome: true, addHorizontalRule: false}} />
 )
 
-export default ModuleGenerateBodyContent;
+export default ModuleGenerateNavigationContent;

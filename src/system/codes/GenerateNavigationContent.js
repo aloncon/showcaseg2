@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import RoutesGenerate from './routesGenerate';
 import { NavigationHorizontal } from './Navigation';
 import Breadcrumbs from './breadcrumbs';
 import configuration from './configuration';
@@ -12,7 +11,7 @@ const { staticRoutes } = configuration;
 /**
  * Component that hold the three components:
  *
- * Navigation, Breadcrumbs and RoutesGenerate
+ * Navigation, Breadcrumbs and GenerateRoutes
  *
  * props::
  *
@@ -21,7 +20,7 @@ const { staticRoutes } = configuration;
  * options (OPTIONAL):: Options for the Breadcrumbs component. Holds displayRootNameAsHome, isDisplayBreadcrumbRoot and customRender.
  *
  */
-const GenerateBodyContent = ({ options, location }) => (
+const GenerateNavigationContent = ({ options, location }) => (
    <div>
       <ShouldDisplay wc_section="wc_navigation_horizontal">
          <NavigationHorizontal routesConfiguration={staticRoutes} responsiveStore={ResponsiveStore} location={location}/>
@@ -29,8 +28,7 @@ const GenerateBodyContent = ({ options, location }) => (
       <ShouldDisplay wc_section="wc_bread_crumbs">
          <Breadcrumbs landingpageRouteID={staticRoutes.getLandingpageRouteID()} config={staticRoutes.getRoutes()} options={options} getPath={staticRoutes.getPath} />
       </ShouldDisplay>
-      <RoutesGenerate landingpageRouteID={staticRoutes.getLandingpageRouteID()} config={staticRoutes.getRoutes()} getPath={staticRoutes.getPath} />
    </div>
 );
 
-export default withRouter(GenerateBodyContent);
+export default withRouter(GenerateNavigationContent);

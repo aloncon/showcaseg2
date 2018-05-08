@@ -11,8 +11,9 @@ import 'babel-polyfill';
 import ShowcaseHeader from './custom_content/modules/showcase-header';
 import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
-import ModuleGenerateBodyContent from './custom_content/modules/moduleGenerateBodyContent';
+import ModuleGenerateNavigationContent from './custom_content/modules/moduleGenerateNavigationContent';
 import MainContainer from './system/codes/MainContainer';
+import GenerateRoutes from './system/codes/GenerateRoutes';
 import WcShowcase from '../src/system/codes/moduleInfo';
 import { WcCssLink } from './system/codes/WcResource';
 
@@ -51,7 +52,8 @@ const MainComp = observer(({  rootResponsiveStore }) => {
             <div   id="wc-reset">
               {WcShowcase.isStandalone && <StandAlone />}
               <ShowcaseHeader />
-              <ModuleGenerateBodyContent />
+              <ModuleGenerateNavigationContent />
+              <GenerateRoutes />
               <hr />
               <ShowcaseFooter />
               </div>

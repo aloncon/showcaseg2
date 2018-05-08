@@ -10,7 +10,7 @@ import ClosingBut from '../../resources/icons/svg/icon-close-white_.svg';
 
 var bodyElem = document.getElementsByTagName('body')[0];
 
-function ShowOverlay(videoId) {
+function ShowOverlay(videoId, autoPlay) {
    document.querySelector(`#wc-showcase-root #${videoId} .wcOverlayVideo video`).load();
    document.querySelector(`#wc-showcase-root #${videoId} #video-view`).style.display = 'block';
 
@@ -21,7 +21,7 @@ function ShowOverlay(videoId) {
    bodyElem.style.paddingRight = scrollBarWidth + 'px';
 
    //start the video
-   setTimeout(() => {
+   autoPlay && setTimeout(() => {
       const bt = document.querySelector(`#wc-showcase-root #${videoId} .video-react-big-play-button`);
       bt.click();
       bt.classList.add('big-play-button-hide');
@@ -40,6 +40,9 @@ const normalizeIdName = name => `${name.charAt(0).toLocaleUpperCase()}${name.sub
 /**
  *
  * @param {object} props All the `WcPlayer` props.
+ *
+ * **!! Note** that if the prop _`autoPlay`_ isn't set, the _`autoPlay`_ for _`WcOverlayVideo`_ will set to **true**.
+ *
  * @param {object} wrapContentOptions (*MUST HAVE*)
  * * **id** - The id of the specific wrap element video overlay.
  * * **className** - The className of the all wrap elements video overlay in the component.
@@ -49,6 +52,10 @@ const normalizeIdName = name => `${name.charAt(0).toLocaleUpperCase()}${name.sub
  */
 const WcOverlayVideo = ({ wrapContentOptions, ...props }) => {
    props.src = absolutizeSrc(props.src);
+
+   // set the autoPlay for the OverlayVideo, also removed from the props so the video won't autoplay before the user click the video.
+   const autoPlay  = (  props.autoPlay === undefined ||  props.autoPlay ) ? true : false;
+   delete props.autoPlay;
 
    const wcOverlayContainerId = `wcOverlayVideoContainer${normalizeIdName(wrapContentOptions.id)}`;
 
@@ -64,19 +71,19 @@ const WcOverlayVideo = ({ wrapContentOptions, ...props }) => {
 
    if (wrapContentOptions.tag === 'a') {
       WrapContent = () => (
-         <a id={wrapContentOptions.id} href="javascript:void(0)" onClick={() => ShowOverlay(wcOverlayContainerId)}>
+         <a id={wrapContentOptions.id} href="javascript:void(0)" onClick={() => ShowOverlay(wcOverlayContainerId, autoPlay)}>
             {wrapContentOptions.value}
          </a>
       );
    } else if (wrapContentOptions.tag === 'div') {
       WrapContent = () => (
-         <div id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay(wcOverlayContainerId)} style={style}>
+         <div id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay(wcOverlayContainerId, autoPlay)} style={style}>
             {wrapContentOptions.value}
          </div>
       );
    } else {
       WrapContent = () => (
-         <span id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay(wcOverlayContainerId)} style={style}>
+         <span id={wrapContentOptions.id} className={wrapContentOptions.className} onClick={() => ShowOverlay(wcOverlayContainerId, autoPlay)} style={style}>
             {wrapContentOptions.value}
          </span>
       );
