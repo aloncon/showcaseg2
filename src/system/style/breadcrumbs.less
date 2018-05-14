@@ -1,0 +1,42 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+
+// ~~~~~ Change these default values per module
+@text-color: #777;
+@divider-content: '/ ';
+@divider-color: #cccccc;
+@current-breadcrumb-color: #333;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#wc-showcase-root {
+   div.wcBreadcrumbs {
+      margin-bottom: 10px;
+      ul {
+         padding: 15px 0 0 15px;
+         list-style: none;
+         margin: 0;
+         > li {
+            a {
+               text-decoration: none;
+               color: @text-color;
+               &:hover {
+                  text-decoration: underline;
+               }
+            }
+            display: inline-block;
+            + li {
+               &:before {
+                  content: @divider-content;
+                  padding: 0 5px;
+                  color: @divider-color;
+               }
+            }
+            &:last-child {
+               color: @current-breadcrumb-color;
+            }
+         }
+      }
+      hr.breadcrumbHr {
+         border: 0.5px solid #333;
+      }
+   }
+}
+/* ***dev end: please add your styles above only!!!*** */

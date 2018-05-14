@@ -1,0 +1,62 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root{
+	@logo-height: 60px;
+	@logo-margin: 5px;
+	@background: white;
+	@header-color: black;
+	.wcHeader {
+		display: -ms-flexbox;
+		display: flex;
+		margin-bottom: 1px;
+		background: @background;
+		height: @logo-height + @logo-margin;
+
+		.wcHeaderTitle {
+			width: 50%;
+			text-align: left;
+
+			h1 {
+				color: @header-color;
+				line-height: @logo-height + @logo-margin;
+				padding-left: 10px;
+				margin: 0 auto;
+				//font-size: 2em;
+			}
+		}
+		.wcHeaderLogo {
+			height: @logo-height + @logo-margin;
+			width: 50%;
+			text-align: right;
+			img{
+				height: 100%;
+			}
+		}
+	}
+
+	.app-size-sm{
+		.wcHeader{
+			.wcHeaderTitle{
+
+			}
+		}
+	}
+
+	.app-size-xs{
+		.wcHeader {
+			display: block;
+			height: auto;
+			.wcHeaderTitle {
+				width: 100%;
+				text-align: center;
+				h1{
+					font-size: 1rem;
+				}
+			}
+			.wcHeaderLogo {
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+}
+/* ***dev end: please add your styles above only!!!*** */

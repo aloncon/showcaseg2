@@ -1,0 +1,35 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+/*!!!This file is for overriding the existing-default css*/
+#wc-showcase-root{
+	@logo-height: 65px;
+	@logo-margin:3px;
+	@background: #032C84 url(http://www.test.avery.webcollage.net/wcdevres/_wc/images/avery_logo_filler_bg.jpg) repeat-x top center;
+	@header-color: white;
+.wcHeader{
+    height: @logo-height + @logo-margin;
+    background: @background;
+    .wcHeaderTitle{
+
+
+        h1{
+            color: @header-color;
+        }
+    }
+    .wcHeaderLogo{
+         img {
+         }
+    }
+}
+
+.app-size-xs{
+    .wcHeader{
+
+        .wcHeaderTitle{
+            h1{
+
+            }
+        }
+    }
+}
+}
+   /* ***dev end: please add your styles above only!!!*** */

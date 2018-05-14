@@ -8,7 +8,15 @@ node_modules
 
 # production
 #/build
-/public
+#public
+build/static/css/*
+build/static/js/*
+!build/static/css/main.css
+!build/static/css/public.css
+!build/static/css/main.inner.css
+!build/static/js/bundle.js
+DELETE
+
 
 # misc
 .DS_Store
@@ -54,5 +62,7 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+*.delete
 *react*min*.js
 !src/node_modules
+.history

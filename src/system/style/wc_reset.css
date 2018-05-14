@@ -1,0 +1,188 @@
+
+/*** ALL */
+
+
+  #wc-reset,
+  #wc-reset table,
+  #wc-reset tr,
+  #wc-reset td,
+  #wc-reset th,
+  #wc-reset tfoot,
+  #wc-reset thead,
+  #wc-reset caption,
+  #wc-reset h1, #wc-reset h2, #wc-reset h3, #wc-reset h4, #wc-reset h5, #wc-reset h6,
+  #wc-reset ul,
+  #wc-reset ol,
+  #wc-reset li,
+  #wc-reset dl,
+  #wc-reset dt,
+  #wc-reset dd,
+  #wc-reset form,
+  #wc-reset div,
+  #wc-reset blockquote,
+  #wc-reset pre,
+  #wc-reset address,
+  #wc-reset p,
+  #wc-reset a,
+  #wc-reset span,
+  #wc-reset i,
+  #wc-reset b,
+  #wc-reset s,
+  #wc-reset strong,
+  #wc-reset big,
+  #wc-reset small,
+  #wc-reset font,
+  #wc-reset hr {
+      /* background-color: transparent; */
+      border: 0px none black;
+      width: auto;
+      /* height: auto; */
+    }
+  #wc-reset img {
+      background-color: transparent;
+      border: 0px none black;
+    }
+  #wc-reset form {
+      display: block;
+    }
+  #wc-reset input {
+      display: inline;
+    }
+  #wc-reset s {
+      text-decoration: line-through;
+    }
+
+    /*** HEADINGS */
+  #wc-reset h1, #wc-reset h1 * {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: initial;
+    }
+  #wc-reset h2, #wc-reset h2 * {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      text-transform: initial;
+    }
+  #wc-reset h3, #wc-reset h3 * {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: initial;
+    }
+  #wc-reset h4, #wc-reset h4 * {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: initial;
+    }
+  #wc-reset h5, #wc-reset h5 * {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: initial;
+    }
+  #wc-reset h6, #wc-reset h6 * {
+      font-family: Arial,Helvetica,sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      text-transform: initial;
+    }
+
+    /*** LINKS */
+  #wc-reset a:link, #wc-reset a:link * {
+      text-decoration: underline;
+      color: #0066CC;
+    }
+  #wc-reset a:visited, #wc-reset a:visited * {
+      text-decoration: underline;
+      color: rgb(85,26,139);
+    }
+
+  #wc-reset a:active, #wc-reset a:active * {
+      text-decoration: underline;
+    }
+  #wc-reset a:hover, #wc-reset a:hover * {
+      text-decoration: none;
+    }
+  #wc-reset a.wc-image-link:link, #wc-reset a.wc-image-link:visited, #wc-reset a.wc-image-link:active, #wc-reset a.wc-image-link:hover {
+      text-decoration: none;
+    }
+
+    /*** INLINES */
+  #wc-reset i, #wc-reset i *, #wc-reset em, #wc-reset em * {
+      font-style: italic;
+    }
+  #wc-reset b, #wc-reset b *, #wc-reset strong, #wc-reset strong * {
+      font-weight: bold;
+    }
+  #wc-reset big {
+      font-size: larger;
+    }
+  #wc-reset small {
+      font-size: smaller;
+    }
+  #wc-reset sup{
+      vertical-align: super;
+      font-size: 70%;
+    }
+  #wc-reset sub {
+      vertical-align: sub;
+      font-size: 70%;
+    }
+
+    /*** BLOCKS */
+  #wc-reset pre, #wc-reset pre * {
+      font-family: monospace;
+    }
+
+    /*** LISTS */
+  #wc-reset ul li {
+      margin-left: 0;
+      padding-left: 0;
+      list-style-type: disc;
+      list-style-position: inside;
+      line-height: 1.4em;
+    }
+  #wc-reset ol li {
+      margin-left: 0;
+      padding-left: 0;
+      list-style-type: decimal;
+      list-style-position: inside;
+    }
+  #wc-reset ol li ul li {
+      list-style-type: disc;
+    }
+  #wc-reset ul li li {
+      margin-left: 1em;
+    }
+  #wc-reset ol li li {
+      margin-left: 1em;
+    }
+  #wc-reset dl dd {
+      margin-left: 2em;
+    }
+  #wc-reset ul {
+      font-size: 12px;
+      margin: 0;
+    }
+
+    /*** FORM */
+  #wc-reset fieldset {
+      padding: 0.35em 0.625em 0.75em 0.625em;
+    }
+
+  #wc-reset center,
+  #wc-reset center *
+    {
+      text-align: -webkit-center;
+      text-align: -moz-center;
+      _text-align: center;
+    }
+
+  #wc-reset button {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+  }

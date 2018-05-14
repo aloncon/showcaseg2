@@ -1,0 +1,42 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+
+// ~~~~~ Change these default values per module
+@vertical-background-header-color: #af0000;
+@vertical-header-color: #ffffff;
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#wc-showcase-root {
+  #wc_showcase_root div.wcNavigationVertical {
+    border: 1px solid #c8c8c8;
+    width: 18%;
+    max-width: 120px;
+    display: table;
+    ul.wcNavigationBox {
+      padding: 10px 6px 0 11px;
+      margin: 0 0 8px 0;
+      li {
+        list-style: none;
+        font-size: 12px;
+        margin: 3px 0;
+        a {
+          text-decoration: none;
+          color: #4d4e53;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .wcNavHeader {
+      background-color: @vertical-background-header-color;
+      h1 {
+        color: @vertical-header-color;
+        font-size: 14px;
+        line-height: 25px;
+        margin: 0 auto;
+        padding-left: 11px;
+      }
+    }
+  }
+}
+/* ***dev end: please add your styles above only!!!*** */

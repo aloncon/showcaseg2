@@ -1,0 +1,42 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView {
+  margin-bottom: 10px;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView button {
+  outline: none;
+  border: none;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader {
+  padding-top: 5px;
+  max-width: 80%;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader div {
+  float: left;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader .wcCategoryHeaderButton {
+  color: blue;
+  background: transparent;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader .wcCategoryHeaderButton:hover {
+  cursor: pointer;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView #wcCategoryHeader .wcCategoryHeaderSpace {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView .wcViewChangeButtons {
+  float: right;
+  margin-top: 2;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView .wcViewChangeButtons .wcBtnPrimary,
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView .wcViewChangeButtons .wcBtnDefault {
+  cursor: pointer;
+  margin: 1px;
+  height: 35px;
+  width: 35px;
+}
+#wc-showcase-root #wc_showcase_root .wcMainCahngeView .wcViewChangeButtons .wcBtnPrimary {
+  background: #568AF2;
+  color: white;
+}
+/* ***dev end: please add your styles above only!!!*** */

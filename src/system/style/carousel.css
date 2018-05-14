@@ -1,0 +1,213 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root {
+  /* USER CAROUSEL CLASSES */
+}
+#wc-showcase-root .WcCarousel {
+  position: relative;
+  z-index: 4;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap .wcCarouselSliderContainer {
+  margin: 0 auto;
+  padding: 42px;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcBrowse {
+  display: inline;
+  margin: 0px 10px !important;
+  font-size: 1px;
+  cursor: pointer;
+  border: 0px;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcBrowse div {
+  background: transparent;
+  display: inline;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcNext {
+  background-position: 0 0;
+  right: 0;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcNext:active {
+  background-position: 0 -30px;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcPrev {
+  background-position: -30px 0 !important;
+  left: -45px;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcPrev:active {
+  background-position: -30px -30px !important;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcDisabled div.wcLeft {
+  background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
+  background-position: -90px 0 !important;
+  cursor: default !important;
+}
+#wc-showcase-root .WcCarousel .wcCarouselWrap a.wcDisabled div.wcRight {
+  background: url('../resources/carousel/listing-carousel-sprite.png') no-repeat !important;
+  background-position: -90px -30px !important;
+  cursor: default !important;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal:hover {
+  filter: alpha(opacity=95);
+  opacity: 0.95;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .slick-next:before {
+  content: '' !important;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse {
+  margin-top: 50px !important;
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse .wcCarouselArrowsBrowseHorizonal {
+  position: absolute;
+  margin-top: -55px;
+  outline: 0;
+  width: 32px;
+  height: 100px;
+  z-index: 9999;
+  cursor: pointer;
+  background-color: #CCC;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  text-indent: 0 !important;
+  line-height: 100px;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal .wcCarouselArrowsBrowse .wcCarouselArrowsBrowseHorizonal .slick-next {
+  content: '';
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcLeft {
+  background-position: 0 0;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcLeft:active {
+  background-position: -60px 0;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcRight {
+  background-position: 0 -30px !important;
+}
+#wc-showcase-root .wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal a.wcRight:active {
+  background-position: -60px -30px !important;
+}
+#wc-showcase-root .wcCarouselWrapVertical button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  width: 30px;
+  height: 14px;
+  margin: 0px 10px !important;
+  font-size: 1px;
+  cursor: pointer;
+}
+#wc-showcase-root .wcCarouselWrapVertical button:focus {
+  outline: none;
+}
+#wc-showcase-root .wcCarouselWrapVertical button.wcPrev {
+  background: url('../resources/carousel/vertical-previous.jpg') no-repeat !important;
+  vertical-align: bottom;
+}
+#wc-showcase-root .wcCarouselWrapVertical button.wcNext {
+  background: url('../resources/carousel/vertical-next.jpg') no-repeat !important;
+}
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselSliderContainerVertical {
+  display: table;
+  margin: 0 auto;
+}
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselSliderContainerVertical .wcCarouselProductContainer .wcCarouselProductBrowseVertical {
+  margin: 0 auto;
+  display: table-cell;
+  vertical-align: middle;
+}
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselArrowsContainerVertical {
+  width: 100%;
+  text-align: center;
+}
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselArrowsContainerVertical .wcDisabled {
+  opacity: 0.5;
+}
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselArrowsContainerVertical .wcCarouselArrowsBrowseVertical {
+  display: inline-block !important;
+  margin: 0 auto !important;
+}
+#wc-showcase-root .wcCarouselWrapVertical .wcCarouselArrowsContainerVerticalTop {
+  margin-bottom: 15px;
+}
+#wc-showcase-root .wcCarouselProductContainer {
+  text-align: center !important;
+}
+#wc-showcase-root .wcCarouselProductContainer .wcCarouselProductBrowse {
+  margin: 0 auto !important;
+}
+#wc-showcase-root .wcCarouselProductImage img {
+  /*display: inline-block !important;*/
+  margin: 0 auto !important;
+}
+#wc-showcase-root .wcCarouselProductTitle {
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+  border: 0px none black;
+  list-style-type: none;
+  list-style-position: inside;
+  clear: none;
+  float: none;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  empty-cells: show;
+  text-transform: none;
+  text-indent: 0px;
+  vertical-align: baseline;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-align: left;
+  margin-top: 15px;
+}
+#wc-showcase-root .wcCarouselProductTitle a {
+  font-weight: bold;
+  font-size: 0.90em;
+  color: #000000;
+  text-decoration: none!important;
+  text-align: center;
+  width: auto;
+  height: auto;
+}
+#wc-showcase-root .wcCarouselProductTitle a:visited {
+  text-decoration: none!important;
+}
+#wc-showcase-root .wcCarouselProductTitle a:hover {
+  text-decoration: underline!important;
+}
+#wc-showcase-root .slick-disabled {
+  filter: alpha(opacity=35);
+  opacity: 0.35;
+  cursor: default;
+}
+#wc-showcase-root .slick-slide {
+  height: auto!important;
+}
+#wc-showcase-root .slick-list {
+  margin-left: 15px;
+}
+/* ***dev end: please add your styles above only!!!*** */

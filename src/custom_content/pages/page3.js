@@ -1,0 +1,24 @@
+import React from 'react';
+import ProductListing from '../../system/codes/list/ProductListing';
+import { Link } from 'react-router-dom';
+
+class Page3 extends React.Component {
+    render() {
+
+        return(
+            <div>
+            <p>
+               Click to go to <Link to="/page3/home-networking">Home Networking</Link>
+               <br/>
+               Click to go to <Link to="/page3/page3-child1">Page 3 Child 1</Link>
+               <br/>
+               Click to go to <Link to="/page3/page3-child2">Page 3 Child 2</Link>
+            </p>
+               <ProductListing type="carousel" ids={["Carusel-Data"]} slidesToShow={4}/>
+
+            </div>
+        );
+    }
+}
+
+export default Page3;

@@ -1,0 +1,42 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root .wcHeader {
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1px;
+  background: white;
+  height: 65px;
+}
+#wc-showcase-root .wcHeader .wcHeaderTitle {
+  width: 50%;
+  text-align: left;
+}
+#wc-showcase-root .wcHeader .wcHeaderTitle h1 {
+  color: black;
+  line-height: 65px;
+  padding-left: 10px;
+  margin: 0 auto;
+}
+#wc-showcase-root .wcHeader .wcHeaderLogo {
+  height: 65px;
+  width: 50%;
+  text-align: right;
+}
+#wc-showcase-root .wcHeader .wcHeaderLogo img {
+  height: 100%;
+}
+#wc-showcase-root .app-size-xs .wcHeader {
+  display: block;
+  height: auto;
+}
+#wc-showcase-root .app-size-xs .wcHeader .wcHeaderTitle {
+  width: 100%;
+  text-align: center;
+}
+#wc-showcase-root .app-size-xs .wcHeader .wcHeaderTitle h1 {
+  font-size: 1rem;
+}
+#wc-showcase-root .app-size-xs .wcHeader .wcHeaderLogo {
+  width: 100%;
+  text-align: center;
+}
+/* ***dev end: please add your styles above only!!!*** */

@@ -1,0 +1,8 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root #loader {
+  margin: 0px auto;
+  background: url('../resources/loader.gif') no-repeat center;
+  height: 200px;
+  width: 100%;
+}
+/* ***dev end: please add your styles above only!!!*** */

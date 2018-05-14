@@ -1,0 +1,260 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root{
+@imagesDir: "../resources/carousel/";
+/* USER CAROUSEL CLASSES */
+
+//Horizontal Carousel
+.WcCarousel {
+	// gitit - check - overlay
+	position: relative;
+	z-index: 4;
+
+	.wcCarouselWrap {
+		.wcCarouselSliderContainer {
+			margin: 0 auto;
+			padding: 42px;
+		}
+
+		a.wcBrowse {
+			display: inline;
+			margin: 0px 10px !important;
+			font-size: 1px;
+			cursor: pointer;
+			border: 0px;
+			div {
+				background: transparent;
+				display: inline;
+			}
+		}
+		a.wcNext {
+			background-position: 0 0;
+			// right: -13px;
+			right: 0;
+			&:active {
+				background-position: 0 -30px;
+			}
+		}
+		a.wcPrev {
+			background-position: -30px 0 !important;
+			left: -45px;
+			&:active {
+				background-position: -30px -30px !important;
+			}
+		}
+	
+		a.wcDisabled {
+			div.wcLeft {
+				background: url('@{imagesDir}listing-carousel-sprite.png') no-repeat !important;
+				background-position: -90px 0 !important;
+				cursor: default !important;
+			}
+			div.wcRight {
+				background: url('@{imagesDir}listing-carousel-sprite.png') no-repeat !important;
+				background-position: -90px -30px !important;
+				cursor: default !important;
+			}
+		}
+	}
+}
+
+.wcCarouselSliderContainer .wcCarouselArrowsContainerHorizonal {
+	
+	&:hover {
+		filter: alpha(opacity=95);
+		opacity: 0.95;
+	}
+	.slick-next {
+		&:before {
+			content: '' !important;
+		}
+	}
+
+	.wcCarouselArrowsBrowse {
+		margin-top: 50px !important;
+		font-size: 0;
+		line-height: 0;
+		position: absolute;
+		top: 50%;
+		display: block;
+		width: 20px;
+		height: 20px;
+		padding: 0;
+		-webkit-transform: translate(0, -50%);
+		-ms-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+		cursor: pointer;
+		color: transparent;
+		border: none;
+		outline: none;
+		background: transparent;
+
+		.wcCarouselArrowsBrowseHorizonal {
+			.slick-next {
+				content: '';
+			}
+			position: absolute;
+			margin-top: -55px;
+			outline: 0;
+			width: 32px;
+			height: 100px;
+			z-index: 9999;
+			cursor: pointer;
+			background-color: #CCC;
+			color: white;
+			font-size: 30px;
+			text-align: center;
+			text-indent: 0 !important;
+			line-height: 100px;
+			opacity: 0.8;
+			filter: alpha(opacity=80);
+		}
+	}
+	a.wcLeft {
+		background-position: 0 0;
+		&:active {
+			background-position: -60px 0;
+		}
+	}
+
+	a.wcRight {
+		background-position: 0 -30px !important;
+		&:active {
+			background-position: -60px -30px !important;
+		}
+	}
+}
+
+
+//Vertical Carousel
+.wcCarouselWrapVertical {
+	button {
+		background: none;
+		border: 0;
+		color: inherit;
+		font: inherit;
+		line-height: normal;
+		overflow: visible;
+		padding: 0;
+		-webkit-appearance: button;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+        -ms-user-select: none;
+
+        width: 30px;
+        height: 14px;
+        margin: 0px 10px !important;
+        font-size: 1px;
+        cursor: pointer;
+
+		&:focus {
+			outline: none;
+		}
+	}
+	button.wcPrev {
+		background: url('@{imagesDir}vertical-previous.jpg') no-repeat !important;
+		vertical-align: bottom;
+	}
+	button.wcNext {
+		background: url('@{imagesDir}vertical-next.jpg') no-repeat !important;
+	}
+
+	.wcCarouselSliderContainerVertical {
+		display: table;
+		margin: 0 auto;
+
+		.wcCarouselProductContainer .wcCarouselProductBrowseVertical {
+			margin: 0 auto;
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+
+	.wcCarouselArrowsContainerVertical {
+		width: 100%;
+		text-align: center;
+	
+		.wcDisabled {
+			opacity: 0.5;
+		}
+	
+		.wcCarouselArrowsBrowseVertical {
+			display: inline-block !important;
+			margin: 0 auto !important;
+		}
+	}
+
+	.wcCarouselArrowsContainerVerticalTop{
+		margin-bottom: 15px;
+	}
+	
+}
+
+.wcCarouselProductContainer {
+    text-align: center !important;
+    
+    .wcCarouselProductBrowse {
+        margin: 0 auto !important;
+    }
+}
+
+
+.wcCarouselProductImage {
+	img {
+		/*display: inline-block !important;*/
+		margin: 0 auto !important;
+	}
+}
+.wcCarouselProductTitle {
+	margin: 0px;
+	padding: 0px;
+	background-color: transparent;
+	border: 0px none black;
+	list-style-type: none;
+	list-style-position: inside;
+	clear: none;
+	float: none;
+	table-layout: auto;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	empty-cells: show;
+	text-transform: none;
+	text-indent: 0px;
+	vertical-align: baseline;
+	letter-spacing: normal;
+	word-spacing: normal;
+	line-height: normal;
+	text-align: left;
+	margin-top: 15px;
+	a {
+		font-weight: bold;
+		font-size: 0.90em;
+		color: #000000;
+		text-decoration: none!important;
+		text-align: center;
+		width: auto;
+		height: auto;
+	}
+	a:visited {
+		text-decoration: none!important;
+	}
+	a:hover {
+		text-decoration: underline!important;
+	}
+}
+
+.slick-disabled {
+	filter: alpha(opacity=35);
+	opacity: 0.35;
+	cursor: default;
+}
+
+.slick-slide{
+	height: auto!important;
+}
+
+.slick-list {
+	margin-left: 15px;
+}
+
+}
+/* ***dev end: please add your styles above only!!!*** */

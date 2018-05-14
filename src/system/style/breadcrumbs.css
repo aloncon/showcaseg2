@@ -1,0 +1,31 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root div.wcBreadcrumbs {
+  margin-bottom: 10px;
+}
+#wc-showcase-root div.wcBreadcrumbs ul {
+  padding: 15px 0 0 15px;
+  list-style: none;
+  margin: 0;
+}
+#wc-showcase-root div.wcBreadcrumbs ul > li {
+  display: inline-block;
+}
+#wc-showcase-root div.wcBreadcrumbs ul > li a {
+  text-decoration: none;
+  color: #777;
+}
+#wc-showcase-root div.wcBreadcrumbs ul > li a:hover {
+  text-decoration: underline;
+}
+#wc-showcase-root div.wcBreadcrumbs ul > li + li:before {
+  content: '/ ';
+  padding: 0 5px;
+  color: #cccccc;
+}
+#wc-showcase-root div.wcBreadcrumbs ul > li:last-child {
+  color: #333;
+}
+#wc-showcase-root div.wcBreadcrumbs hr.breadcrumbHr {
+  border: 0.5px solid #333;
+}
+/* ***dev end: please add your styles above only!!!*** */

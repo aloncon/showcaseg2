@@ -1,0 +1,171 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root{
+@imagesDir: "../resources/announcement/";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+/*********************************!!!Announcement!!!************************************/
+.wcVideoSlideContainer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: green;
+	background-size: 900px 240px;
+
+    .wcVideoSlideText {
+        h2 {
+            font-family: 'Sofia';
+            font-size: 32px;
+            color: rgb(95, 81, 81);
+        }
+        margin-bottom: 2%;
+        color: #fff;
+    }
+
+    .wcVideoSlidePlayer {
+        margin-top: 2%;
+    }
+}
+
+
+.wcAnnounceUl {
+	list-style-type: none!important;
+	/*margin: 0px 0 0 -40px;*/
+	margin: 0; padding: 0;
+    cursor: pointer;
+    
+    li{
+	    list-style-type: none;
+		.wcAnnounceArrow{
+			background: none;
+			border: 0;
+			color: inherit;
+			font: inherit;
+			line-height: normal;
+			overflow: visible;
+			padding: 0;
+			-webkit-appearance: button;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			float: right;
+			width: 16px;
+			height: 16px;
+			&:focus {
+				outline: none;
+			}
+		}
+
+		.wcAnnouncePlay {
+			background-position: 90% 0;
+			&:hover {
+				background-position: 90% 50%;
+			}
+		}
+
+		.wcAnnouncePrev {
+			.wcAnnounceArrow;
+			background-image: url("@{imagesDir}prev.png");
+		}
+		.wcAnnounceNext {
+			.wcAnnounceArrow;
+			background-image: url("@{imagesDir}next.png");
+		}
+		.wcAnnounceItemNum {
+			width: 23px;
+			height: 23px;
+			background-image: url("@{imagesDir}control-bar.png");
+		}
+	
+		//Announcements Positioning Loop
+		.AnnouncementsPositionLoop (1) {}
+		.AnnouncementsPositionLoop (@index) when (@index > 0) {
+		.wcAnnounce@{index} {
+			background-position: (@index - 1)*10% 0;
+			&:hover, &:focus {
+				background-position: (@index - 1)*10% 50%;
+			}
+		}
+		.wcAnnounce@{index}Active {
+			background-position: (@index - 1)*10% 100%;
+		}
+		.AnnouncementsPositionLoop(@index - 1);
+		}
+		.AnnouncementsPositionLoop(9);
+		//Announcements Positioning Loop end
+	}
+}
+
+.wcAnnounceLink {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.wcAnnounceItemNum {
+	float: left;
+	font-size: 0px;
+	background-repeat: no-repeat;
+}
+
+.wcAnnouncePlay {
+	.wcAnnounceItemNum;
+}
+
+.wcAnnouncePause {
+	.wcAnnounceItemNum;
+	
+	background-position: 100% 0;
+	&:hover, &:focus {
+		background-position: 100% 50%;
+	}
+}
+
+.wcAnnounceDisable {
+	filter: alpha(opacity=35);
+	opacity: 0.35;
+	cursor: default;
+}
+.wcAnnounceUl.wcAnnouncePlay {
+	&:focus {
+		background-position: 90% 50%;
+	}
+}
+
+#wc_showcase_root .wcAnnouncementSlick{
+	.slick-prev {
+		width: 20px;
+		height: 20px;
+		background-repeat: no-repeat!important;
+		z-index: 999;
+		left: 0;
+		//padding-left: 30px
+		background-image: url("../resources/announcement/prev.png")!important;
+	  }
+	  .slick-next {
+		width: 20px;
+		height: 20px;
+		background-repeat: no-repeat!important;
+		z-index: 999;
+		right: 0;
+		//margin-right: 2.5%;
+		background-image: url("../resources/announcement/next.png")!important;
+	  }
+	  
+	  .slick-next:before{
+		font-size: 0!important;
+	  }
+	  
+	  .slick-prev:before{
+		font-size: 0!important;
+	  }
+
+	  .slick-dots li button:before{
+		font-size: 20px!important;
+		font-family: 'times-new-roman'!important;
+	  }
+
+	  .slick-dots{
+		  width: 100%!important;
+	  }
+}
+}
+/* ***dev end: please add your styles above only!!!*** */

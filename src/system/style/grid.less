@@ -1,0 +1,162 @@
+/* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root {
+    @cardWidth : 250px;
+  
+
+
+    @keyframes openPopover {
+      from {
+        opacity: 0;
+        top: 150px;
+        box-shadow: none;
+      }
+      to {
+        opacity: 1;
+        top: 45px;
+        box-shadow: 3px 3px 5px 6px #ccc;
+      }
+    }
+    
+  
+    #wc_showcase_root.app-size-sm .wcGridList{
+    .wc-card{
+        width:45%;
+        margin: 2%;
+        
+        .wcGridCardFooter{
+          font-size: 100%;
+          a{
+            font-size: 80%;
+          }
+        }
+    }
+  }
+  #wc_showcase_root.app-size-xs .wcGridList .wcOpenPopover {
+    left:10px;
+    width : 95%;
+  }
+  #wc_showcase_root.app-size-xs .wcGridList{
+    
+    .wc-card{
+        width:100%;
+        margin: 0%;
+        margin-bottom: 1.5%;
+    }
+  }
+    #wc_showcase_root .wcGridList .wcOpenPopover {
+    position: absolute;
+    background: #f9f9f9;
+    width:220px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    top: 45px;
+    left: -20px;
+    z-index: 60 !important;
+    div {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      padding: 1px 10px;
+      background: #a7adba;
+      h3 {
+        text-align: center;  
+        color: white;
+      }
+    }
+    p {
+      padding: 0px 15px 0px 5px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50px;
+      top: -8px;
+      width: 15px;
+      height: 15px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: #a7adba;
+      border-left: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+
+    }
+    animation: openPopover 0.5s 1;
+  }
+
+  #wc_showcase_root .wcGridList .wcClosePopover {
+    display: none;
+  }
+
+  #wc_showcase_root .wcGridList {
+    
+  .wc-card{
+    z-index: 50 !important;
+      padding: 25px 10px 0px 10px;
+      width:@cardWidth;
+      margin: 1%;
+      float: left;
+      border:1px solid #D1D1D1;
+      border-radius: 5px;
+      .wcMosaicGrid{
+        width: 100%;
+        height: 20px;
+      }
+      .wc-card-img-top{
+        
+        width:100%;
+        height: 150px;
+        
+      img{
+          display: block;
+          height: 100px;
+          width: 100px;
+          margin: auto;
+          
+        }
+      }
+      .wc-card-block{
+        height: 100px;
+        position: relative;
+        bottom: 0;
+        margin-top: 6%;
+        h4{   
+          a{
+            text-decoration: none;
+            color: black;
+            
+          }
+        }
+        .wcGridCardFooter{
+          position: absolute;
+          bottom: 2%;
+          width: 100%;
+          
+          button{
+            float: left;
+            width: 40%;
+          }
+          a{
+            padding-left: 1.5%;
+            float: right;
+            line-height: 2.5em;
+          }
+          .wcCloseButtonPopover{
+            width:20px;
+            background: white;
+            border: 5px solid white;
+            border-radius: 50%;
+            cursor: "pointer";
+            position: absolute;
+            top:5px;
+            right:5px;
+          }
+        }
+      }
+      
+    }
+  }
+}
+
+/* ***dev end: please add your styles above only!!!*** */
