@@ -1,34 +1,47 @@
+## Table Of contents
+- [How to Create \ Merge branches](./how-to-git-branches.md)
+- [List of Git Alias](./list-of-git-alias.md)
+- [Showcase Structure - WIP](#showcase-structure-wip)
+  - [css](#css)
+  - [custom_content](#custom_content)
+  - [pages](#pages)
+  - [siteadditions](#siteadditions)
+  - [system](#system)
+
+---
+
 ## Showcase Structure - WIP
 
-- 📂 src
-  - 📁[action](#action) - Alon
-  - 📁[css](#css)
-  - 📂[custom_content](#custom_content)
-    - 📄 configuration.js
-    - 📂 assets
-        - 📁 announcements
-        - 📁 images
-        - 📁 videos
-        - 📁 documents
-        - 📁...
-    - 📁 modules
-    - 📂 [pages](#pages)
-        - 📄 ...
-        - 📁 landing-default
-  - 📁[reducers](#reducers) - Alon
-  - 📁[routers](#routers) - Alon
-  - 📁[siteadditions](#siteadditions) - Angelika
-  - 📂[system](#system)
-    - 📁 codes
-    - 📁 resources
-    - 📁 style
+```
+./src/
+├── 📁 common
+  ├── 📁 css
+  ├── 📄 init.js
+├── 📁 custom_content
+  ├── 📄 configuration.js
+  ├── 📁 assets
+    ├── 📁 announcements
+      ├── 📁 banners
+      ├── 📁 pdf
+      ├── 📁 video
+    ├── 📁 images
+    ├── 📁 pdf
+    ├── 📁 video
+  ├──📁 modules
+  ├──📁 pages
+    ├── 📁 landingpage
+      ├── 📄 landingpage-default.js
+├── 📁 siteadditions
+├── 📁 store
+├── 📁 system
+  ├── 📁 codes
+  ├── 📁 resources
+  ├── 📁 style
+├── 📄 App.js
+├── 📄 index.js
+```
 
-
-------------------------------
-
-## action
-
-- Alon
+---
 
 ## css
 
@@ -38,7 +51,7 @@ Styling for the showcase (let you overwrite the default CSS that located in `sys
 
 - **configuration.js**
 
-  Showcase configuration (Header, Footer, Breadcrumbs, etc...).
+  Showcase configuration (Header, Breadcrumbs, Routes, etc...).
 
 
 - **assets**
@@ -57,17 +70,9 @@ Styling for the showcase (let you overwrite the default CSS that located in `sys
 
   Contains the landing pages.
 
-## reducers
-
-- Alon
-
-## routers
-
-- Alon
-
 ## siteadditions
 
-- Angelika
+- Provider Center
 
 ## system
 
