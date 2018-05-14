@@ -100,8 +100,6 @@ There are two options:
     git checkout [NAME_OF_YOUR_NEW_BRANCH]
    ```
 
----
-
 5. Merge branch to the master:
    ```bash
     git checkout master
