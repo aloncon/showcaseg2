@@ -1,6 +1,5 @@
 import ShouldDisplay from './ShouldDisplay';
 import configurationJSON from '../../custom_content/configuration.json';
-import { pageComponentsArray } from '../../custom_content/pages/pageComponentsArray';
 import WcShowcase from './moduleInfo';
 
 
@@ -21,10 +20,15 @@ import WcShowcase from './moduleInfo';
  * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be exact, add 'notExact : true' to the parent.
  *
  * `id`: The route ID, the convention is the file name in lowercase with no spaces use dash (`-`).
+ *
  * `parent`: The route's parent ID, if this is a root path it will be the first route ID.
- * `component`: Which component to use for this route.
+ *
+ * `component`: The path under the folder `src/custom_content/pages/` to the component to use for this route. For example: `landingpage/landingpage-default`.
+ *
  * `name`: The name to use for the breadcrumbs / navigation.
+ *
  * `title` [optional]: Will display specific title for certain page, may be text, or empty string.
+ *
  * `assort` [optional]: If true will check against the allassortment / partner context to display or not.
  *
  * routesExclude:: String , hold the names which we wish to exclude from the navigation.
@@ -66,7 +70,7 @@ const loadPageComponents = (configuration) => {
   for (var property in configuration.staticRoutes) {
     if (property !== "routesExclude") {
         configuration.staticRoutes[property].map((router => {
-          const Component = pageComponentsArray[router.component];
+          const Component =  require(`../../custom_content/pages/${router.component}`).default;
           router.component = Component;
           return null;
         }))
