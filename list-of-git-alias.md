@@ -34,6 +34,7 @@ And add this:
    stash-a = stash apply
    stash-s = stash show
    stash-full = "!git stash clear; git stash show; git stash;"
+   change-msg = commit --amend
 ```
 
 To add a single alias use this command:
