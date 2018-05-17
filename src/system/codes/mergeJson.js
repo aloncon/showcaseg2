@@ -43,10 +43,6 @@ export function mergeDeep(target, ...sources) {
         timeout: 1000,
         prefix: 'cbContext'
         }
-        
-        console.log('------------------------------------');
-        console.log("contextPrefix ", contextPrefix);
-        console.log('------------------------------------');
         jsonpP(`${contextPrefix}?${random}`, config).promise
         .then(result =>{
         resolve(mergeDeep({},profile, result));
