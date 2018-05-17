@@ -69,6 +69,9 @@ const loadImages = (configuration) => {
 const loadPageComponents = (configuration) => {
   for (var property in configuration.staticRoutes) {
     if (property !== "routesExclude") {
+      console.log('------------------------------------');
+      console.log("property ", property);
+      console.log('------------------------------------');
         configuration.staticRoutes[property].map((router => {
           const Component =  require(`../../custom_content/pages/${router.component}`).default;
           router.component = Component;
@@ -125,14 +128,21 @@ loadImages(configuration);
 configuration.staticRoutes.setEntry = (entry) => {
   const configEntries = configuration.staticRoutes.entryPoints;
   let entryId
+
   if(entry.toLowerCase() !== 'landingpage-default'){
     entryId = configEntries.find(function (obj) { return obj.id.toLowerCase() === entry.toLowerCase(); });
     if(entryId){
       landingEntryPoint = [entryId];
     }
     else{
-      landingEntryPoint = "Wrong entry"
-      console.error("WC-ERROR: wrong entry in context [" , entryId ,"]");
+      entryId = configuration.staticRoutes[entry]
+      if(entryId){
+        landingEntryPoint = entryId
+      }else{
+        landingEntryPoint = "Wrong entry"
+        console.error("WC-ERROR: wrong entry in context [" , entry ,"]");
+      }
+      
     }
   }
   else{

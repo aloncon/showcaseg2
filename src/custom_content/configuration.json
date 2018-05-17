@@ -122,6 +122,15 @@
         "title": ""
       }
     ],
+    "landingpage-second": [
+      {
+        "id": "iframess",
+        "parent": "iframess",
+        "component": "iframess",
+        "name": "Custome iframess",
+        "title": "iframess"
+      }
+    ],
     "routesExclude": "(product-listing-1|res-test)",
     "entryPoints":[]
   }
