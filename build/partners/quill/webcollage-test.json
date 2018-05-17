@@ -1,0 +1,18 @@
+cbContext0({
+    "module": "xerox",
+    "showcase": true,
+    "partner": "quill",
+    "landing_entry_point": "landingpage-staples",
+    "Sections": {
+        "wc_header": true,
+        "wc_navigation_horizontal": true,
+        "wc_navigation_vertical": false,
+        "wc_bread_crumbs": true,
+        "wc_footer": true,
+        "wc_all_module_products": false,
+        "page3": true
+    },
+    "Properties": {
+
+    }
+})
