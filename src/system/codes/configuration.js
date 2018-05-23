@@ -69,9 +69,6 @@ const loadImages = (configuration) => {
 const loadPageComponents = (configuration) => {
   for (var property in configuration.staticRoutes) {
     if (property !== "routesExclude") {
-      console.log('------------------------------------');
-      console.log("property ", property);
-      console.log('------------------------------------');
         configuration.staticRoutes[property].map((router => {
           const Component =  require(`../../custom_content/pages/${router.component}`).default;
           router.component = Component;

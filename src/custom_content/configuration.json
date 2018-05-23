@@ -1,7 +1,7 @@
 {
   "moduleName": "Avery",
   "presentationName": "Avery (presentation)",
-  "moduleId": "webcollage",
+  "moduleId": "xerox",
   "headerDetails": {
     "imgLogo": "images/avery_logo.jpg",
     "headerTitle": "Avery"

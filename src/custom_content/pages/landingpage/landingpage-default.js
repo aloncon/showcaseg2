@@ -18,7 +18,7 @@ class ShowcaseBodyHeader extends React.Component{
             </div>
             <br/>
             <div style={{textAlign : 'center'}}>
-              <ShouldDisplay wc_announcement="top_webcollage_Announcement"/>
+              <ShouldDisplay wc_announcement="top_webcollage_announcement"/>
               <ShouldDisplay wc_announcement="top_channel_announcement"/>
             </div>
             

@@ -16,11 +16,11 @@ cbContext0({
 
     },
     "Announcement":{
-        "top_webcollage_Announcement":{
+        "top_webcollage_announcement":{
             "display": true,
             "link": "https://en.wikipedia.org/wiki/Studio_Ghibli",
             "title": "top_webcollage_Announcement",
-            "path":"resources/test2.jpg",
+            "path":"resources/top_webcollage_announcement.jpg",
             "popup":true,
             "width":"",
             "height":"",
@@ -30,7 +30,7 @@ cbContext0({
             "display": false,
             "link": "",
             "title": "",
-            "path":"",
+            "path":"resources/top_channel_announcement.jpg",
             "popup":false,
             "width":"",
             "height":"",
@@ -40,7 +40,7 @@ cbContext0({
             "display": false,
             "link": "",
             "title": "",
-            "path":"",
+            "path":"resources/channel_announcement.jpg",
             "popup":false,
             "width":"",
             "height":"",
@@ -50,7 +50,7 @@ cbContext0({
             "display": false,
             "link": "",
             "title": "",
-            "path":"",
+            "path":"resources/bottom_bhannel_announcement_for_missing_products.jpg",
             "popup":false,
             "width":"",
             "height":"",
@@ -60,12 +60,12 @@ cbContext0({
             "display": false,
             "link": "",
             "title": "",
-            "path":"",
+            "path":"resources/bottom_manufacturer_announcement.jpg",
             "popup":false,
             "width":"",
             "height":"",
             "reporting_title":"Landing Page Manufacturer Announcement"
-        }       
+        } 
     }
 
 })
