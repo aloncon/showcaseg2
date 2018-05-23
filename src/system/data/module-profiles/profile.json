@@ -13,5 +13,57 @@
     },
     "Properties":{
         "phone" : "111-9009002556666"
+    },
+    "Announcement":{
+        "top_webcollage_Announcement":{
+            "display": false,
+            "link": "",
+            "title": "",
+            "path":"",
+            "popup":false,
+            "width":"",
+            "height":"",
+            "reporting_title":"Landing Page Channel Extra Product Announcement"
+        },
+        "top_channel_announcement":{
+            "display": false,
+            "link": "",
+            "title": "",
+            "path":"",
+            "popup":false,
+            "width":"",
+            "height":"",
+            "reporting_title":"Landing Page Top Channel Announcement"
+        },
+        "channel_announcement":{
+            "display": false,
+            "link": "",
+            "title": "",
+            "path":"",
+            "popup":false,
+            "width":"",
+            "height":"",
+            "reporting_title":"Landing Page Channel Announcement"
+        },
+        "bottom_bhannel_announcement_for_missing_products":{
+            "display": false,
+            "link": "",
+            "title": "",
+            "path":"",
+            "popup":false,
+            "width":"",
+            "height":"",
+            "reporting_title":"Landing Page Channel Extra Product Announcement"
+        },
+        "bottom_manufacturer_announcement":{
+            "display": false,
+            "link": "",
+            "title": "",
+            "path":"",
+            "popup":false,
+            "width":"",
+            "height":"",
+            "reporting_title":"Landing Page Manufacturer Announcement"
+        }       
     }
 }
