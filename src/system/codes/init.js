@@ -60,11 +60,21 @@ function getContextNameFromScriptSrc(script){
 }
 
 function getEntryIdFromScriptSrc(script){
-    
     if(script.indexOf('ws-entry=')!==-1){
-        return script.replace(/.*ws\-entry=([^&]+).*/,"$1");
+        if(script.replace(/.*ws\-entry=([^&]+).*/,"$1") === 'landingpage-default'){
+            return false
+        }
+        else{
+            let entry = false
+            for (var property in configuration.staticRoutes) {
+                if (property === script.replace(/.*ws\-entry=([^&]+).*/,"$1")) {
+                    entry = script.replace(/.*ws\-entry=([^&]+).*/,"$1");
+                    break;
+                }
+              }
+            return entry;
+        }
     } 
-    // return 'landingpage-default'
     return false
 }
 let script = getScriptURL();

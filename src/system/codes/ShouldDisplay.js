@@ -56,7 +56,7 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
                 pathFull = showcasePrefix + "/partners/" + site + "/" + content.path
             }
 
-            if(display && link.length > 0 && path.length > 0) {
+            if(display && path.length > 0) {
                 
                 const type = (popup)?'popup':'_blank';
                 let WcOpenAs = {type:type};
@@ -69,10 +69,12 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
                     }
                     
                 }
+                
                 return (
+                    link.length > 0 ? 
                     <WcLink href={link} WcOpenAs={WcOpenAs} style={{textAlign : 'center'}}>
                         <img src={pathFull} alt={title} title={title}/>
-                    </WcLink>
+                    </WcLink>:<img src={pathFull} alt={title} title={title}/>
                 ); //onClick={() => WcReports("custom-action",reporting)}
 
 
