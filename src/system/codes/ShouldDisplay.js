@@ -47,7 +47,6 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
             const path = content.path
             const title = content.title
             const popup = content.popup
-            const reporting = content.reporting_title
 
             let   pathFull  = "https://scontent.webcollage.net/showcase-partner-center/resources/"+ moduleName +"/" + site+"/"+ content.path;
             
@@ -75,7 +74,7 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
                     <WcLink href={link} WcOpenAs={WcOpenAs} style={{textAlign : 'center'}}>
                         <img src={pathFull} alt={title} title={title}/>
                     </WcLink>:<img src={pathFull} alt={title} title={title}/>
-                ); //onClick={() => WcReports("custom-action",reporting)}
+                ); 
 
 
             }

@@ -40,7 +40,7 @@ function wcReportEvent(event, parameters, callbackWhenReportingIsDone){
     
     moduleId = WcShowcase.moduleName;
     partnerId = WcShowcase.siteName;
-    let mtrMediaBaseUrl = WcShowcase.showcasePrefix;
+    //let mtrMediaBaseUrl = WcShowcase.showcasePrefix;
     showcasePageTitle = WcShowcase.moduleName;
 
     function isValid(_obj) {
@@ -187,7 +187,6 @@ function wcReportEvent(event, parameters, callbackWhenReportingIsDone){
 }      
 
 const WcReports = (type,reportCode) => {
-    //console.log('gitit in reporting: type: '+type+' , reportCode: '+reportCode)
    let customActionCode = reportCode;
    switch (type) {    
     //On Page Load  
@@ -244,28 +243,7 @@ const WcReports = (type,reportCode) => {
         case "product-listing-wide-click-family-product-cpi":
             // WcMixPanel("product-listing-wide-view-product",customActionCode);  
             return wcReportEvent('product-listing-click', {'product-listing-type':'wide','cpi':customActionCode}); 
-            
-    //Product Listing - Wide Events             
-        case "product-listing-wide-view-product":
-            // WcMixPanel("product-listing-wide-view-product",customActionCode);  
-            return wcReportEvent('product-listing-view', {'product-listing-type':'wide','wcpc':customActionCode});                                                             
-        case "product-listing-wide-view-family-product-wcpc":
-            // WcMixPanel("product-listing-wide-view-product",customActionCode);  
-            return wcReportEvent('product-listing-view', {'product-listing-type':'wide','family-product-wcpc':customActionCode});                                                             
-        case "product-listing-wide-view-family-product-cpi":
-            // WcMixPanel("product-listing-wide-view-product",customActionCode);  
-            return wcReportEvent('product-listing-view', {'product-listing-type':'wide','cpi':customActionCode});
-        
-        case "product-listing-wide-click-product":
-            // WcMixPanel("product-listing-wide-view-product",customActionCode);  
-            return wcReportEvent('product-listing-view', {'product-listing-type':'wide','wcpc':customActionCode});                                                             
-        case "product-listing-wide-click-family-product-wcpc":
-            // WcMixPanel("product-listing-wide-view-product",customActionCode);  
-            return wcReportEvent('product-listing-click', {'product-listing-type':'wide','family-product-wcpc':customActionCode});                                                             
-        case "product-listing-wide-click-family-product-cpi":
-            // WcMixPanel("product-listing-wide-view-product",customActionCode);  
-            return wcReportEvent('product-listing-click', {'product-listing-type':'wide','cpi':customActionCode});   
-    
+                
     //Product Listing - Grid Events             
         case "product-listing-grid-view-product":
         // WcMixPanel("product-listing-grid-view-product",customActionCode);  

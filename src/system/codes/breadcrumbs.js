@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import { WcMixPanel } from './WcEvents';
+
 import '../style/breadcrumbs.css';
 
 /**
@@ -83,7 +83,7 @@ const generateBreadcrumbItems =  (pathsRoute, routes, pathsRouteLength) => {
 const BreadcrumbItem = ({ index, pathsRouteLength, name, path}) => {
   return (
     <li>
-      {( index === pathsRouteLength - 1 ) ? `${name}` : <Link to={path} onClick={() => WcMixPanel("Page Loaded", path, "Breadcrumbs")}>{name}</Link>}
+      {( index === pathsRouteLength - 1 ) ? `${name}` : <Link to={path}>{name}</Link>}
     </li>
   );
 };

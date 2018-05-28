@@ -1,7 +1,6 @@
 /* eslint-disable no-script-url */
  
 import React from 'react';
-import ReactDOM from 'react-dom';
 import absolutizeSrc from './absolutizeSrc';
 import '../../../../node_modules/video-react/dist/video-react.css';
 import '../../style/overlay.css';

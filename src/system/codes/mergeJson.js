@@ -2,10 +2,6 @@ import WcShowcase from './moduleInfo';
 import jsonpP from 'jsonp-p';
 
 
-function isObject(item) {
-    return (item && typeof item === 'object' && !Array.isArray(item));
-}
-
  export default function merge(){
 
     return new Promise((resolve)=>{

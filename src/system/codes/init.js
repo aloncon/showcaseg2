@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+
 import configuration from '../codes/configuration';
 
 /*
@@ -37,7 +39,8 @@ function getSiteIdFromScriptSrc(script){
         console.log("dev-site: " + site);
     }
     else{
-        site = 'cdw';
+     site = 'allassortment';
+    //site = 'cdw';
     }
    
     return site;

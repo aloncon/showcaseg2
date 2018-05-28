@@ -25,19 +25,16 @@ import './system/style/wc_reset.css'; // module reset css
 import './system/style/bootstrap-custom/css/wc.bootstrap.css'; // our custom bootstrap
 import './system/style/index.css'; // system global css
 import './common/css/index.css'; // module global css
-import './common/css/header.css'; // module global css
+import './common/css/header.css'; // module global header css
 //~~~~~~~
 
-//import MixpanelProvider from 'react-mixpanel';
-//import mixpanel from 'mixpanel-browser';
-// mixpanel.init("d1faae8408d92bf4305a6f7c50fcdf60");
+
 //~~~~~~~
 
 //const css = require('./App.css');
 
 const MainComp = observer(({  rootResponsiveStore }) => {
   return (
-    // <MixpanelProvider mixpanel={mixpanel}>
       <HashRouter>
         <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
           <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
@@ -61,7 +58,6 @@ const MainComp = observer(({  rootResponsiveStore }) => {
           </MainContainer>
         </div>        
       </HashRouter>
-    //</MixpanelProvider> 
   );
 });
 
