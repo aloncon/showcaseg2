@@ -2,7 +2,7 @@ cbContext0({
     "module": "xerox",
     "showcase": true,
     "partner": "quill",
-    "landing_entry_point": "landingpage-default",
+    "landing_entry_point": "landingpage-staples",
     "Sections": {
         "wc_header": true,
         "wc_navigation_horizontal": true,

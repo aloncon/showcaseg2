@@ -1,0 +1,70 @@
+cbContext0({
+    "module": "xerox",
+    "showcase": true,
+    "partner": "quill",
+    "landing_entry_point": "landingpage-staples",
+    "Sections": {
+        "wc_header": true,
+        "wc_navigation_horizontal": true,
+        "wc_navigation_vertical": false,
+        "wc_bread_crumbs": true,
+        "wc_footer": true,
+        "wc_all_module_products": false,
+        "page3": true
+    },
+    "Properties": {
+
+    },
+    "Announcement":{
+            "top_webcollage_announcement":{
+                "display": false,
+                "link": "",
+                "title": "",
+                "path":"resources/top_webcollage_announcement.jpg",
+                "popup":false,
+                "width":"",
+                "height":"",
+                "reporting_title":"Landing Page Channel Extra Product Announcement"
+            },
+            "top_channel_announcement":{
+                "display": false,
+                "link": "",
+                "title": "",
+                "path":"resources/top_channel_announcement.jpg",
+                "popup":false,
+                "width":"",
+                "height":"",
+                "reporting_title":"Landing Page Top Channel Announcement"
+            },
+            "channel_announcement":{
+                "display": false,
+                "link": "",
+                "title": "",
+                "path":"resources/channel_announcement.jpg",
+                "popup":false,
+                "width":"",
+                "height":"",
+                "reporting_title":"Landing Page Channel Announcement"
+            },
+            "bottom_bhannel_announcement_for_missing_products":{
+                "display": false,
+                "link": "",
+                "title": "",
+                "path":"resources/bottom_bhannel_announcement_for_missing_products.jpg",
+                "popup":false,
+                "width":"",
+                "height":"",
+                "reporting_title":"Landing Page Channel Extra Product Announcement"
+            },
+            "bottom_manufacturer_announcement":{
+                "display": false,
+                "link": "",
+                "title": "",
+                "path":"resources/bottom_manufacturer_announcement.jpg",
+                "popup":false,
+                "width":"",
+                "height":"",
+                "reporting_title":"Landing Page Manufacturer Announcement"
+            }       
+    }
+})

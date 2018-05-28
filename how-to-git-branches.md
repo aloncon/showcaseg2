@@ -57,6 +57,8 @@ There are two options:
    git push origin :branch-b (after this you won't be able to restore the branch using github interface)
    ```
 
+❗❗⚡ **Please note that switching branches carries uncommitted changes with you, either commit it or stash it.** ( [see more](https://stackoverflow.com/questions/5531362/why-git-keeps-showing-my-changes-when-i-switch-branches-modified-added-deleted) ).
+
 ---
 
 ## Commands:

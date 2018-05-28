@@ -49,9 +49,11 @@
                 
         var baseUrl = location.href.replace(/standalone\/index.html.*/,""); 
         //location.protocol+ "//" + location.host;
-          
+        console.log("params ", params);
         WebcollageShowcase.moduleId  = params.module;
-        WebcollageShowcase.partnerId = params.site;
+        WebcollageShowcase.context  = params["ws-context"];
+        WebcollageShowcase.entry  = params["ws-entry"];
+        WebcollageShowcase.partnerId = params["ws-site"];
         WebcollageShowcase.scriptSrc = baseUrl + "/static/js/bundle.js?site="+ WebcollageShowcase.partnerId;
         WebcollageShowcase.srcBase   = baseUrl;	  
         WebcollageShowcase.cssLink   = null;

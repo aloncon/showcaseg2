@@ -1,26 +1,27 @@
-{
-    "module": "Adobe",
+cbContext0({
+    "module": "xerox",
     "showcase": true,
-    "partner" : "allassortment",
-	"landing_entry_point":"landingpage-default",
+    "partner": "quill",
+    "landing_entry_point": "landingpage-default",
     "Sections": {
-        "wc_header": true,
+        "wc_header": false,
         "wc_navigation_horizontal": true,
-        "wc_navigation_vertical" : true,
+        "wc_navigation_vertical": false,
         "wc_bread_crumbs": true,
         "wc_footer": true,
-        "wc_all_module_products" : true
+        "wc_all_module_products": false,
+        "page3": true
     },
-    "Properties":{
-        "phone" : "111-9009002556666"
+    "Properties": {
+
     },
     "Announcement":{
         "top_webcollage_announcement":{
-            "display": false,
-            "link": "",
-            "title": "",
+            "display": true,
+            "link": "https://en.wikipedia.org/wiki/Studio_Ghibli",
+            "title": "top_webcollage_Announcement",
             "path":"resources/top_webcollage_announcement.jpg",
-            "popup":false,
+            "popup":true,
             "width":"",
             "height":"",
             "reporting_title":"Landing Page Channel Extra Product Announcement"
@@ -64,6 +65,7 @@
             "width":"",
             "height":"",
             "reporting_title":"Landing Page Manufacturer Announcement"
-        }       
+        } 
     }
-}
+
+})

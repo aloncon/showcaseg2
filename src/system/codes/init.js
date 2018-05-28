@@ -32,7 +32,7 @@ function getSrcBase(scriptUrl) {
 function getSiteIdFromScriptSrc(script){
     let site;
 
-    if(script.indexOf('site=')!==-1){
+    if(script.indexOf('ws-site=')!==-1){
         site = script.replace(/.*site=([^&]*)&?.*/,'$1');
         console.log("dev-site: " + site);
     }
@@ -50,6 +50,31 @@ function getModuleIdFromScriptSrc(script){
 
     return module;
 }
+function getContextNameFromScriptSrc(script){
+    if(script.indexOf('ws-context=')!==-1){
+        return script.replace(/.*ws\-context=([^&]+).*/,"$1");
+    } 
+    return configuration.moduleId + "-showcase" 
+}
+
+function getEntryIdFromScriptSrc(script){
+    if(script.indexOf('ws-entry=')!==-1){
+        if(script.replace(/.*ws\-entry=([^&]+).*/,"$1") === 'landingpage-default'){
+            return false
+        }
+        else{
+            let entry = false
+            for (var property in configuration.staticRoutes) {
+                if (property === script.replace(/.*ws\-entry=([^&]+).*/,"$1")) {
+                    entry = script.replace(/.*ws\-entry=([^&]+).*/,"$1");
+                    break;
+                }
+              }
+            return entry;
+        }
+    } 
+    return false
+}
 let script = getScriptURL();
 let environmentId = 'dev';
 let srcBase = getSrcBase(script);    
@@ -59,6 +84,8 @@ export default function getModuleInfo () {
     let id= '168262d34ae47d7642f15af14eb6c95d';
     let site;
     let module;
+    let context;
+    let entry;
 
     let webcollageObj = window.WebcollageShowcase;
     
@@ -68,10 +95,14 @@ export default function getModuleInfo () {
         module = webcollageObj.moduleId;
         script = webcollageObj.scriptSrc;
         srcBase = webcollageObj.srcBase;
+        context = webcollageObj.context;
+        entry = webcollageObj.entry;
     }else{
         console.log("script src from site page : " + script);
         site   = getSiteIdFromScriptSrc(script);
         module = getModuleIdFromScriptSrc(script);
+        context = getContextNameFromScriptSrc(script);
+        entry = getEntryIdFromScriptSrc(script);
     }
    
     // const siteMosaic = allproducts() ? "generic" : site
@@ -96,6 +127,8 @@ const presentationName = configuration.presentationName;
         scriptsrcbaseurl:script,
         showcasePrefix:srcBase,
         presentationName:presentationName,
-        environmentId: environmentId
+        environmentId: environmentId,
+        context: context,
+        entry:entry
     }
 }

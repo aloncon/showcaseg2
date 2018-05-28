@@ -6,7 +6,7 @@ import ShouldDisplay from './ShouldDisplay';
 
 import {WcReports , WcMixPanel} from './WcEvents';
 const { staticRoutes, moduleName } = configuration;
-const { isStandalone } = WcShowcase;
+const { isStandalone, entry } = WcShowcase;
 
 /**
  * This is the App main container, it checks if there is a need to display the vertical navigation or not.
@@ -36,7 +36,7 @@ class MainContainer extends React.Component {
   componentWillMount() {
     Promise.resolve(partnerDefPromise).then(
       function(value) {
-        staticRoutes.setEntry(value.landing_entry_point);
+        const moduleEntry = (!entry)?staticRoutes.setEntry(value.landing_entry_point):staticRoutes.setEntry(entry);
         this.setState({ profileJsonLoaded: true });
       }.bind(this),
     );
