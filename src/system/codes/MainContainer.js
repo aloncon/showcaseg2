@@ -4,6 +4,7 @@ import configuration from './configuration';
 import WcShowcase, { partnerDefPromise } from './moduleInfo';
 import ShouldDisplay from './ShouldDisplay';
 
+import {WcReports , WcMixPanel} from './WcEvents';
 const { staticRoutes, moduleName } = configuration;
 const { isStandalone } = WcShowcase;
 
@@ -80,7 +81,7 @@ class MainContainer extends React.Component {
         {this.VerticalNavigation}
         <div className={`wcContainer${this.classNameWidth}${customExtraClasses ? ' ' + customExtraClasses : ''}`}>
           {this.props.children}
-        </div>
+        </div> 
       </div>)
       : null
     );

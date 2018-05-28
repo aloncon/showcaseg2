@@ -9,7 +9,7 @@ import 'babel-polyfill';
 
 // Our Components
 import ShowcaseHeader from './custom_content/modules/showcase-header';
-import ShowcaseFooter from './custom_content/modules/showcase-footer';
+//import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
 import ModuleGenerateNavigationContent from './custom_content/modules/moduleGenerateNavigationContent';
 import MainContainer from './system/codes/MainContainer';
@@ -28,14 +28,16 @@ import './common/css/index.css'; // module global css
 import './common/css/header.css'; // module global css
 //~~~~~~~
 
-
+//import MixpanelProvider from 'react-mixpanel';
+//import mixpanel from 'mixpanel-browser';
+// mixpanel.init("d1faae8408d92bf4305a6f7c50fcdf60");
 //~~~~~~~
 
 //const css = require('./App.css');
 
 const MainComp = observer(({  rootResponsiveStore }) => {
   return (
-    // <Provider store={store}>
+    // <MixpanelProvider mixpanel={mixpanel}>
       <HashRouter>
         <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
           <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
@@ -55,12 +57,11 @@ const MainComp = observer(({  rootResponsiveStore }) => {
               <ModuleGenerateNavigationContent />
               <GenerateRoutes />
               <hr />
-              <ShowcaseFooter />
-              </div>
+            </div>
           </MainContainer>
-        </div>
+        </div>        
       </HashRouter>
-    // </Provider>
+    //</MixpanelProvider> 
   );
 });
 

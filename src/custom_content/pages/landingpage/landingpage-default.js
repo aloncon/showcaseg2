@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ShouldDisplay from '../../../system/codes/ShouldDisplay';
-import { Announcements } from '../../modules/Announcements';
 import ResponsiveContainer from '../../../system/codes/ResponsiveContainer';
 
 
@@ -11,7 +10,7 @@ class ShowcaseBodyHeader extends React.Component{
       <div className="wcShowcaseBodyHeader">
             <h2>Webcollage (test) Showcase- please contact us by phone: <ShouldDisplay wc_property="phone"/></h2>
             <center>
-            <Announcements />
+            {/* <Announcements /> */}
             </center>
             <div>
             <div className="wcMosaic" data-cpi={53028274}/>

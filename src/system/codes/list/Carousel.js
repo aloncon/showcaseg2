@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { observer } from 'mobx-react';
+import {WcReports} from '../WcEvents';
 import { WcImg } from '../WcResource';
 import'../../style/carousel.css';
+import ActionLink from '../ActionLink';
 
 
 const placeholderPic = require('../../resources/placeholder_small.png')
@@ -35,8 +37,9 @@ const Wcca = observer (class extends Component {
         this.onImgLoad = this.onImgLoad.bind(this);
         this.s = this.props.settings;
         this.init = {
-            slidesToShow            :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  4       ),
-            slidesToShowDefault     :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  4       ),
+            slidesToShow            :           (this.s.slidesToShow!=null      ? this.s.slidesToShow     :  4       ),
+            slidesToShowDefault     :           (this.s.slidesToShow!=null      ? this.s.slidesToShow     :  4       ),
+            reporting               :           (this.s.reporting!=null         ? this.s.reporting        :  true    ) 
         }
         this.state = {
             carosulId               :           (this.s.carosulId!=null                 ? this.s.carosulId        : '00'     ),
@@ -49,13 +52,13 @@ const Wcca = observer (class extends Component {
             productWidth            :           (this.s.productWidth!=null              ? this.s.productWidth     :  '160px'  ),
             ImageHeight             :           (this.s.ImageHeight!=null               ? this.s.ImageHeight      :  '160px'  ),
             ImageWidth              :           (this.s.ImageWidth!=null                ? this.s.ImageWidth       :  '160px'  ),
-            productLink             :           (this.props.productLink!=null           ? this.props.productLink  :   true  ),
+            productLink             :           (this.props.productLink!=null           ? this.props.productLink  :   true    ),
             //NOT TO EDIT - USES AS FLAGS
             latestSlide             :           0,
             productsList            :           this.props.data,  
             maxImgHieght            :           null,
             showArrowsV             :           true,
-            showArrowsH             :           true,
+            showArrowsH             :           true
         };       
     }
 
@@ -164,7 +167,7 @@ const Wcca = observer (class extends Component {
         this.handleResize(responsiveStore.wcContainerSize);
 
         const {carosulId, isVertical, productsList, infinite, showArrowsV , showArrowsH, carouselWidth, carouselHeight, productWidth, productHeightVertical, ImageWidth, ImageHeight} = this.state 
-        const {slidesToShow} = this.init
+        const {slidesToShow ,reporting} = this.init
 
         const settings = {
             arrows: showArrowsH,
@@ -216,14 +219,20 @@ const Wcca = observer (class extends Component {
                                                             </div> 
                                                               
                                                          }
+                                                        {reporting &&
+                                                            WcReports("product-listing-carousel-view",product.wcpc)
+                                                        }
                                                         { product.vendorProductName &&
-                                                        <div className="wcCarouselProductTitle" >
+                                                        <div className="wcCarouselProductTitle"  onClick={() => WcReports("product-listing-carousel-click",product.wcpc)}>
                                                             {/* <br/> */}
-                                                            <a href='' title={product.vendorProductName}>
+                                                            <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName}>
+                                                            {/* <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} onClick={() => WcReports("p2b",product.wcpc)}> */}
+                                                            {/* <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} onClick={WcReports("p2b",product.wcpc)}> */}
                                                                 {Number(product.vendorProductName.length) > 80 ? product.vendorProductName.trim().substring(0, 80).concat('...') : product.vendorProductName}
-                                                            </a></div>           
+                                                            </ActionLink>
+                                                        </div>           
                                                         }                                                          
-                                                         {/* <div className="wcMosaic" data-cpi={53028274}/>                                                  */}
+                                                         {/* <div className="wcMosaic" data-cpi={53028274}/> */}
                                                     </div>
                                                 </div>
                                             ))

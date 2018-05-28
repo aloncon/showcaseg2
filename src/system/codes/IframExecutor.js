@@ -1,6 +1,6 @@
 import React from 'react';
 import'../style/iframe.css';
-import { absolutizeSrcExternal } from './WcResource';
+import { wcGoToURL } from './WcResource';
 
 let eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 let eventRemoveMethod = window.removeEventListener ? "removeEventListener" : "removeEvent";
@@ -35,15 +35,15 @@ class IframExecutor extends React.Component {
                     if(e.data.toString().indexOf("-chat-exit") !== -1 ||
                         e.data.toString().indexOf("-email-exit") !== -1)
                         {
-                        absolutizeSrcExternal(document.getElementById(e.data.toString()).getAttribute('href'),'ext')
+                        wcGoToURL(document.getElementById(e.data.toString()).getAttribute('href'),'ext')
                         }
                     else{
                         let href = document.getElementById(e.data.toString().replace("-exit","")).getAttribute('href');
-                        absolutizeSrcExternal(href,'ext');
+                        wcGoToURL(href,'ext');
                     }
                 }else if (e.data.toString().indexOf("goto-") !== -1){
                     let href = document.getElementById(e.data.toString().replace("goto-","")).getAttribute('href');
-                    absolutizeSrcExternal(href,'int');
+                    wcGoToURL(href,'int');
                     
                 }else if (e.data.toString().indexOf("scrollup") !== -1){
                     if (e.data.toString().indexOf("nav") === -1){

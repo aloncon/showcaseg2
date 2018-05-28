@@ -26,7 +26,7 @@ class CategoryList extends React.Component{
                 <div>
                     <ChangeView type={this.type} callBack={this.handleChangeTypeView} ids={ids}/>  
                     <div style={{clear:"both"}}/>                
-                    <ProductListing ids={ids}  type={this.type} isSubCategory={subCategory}/>
+                    <ProductListing ids={ids}  type={this.type} isSubCategory={subCategory} reporting={this.props.reporting}/>
                 </div>
             )
         }
