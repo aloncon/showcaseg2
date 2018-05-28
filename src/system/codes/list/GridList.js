@@ -4,6 +4,7 @@ import { observable } from 'mobx';
 import WcImg from '../WcResource/WcImg';
 import ActionLink from '../ActionLink';
 import { NormalizeListDescription } from '../NormalizeListDescription';
+import {WcReports} from '../WcEvents';
 import '../../style/grid.css';
 
 const placeholderPic = require('../../resources/placeholder.png')
@@ -82,7 +83,7 @@ const GridListProduct = ({ product, caption }) => {
     return (
        <div className="wc-card">
           <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
-             <div className="wc-card-img-top wc-img-fluid">
+             <div className="wc-card-img-top wc-img-fluid" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
                 {product.listImage === undefined ? <WcImg src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
              </div>
           </ActionLink>
@@ -92,7 +93,7 @@ const GridListProduct = ({ product, caption }) => {
           </div>
 
           <div className="wc-card-block">
-             <h4 className="wc-card-title">
+             <h4 className="wc-card-title" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
                 <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
                    {product.vendorProductName}
                 </ActionLink>
@@ -107,10 +108,11 @@ const GridListProduct = ({ product, caption }) => {
                       text={product.listDescription}
                    />
                 )}
-
-                <ActionLink wcpc={product.wcpc} type="p2b">
-                   Proceed to buy
-                </ActionLink>
+                <div onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
+                    <ActionLink wcpc={product.wcpc} type="p2b">
+                    Proceed to buy
+                    </ActionLink>
+                </div>
              </div>
              <div className="wcClear" />
           </div>
@@ -127,7 +129,7 @@ const GridListProduct = ({ product, caption }) => {
              <div className="wcMosaic" data-cpi={childProduct.cpi} />
           </div>
           <div className="wc-card-block">
-             <h4 className="wc-card-title">
+             <h4 className="wc-card-title"  onClick={() => WcReports("product-listing-grid-family-product-cpi",product.wcpc)}>
                 {childProductIndex === 0 ? (
                      <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
                      {vendorCleanProductName}
@@ -138,27 +140,30 @@ const GridListProduct = ({ product, caption }) => {
                  </ActionLink>
                   )}
              </h4>
-             <div className="wcGridCardFooter">
+             <div className="wcGridCardFooter"  onClick={() => WcReports("product-listing-grid-family-product-cpi",product.wcpc)}>
                 <ActionLink cpi={childProduct.cpi} type="p2b">
                    Proceed to buy
                 </ActionLink>
              </div>
              <div className="wcClear" />
           </div>
+          {WcReports("product-listing-grid-view-family-product-cpi",childProduct.cpi)}
        </div>
     ));
  };
  class GridList extends React.Component {
     render() {
-       const { caption, data } = this.props;
+       const { caption, data ,reporting } = this.props;
 
        return (
           <div className="wcGridList">
              {data.map((item, i) => {
                 // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
                 if (typeof item.cpi === 'string' || item.cpi === 0) {
+                   reporting && WcReports("product-listing-grid-view-product",item.wcpc)  
                    return <GridListProduct key={i} product={item} caption={caption} />;
                 } else {
+                   reporting && WcReports("product-listing-grid-view-family-product-wcpc",item.wcpc)  
                    return <GridListFamilyProduct key={i} product={item} caption={caption} />;
                 }
              })}

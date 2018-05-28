@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductListing from '../../system/codes/list/ProductListing';
 import { Link } from 'react-router-dom';
 
 class Page3 extends React.Component {
+
+    componentDidMount() {
+        
+              //this.context.mixpanel.track('Page Loaded', { pageName: 'Test - App' });
+              // this.context.mixpanel.track('App, componentDidMount');
+            //   console.info(`"App, componentDidMount" sent!`);
+           }
+
     render() {
 
         return(
@@ -20,5 +29,9 @@ class Page3 extends React.Component {
         );
     }
 }
+
+Page3.contextTypes = {
+    mixpanel: PropTypes.object.isRequired,
+ };
 
 export default Page3;

@@ -27,25 +27,30 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                             <WcImg src={imgButtonOpenClose} alt="Open/Close Button"/>
                 </button>
     let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}{buttonOpenClose}</h2> : null
+    
+    if(settings.reporting===undefined){
+        settings.reporting=true;
+    }
 
   // Choosing the type of the listing ( currently between wide/grid/carousel)
+  //console.log(content.products)
     switch (content.products.length > 0 && type) {
         case "wide":
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
                         </div>
-                        {isDisplay && <WideList data={content.products} />}
+                        {isDisplay && <WideList data={content.products}  reporting={settings.reporting} />}
                     </div>
         case "grid":
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
                         </div>
-                        {isDisplay && <GridList data={content.products} caption={content.caption}/>}
+                        {isDisplay && <GridList data={content.products} caption={content.caption}  reporting={settings.reporting}/>}
                     </div>
         case "carousel":
-            return <div>
+            return  <div>
                         {isDisplay && <Carousel data={content} settings={settings} responsiveStore={ResponsiveStore}/>}
                     </div>
         default: return null
@@ -57,9 +62,9 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
 class ProductListing extends React.Component {
 
     render() {
-        const { ids, type = "wide", isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = this.props;
+        const { ids, type = "wide", isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth, reporting } = this.props;
 
-        const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth };
+        const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth, reporting };
 
         return  <div>
                     {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} responsiveStore={ResponsiveStore}/>)}
