@@ -13,7 +13,7 @@ class Init {
       this.mosaicOn = false;
    }
    allassortmentMode = () => {
-      if (!this.allassortment) return (this.allassortment = ShouldDisplay({ wc_section: 'wc_all_module_products' }) || partner.default.siteName === 'allassortment');
+      if (!this.allassortment) return (this.allassortment = ShouldDisplay({ wc_section: 'display-all-vendor-products' }) || partner.default.siteName === 'allassortment');
       else return this.allassortment;
    };
 }

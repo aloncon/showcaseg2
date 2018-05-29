@@ -2,14 +2,14 @@ cbContext0({
     "module": "adobe",
     "showcase": true,
     "partner": "cdw",
-    "landing_entry_point":"landingpage-default",
+    "landing_entry_point": "landingpage-default",
     "Sections": {
-        "wc_header": false,
-        "wc_navigation_horizontal": false,
+        "include-showcase-banner": false,
+        "include-showcase-nav-bar": false,
         "wc_navigation_vertical": false,
-        "wc_bread_crumbs": true,
-        "wc_footer": true,
-        "wc_all_module_products": false,
+        "include-bread-crumbs": true,
+        "include-powered-by": true,
+        "display-all-vendor-products": false,
         "page3": false
     },
     "Properties": {
@@ -222,6 +222,58 @@ cbContext0({
                     "value": "mailto:adobeSupperEmailAddress@adobeSupperEmailAddress.com"
                 }
             }
+        }
+    },
+    "Announcement": {
+        "top_webcollage_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/top_webcollage_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Extra Product Announcement"
+        },
+        "top_channel_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/top_channel_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Top Channel Announcement"
+        },
+        "channel_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/channel_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Announcement"
+        },
+        "bottom_bhannel_announcement_for_missing_products": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/bottom_bhannel_announcement_for_missing_products.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Extra Product Announcement"
+        },
+        "bottom_manufacturer_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/bottom_manufacturer_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Manufacturer Announcement"
         }
     }
 })

@@ -30,7 +30,7 @@ class Header extends Component {
         }
 
         return (
-            <ShouldDisplay wc_section="wc_header">
+            <ShouldDisplay wc_section="include-showcase-banner">
                 <div className="wcHeader">
                         <div className="wcHeaderTitle">
                             <h1>{title}</h1>

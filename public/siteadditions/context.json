@@ -2,17 +2,17 @@ cbContext0({
 		"module": "adobe",
 		"showcase": true,
 		"partner" : "cdw",
-		"Sections": {			
-			"wc_header": false,
-			"wc_navigation_horizontal": true,
+		"Sections": {
+			"include-showcase-banner": false,
+			"include-showcase-nav-bar": true,
 			"wc_navigation_vertical" : true,
-			"wc_bread_crumbs": true,
-			"wc_footer": false,
-			"wc_all_module_products" : false,
+			"include-bread-crumbs": true,
+			"include-powered-by": false,
+			"display-all-vendor-products" : false,
 			"box1":true
 		},
 		"Properties":{
-			
+
 		},
 		"Entry":{
 			"mailto":{
@@ -25,6 +25,3 @@ cbContext0({
 		}
 
 })
-
-
-

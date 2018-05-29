@@ -39,12 +39,12 @@ function getSiteIdFromScriptSrc(script){
         console.log("dev-site: " + site);
     }
     else{
-         //site = 'cdw';
+        //  site = 'cdw';
          site = 'staples';
-         //site = 'quill';
+        //  site = 'quill';
         // site = 'allassortment';
     }
-   
+
     return site;
 }
 
@@ -58,8 +58,8 @@ function getModuleIdFromScriptSrc(script){
 function getContextNameFromScriptSrc(script){
     if(script.indexOf('ws-context=')!==-1){
         return script.replace(/.*ws\-context=([^&]+).*/,"$1");
-    } 
-    return configuration.moduleId + "-showcase" 
+    }
+    return configuration.moduleId + "-showcase"
 }
 
 function getEntryIdFromScriptSrc(script){
@@ -77,12 +77,12 @@ function getEntryIdFromScriptSrc(script){
               }
             return entry;
         }
-    } 
+    }
     return false
 }
 let script = getScriptURL();
 let environmentId = 'dev';
-let srcBase = getSrcBase(script);    
+let srcBase = getSrcBase(script);
 
 
 export default function getModuleInfo () {
@@ -93,7 +93,7 @@ export default function getModuleInfo () {
     let entry;
 
     let webcollageObj = window.WebcollageShowcase;
-    
+
     if(typeof webcollageObj !== 'undefined'){
         console.log("object from site page : " + webcollageObj);
         site = webcollageObj.partnerId;

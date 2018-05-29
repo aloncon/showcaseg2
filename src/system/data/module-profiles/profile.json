@@ -1,69 +1,86 @@
 {
     "module": "Adobe",
     "showcase": true,
-    "partner" : "allassortment",
-	"landing_entry_point":"landingpage-default",
+    "partner": "allassortment",
+    "landing_entry_point": "landingpage-default",
     "Sections": {
-        "wc_header": true,
-        "wc_navigation_horizontal": true,
-        "wc_navigation_vertical" : true,
-        "wc_bread_crumbs": true,
-        "wc_footer": true,
-        "wc_all_module_products" : true
+        "include-showcase-banner": true,
+        "include-showcase-nav-bar": true,
+        "wc_navigation_vertical": true,
+        "include-bread-crumbs": true,
+        "include-powered-by": true,
+        "display-all-vendor-products": true
     },
-    "Properties":{
-        "phone" : "111-9009002556666"
+    "Properties": {
+        "phone": "111-9009002556666"
     },
-    "Announcement":{
-        "top_webcollage_announcement":{
+    "Announcement": {
+        "top_webcollage_announcement": {
             "display": false,
             "link": "",
             "title": "",
-            "path":"resources/top_webcollage_announcement.jpg",
-            "popup":false,
-            "width":"",
-            "height":"",
-            "reporting_title":"Landing Page Channel Extra Product Announcement"
+            "path": "resources/top_webcollage_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Extra Product Announcement"
         },
-        "top_channel_announcement":{
+        "top_channel_announcement": {
             "display": false,
             "link": "",
             "title": "",
-            "path":"resources/top_channel_announcement.jpg",
-            "popup":false,
-            "width":"",
-            "height":"",
-            "reporting_title":"Landing Page Top Channel Announcement"
+            "path": "resources/top_channel_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Top Channel Announcement"
         },
-        "channel_announcement":{
+        "channel_announcement": {
             "display": false,
             "link": "",
             "title": "",
-            "path":"resources/channel_announcement.jpg",
-            "popup":false,
-            "width":"",
-            "height":"",
-            "reporting_title":"Landing Page Channel Announcement"
+            "path": "resources/channel_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Announcement"
         },
-        "bottom_bhannel_announcement_for_missing_products":{
+        "bottom_bhannel_announcement_for_missing_products": {
             "display": false,
             "link": "",
             "title": "",
-            "path":"resources/bottom_bhannel_announcement_for_missing_products.jpg",
-            "popup":false,
-            "width":"",
-            "height":"",
-            "reporting_title":"Landing Page Channel Extra Product Announcement"
+            "path": "resources/bottom_bhannel_announcement_for_missing_products.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Extra Product Announcement"
         },
-        "bottom_manufacturer_announcement":{
+        "bottom_manufacturer_announcement": {
             "display": false,
             "link": "",
             "title": "",
-            "path":"resources/bottom_manufacturer_announcement.jpg",
-            "popup":false,
-            "width":"",
-            "height":"",
-            "reporting_title":"Landing Page Manufacturer Announcement"
-        }       
-    }
+            "path": "resources/bottom_manufacturer_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Manufacturer Announcement"
+        }
+    },
+    "mosaic_configurations": {
+        "menuOrientation": "left-to-right",
+        "animation": true,
+        "layout": "one-button",
+        "poweredByWebcollage": "none",
+        "defaultOverlayPosition": "",
+        "overlayType": "tooltip",
+        "buttonType": "hotspot",
+        "buttonText": "",
+        "buttonPosition": "top-left",
+        "scrollOverlayToView": false,
+        "tooltipType": "none",
+        "sectionOrder": [],
+        "maxButtonsAllowed": null,
+        "menuSize": "medium"
+    },
+    "Others": {}
 }
