@@ -21,13 +21,13 @@ class MosaicTesting extends React.Component {
                         <button> MosaicTesting button </button>
                         </MosaicTiles>
                     </div>
-                    <hr/>
+                    {/* <hr/>
                     <div>
                         <h3>Mosaic One Button</h3>
                         <p>wcpc = 1377023287175</p>
                         <Mosaic wcpc={1377023287175}/>
                     </div>
-                    <CategoryList ids={CATEGORY_IDS} type="grid"/>
+                    <CategoryList ids={CATEGORY_IDS} type="grid"/> */}
                 </div>
                 
             </div>

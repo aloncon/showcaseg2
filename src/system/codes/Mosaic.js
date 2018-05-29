@@ -100,7 +100,7 @@ const Mosaic = ({wcpc, cpi, id}) => {
     --                                                                                                        --
     ------------------------------------------------------------------------------------------------------------
 */
-const  overlayStyle = { position: "fixed",width:  "100%",height: "100%",top: 0,left: 0,zIndex: 2}
+const  overlayStyle = { position: "fixed",width:  "100%",height: "100%",top: 0,left: 0,zIndex: 966}
 const styleMosaicTilesOn = { width:500 , height:500 , position:"sticky" , left:"15%",top:"15%"}    
 
 const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
