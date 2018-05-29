@@ -9,7 +9,7 @@ import 'babel-polyfill';
 
 // Our Components
 import ShowcaseHeader from './custom_content/modules/showcase-header';
-//import ShowcaseFooter from './custom_content/modules/showcase-footer';
+import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
 import ModuleGenerateNavigationContent from './custom_content/modules/moduleGenerateNavigationContent';
 import MainContainer from './system/codes/MainContainer';
@@ -54,9 +54,10 @@ const MainComp = observer(({  rootResponsiveStore }) => {
               <ModuleGenerateNavigationContent />
               <GenerateRoutes />
               <hr />
+              <ShowcaseFooter />
             </div>
           </MainContainer>
-        </div>        
+        </div>
       </HashRouter>
   );
 });
