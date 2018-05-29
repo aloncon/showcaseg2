@@ -38,10 +38,8 @@ const P2b = ({ children, siteName, cpi , ...props}) => {
 const ActionLinkObserver = observer(({ store: { data }, type, unlink, children, ...props }) => {
    let productId = data;
    const siteName = partner.default.siteName;
-   //const allProducts = ShouldDisplay({ "wc_section": "wc_all_module_products" })
 
    const allassortmentMode = init.allassortmentMode();
-   //console.log("allassortmentMode",productId,ShouldDisplay({ "wc_section": "wc_all_module_products" }))
    switch (productId && !allassortmentMode && type) {
       case 'p2b':
          return <P2b children={children} cpi={productId.cpi} siteName={siteName} {...props }  onClick={() => WcReports("p2b",productId.wcpc)} />;
@@ -52,10 +50,8 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children, 
 
 const ActionLinkStatic = ({ cpi, type, unlink, children , ...props}) => {
    const siteName = partner.default.siteName;
-   //const allProducts = ShouldDisplay({ "wc_section": "wc_all_module_products" })
 
    const allassortmentMode = init.allassortmentMode();
-   //console.log("allassortmentMode",productId,ShouldDisplay({ "wc_section": "wc_all_module_products" }))
    switch (cpi && !allassortmentMode && type) {
       case 'p2b':
          return <P2b children={children} cpi={cpi} siteName={siteName} {...props }/>;

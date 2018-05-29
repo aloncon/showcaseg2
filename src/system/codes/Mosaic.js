@@ -2,10 +2,9 @@ import React, { Fragment } from 'react'
 import ShouldDisplay , {getNosaicConfiguration} from './ShouldDisplay'
 import { observer } from 'mobx-react'
 import { cpStore } from '../../store/ProductData'
-import ResponsiveStore from '../../store/ResponsiveStore'
 const moduleInfo = require('../codes/moduleInfo')
 
-// Singleton initMosaic object, decides how to initialize Mosaic Product Listing requests 
+// Singleton initMosaic object, decides how to initialize Mosaic Product Listing requests
 // In case "Display all products" = true -> it will use loadProductContentForProductListing (by cpi)
 // In case "Display all products" = false -> it will use loadProductContentForProductListingByWcpc (by wcpc)
 class initMosaicProductListing{
@@ -14,7 +13,7 @@ class initMosaicProductListing{
         this.setConfig = (configObj) =>{
             return configObj ? {
                 containerSelector       : ".wcMosaic",
-                cpiAttribute            : "product-data-number", 
+                cpiAttribute            : "product-data-number",
                 layout                  : configObj.layout ? configObj.layout : "one-button",
                 buttonPosition          : configObj.buttonPosition ? configObj.buttonPosition : "left-top",
                 buttonType              : configObj.buttonType ? configObj.buttonType : "hotspot",
@@ -29,7 +28,7 @@ class initMosaicProductListing{
                 tooltipType             : configObj.tooltipType ? configObj.tooltipType : "none"
             } : {
                 containerSelector       : ".wcMosaic",
-                cpiAttribute            : "product-data-number", 
+                cpiAttribute            : "product-data-number",
                 layout                  : "one-button",
                 buttonPosition          : "left-top",
                 menuSize                : "small"
@@ -39,10 +38,10 @@ class initMosaicProductListing{
 
     init(){
         let config = this.setConfig(getNosaicConfiguration())
-        
+
         if(this.initMosaic === false){
             if(!ShouldDisplay({ "wc_section": "wc_all_module_products" })){
-                window.Webcollage.loadProductContentForProductListing( moduleInfo.default.siteName, config) 
+                window.Webcollage.loadProductContentForProductListing( moduleInfo.default.siteName, config)
                 this.isWcpc = false
                 console.log("loadProductContentForProductListingByCpi")
             }else{
@@ -58,7 +57,7 @@ class initMosaicProductListing{
 }
 const initMosaic = new initMosaicProductListing()
 
-/* 
+/*
     ------------------------------------------------------------------------------------------------------------
     --                                                                                                        --
     --                                               MOSAIC                                                   --
@@ -69,16 +68,16 @@ const MosaicListener = observer(({store : {data},id}) => {
     let productData = data
     if(productData && productData.cpi ){
         return <div className="wcMosaic" id={id} product-data-number={productData.cpi}/>
-    } 
+    }
     else return null
-    
+
 })
 
-/*  
+/*
     ----------------------------------------------------------------------------------------------------------------------------------------------
     for configuration Documentation please check: https://webcollage.freshdesk.com/support/solutions/articles/19000065099-mosaic-api-documentation
     ----------------------------------------------------------------------------------------------------------------------------------------------
-*/  
+*/
 const Mosaic = ({wcpc, cpi, id}) => {
     let isWcpc = initMosaic.init();
     if(isWcpc)
@@ -87,13 +86,13 @@ const Mosaic = ({wcpc, cpi, id}) => {
         if(cpi){
             return <div className="wcMosaic" id={id} product-data-number={cpi}/>
         }
-        else return <MosaicListener store={cpStore(wcpc)} id={id}/>   
+        else return <MosaicListener store={cpStore(wcpc)} id={id}/>
     }
-    
+
 }
 
 
-/* 
+/*
     ------------------------------------------------------------------------------------------------------------
     --                                                                                                        --
     --                                           MOSAIC TILES                                                 --
@@ -101,7 +100,7 @@ const Mosaic = ({wcpc, cpi, id}) => {
     ------------------------------------------------------------------------------------------------------------
 */
 const  overlayStyle = { position: "fixed",width:  "100%",height: "100%",top: 0,left: 0,zIndex: 966}
-const styleMosaicTilesOn = { width:500 , height:500 , position:"sticky" , left:"15%",top:"15%"}    
+const styleMosaicTilesOn = { width:500 , height:500 , position:"sticky" , left:"15%",top:"15%"}
 
 const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
 
@@ -117,41 +116,40 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
                 openMosaic : false
             }
         }
-        
+
         componentDidMount(){
             if(this.isWcpc){
-                console.log(" this.props.wcpc", wcpc)
-                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": ".WcMosaicTile", layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}}); 
+                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": ".WcMosaicTile", layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}});
             }
         }
 
         componentWillUnmount(){
-           if(window.Webcollage.terminateMosaic) 
+           if(window.Webcollage.terminateMosaic)
                 window.Webcollage.terminateMosaic()
         }
-    
+
         tilesCallback(json){
             this.setState( { mosiacJson : json } )
         }
-    
+
         openMosaicHandler(){
-            let  { mosiacJson , openMosaic } = this.state
+            let  { mosiacJson } = this.state
             this.setState({openMosaic : true})
-            
+
             setTimeout(()=>{
-                window.Webcollage.openMosaicOverlay(mosiacJson.id,"all-content") 
+                window.Webcollage.openMosaicOverlay(mosiacJson.id,"all-content")
             },0)
-            
+
         }
-    
+
         closeMosaicHandler(){
             let  { mosiacJson , openMosaic } = this.state
             this.setState({openMosaic : !openMosaic})
             setTimeout(()=>{
-                window.Webcollage.closeMosaicOverlay(mosiacJson.id) 
+                window.Webcollage.closeMosaicOverlay(mosiacJson.id)
             },0)
         }
-       
+
         mosiacContent(){
             this.callMosiacContent = false
             window.Webcollage.loadProductContent(moduleInfo.default.siteName, data.cpi, {"mosaic-board":{"containerSelector": ".WcMosaicTile", layout: "tiles", "tilesCallback": this.tilesCallback.bind(this)}});
@@ -163,10 +161,10 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
             if(!this.isWcpc && data && data.cpi && this.callMosiacContent){
                 this.mosiacContent()
             }
-            
+
             const validMosiac = mosiacJson !== null ? true : false
-            const childrenWithMosaicClick =  React.cloneElement(this.props.children, { onClick: this.openMosaicHandler.bind(this) })  
-            const children =  validMosiac && childrenWithMosaicClick     
+            const childrenWithMosaicClick =  React.cloneElement(this.props.children, { onClick: this.openMosaicHandler.bind(this) })
+            const children =  validMosiac && childrenWithMosaicClick
             return (
                 <Fragment>
                 {children}
@@ -185,7 +183,7 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
 class MosaicTiles extends React.Component{
 
      render(){
-      return(<MosaicTilesListener store={!this.isWcpc && cpStore(this.props.wcpc)} {...this.props}/>)  
+      return(<MosaicTilesListener store={!this.isWcpc && cpStore(this.props.wcpc)} {...this.props}/>)
     }
 }
 
