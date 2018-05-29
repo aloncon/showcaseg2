@@ -45,7 +45,7 @@ const WideListFamilyProduct = ({ product }) => {
             <div key={childProductIndex} className="wcWideProduct">
                <div className="bt-row">
                   <div className="wcWideListDesc">
-                  <Mosaic cpi={product.wcpc}/>
+                  <Mosaic cpi={childProduct.cpi}/>
                         <h4 className="wcOnlyTitle" onClick={() => WcReports("product-listing-wide-family-product-cpi",product.wcpc)}>
                               {childProductIndex === 0 ? (
                               <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>

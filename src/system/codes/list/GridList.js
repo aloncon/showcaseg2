@@ -83,12 +83,12 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
 const GridListProduct = ({ product, caption }) => {
     return (
        <div className="wc-card">
-           <Mosaic wcpc={product.wcpc}/> 
+           <Mosaic wcpc={product.wcpc}/>
           <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
              <div className="wc-card-img-top wc-img-fluid" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
                 {product.listImage === undefined ? <WcImg src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
              </div>
-          </ActionLink> 
+          </ActionLink>
 
           <div className="wc-card-block">
              <h4 className="wc-card-title" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
@@ -123,7 +123,7 @@ const GridListProduct = ({ product, caption }) => {
 
     return product.cpi.map((childProduct, childProductIndex) => (
        <div key={childProductIndex} className="wc-card">
-          <Mosaic cpi={product.cpi}/>
+          <Mosaic cpi={childProduct.cpi}/>
           <div className="wc-card-block">
              <h4 className="wc-card-title"  onClick={() => WcReports("product-listing-grid-family-product-cpi",product.wcpc)}>
                 {childProductIndex === 0 ? (
@@ -156,10 +156,10 @@ const GridListProduct = ({ product, caption }) => {
              {data.map((item, i) => {
                 // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
                 if (typeof item.cpi === 'string' || item.cpi === 0) {
-                   reporting && WcReports("product-listing-grid-view-product",item.wcpc)  
+                   reporting && WcReports("product-listing-grid-view-product",item.wcpc)
                    return <GridListProduct key={i} product={item} caption={caption} />;
                 } else {
-                   reporting && WcReports("product-listing-grid-view-family-product-wcpc",item.wcpc)  
+                   reporting && WcReports("product-listing-grid-view-family-product-wcpc",item.wcpc)
                    return <GridListFamilyProduct key={i} product={item} caption={caption} />;
                 }
              })}
