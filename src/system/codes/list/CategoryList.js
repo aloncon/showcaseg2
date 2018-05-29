@@ -9,6 +9,7 @@ class CategoryList extends React.Component{
         constructor(props){
             super(props);
             this.state = { typeName : this.type}
+            this.type = this.props.type
         }
 
         handleChangeTypeView = (returnedType) =>{

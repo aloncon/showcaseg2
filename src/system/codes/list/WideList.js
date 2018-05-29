@@ -1,9 +1,11 @@
-import React from 'react';
-import ActionLink from '../ActionLink';
-import WcImg from '../WcResource/WcImg';
-import { NormalizeListDescription } from '../NormalizeListDescription';
+import React from 'react'
+import ActionLink from '../ActionLink'
+import {Mosaic} from '../Mosaic'
+import WcImg from '../WcResource/WcImg'
+import {NormalizeListDescription} from '../NormalizeListDescription'
+import ShouldDisplay from '../ShouldDisplay'
 import {WcReports} from '../WcEvents';
-import '../../style/wide.css';
+import '../../style/wide.css'
 
 const placeholderPic = require('../../resources/placeholder.png');
 
@@ -12,15 +14,12 @@ const WideListProduct = ({ product }) => {
    return (
       <div className="wcWideProduct">
          <div className="bt-row">
-            <div className="wcMosaicWideList ">
-               <div className="wcMosaic" data-cpi={product.cpi} />
-            </div>
-         </div>
-         <div className="bt-row">
             <div className="wcWideListImg">
                {product.listImage ? <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} /> : <img src={placeholderPic} alt={product.vendorProductName} />}
             </div>
-            <div className="wcWideListDesc" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
+            <Mosaic wcpc={product.wcpc}/>
+            <div className="wcWideListDesc">
+                
                <h4>
                   <ActionLink wcpc={product.wcpc} type="p2b" unlink={true} >
                      {product.vendorProductName}
@@ -49,23 +48,19 @@ const WideListFamilyProduct = ({ product }) => {
    return product.cpi.map((childProduct, childProductIndex) => (           
             <div key={childProductIndex} className="wcWideProduct">
                <div className="bt-row">
-                  <div className="wcMosaicWideList ">
-                     <div className="wcMosaic" data-cpi={childProduct.cpi} />
-                  </div>
-               </div>
-               <div className="bt-row">
                   <div className="wcWideListDesc">
-               <h4 className="wcOnlyTitle"  onClick={() => WcReports("product-listing-wide-family-product-cpi",product.wcpc)}>
-                  {childProductIndex === 0 ? (
-                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-                        {vendorCleanProductName}
-                     </ActionLink>
-                  ) : (
-                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-                        {childProduct.channelProductName}
-                     </ActionLink>
-                  )}
-                     </h4>
+                  <Mosaic cpi={product.wcpc}/>
+                        <h4 className="wcOnlyTitle">
+                              {childProductIndex === 0 ? (
+                              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                                    {vendorCleanProductName}
+                              </ActionLink>
+                              ) : (
+                              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                                    {childProduct.channelProductName}
+                                    </ActionLink>
+                              )}
+                        </h4>
                   </div>
                </div>
                {WcReports("product-listing-wide-view-family-product-cpi",childProduct.cpi)}
