@@ -9,7 +9,7 @@ import 'babel-polyfill';
 
 // Our Components
 import ShowcaseHeader from './custom_content/modules/showcase-header';
-import ShowcaseFooter from './custom_content/modules/showcase-footer';
+//import ShowcaseFooter from './custom_content/modules/showcase-footer';
 import StandAlone from '../src/system/codes/standalone';
 import ModuleGenerateNavigationContent from './custom_content/modules/moduleGenerateNavigationContent';
 import MainContainer from './system/codes/MainContainer';
@@ -25,7 +25,7 @@ import './system/style/wc_reset.css'; // module reset css
 import './system/style/bootstrap-custom/css/wc.bootstrap.css'; // our custom bootstrap
 import './system/style/index.css'; // system global css
 import './common/css/index.css'; // module global css
-import './common/css/header.css'; // module global css
+import './common/css/header.css'; // module global header css
 //~~~~~~~
 
 
@@ -35,7 +35,6 @@ import './common/css/header.css'; // module global css
 
 const MainComp = observer(({  rootResponsiveStore }) => {
   return (
-    // <Provider store={store}>
       <HashRouter>
         <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
           <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
@@ -55,12 +54,10 @@ const MainComp = observer(({  rootResponsiveStore }) => {
               <ModuleGenerateNavigationContent />
               <GenerateRoutes />
               <hr />
-              <ShowcaseFooter />
-              </div>
+            </div>
           </MainContainer>
-        </div>
+        </div>        
       </HashRouter>
-    // </Provider>
   );
 });
 

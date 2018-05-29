@@ -47,6 +47,7 @@ export const cpStore = wcpc => {
          return store.wcpcListing.cpi
             ? {
                  cpi: store.wcpcListing.cpi,
+                 wcpc : wcpc
               }
             : null;
       },

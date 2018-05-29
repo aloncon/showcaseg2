@@ -1,26 +1,24 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root{
-	@logo-height: 60px;
-	@logo-margin: 5px;
-	@background: white;
-	@header-color: black;
+	@logo-height:39px;
+	@logo-margin:5px;
 	.wcHeader {
 		display: -ms-flexbox;
 		display: flex;
 		margin-bottom: 1px;
-		background: @background;
+		background: white;
 		height: @logo-height + @logo-margin;
-
+		
 		.wcHeaderTitle {
+			position: relative;
 			width: 50%;
 			text-align: left;
-
+			
 			h1 {
-				color: @header-color;
+				color: black;
 				line-height: @logo-height + @logo-margin;
 				padding-left: 10px;
 				margin: 0 auto;
-				//font-size: 2em;
 			}
 		}
 		.wcHeaderLogo {
@@ -28,7 +26,8 @@
 			width: 50%;
 			text-align: right;
 			img{
-				height: 100%;
+				max-height: 100%;
+				margin: @logo-margin;
 			}
 		}
 	}
@@ -36,9 +35,9 @@
 	.app-size-sm{
 		.wcHeader{
 			.wcHeaderTitle{
-
+				
 			}
-		}
+		} 	
 	}
 
 	.app-size-xs{

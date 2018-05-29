@@ -1,5 +1,5 @@
 /* eslint-disable no-script-url */
-
+ 
 import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
 import '../../../../node_modules/video-react/dist/video-react.css';

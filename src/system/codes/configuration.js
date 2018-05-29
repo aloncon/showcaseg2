@@ -9,9 +9,9 @@ import WcShowcase from './moduleInfo';
  * headerDetails:: Holds all the header information
  * imgLogo[optional]: There is three options:
  *          * Image from the `src/custom_content/assets/` for example: `images/product-logo.jpg`.
- *          * Empty string - Will use the image: `src/system/resources/default_logo.jpg`.
+ *          * Empty string - Will use the default logo: `src/system/resources/default_logo.jpg`.
  *          * Delete it if not needed.
- * headerTitle[optional]: may be text as "Symantec", empty string, or just delete it
+ * headerTitle[optional]: may be text as "Module Name", empty string, or just delete it
  *
  * footerDetails::
  *          * imgProvidedBy - Always will be `src/system/resources/powered-by.png`.
@@ -19,11 +19,11 @@ import WcShowcase from './moduleInfo';
  * staticRoutes:: Holds all the routes information, [id, component, name, title, assort]. Used for generating the routes, breadcrumbs and navigation.
  * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be exact, add 'notExact : true' to the parent.
  *
- * `id`: The route ID, the convention is the file name in lowercase with no spaces use dash (`-`).
+ * `id`: The route ID. The convention is to take file name in lowercase with no spaces (use dash (`-`) instead).
  *
  * `parent`: The route's parent ID, if this is a root path it will be the first route ID.
  *
- * `component`: The path under the folder `src/custom_content/pages/` to the component to use for this route. For example: `landingpage/landingpage-default`.
+ * `component`: The path under the folder `src/custom_content/pages/` to the component to be used for this route. For example: `landingpage/landingpage-default`.
  *
  * `name`: The name to use for the breadcrumbs / navigation.
  *
@@ -46,14 +46,14 @@ import WcShowcase from './moduleInfo';
 
 /**
  * Update the images paths in the configuration parameter to the actual images.
- * If there was no value for the logo it will not try to load from custom_content.
+ * If there is no value for the logo, it won`t try to load from custom_content.
  */
 const loadImages = (configuration) => {
   const regexCheckIsDefaultLogo = new RegExp(/default_logo.jpg|data:image/);
   const imageLogoExists = configuration.headerDetails.imgLogo !== undefined;
   const isNotDefaultImageLogo = !regexCheckIsDefaultLogo.test(configuration.headerDetails.imgLogo);
 
-  // Found an image logo in the configuration.json, and is not the default_logo.jpg.
+  // Finding an image logo in the configuration.json, and is not the default_logo.jpg.
   if (imageLogoExists && isNotDefaultImageLogo) {
     configuration.headerDetails.imgLogo = require(`../../custom_content/assets/${configuration.headerDetails.imgLogo}`);
   }
@@ -69,9 +69,6 @@ const loadImages = (configuration) => {
 const loadPageComponents = (configuration) => {
   for (var property in configuration.staticRoutes) {
     if (property !== "routesExclude") {
-      console.log('------------------------------------');
-      console.log("property ", property);
-      console.log('------------------------------------');
         configuration.staticRoutes[property].map((router => {
           const Component =  require(`../../custom_content/pages/${router.component}`).default;
           router.component = Component;
