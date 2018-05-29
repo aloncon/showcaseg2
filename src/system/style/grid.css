@@ -79,9 +79,12 @@
   border: 1px solid #D1D1D1;
   border-radius: 5px;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wcMosaicGrid {
+#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wcMosaic {
   width: 100%;
   height: 20px;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wcMosaic .wc-mb-position.wc-not-active {
+  z-index: 900 !important;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-img-top {
   width: 100%;

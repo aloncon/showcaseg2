@@ -37,8 +37,9 @@ function getSiteIdFromScriptSrc(script){
         console.log("dev-site: " + site);
     }
     else{
-        site = 'quill';
-        // site = 'staples';
+         //site = 'cdw';
+         site = 'staples';
+         //site = 'quill';
         // site = 'allassortment';
     }
    
@@ -96,17 +97,6 @@ export default function getModuleInfo () {
         context = getContextNameFromScriptSrc(script);
         entry = getEntryIdFromScriptSrc(script);
     }
-   
-    // const siteMosaic = allproducts() ? "generic" : site
-
-    //Call Mosica (Product listing)
-    window.Webcollage.loadProductContentForProductListing( site, 
-                                                            {containerSelector : ".wcMosaic",  
-                                                            layout : "hero-ribbon",
-                                                            buttonType : "hidden",
-                                                            // menuOrientation :"top-to-bottom",
-                                                            buttonPosition : "left-top", 
-                                                            cpiAttribute : "data-cpi" }) 
 
     console.log("default: module- " + module + " &&site- " + site);
 

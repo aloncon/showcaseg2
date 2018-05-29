@@ -1,6 +1,6 @@
 /* eslint-disable no-eval */
 import React from 'react';
-import {partnerDef} from './moduleInfo'
+import { partnerDef } from './moduleInfo'
 import WcpcAssortment from './WcpcAssortment'
 
 
@@ -54,6 +54,11 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
         }
     }
 };
+
+
+export const getNosaicConfiguration = () =>{
+    return partnerDef ? partnerDef.mosaic_configurations : null;
+}
 
 
 

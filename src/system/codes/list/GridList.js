@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
 import WcImg from '../WcResource/WcImg';
+import {Mosaic} from '../Mosaic'
 import ActionLink from '../ActionLink';
 import { NormalizeListDescription } from '../NormalizeListDescription';
 import '../../style/grid.css';
@@ -81,15 +82,12 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
 const GridListProduct = ({ product, caption }) => {
     return (
        <div className="wc-card">
+           <Mosaic wcpc={product.wcpc}/> 
           <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
              <div className="wc-card-img-top wc-img-fluid">
                 {product.listImage === undefined ? <WcImg src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
              </div>
-          </ActionLink>
-
-          <div className="wcMosaicGrid">
-             <div className="wcMosaic" data-cpi={product.cpi} />
-          </div>
+          </ActionLink> 
 
           <div className="wc-card-block">
              <h4 className="wc-card-title">
@@ -123,9 +121,7 @@ const GridListProduct = ({ product, caption }) => {
 
     return product.cpi.map((childProduct, childProductIndex) => (
        <div key={childProductIndex} className="wc-card">
-          <div className="wcMosaicGrid">
-             <div className="wcMosaic" data-cpi={childProduct.cpi} />
-          </div>
+          <Mosaic cpi={product.cpi}/>
           <div className="wc-card-block">
              <h4 className="wc-card-title">
                 {childProductIndex === 0 ? (

@@ -9,7 +9,7 @@ cbContext0({
         "wc_navigation_vertical" : true,
         "wc_bread_crumbs": true,
         "wc_footer": true,
-        "wc_all_module_products" : true,
+        "wc_all_module_products" : false,
         "custom-listing_scanners": true
     },
     "Properties":{
@@ -48,6 +48,26 @@ cbContext0({
                 }
             }
         }
+    },
+    "mosaic_configurations":{
+        /*
+        *	for Mosiac API documentation 	
+        *	Check https://webcollage.freshdesk.com/support/solutions/articles/19000065099-mosaic-api-documentation
+        */
+        "menuOrientation" : "left-to-right", // left-to-right | top-to-bottom
+        "animation"	: true, // true | false
+        "layout" : "one-button", // hero-ribbon | one-button
+        "poweredByWebcollage" : "none", // footer | header | none
+        "defaultOverlayPosition" : "", // below | left | above | right
+        "overlayType" : "tooltip", // tooltip | lightbox
+        "buttonType" : "hotspot", // hotspot | icon | text | hidden
+        "buttonText" : "",
+        "buttonPosition" : "top-left", // top-left | top-right | center | bottom-left | bottom-right | top-center | bottom-center
+        "scrollOverlayToView" : false, // true | false
+        "tooltipType" : "none", // ection-caption | content-type | none
+        "sectionOrder" : [], // exmaple: ['video-gallery', 'tour', 'consumer-videos', 'consumer-images', 'rich-features', 'three-sixty', 'image-gallery', 'related-products']
+        "maxButtonsAllowed" : null, // Number
+        "menuSize" : "medium" // small | medium | large | xl
     }
 })
 

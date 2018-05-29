@@ -57,10 +57,9 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
 class ProductListing extends React.Component {
 
     render() {
-        const { ids, type = "wide", isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = this.props;
-
+        const { ids, type, isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth } = this.props;
         const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth };
-
+        console.log("TYPE",type)
         return  <div>
                     {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} responsiveStore={ResponsiveStore}/>)}
                 </div>

@@ -1,8 +1,10 @@
-import React from 'react';
-import ActionLink from '../ActionLink';
-import WcImg from '../WcResource/WcImg';
-import { NormalizeListDescription } from '../NormalizeListDescription';
-import '../../style/wide.css';
+import React from 'react'
+import ActionLink from '../ActionLink'
+import {Mosaic} from '../Mosaic'
+import WcImg from '../WcResource/WcImg'
+import {NormalizeListDescription} from '../NormalizeListDescription'
+import ShouldDisplay from '../ShouldDisplay'
+import '../../style/wide.css'
 
 const placeholderPic = require('../../resources/placeholder.png');
 
@@ -10,15 +12,12 @@ const WideListProduct = ({ product }) => {
    return (
       <div className="wcWideProduct">
          <div className="bt-row">
-            <div className="wcMosaicWideList ">
-               <div className="wcMosaic" data-cpi={product.cpi} />
-            </div>
-         </div>
-         <div className="bt-row">
             <div className="wcWideListImg">
                {product.listImage ? <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} /> : <img src={placeholderPic} alt={product.vendorProductName} />}
             </div>
+            <Mosaic wcpc={product.wcpc}/>
             <div className="wcWideListDesc">
+                
                <h4>
                   <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
                      {product.vendorProductName}
@@ -46,23 +45,19 @@ const WideListFamilyProduct = ({ product }) => {
    return product.cpi.map((childProduct, childProductIndex) => (
             <div key={childProductIndex} className="wcWideProduct">
                <div className="bt-row">
-                  <div className="wcMosaicWideList ">
-                     <div className="wcMosaic" data-cpi={childProduct.cpi} />
-                  </div>
-               </div>
-               <div className="bt-row">
                   <div className="wcWideListDesc">
-               <h4 className="wcOnlyTitle">
-                  {childProductIndex === 0 ? (
-                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-                        {vendorCleanProductName}
-                     </ActionLink>
-                  ) : (
-                     <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-                           {childProduct.channelProductName}
-                        </ActionLink>
-                  )}
-                     </h4>
+                  <Mosaic cpi={product.wcpc}/>
+                        <h4 className="wcOnlyTitle">
+                              {childProductIndex === 0 ? (
+                              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                                    {vendorCleanProductName}
+                              </ActionLink>
+                              ) : (
+                              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                                    {childProduct.channelProductName}
+                                    </ActionLink>
+                              )}
+                        </h4>
                   </div>
                </div>
             </div>

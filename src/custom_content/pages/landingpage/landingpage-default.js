@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ShouldDisplay from '../../../system/codes/ShouldDisplay';
 import { Announcements } from '../../modules/Announcements';
 import ResponsiveContainer from '../../../system/codes/ResponsiveContainer';
-
+import { Mosaic , MosaicTiles } from '../../../system/codes/Mosaic'
 
 
 class ShowcaseBodyHeader extends React.Component{
@@ -22,6 +22,9 @@ class ShowcaseBodyHeader extends React.Component{
             </p>
             {/* <Announcements2 /> */}
             <br/><br/>
+            <MosaicTiles wcpc={1377023287175} >
+              <div>MosaicTiles</div>
+            </MosaicTiles>
       </div>
     );
   }

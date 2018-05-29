@@ -9,7 +9,7 @@ cbContext0({
         "wc_navigation_vertical": false,
         "wc_bread_crumbs": true,
         "wc_footer": true,
-        "wc_all_module_products": true,
+        "wc_all_module_products": false,
         "page3": false
     },
     "Properties": {
