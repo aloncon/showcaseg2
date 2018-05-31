@@ -84,15 +84,15 @@ const loadPageComponents = (configuration) => {
 const loadDefaultValues = (configuration) => {
   if (!configuration.moduleName.length) {
     configuration.moduleName = 'SHOWCASE-TEMPLATE Module Name'
-    console.error('Please set the `moduleName` in the custom_content/configuration.json');
+    console.error('WC-ERROR: Please set the `moduleName` in the custom_content/configuration.json');
   }
   if (!configuration.presentationName.length) {
     configuration.presentationName = 'SHOWCASE-TEMPLATE (presentation)';
-    console.error('Please set the `presentationName` in the custom_content/configuration.json');
+    console.error('WC-ERROR: Please set the `presentationName` in the custom_content/configuration.json');
   }
   if (!configuration.moduleId.length) {
     configuration.moduleId = 'SHOWCASE-TEMPLATE-moduleId';
-    console.error('Please set the `moduleId` in the custom_content/configuration.json');
+    console.error('WC-ERROR: Please set the `moduleId` in the custom_content/configuration.json');
   }
   if (configuration.headerDetails.imgLogo !== undefined && !configuration.headerDetails.imgLogo.length) {
     configuration.headerDetails.imgLogo = require('../resources/default_logo.jpg');

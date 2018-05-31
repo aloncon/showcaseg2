@@ -91,7 +91,7 @@ const ProductStore = id => {
             .then(result => {
                 store.products = store.products.concat(result);
          })
-         .catch(err => console.error('should No Data Fatch', err));
+         .catch(err => console.error('WC-ERROR: Should No Data Fatch', err));
    }
    return store;
 };

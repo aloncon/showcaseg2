@@ -109,12 +109,12 @@ export default class Wcvg extends Component {
                         let video = videosInitialArray[i].props;
                         var videoTitle = video.videoTitle!==undefined?video.videoTitle:'';
                         if(video.videoPoster===undefined){
-                            console.error('Video Gallery : Missing Poster for video  '+video.id);
+                            console.error('WC-ERROR: Video Gallery : Missing Poster for video  '+video.id);
                         }else{
                             var videoPoster = video.videoPoster
                         }
                         if(video.videoSrc===undefined){
-                            console.error('Video Gallery : Missing Src for video  '+video.id);
+                            console.error('WC-ERROR: Video Gallery : Missing Src for video  '+video.id);
                         }else{
                             var videoSrc = video.videoSrc
                         }
@@ -125,7 +125,7 @@ export default class Wcvg extends Component {
                     this.fetchData(videosArr);  
                 }                
               }else(
-                  console.error('please Note! Video Gallery missing Childrens!!')
+                  console.error('WC-ERROR: Please Note! Video Gallery missing Childrens!!')
               )            
 
         }

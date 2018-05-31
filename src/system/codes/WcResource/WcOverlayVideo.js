@@ -60,7 +60,7 @@ const WcOverlayVideo = ({ wrapContentOptions, ...props }) => {
    const wcOverlayContainerId = `wcOverlayVideoContainer${normalizeIdName(wrapContentOptions.id)}`;
 
    if (!wrapContentOptions) {
-      console.error('The prop: wrapContentOptions, is undefined. You have to pass it to WcOverlayVideo');
+      console.error('WC-ERROR: The prop: wrapContentOptions, is undefined. You have to pass it to WcOverlayVideo');
    }
 
    const style = {

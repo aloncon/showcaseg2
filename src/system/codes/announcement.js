@@ -143,7 +143,7 @@ const Wcan = observer(class Wcan extends React.Component {
                 slidesInitialArray = children;
             }
           }else(
-              console.error('please Note! Announcements missing Childrens!!')
+              console.error('WC-ERROR: Please Note! Announcements missing Childrens!!')
           )
 
           for (var i = 0; i < lengthArr; i++) {
@@ -176,25 +176,25 @@ const Wcan = observer(class Wcan extends React.Component {
                     videoPoster = slide.videoPoster, videoWidth = slide.videoWidth, videoHeight = slide.videoHeight;                   
                 //check for incorrect/missing props
                 if(!slidestypes.includes(type)){
-                    console.error('Announcements: Note that you declared an incorrect type for a slide ');
+                    console.error('WC-ERROR: Announcements: Note that you declared an incorrect type for a slide ');
                     type = 'banner';
                 }else if(asset===undefined && (type!=='localLink' && type!=='videoLink' && type!=='banner') ){
                     if(type==='asset'){
-                        console.error('Announcements: Note that you declared an asset slide without an Asset File ');
+                        console.error('WC-ERROR: Announcements: Note that you declared an asset slide without an Asset File ');
                     }else{
-                        console.error('Announcements: Note that you declared a slide without an asset file and a correct type');
+                        console.error('WC-ERROR: Announcements: Note that you declared a slide without an asset file and a correct type');
                     }                  
                     asset = 'banner';
                     type = 'banner';
                 }else if(asset!==undefined && type==='banner'){
-                    console.error('Announcements: Note that you declared an asset slide with incorrect type');
+                    console.error('WC-ERROR: Announcements: Note that you declared an asset slide with incorrect type');
                     type = 'asset';
                 }else if(type===undefined && asset!==undefined && (type!=='localLink' || type!=='videoLink')){
-                    console.error('Announcements: Note that you declared an asset without a type');
+                    console.error('WC-ERROR: Announcements: Note that you declared an asset without a type');
                     asset = slide.asset;
                     type = 'asset';
                 }else if(type===undefined){
-                    console.error('Announcements: Note that you declared a slide without a type');
+                    console.error('WC-ERROR: Announcements: Note that you declared a slide without a type');
                     asset = 'banner';
                     type = 'banner';
                 }
