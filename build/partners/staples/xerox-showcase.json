@@ -1,55 +1,120 @@
 cbContext0({
     "module": "adobe",
     "showcase": true,
-    "partner" : "staples",
-    "landing_entry_point":"landingpage-default",
-	"Sections": {
-        "wc_header": true,
-        "wc_navigation_horizontal": true,
-        "wc_navigation_vertical" : true,
-        "wc_bread_crumbs": true,
-        "wc_footer": true,
-        "wc_all_module_products" : true,
+    "partner": "staples",
+    "landing_entry_point": "landingpage-default",
+    "Sections": {
+        "include-showcase-banner": true,
+        "include-showcase-nav-bar": true,
+        "wc_navigation_vertical": true,
+        "include-bread-crumbs": true,
+        "include-powered-by": true,
+        "display-all-vendor-products": false,
         "custom-listing_scanners": true
     },
-    "Properties":{
-        "Acrobat":{
-            "acrobat_call" :{
+    "Properties": {
+        "Acrobat": {
+            "acrobat_call": {
                 "display": true,
-                "title"       :   "Include Call Sales Representative at 'Adobe Acrobat DC' page",
-                "description" :   "Turns ON/OFF Call Sales Representative Section at 'Adobe Acrobat DC' page",           
+                "title": "Include Call Sales Representative at 'Adobe Acrobat DC' page",
+                "description": "Turns ON/OFF Call Sales Representative Section at 'Adobe Acrobat DC' page",
 
-                "action":{
+                "action": {
                     "title": "Call Sales Representative field 3#",
                     "defaultValue": "052-00000000"
                 },
 
-                "details":{
-                    "title" :   "Change Call Sales Representative field 2#",
-                    "defaultValue"       :   "Mon-Fri 7am-7:30pm CT"
-                }                
+                "details": {
+                    "title": "Change Call Sales Representative field 2#",
+                    "defaultValue": "Mon-Fri 7am-7:30pm CT"
+                }
             },
-            "acrobat_chat" :{
+            "acrobat_chat": {
                 "display": true,
-                "title"       :   "Include Chat with Software Sales Section at 'Adobe Acrobat DC' page",
-                "description" :   "Turns ON/OFF Chat with Software Sales Section at 'Adobe Acrobat DC' page",           
+                "title": "Include Chat with Software Sales Section at 'Adobe Acrobat DC' page",
+                "description": "Turns ON/OFF Chat with Software Sales Section at 'Adobe Acrobat DC' page",
 
-                "times":{
+                "times": {
                     "title": "Chat with Software Sales field 1#",
                     "defaultValue": "Mon-Fri am-6pm CT"
-                },   
-                "details":{
+                },
+                "details": {
                     "title": "Chat with Software Sales field 2#",
                     "defaultValue": "Start Chat &#187;"
                 },
-                "url":{
+                "url": {
                     "title": "Chat with Software Sales field 3#",
                     "defaultValue": "www.google.com"
                 }
             }
         }
+    },
+    "Announcement": {
+        "top_webcollage_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/top_webcollage_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Extra Product Announcement"
+        },
+        "top_channel_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/top_channel_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Top Channel Announcement"
+        },
+        "channel_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/channel_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Announcement"
+        },
+        "bottom_bhannel_announcement_for_missing_products": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/bottom_bhannel_announcement_for_missing_products.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Channel Extra Product Announcement"
+        },
+        "bottom_manufacturer_announcement": {
+            "display": false,
+            "link": "",
+            "title": "",
+            "path": "resources/bottom_manufacturer_announcement.jpg",
+            "popup": false,
+            "width": "",
+            "height": "",
+            "reporting_title": "Landing Page Manufacturer Announcement"
+        }
+    },
+    "mosaic_configurations": {
+        "menuOrientation": "left-to-right",
+        "animation": true,
+        "layout": "one-button",
+        "poweredByWebcollage": "none",
+        "defaultOverlayPosition": "",
+        "overlayType": "tooltip",
+        "buttonType": "hotspot",
+        "buttonText": "",
+        "buttonPosition": "top-left",
+        "scrollOverlayToView": false,
+        "tooltipType": "none",
+        "sectionOrder": [],
+        "maxButtonsAllowed": null,
+        "menuSize": "medium"
     }
 })
-
-
-
