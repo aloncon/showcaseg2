@@ -10,14 +10,14 @@ class MosaicTesting extends React.Component {
         return(
             <div>
                 <div style={{ border:"1px solid black"}}>
-                   {/*  mosaic tiles example */}
-                   {/*  <div>
+                   {/* mosaic tiles example */}
+                   <div>
                         <h3>Mosaic Tiles</h3>
                         <p>wcpc = 1510321493150</p>
                         <MosaicTiles wcpc={1510321493150}>
                         <button> MosaicTesting button </button>
                         </MosaicTiles>
-                    </div> */}
+                    </div>
                     {/* <hr/> */}
                     {/* Regular mosaic example */}
                     {/*<div>
