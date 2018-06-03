@@ -119,7 +119,8 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
 
         componentDidMount(){
             if(this.isWcpc){
-                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": ".WcMosaicTile", layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}});
+                console.log(" this.props.wcpc", wcpc)
+                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}}); 
             }
         }
 
@@ -152,7 +153,7 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
 
         mosiacContent(){
             this.callMosiacContent = false
-            window.Webcollage.loadProductContent(moduleInfo.default.siteName, data.cpi, {"mosaic-board":{"containerSelector": ".WcMosaicTile", layout: "tiles", "tilesCallback": this.tilesCallback.bind(this)}});
+            window.Webcollage.loadProductContent(moduleInfo.default.siteName, data.cpi, {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles", "tilesCallback": this.tilesCallback.bind(this)}});
         }
         render(){
             const {data} = this.props
@@ -163,13 +164,14 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
             }
 
             const validMosiac = mosiacJson !== null ? true : false
-            const childrenWithMosaicClick =  React.cloneElement(this.props.children, { onClick: this.openMosaicHandler.bind(this) })
-            const children =  validMosiac && childrenWithMosaicClick
+            const tileClass = `WcMosaicTile-${wcpc}`
+            const childrenWithMosaicClick =  React.cloneElement(this.props.children, { onClick: this.openMosaicHandler.bind(this) })  
+            const children =  validMosiac && childrenWithMosaicClick     
             return (
                 <Fragment>
                 {children}
                 <div style={openMosaic ? overlayStyle : null}  onClick={this.closeMosaicHandler.bind(this)}>
-                 <div className="WcMosaicTile" style={openMosaic ? styleMosaicTilesOn : null}/>
+                 <div className={tileClass} style={openMosaic ? styleMosaicTilesOn : null}/>
                 </div>
                 </Fragment>
             )

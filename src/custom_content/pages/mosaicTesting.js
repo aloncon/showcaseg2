@@ -10,22 +10,28 @@ class MosaicTesting extends React.Component {
         return(
             <div>
                 <div style={{ border:"1px solid black"}}>
-                   {/* mosaic tiles example */}
-                   <div>
+                    
+                    {/* <Mosaic wcpc={1377023287175}/> */}
+                    <div>
+
                         <h3>Mosaic Tiles</h3>
+
+                        <p>wcpc = 1377023287175</p>
+                        <MosaicTiles wcpc={1377023287175}>
+                        <button> MosaicTesting button </button>
+                        </MosaicTiles>
                         <p>wcpc = 1510321493150</p>
                         <MosaicTiles wcpc={1510321493150}>
                         <button> MosaicTesting button </button>
                         </MosaicTiles>
+                        
                     </div>
-                    {/* <hr/> */}
-                    {/* Regular mosaic example */}
-                    {/*<div>
+                    <hr/>
+                    {/* <div>
                         <h3>Mosaic One Button</h3>
                         <p>wcpc = 1377023287175</p>
                         <Mosaic wcpc={1377023287175}/>
-                    </div>*/}
-                    {/* Category list option - type: grid */}
+                    </div> */}
                     <CategoryList ids={CATEGORY_IDS} type="grid"/>
                 </div>
 
