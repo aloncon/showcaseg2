@@ -98,7 +98,7 @@ const GridListProduct = ({ product, caption }) => {
       <Mosaic wcpc={product.wcpc} />
       <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
         <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
-          {product.listImage === undefined ? <WcImg src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
+          {product.listImage === undefined ? <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
         </div>
       </ActionLink>
 

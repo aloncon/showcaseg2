@@ -13,7 +13,7 @@ const WideListProduct = ({ product }) => {
       <div className="wcWideProduct">
          <div className="bt-row">
             <div className="wcWideListImg">
-               {product.listImage ? <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} /> : <img src={placeholderPic} alt={product.vendorProductName} />}
+               {product.listImage ? <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} /> : <img src={placeholderPic} alt={product.vendorProductName} className="wcPlaceHolderImageProductListing" />}
             </div>
             <Mosaic wcpc={product.wcpc}/>
             <div className="wcWideListDesc" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>

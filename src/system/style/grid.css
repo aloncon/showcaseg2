@@ -102,10 +102,12 @@
   width: 100%;
   height: 150px;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop img {
-  display: block;
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop .wcPlaceHolderImageProductListing {
   height: 100px;
   width: 100px;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop img {
+  display: block;
   margin: auto;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock {
