@@ -12,6 +12,8 @@ let WcShowcase = {
     scriptsrcbaseurl : moduleInfo.scriptsrcbaseurl,
     presentationName : moduleInfo.presentationName,
     environmentId : moduleInfo.environmentId,
+    context: moduleInfo.context,
+    entry: moduleInfo.entry,
     isStandalone: isStandalone(),
 }
 WcShowcase.isDev = WcShowcase.environmentId === "localhost" ? true : false; 
@@ -25,6 +27,8 @@ console.log("  showcasePrefix ",WcShowcase.showcasePrefix);
 console.log("  scriptsrcbaseurl ",WcShowcase.scriptsrcbaseurl);
 console.log("  presentationName ",WcShowcase.presentationName);
 console.log("  environmentId ",WcShowcase.environmentId);
+console.log("  context ",WcShowcase.context);
+console.log("  entry ",WcShowcase.entry);
 console.log('------------------------------------');
 
 export default WcShowcase;

@@ -1,7 +1,9 @@
-import React from 'react';
-import ActionLink from '../ActionLink';
-import WcImg from '../WcResource/WcImg';
-import { NormalizeListDescription } from '../NormalizeListDescription';
+import React from 'react'
+import ActionLink from '../ActionLink'
+import {Mosaic} from '../Mosaic'
+import WcImg from '../WcResource/WcImg'
+import {NormalizeListDescription} from '../NormalizeListDescription'
+import {WcReports} from '../WcEvents';
 import '../../style/wide.css';
 
 const placeholderPic = require('../../resources/placeholder.png');
@@ -11,15 +13,13 @@ const WideListProduct = ({ product }) => {
     <div className="wcWideProduct">
       <h6 style={{ backgroundColor: 'pink' }}>Normal Product</h6>
       <div className="bt-row">
-        <div className="wcMosaicWideList ">
-          <div className="wcMosaic" data-cpi={product.cpi} />
-        </div>
+         <Mosaic wcpc={product.wcpc} className="wcMosaicWideList "/>
       </div>
       <div className="bt-row">
         <div className="wcWideListImg">
-          {product.listImage ? <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} /> : <img src={placeholderPic} alt={product.vendorProductName} />}
+               {product.listImage ? <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} /> : <img src={placeholderPic} alt={product.vendorProductName} className="wcPlaceHolderImageProductListing" />}
         </div>
-        <div className="wcWideListDesc">
+            <div className="wcWideListDesc" onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
           <h4>
             <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
               {product.vendorProductName}
@@ -29,7 +29,7 @@ const WideListProduct = ({ product }) => {
             <NormalizeListDescription>{product.listDescription}</NormalizeListDescription>
           </p>
         </div>
-        <div className="wcWideListButton" style={{ height: 150 }}>
+            <div className="wcWideListButton" style={{ height: 150 }} onClick={() => WcReports("product-listing-wide-click-product",product.wcpc)}>
           <span>
             <ActionLink wcpc={product.wcpc} type="p2b">
               Proceed To Buy
@@ -48,9 +48,7 @@ const WideListFamilyProduct = ({ product }) => {
     <div key={childProductIndex} className="wcWideProduct">
       <h6 style={{ backgroundColor: 'magenta' }}>Family Product</h6>
       <div className="bt-row">
-        <div className="wcMosaicWideList ">
-          <div className="wcMosaic" data-cpi={childProduct.cpi} />
-        </div>
+        <Mosaic cpi={childProduct.cpi} className="wcMosaicWideList "/>
       </div>
       <div className="bt-row">
         {product.listImage ? (
@@ -59,7 +57,7 @@ const WideListFamilyProduct = ({ product }) => {
           </div>
         ) : null}
         <div className="wcWideListDesc">
-          <h4 className={`${product.listDescription ? '' : 'wcOnlyTitle'}`}>
+          <h4 className={`${product.listDescription ? '' : 'wcOnlyTitle'}`} onClick={() => WcReports("product-listing-wide-family-product-cpi",product.wcpc)}>
             {childProductIndex === 0 ? (
               <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
                 {vendorCleanProductName}
@@ -77,20 +75,23 @@ const WideListFamilyProduct = ({ product }) => {
           ) : null}
         </div>
       </div>
+               {WcReports("product-listing-wide-view-family-product-cpi",childProduct.cpi)}
     </div>
   ));
 };
 
 class WideList extends React.Component {
   render() {
-    const { data } = this.props;
+      const { data, reporting } = this.props;
     let content = data ? (
       <div>
         {data.map((product, productIndex) => {
           // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
           if (typeof product.cpi === 'string' || product.cpi === 0) {
+                  reporting && WcReports("product-listing-wide-view-product",product.wcpc)
             return <WideListProduct key={productIndex} product={product} />;
           } else {
+                  reporting && WcReports("product-listing-wide-view-family-product-wcpc",product.wcpc)
             return <WideListFamilyProduct key={productIndex} product={product} />;
           }
         })}

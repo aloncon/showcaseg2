@@ -2,28 +2,33 @@ import ShouldDisplay from './ShouldDisplay';
 import configurationJSON from '../../custom_content/configuration.json';
 import WcShowcase from './moduleInfo';
 
-
 /**
  * Configuration data for the showcase.
  *
  * headerDetails:: Holds all the header information
  * imgLogo[optional]: There is three options:
  *          * Image from the `src/custom_content/assets/` for example: `images/product-logo.jpg`.
- *          * Empty string - Will use the image: `src/system/resources/default_logo.jpg`.
+ *          * Empty string - Will use the default logo: `src/system/resources/default_logo.jpg`.
  *          * Delete it if not needed.
- * headerTitle[optional]: may be text as "Symantec", empty string, or just delete it
+ * headerTitle[optional]: may be text as "Module Name", empty string, or just delete it
  *
  * footerDetails::
  *          * imgProvidedBy - Always will be `src/system/resources/powered-by.png`.
  *
  * staticRoutes:: Holds all the routes information, [id, component, name, title, assort]. Used for generating the routes, breadcrumbs and navigation.
- * All routes by default are exact routes which mean that child route will only show their component, in case the need for them not be exact, add 'notExact : true' to the parent.
  *
- * `id`: The route ID, the convention is the file name in lowercase with no spaces use dash (`-`).
+ * The first route is the entry point for this landing-page.
  *
- * `parent`: The route's parent ID, if this is a root path it will be the first route ID.
+ * By default all routes render it's exact route component.
+ * If needed to render a route component after it's parent in the same page, add the key - `notExact : true` to the parent.
  *
- * `component`: The path under the folder `src/custom_content/pages/` to the component to use for this route. For example: `landingpage/landingpage-default`.
+ * `id`: The route ID. The convention is to take file name in lowercase with no spaces (use dash (`-`) instead).
+ *
+ * `parent`: The route parent's ID.
+ * If a route is a direct child of the root it's parent must defined as the first route's ID.
+ *
+ * `component`: The path under the folder `src/custom_content/pages/` to the component to be used for this route.
+ * For example: `landingpage/landingpage-default`.
  *
  * `name`: The name to use for the breadcrumbs / navigation.
  *
@@ -46,14 +51,14 @@ import WcShowcase from './moduleInfo';
 
 /**
  * Update the images paths in the configuration parameter to the actual images.
- * If there was no value for the logo it will not try to load from custom_content.
+ * If there is no value for the logo, it won`t try to load from custom_content.
  */
 const loadImages = (configuration) => {
   const regexCheckIsDefaultLogo = new RegExp(/default_logo.jpg|data:image/);
   const imageLogoExists = configuration.headerDetails.imgLogo !== undefined;
   const isNotDefaultImageLogo = !regexCheckIsDefaultLogo.test(configuration.headerDetails.imgLogo);
 
-  // Found an image logo in the configuration.json, and is not the default_logo.jpg.
+  // Finding an image logo in the configuration.json, and is not the default_logo.jpg.
   if (imageLogoExists && isNotDefaultImageLogo) {
     configuration.headerDetails.imgLogo = require(`../../custom_content/assets/${configuration.headerDetails.imgLogo}`);
   }
@@ -79,20 +84,20 @@ const loadPageComponents = (configuration) => {
 }
 
 /**
- * Load default values in case the input in configuration.json is empty.
+ * Generate default values [moduleName, presentationName, moduleId, headerDetails.imgLogo] for configuration.json in case they are empty.
  */
-const loadDefaultValues = (configuration) => {
+const generateDefaultValues = (configuration) => {
   if (!configuration.moduleName.length) {
     configuration.moduleName = 'SHOWCASE-TEMPLATE Module Name'
-    console.error('Please set the `moduleName` in the custom_content/configuration.json');
+    console.error('WC-ERROR: Please set the `moduleName` in the custom_content/configuration.json');
   }
   if (!configuration.presentationName.length) {
     configuration.presentationName = 'SHOWCASE-TEMPLATE (presentation)';
-    console.error('Please set the `presentationName` in the custom_content/configuration.json');
+    console.error('WC-ERROR: Please set the `presentationName` in the custom_content/configuration.json');
   }
   if (!configuration.moduleId.length) {
     configuration.moduleId = 'SHOWCASE-TEMPLATE-moduleId';
-    console.error('Please set the `moduleId` in the custom_content/configuration.json');
+    console.error('WC-ERROR: Please set the `moduleId` in the custom_content/configuration.json');
   }
   if (configuration.headerDetails.imgLogo !== undefined && !configuration.headerDetails.imgLogo.length) {
     configuration.headerDetails.imgLogo = require('../resources/default_logo.jpg');
@@ -110,7 +115,7 @@ const loadDefaultValues = (configuration) => {
 let landingEntryPoint;
 const configuration = Object.assign({}, configurationJSON);
 loadPageComponents(configuration);
-loadDefaultValues(configuration);
+generateDefaultValues(configuration);
 loadImages(configuration);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -125,14 +130,21 @@ loadImages(configuration);
 configuration.staticRoutes.setEntry = (entry) => {
   const configEntries = configuration.staticRoutes.entryPoints;
   let entryId
+
   if(entry.toLowerCase() !== 'landingpage-default'){
     entryId = configEntries.find(function (obj) { return obj.id.toLowerCase() === entry.toLowerCase(); });
     if(entryId){
       landingEntryPoint = [entryId];
     }
     else{
-      landingEntryPoint = "Wrong entry"
-      console.error("WC-ERROR: wrong entry in context [" , entryId ,"]");
+      entryId = configuration.staticRoutes[entry]
+      if(entryId){
+        landingEntryPoint = entryId
+      }else{
+        landingEntryPoint = "Wrong entry"
+        console.error("WC-ERROR: wrong entry in context [" , entry ,"]");
+      }
+
     }
   }
   else{

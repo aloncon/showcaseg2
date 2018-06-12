@@ -97,6 +97,13 @@
         "component": "home-networking",
         "name": "Home Networking",
         "title": "Test only single WCPCs"
+      },
+      {
+        "id": "mosaicTesting",
+        "parent": "landingpage-default",
+        "component": "mosaicTesting",
+        "name": "Mosaic Testing",
+        "title": ""
       }
     ],
     "landingpage-staples": [
@@ -120,6 +127,22 @@
         "component": "testingArea",
         "name": "testing Video",
         "title": ""
+      },
+      {
+        "id": "mosaicTesting",
+        "parent": "landingpage-staples",
+        "component": "mosaicTesting",
+        "name": "Mosaic Testing",
+        "title": ""
+      }
+    ],
+    "landingpage-second": [
+      {
+        "id": "iframess",
+        "parent": "iframess",
+        "component": "iframess",
+        "name": "Custome iframess",
+        "title": "iframess"
       }
     ],
     "routesExclude": "(product-listing-1|res-test)",

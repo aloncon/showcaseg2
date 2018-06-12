@@ -9,6 +9,7 @@ class CategoryList extends React.Component{
         constructor(props){
             super(props);
             this.state = { typeName : this.type}
+            this.type = this.props.type
         }
 
         handleChangeTypeView = (returnedType) =>{
@@ -26,7 +27,7 @@ class CategoryList extends React.Component{
                 <div>
                     <ChangeView type={this.type} callBack={this.handleChangeTypeView} ids={ids}/>  
                     <div style={{clear:"both"}}/>                
-                    <ProductListing ids={ids}  type={this.type} isSubCategory={subCategory}/>
+                    <ProductListing ids={ids}  type={this.type} isSubCategory={subCategory} reporting={this.props.reporting}/>
                 </div>
             )
         }

@@ -25,7 +25,7 @@ import './system/style/wc_reset.css'; // module reset css
 import './system/style/bootstrap-custom/css/wc.bootstrap.css'; // our custom bootstrap
 import './system/style/index.css'; // system global css
 import './common/css/index.css'; // module global css
-import './common/css/header.css'; // module global css
+import './common/css/header.css'; // module global header css
 //~~~~~~~
 
 
@@ -35,7 +35,6 @@ import './common/css/header.css'; // module global css
 
 const MainComp = observer(({  rootResponsiveStore }) => {
   return (
-    // <Provider store={store}>
       <HashRouter>
         <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
           <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
@@ -56,11 +55,10 @@ const MainComp = observer(({  rootResponsiveStore }) => {
               <GenerateRoutes />
               <hr />
               <ShowcaseFooter />
-              </div>
+            </div>
           </MainContainer>
         </div>
       </HashRouter>
-    // </Provider>
   );
 });
 

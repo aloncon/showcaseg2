@@ -11,24 +11,27 @@
     box-shadow: 3px 3px 5px 6px #ccc;
   }
 }
-#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card {
+#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wcCard {
   width: 45%;
   margin: 2%;
+  margin-bottom: 0.5em;
 }
-#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card .wcGridCardFooter {
+#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wcCard .wcGridCardFooter {
   font-size: 100%;
+  margin-bottom: 0.5em;
 }
-#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wc-card .wcGridCardFooter a {
+#wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wcCard .wcGridCardFooter a {
   font-size: 80%;
+}
+#wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wcCard {
+  width: 100%;
+  margin: 0%;
+  margin-bottom: 2.5%;
+  box-shadow: 2px 2px 5px 0 #756a6a66;
 }
 #wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wcOpenPopover {
   left: 10px;
   width: 95%;
-}
-#wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wc-card {
-  width: 100%;
-  margin: 0%;
-  margin-bottom: 1.5%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover {
   position: absolute;
@@ -39,7 +42,7 @@
   box-shadow: 3px 3px 5px 6px #ccc;
   top: 45px;
   left: -20px;
-  z-index: 60 !important;
+  z-index: 999999 !important;
   animation: openPopover 0.5s 1;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopover div {
@@ -70,59 +73,78 @@
 #wc-showcase-root #wc_showcase_root .wcGridList .wcClosePopover {
   display: none;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card {
-  z-index: 50 !important;
+#wc-showcase-root #wc_showcase_root .wcGridList {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  height: 400px;
+  box-shadow: 2px 2px 5px 1px #756a6a66;
   padding: 25px 10px 0px 10px;
   width: 250px;
   margin: 1%;
-  float: left;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wcMosaicGrid {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcMosaic {
   width: 100%;
   height: 20px;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-img-top {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop {
   width: 100%;
   height: 150px;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-img-top img {
-  display: block;
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop .wcPlaceHolderImageProductListing {
   height: 100px;
   width: 100px;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop img {
+  display: block;
   margin: auto;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block {
-  height: 100px;
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock {
+  height: 100%;
+  margin-top: 6%;
   position: relative;
   bottom: 0;
-  margin-top: 6%;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block h4 a {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock h4 {
+  text-align: center;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock h4 a {
   text-decoration: none;
   color: black;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter {
-  position: absolute;
-  bottom: 2%;
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter {
+  position: relative;
   width: 100%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter button {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter button {
   float: left;
   width: 40%;
+  cursor: pointer;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter a {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter a {
   padding-left: 1.5%;
   float: right;
   line-height: 2.5em;
 }
-#wc-showcase-root #wc_showcase_root .wcGridList .wc-card .wc-card-block .wcGridCardFooter .wcCloseButtonPopover {
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter .wcCloseButtonPopover {
   width: 20px;
   background: white;
   border: 5px solid white;
   border-radius: 50%;
-  cursor: "pointer";
+  cursor: pointer;
   position: absolute;
   top: 5px;
   right: 5px;

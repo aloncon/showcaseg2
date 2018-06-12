@@ -18,7 +18,6 @@ const CategoriesHeaderObserv = observer(({ store }) => {
     * function such as --> href="#id_name" (in a tag)
     **/
     const scrollToId = (id) =>{ 
-        //console.log("SCROLL", id)
         let elm = document.getElementById(id);
         window.scrollTo(0, elm.getBoundingClientRect().y + window.scrollY);
     }

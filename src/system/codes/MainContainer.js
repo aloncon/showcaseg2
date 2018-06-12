@@ -5,18 +5,18 @@ import WcShowcase, { partnerDefPromise } from './moduleInfo';
 import ShouldDisplay from './ShouldDisplay';
 
 const { staticRoutes, moduleName } = configuration;
-const { isStandalone } = WcShowcase;
+const { isStandalone, entry } = WcShowcase;
 
 /**
  * This is the App main container, it checks if there is a need to display the vertical navigation or not.
- * While handling the width for it children which are all the App components.
+ * While handling the width for it`s children which are all the App components.
  *
- * The component decided to display the navigation by checking:
+ * The component decides whether to display the navigation by checking the following:
  *          * If `displayVerticalNavigation` is true.
- *            Which is mean that is not standalone and get true from the provider center.
+ *            Which means that it is not standalone and get true from the provider center.
  *          * Media query width.
  *          * If this is a mobile device.
- *          * The page have `meta[name="viewport"]` element.
+ *          * The page has `meta[name="viewport"]` element.
  *
  * PROPS::
  *
@@ -35,7 +35,7 @@ class MainContainer extends React.Component {
   componentWillMount() {
     Promise.resolve(partnerDefPromise).then(
       function(value) {
-        staticRoutes.setEntry(value.landing_entry_point);
+        const moduleEntry = (!entry)?staticRoutes.setEntry(value.landing_entry_point):staticRoutes.setEntry(entry);
         this.setState({ profileJsonLoaded: true });
       }.bind(this),
     );

@@ -5,8 +5,8 @@ import WcIframe from './WcIframe';
 import WcPlayer from './WcPlayer';
 import WcOverlayVideo from './WcOverlayVideo';
 import absolutizeSrc from './absolutizeSrc';
-import absolutizeSrcExternal from './absolutizeSrcExternal';
+import wcGoToURL from './wcGoToURL';
 
 export {
-  WcImg, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc , absolutizeSrcExternal
+  WcImg, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc , wcGoToURL
 }

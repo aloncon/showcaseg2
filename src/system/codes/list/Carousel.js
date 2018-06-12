@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { observer } from 'mobx-react';
+import {WcReports} from '../WcEvents';
 import { WcImg } from '../WcResource';
 import'../../style/carousel.css';
+import ActionLink from '../ActionLink';
 
 
 const placeholderPic = require('../../resources/placeholder_small.png')
@@ -35,8 +37,9 @@ const Wcca = observer (class extends Component {
         this.onImgLoad = this.onImgLoad.bind(this);
         this.s = this.props.settings;
         this.init = {
-            slidesToShow            :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  4       ),
-            slidesToShowDefault     :           (this.props.settings.slidesToShow!=null      ? this.props.settings.slidesToShow     :  4       ),
+            slidesToShow            :           (this.s.slidesToShow!=null      ? this.s.slidesToShow     :  4       ),
+            slidesToShowDefault     :           (this.s.slidesToShow!=null      ? this.s.slidesToShow     :  4       ),
+            reporting               :           (this.s.reporting!=null         ? this.s.reporting        :  true    )
         }
         this.state = {
             carosulId               :           (this.s.carosulId!=null                 ? this.s.carosulId        : '00'     ),
@@ -49,23 +52,23 @@ const Wcca = observer (class extends Component {
             productWidth            :           (this.s.productWidth!=null              ? this.s.productWidth     :  '160px'  ),
             ImageHeight             :           (this.s.ImageHeight!=null               ? this.s.ImageHeight      :  '160px'  ),
             ImageWidth              :           (this.s.ImageWidth!=null                ? this.s.ImageWidth       :  '160px'  ),
-            productLink             :           (this.props.productLink!=null           ? this.props.productLink  :   true  ),
+            productLink             :           (this.props.productLink!=null           ? this.props.productLink  :   true    ),
             //NOT TO EDIT - USES AS FLAGS
             latestSlide             :           0,
-            productsList            :           this.props.data,  
+            productsList            :           this.props.data,
             maxImgHieght            :           null,
             showArrowsV             :           true,
-            showArrowsH             :           true,
-        };       
+            showArrowsH             :           true
+        };
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         let {isVertical , productHeight , productWidth , productsList , } = this.state
         let {slidesToShowDefault} = this.init
         this.setState({
             maxImgHieght : productHeight
         });
-            
+
         if(isVertical){
             this.setState({
                 carouselWidth : productWidth
@@ -81,11 +84,11 @@ const Wcca = observer (class extends Component {
             if(!isVertical){
                 this.setState({
                     showArrowsH : false,
-                }); 
+                });
             }
         }
-        
-        
+
+
 
     }
 
@@ -95,12 +98,12 @@ const Wcca = observer (class extends Component {
         let {latestSlide} = this.state
 
         var totalSlides = Number(productsList.products.length);
-        var maxSlides = totalSlides-slidesToShow; 
+        var maxSlides = totalSlides-slidesToShow;
 
-       
+
 
         document.getElementById(carosulId+('_wcca_arrows_next')).disabled = true;
-        document.getElementById(carosulId+('_wcca_arrows_previous')).disabled = true;              
+        document.getElementById(carosulId+('_wcca_arrows_previous')).disabled = true;
 
         if(e.target.dataset.id === 'previous' && latestSlide!==0)
         {
@@ -128,7 +131,7 @@ const Wcca = observer (class extends Component {
         }else if (e.target.dataset.id === 'previous' && infinite){
             this.slider.slickPrev();
         }else if (e.target.dataset.id === 'next' && infinite){
-            this.slider.slickNext();    
+            this.slider.slickNext();
         }
 
          setTimeout(() => {
@@ -139,32 +142,31 @@ const Wcca = observer (class extends Component {
     }
 
     onImgLoad = ({target:img}) =>{
-        // console.log(img.height);
         let imgHeight = this.state.maxImgHieght;
         if(imgHeight == null || imgHeight < img.height || img.height*0.85 <= this.state.productHeight)
         {
             imgHeight = img.height;
-            this.setState({ maxImgHieght : imgHeight });   
+            this.setState({ maxImgHieght : imgHeight });
         }
-    } 
+    }
 
-    handleResize(size) {         
+    handleResize(size) {
         if(size === 'xs'){
             this.init.slidesToShow = 1;
         }else if(size === 'sm'){
             this.init.slidesToShow = 2;
         }else if(size === 'md'){
-            this.init.slidesToShow = 3; 
+            this.init.slidesToShow = 3;
         }else{
             this.init.slidesToShow = this.init.slidesToShowDefault;
         }
     }
     render() {
-        const {responsiveStore} = this.props        
+        const {responsiveStore} = this.props
         this.handleResize(responsiveStore.wcContainerSize);
 
-        const {carosulId, isVertical, productsList, infinite, showArrowsV , showArrowsH, carouselWidth, carouselHeight, productWidth, productHeightVertical, ImageWidth, ImageHeight} = this.state 
-        const {slidesToShow} = this.init
+        const {carosulId, isVertical, productsList, infinite, showArrowsV , showArrowsH, carouselWidth, carouselHeight, productWidth, productHeightVertical, ImageWidth, ImageHeight} = this.state
+        const {slidesToShow ,reporting} = this.init
 
         const settings = {
             arrows: showArrowsH,
@@ -178,32 +180,32 @@ const Wcca = observer (class extends Component {
             vertical: isVertical,
             swipe:          false,
             touchMove:      false,
-            swipeToSlide:   false 
+            swipeToSlide:   false
             };
         var divStyle = {
             width: carouselWidth,
             height: carouselHeight,
             display:'block'
         };
-               
+
         return (
             <div>
-                <div className="WcCarousel"  style={divStyle} >                  
+                <div className="WcCarousel"  style={divStyle} >
                     <div className={!isVertical ? 'wcCarouselWrap' : 'wcCarouselWrapVertical'}>
                         { (isVertical && showArrowsV) &&
                             <div className="wcCarouselArrowsContainerVertical wcCarouselArrowsContainerVerticalTop">
                                 <button id={carosulId+('_wcca_arrows_previous')} data-id='previous' onClick={this.sliderArrows} className={(!infinite ? ' wcDisabled ' :  ' ') + (' wcPrev wcCarouselArrowsBrowseVertical')}>
                                     <div className="wcLeft"></div>
-                                </button> 
-                            </div>                    
-                        }                   
+                                </button>
+                            </div>
+                        }
                         { (productsList.products) &&
-                           <div className={!isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}> 
-                                     <Slider ref={ c => this.slider = c }{...settings} > 
+                           <div className={!isVertical ? 'wcCarouselSliderContainer' : 'wcCarouselSliderContainerVertical'}>
+                                     <Slider ref={ c => this.slider = c }{...settings} >
                                         {
                                              productsList.products.map((product, index) => (
                                                 <div key={index}  style={{width:'100%'}}>
-                                                    
+
                                                     <div className={!isVertical ? 'wcCarouselProductBrowse' :'wcCarouselProductBrowseVertical'} style={isVertical ? {height: productHeightVertical ,width:productWidth} : {width:productWidth}} >
                                                         <div className="wcCarouselProductImage" style={!isVertical ? {height:ImageHeight ,width:ImageWidth ,display:'block',position: 'relative'} : {height:ImageHeight ,width:ImageWidth}}>
                                                             <a href={product.link}>
@@ -212,23 +214,29 @@ const Wcca = observer (class extends Component {
                                                         </div>
                                                         { (product.cpi !== 0) &&
                                                             <div style={{ width: "100%",height: "20px",marginTop: '-10px'}} className="">
-                                                                <div className="wcMosaic" data-cpi={product.cpi} animation="true"/>                                                               
-                                                            </div> 
-                                                              
+                                                                <div className="wcMosaic" data-cpi={product.cpi} animation="true"/>
+                                                            </div>
+
                                                          }
+                                                        {reporting &&
+                                                            WcReports("product-listing-carousel-view",product.wcpc)
+                                                        }
                                                         { product.vendorProductName &&
-                                                        <div className="wcCarouselProductTitle" >
+                                                        <div className="wcCarouselProductTitle"  onClick={() => WcReports("product-listing-carousel-click",product.wcpc)}>
                                                             {/* <br/> */}
-                                                            <a href='' title={product.vendorProductName}>
+                                                            <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName}>
+                                                            {/* <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} onClick={() => WcReports("p2b",product.wcpc)}> */}
+                                                            {/* <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} onClick={WcReports("p2b",product.wcpc)}> */}
                                                                 {Number(product.vendorProductName.length) > 80 ? product.vendorProductName.trim().substring(0, 80).concat('...') : product.vendorProductName}
-                                                            </a></div>           
-                                                        }                                                          
-                                                         {/* <div className="wcMosaic" data-cpi={53028274}/>                                                  */}
+                                                            </ActionLink>
+                                                        </div>
+                                                        }
+                                                         {/* <div className="wcMosaic" data-cpi={53028274}/> */}
                                                     </div>
                                                 </div>
                                             ))
                                         }
-                                     </Slider> 
+                                     </Slider>
                             </div>
                         //  ))
                         }
@@ -238,9 +246,9 @@ const Wcca = observer (class extends Component {
                                     <div className="wcRight"></div>
                                 </button>
                             </div>
-                        }                           
+                        }
                     </div>
-                </div>         
+                </div>
             </div>
         )
     }

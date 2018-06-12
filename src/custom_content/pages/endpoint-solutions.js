@@ -4,8 +4,7 @@ import CategoryList from '../../system/codes/list/CategoryList';
 
 
 
-// const CATEGORY_IDS = ["Business-Networking-Unmanaged-Switch","Business-Networking-Access-Point","Home-Networking-Orbi"];
-const CATEGORY_IDS = ["Business-Networking-Access-Point"];
+const CATEGORY_IDS = ["Business-Networking-Unmanaged-Switch"];
 
 class EndpointSolution extends React.Component {
 
@@ -16,7 +15,7 @@ class EndpointSolution extends React.Component {
                 <ShouldDisplay ids={CATEGORY_IDS}>
                     <div>
                         <h2>Testing Area 2</h2>
-                        <CategoryList ids={CATEGORY_IDS} />
+                        <CategoryList ids={CATEGORY_IDS} reporting={true}/>
                     </div>
                 </ShouldDisplay>
             </div>

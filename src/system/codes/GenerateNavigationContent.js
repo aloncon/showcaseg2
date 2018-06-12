@@ -22,10 +22,10 @@ const { staticRoutes } = configuration;
  */
 const GenerateNavigationContent = ({ options, location }) => (
    <div>
-      <ShouldDisplay wc_section="wc_navigation_horizontal">
+      <ShouldDisplay wc_section="include-showcase-nav-bar">
          <NavigationHorizontal routesConfiguration={staticRoutes} responsiveStore={ResponsiveStore} location={location}/>
       </ShouldDisplay>
-      <ShouldDisplay wc_section="wc_bread_crumbs">
+      <ShouldDisplay wc_section="include-bread-crumbs">
          <Breadcrumbs landingpageRouteID={staticRoutes.getLandingpageRouteID()} config={staticRoutes.getRoutes()} options={options} getPath={staticRoutes.getPath} />
       </ShouldDisplay>
    </div>

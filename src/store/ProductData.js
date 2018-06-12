@@ -10,7 +10,6 @@ const ProductDataStore = (wcpc, cpi) => {
    });
    if (!cpi) {
       api.getListOfVerifyWcpcs([wcpc]).then(result => {
-         //console.log("testing...", cpi)
          store.cpi = result[0].cpi;
       });
    }
@@ -47,6 +46,7 @@ export const cpStore = wcpc => {
          return store.wcpcListing.cpi
             ? {
                  cpi: store.wcpcListing.cpi,
+                 wcpc : wcpc
               }
             : null;
       },
@@ -91,7 +91,7 @@ const ProductStore = id => {
             .then(result => {
                 store.products = store.products.concat(result);
          })
-         .catch(err => console.log('should No Data Fatch', err));
+         .catch(err => console.error('WC-ERROR: Should No Data Fatch', err));
    }
    return store;
 };
@@ -111,8 +111,6 @@ class AllIdsStore {
       if (!this.allIds.has(id)) {
          this.setId(id);
       }
-      //else console.log("ID Exist")
-      //let idData = this.allIds.get(id);
       return this.allIds.get(id);
    }
 }
@@ -161,25 +159,10 @@ export const ShouldDisplayStore = listingStores => {
    return observable({
       listingStores,
       get shouldDisplay() {
-         // console.log("should computing... ", listingStores.reduce((x,y) => y.productStore ? x + y.productStore.products.length : x, 0));
          return listingStores.some(store => store.productStore && store.productStore.products.length > 0);
       },
    });
 };
-
-// export const PaginationStore = (listingStores) => {
-//     return observable({
-//         pagination : null,
-//         listingStores,
-//         get shouldDisplay() {
-//             let products = store.productStore.map( store.productStore.products)
-//             if(products.length > 25){
-//                 let tempProducts = products
-//             }
-//             return listingStores.some(store => store.productStore && store.productStore.products.length > 0)
-//         }
-//     })
-// };
 
 // CahngeView.js uses this store -->  ChangeViewHeader Component (determine which caption to show in the header section of productlisting)
 export const ShouldHeaderDisplay = listingStores => {
@@ -187,7 +170,6 @@ export const ShouldHeaderDisplay = listingStores => {
       listingStores,
       get shouldDisplay() {
          let temp = listingStores.filter(i => i.productStore.products.length > 0);
-         // console.log("should computing 2... " , temp.length > 1 ? temp.map(i => i.productStore) : null)
          return temp.length > 1 ? temp.map(i => i.productStore) : null;
       },
    });
