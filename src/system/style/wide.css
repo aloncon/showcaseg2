@@ -9,13 +9,6 @@
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .bt-row {
   padding-top: 1%;
 }
-#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcMosaicWideList,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcMosaicWideList {
-  margin-top: 0.5%;
-  margin-left: 2.5%;
-  width: 100%;
-  height: 40px;
-}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing {
   width: 45%;
@@ -42,7 +35,8 @@
   padding-left: 7%;
   padding-right: 2%;
   margin-top: 0%;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
+  line-height: 1.3em;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc h4 a,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4 a {
