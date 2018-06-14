@@ -5,25 +5,26 @@ import CategoryList from '../../system/codes/list/CategoryList';
 
 class MosaicTesting extends React.Component {
     render() {
-        const CATEGORY_IDS = ["Business-Networking-Unmanaged-Switch","Business-Networking-Access-Point","Home-Networking-Orbi"];
+        const CATEGORY_IDS = ["Resize-Images-Test"];
 
         return(
             <div>
-                <div style={{ border:"1px solid black"}}>
+                <div style={{ /*border:"1px solid black"*/}}>
                     
                     {/* <Mosaic wcpc={1377023287175}/> */}
                     <div>
 
                         <h3>Mosaic Tiles</h3>
+                        <p>wcpc = 1491851608414</p>
+                        <MosaicTiles wcpc={1491851608414}>
+                        <button> MosaicTesting button </button>
+                        </MosaicTiles>
 
                         <p>wcpc = 1377023287175</p>
                         <MosaicTiles wcpc={1377023287175}>
                         <button> MosaicTesting button </button>
                         </MosaicTiles>
-                        <p>wcpc = 1510321493150</p>
-                        <MosaicTiles wcpc={1510321493150}>
-                        <button> MosaicTesting button </button>
-                        </MosaicTiles>
+                        
                         
                     </div>
                     <hr/>

@@ -5,17 +5,18 @@
   @keyframes openPopover {
     from {
       opacity: 0;
-      top: 150px;
+      top:-500px;
       box-shadow: none;
     }
     to {
       opacity: 1;
-      top: 45px;
+      top: -235px;
       box-shadow: 3px 3px 5px 6px #ccc;
     }
   }
 
   #wc_showcase_root.app-size-sm .wcGridList {
+    margin: auto;
     .wcCard {
       width: 45%;
       margin: 2%;
@@ -46,12 +47,13 @@
   #wc_showcase_root .wcGridList .wcOpenPopover {
     position: absolute;
     background: #f9f9f9;
-    width: 220px;
+    width: 250px;
+    height: 280px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 5px 6px #ccc;
-    top: 45px;
-    left: -20px;
+    // border: 1px solid #ccc;
+    // box-shadow: 3px 3px 5px 6px #ccc;
+    top: -235px;
+    left: -5px;
     z-index: 999999 !important;
 
     div {
@@ -60,29 +62,31 @@
       padding: 1px 10px;
       background: #a7adba;
       h3 {
+        font-size: 90%;
+        display: none;
         text-align: center;
         color: white;
       }
     }
 
     p {
-      padding: 0px 15px 0px 5px;
+      padding: 0px 15px 0px 0px;
     }
 
-    &:before {
-      content: '';
-      position: absolute;
-      left: 50px;
-      top: -8px;
-      width: 15px;
-      height: 15px;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      background: #a7adba;
-      border-left: 1px solid #ccc;
-      border-top: 1px solid #ccc;
-    }
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   left: 50px;
+    //   top: -6px;
+    //   width: 15px;
+    //   height: 15px;
+    //   -webkit-transform: rotate(45deg);
+    //   -ms-transform: rotate(45deg);
+    //   transform: rotate(45deg);
+    //   background: #f9f9f9;
+    //   border-left: 1px solid #ccc;
+    //   border-top: 1px solid #ccc;
+    // }
 
     animation: openPopover 0.5s 1;
   }
@@ -96,17 +100,18 @@
     flex-wrap: wrap;
 
     .wcCard {
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
       // min-height: 15%;
-      height: 400px;
+      height: 280px;
       box-shadow: 2px 2px 5px 1px #756a6a66;
 
       // z-index: 50 !important;
-      padding: 25px 10px 0px 10px;
-      width: @cardWidth;
-      margin: 1%;
+      padding: 5px;
+      width: 250px;
+      margin: 0.5%;
       border: 1px solid #d1d1d1;
       border-radius: 5px;
 
@@ -119,13 +124,6 @@
       }
 
       .wcCardImgTop {
-        width: 100%;
-        height: 150px;
-
-        .wcPlaceHolderImageProductListing {
-          height: 100px;
-          width: 100px;
-        }
         img {
           display: block;
           margin: auto;
@@ -133,7 +131,7 @@
       }
       .wcCardBlock {
         height: 100%;
-        margin-top: 6%;
+        margin-top: 0%;
         position: relative;
         bottom: 0;
         h4 {

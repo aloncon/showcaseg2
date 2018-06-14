@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import WcImg from '../WcResource/WcImg';
+import WcImg , { WcImgValid } from '../WcResource/WcImg';
 import { Mosaic } from '../Mosaic';
 import ActionLink from '../ActionLink';
 import { NormalizeListDescription } from '../NormalizeListDescription';
@@ -95,12 +95,22 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
 const GridListProduct = ({ product, caption }) => {
   return (
     <div className="wcCard">
+     
+      <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
       <Mosaic wcpc={product.wcpc} />
       <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
-        <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
-          {product.listImage === undefined ? <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
+        
+          {product.listImage === undefined ? 
+            <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} /> 
+            : 
+            <WcImgValid 
+              mobile={'/static/_wc/product-images/ver/200/' + product.wcpc + '.jpg.200px.jpg'}  
+              desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'} 
+              src={'/static' + product.listImage} />
+            }
+            </ActionLink>
         </div>
-      </ActionLink>
+      
 
       <div className="wcCardBlock">
         <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
