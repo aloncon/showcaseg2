@@ -11,7 +11,7 @@ const placeholderPic = require('../../resources/placeholder.png');
 const WideListProduct = ({ product }) => {
   return (
     <div className="wcWideProduct">
-      <h6 style={{ backgroundColor: 'pink' }}>Normal Product</h6>
+      {/* <h6 style={{ backgroundColor: 'pink' }}>Normal Product</h6> */}
       <div className="bt-row">
         <div className="wcWideListImg">
           {product.listImage ? (
@@ -47,8 +47,8 @@ const WideListFamilyProduct = ({ product }) => {
   const { vendorCleanProductName } = product;
 
   return product.cpi.map((childProduct, childProductIndex) => (
-    <div key={childProductIndex} className="wcWideProduct">
-      <h6 style={{ backgroundColor: 'magenta' }}>Family Product</h6>
+    <div key={childProductIndex} className={`wcWideProduct${product.listDescription ? '' : ' wcOnlyTitleDescWidth'}`}>
+      {/* <h6 style={{ backgroundColor: 'magenta' }}>Family Product</h6> */}
       <div className="bt-row">
         {product.listImage ? (
           <div className="wcWideListImg">
