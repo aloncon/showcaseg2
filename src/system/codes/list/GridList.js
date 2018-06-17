@@ -98,7 +98,11 @@ const GridListProduct = ({ product, caption }) => {
       <Mosaic wcpc={product.wcpc} />
       <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
         <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
-          {product.listImage === undefined ? <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} /> : <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />}
+          {product.listImage === undefined ? (
+            <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} />
+          ) : (
+            <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />
+          )}
         </div>
       </ActionLink>
 
@@ -124,34 +128,59 @@ const GridListProduct = ({ product, caption }) => {
   );
 };
 
-const GridListFamilyProduct = ({ product }) => {
-  const { vendorCleanProductName } = product;
+const GridListFamilyProduct = ({ product, caption }) => {
+  const { vendorProductName, listImage, listDescription } = product;
 
-  return product.cpi.map((childProduct, childProductIndex) => (
-    <div key={childProductIndex} className="wcCard">
-      <Mosaic cpi={childProduct.cpi} />
-      <div className="wcCardBlock">
-        <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-grid-family-product-cpi', product.wcpc)}>
-          {childProductIndex === 0 ? (
-            <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-              {vendorCleanProductName}
-            </ActionLink>
-          ) : (
-            <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-              {childProduct.channelProductName}
-            </ActionLink>
-          )}
-        </h4>
+  return product.cpi.map((childProduct, childProductIndex) => {
+    const familyName = childProductIndex === 0 ? vendorProductName : childProduct.channelProductName;
+
+    const FamilyImage = () => (
+      <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
+        <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-wide-click-product', childProduct.cpi)}>
+          <WcImg src={'/static/' + product.listImage} alt={familyName} />
+        </div>
+      </ActionLink>
+    );
+
+    const FamilyDescription = () => (
+      <div className="wcGridCardFooter">
+        {product.listDescription && (
+          <ObservPopover store={allPopovers.getPop(childProduct.cpi + caption)} index={childProduct.cpi + caption} wcpc={childProduct.cpi} title={familyName} text={product.listDescription} />
+        )}
+        <div onClick={() => WcReports('product-listing-wide-click-product', childProduct.cpi)}>
+          <ActionLink cpi={childProduct.cpi} type="p2b">
+            Proceed to buy
+          </ActionLink>
+        </div>
       </div>
-      <div className="wcGridCardFooter" onClick={() => WcReports('product-listing-grid-family-product-cpi', product.wcpc)}>
+    );
+
+    const NoDescription = () => (
+      <div className="wcGridCardFooter" onClick={() => WcReports('product-listing-grid-family-product-cpi', childProduct.cpi)}>
         <ActionLink cpi={childProduct.cpi} type="p2b">
           Proceed to buy
         </ActionLink>
       </div>
-      {WcReports('product-listing-grid-view-family-product-cpi', childProduct.cpi)}
-    </div>
-  ));
+    );
+
+    return (
+      <div key={childProductIndex} className="wcCard">
+        <Mosaic cpi={childProduct.cpi} />
+        {listImage && <FamilyImage />}
+        <div className="wcCardBlock">
+          <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-grid-family-product-cpi', childProduct.cpi)}>
+            <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+              {familyName}
+            </ActionLink>
+          </h4>
+        </div>
+        {listDescription ? <FamilyDescription /> : <NoDescription />}
+        {WcReports('product-listing-grid-view-family-product-cpi', childProduct.cpi)}
+      </div>
+    );
+  });
 };
+
 class GridList extends React.Component {
   render() {
     const { caption, data, reporting } = this.props;

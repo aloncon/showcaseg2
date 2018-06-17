@@ -43,39 +43,41 @@ const WideListProduct = ({ product }) => {
 };
 
 const WideListFamilyProduct = ({ product }) => {
-  const { vendorCleanProductName } = product;
+  const { vendorProductName, listImage, listDescription } = product;
 
-   return product.cpi.map((childProduct, childProductIndex) => (
-            <div key={childProductIndex} className="wcWideProduct">
-      <div className="bt-row">
-        {product.listImage ? (
-          <div className="wcWideListImg">
-            <WcImg src={'/static/' + product.listImage} alt={product.vendorProductName} />
-          </div>
-        ) : null}
-         <Mosaic cpi={childProduct.cpi} />
-        <div className="wcWideListDesc">
-          <h4 className={`${product.listDescription ? '' : 'wcOnlyTitle'}`} onClick={() => WcReports('product-listing-wide-family-product-cpi', product.wcpc)}>
-            {childProductIndex === 0 ? (
-              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-                {vendorCleanProductName}
-              </ActionLink>
-            ) : (
-              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-                {childProduct.channelProductName}
-              </ActionLink>
-            )}
-          </h4>
-          {product.listDescription ? (
-            <p>
-              <NormalizeListDescription>{product.listDescription}</NormalizeListDescription>
-            </p>
-          ) : null}
-        </div>
+  return product.cpi.map((childProduct, childProductIndex) => {
+    const familyName = childProductIndex === 0 ? vendorProductName : childProduct.channelProductName;
+
+    const ListImage = () => (
+      <div className="wcWideListImg">
+        <WcImg src={'/static/' + product.listImage} alt={familyName} />
       </div>
-      {WcReports('product-listing-wide-view-family-product-cpi', childProduct.cpi)}
-    </div>
-  ));
+    );
+
+    const ListDescription = () => (
+      <p>
+        <NormalizeListDescription>{product.listDescription}</NormalizeListDescription>
+      </p>
+    );
+
+    return (
+      <div key={childProductIndex} className={`wcWideProduct${product.listDescription ? '' : ' wcOnlyTitleDescWidth'}`}>
+        <div className="bt-row">
+          {listImage && <ListImage />}
+          <Mosaic cpi={childProduct.cpi} />
+          <div className="wcWideListDesc">
+            <h4 className={`${product.listDescription ? '' : 'wcOnlyTitle'}`} onClick={() => WcReports('product-listing-wide-family-product-cpi', product.wcpc)}>
+              <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
+                {familyName}
+              </ActionLink>
+            </h4>
+            {listDescription && <ListDescription />}
+          </div>
+        </div>
+        {WcReports('product-listing-wide-view-family-product-cpi', childProduct.cpi)}
+      </div>
+    );
+  });
 };
 
 class WideList extends React.Component {

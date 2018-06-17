@@ -1,62 +1,77 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root {
-   .app-size-lg,
-   .app-size-md {
-      #wcWideList {
-         .wcWideProduct {
-            border-bottom: 2px solid #f2f2f2;
-            width: 100%;
-            padding-top: 0.5%;
+  .app-size-lg,
+  .app-size-md {
+    #wcWideList {
+      // display: inline-block;
+      .wcWideProduct.wcOnlyTitleDescWidth {
+        border-bottom: none;
+        // margin-top: 0.5em;
+        // margin-bottom: 0.5em;
+        .wcWideListDesc {
+          width: 100%;
+        }
+      }
+      .wcWideProduct {
+        border-bottom: 2px solid #f2f2f2;
+        width: 100%;
+        padding-top: 0.5%;
 
-            .bt-row {
-               padding-top: 1%;
-            }
-            .wcPlaceHolderImageProductListing {
-               width: 45%;
-             }
-            .wcWideListImg {
-               width: 15%;
-               img {
-                  position: relative;
-                  display: block;
-                  // width: 45%;
-                  left: 25%;
-                  top: 0;
-               }
-            }
+        .bt-row {
+          padding-top: 1%;
+        }
+        .wcPlaceHolderImageProductListing {
+          width: 45%;
+        }
+        .wcWideListImg {
+          width: 15%;
+          img {
+            position: relative;
+            display: block;
+            left: 25%;
+            top: 0;
+          }
+        }
 
-            .wcWideListDesc {
+        .wcWideListDesc {
                width: 68%;
           h4 {
             position: relative;
             top: 0;
-            padding-left: 2%;
-            //padding-right: 2%;
+            padding-left: 7%;
+            padding-right: 2%;
             margin-top: 0%;
             margin-bottom: 5%;
             line-height: 1.3em;
 
-                  a {
-                     text-decoration: none;
-                     color: black;
-                  }
-               }
-               h4.wcOnlyTitle {
-                  margin: 0;
-                  padding-top: 0;
-                  padding-bottom: 0;
-               }
+            a {
+              text-decoration: none;
+              color: black;
             }
+          }
+          h4.wcOnlyTitle {
+            margin: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 1.3em;
+            // line-height: 1.5em;
+            a {
+              padding-bottom: 5px;
+              width: 100%;
+              border-bottom: 2px solid #f2f2f2;
+            }
+          }
+        }
 
-            .wcWideListButton {
-               width: 15%;
-               a {
-                  display: block;
-                  margin-top: 45%;
-               }
-            }
-         }
+        .wcWideListButton {
+          width: 15%;
+          a {
+            display: block;
+            margin-top: 45%;
+          }
+        }
       }
-   }
+    }
+  }
 }
 /* ***dev end: please add your styles above only!!!*** */

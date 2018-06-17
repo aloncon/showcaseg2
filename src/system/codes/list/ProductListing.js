@@ -10,6 +10,19 @@ import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
 import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
 import '../../style/productlisting.css';
 
+const flatProducts = products => {
+    return products.map( product => {
+        if (typeof product.cpi === 'string' || product.cpi === 0) {
+            // leave the product as is
+            return product;
+        }
+        return product.cpi.map( childProduct => {
+            // populate the family product with the list-image and list-description if exists.
+
+        })
+    });
+}
+
 const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id ,responsiveStore}) => {
     const content = data;
     let type = content.type;
