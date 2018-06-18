@@ -28,9 +28,8 @@ class IframExecutor extends React.Component {
         if(!loader){ eventer = window[eventRemoveMethod];}
         else{eventer = window[eventMethod];}
         
-        
-        eventer(messageEvent, function(e) {
-            if(e.data !== undefined){
+        function message(e) {
+            if(e.data !== undefined && document.getElementById(id) != null){
                 if(e.data.toString().indexOf("exit") !== -1){
                     if(e.data.toString().indexOf("-chat-exit") !== -1 ||
                         e.data.toString().indexOf("-email-exit") !== -1)
@@ -55,7 +54,12 @@ class IframExecutor extends React.Component {
                     document.getElementById(id).style.height = e.data + "px";	                      
                 }
             }
-        },false);
+            else{
+				window.removeEventListener(messageEvent, message);
+			}
+        }
+
+        eventer(messageEvent, message);
     }
     render() {
         

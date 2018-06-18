@@ -7,7 +7,7 @@ class ShowcaseBodyHeader extends React.Component{
   render() {
     return (
       <div className="wcShowcaseBodyHeader">
-            <h2>Webcollage (test) Showcase- please contact us by phone: <ShouldDisplay wc_property="phone"/></h2>
+            <h2>Webcollage (test) Showcase- please contact us by phone: </h2>
             <center>
             {/* <Announcements /> */}
             </center>
@@ -16,8 +16,8 @@ class ShowcaseBodyHeader extends React.Component{
             </div>
             <br/>
             <div style={{textAlign : 'center'}}>
-              <ShouldDisplay wc_announcement="top_webcollage_announcement"/>
-              <ShouldDisplay wc_announcement="top_channel_announcement"/>
+              <ShouldDisplay wc_announcement="include-landing-page-announcement-1"/>
+              <ShouldDisplay wc_announcement="include-landing-page-announcement-5"/>
             </div>
 
             <p>

@@ -3,69 +3,223 @@
     "showcase": true,
     "partner": "allassortment",
     "landing_entry_point": "landingpage-default",
-    "Sections": {
+    "Look_and_Feel": {
         "include-showcase-banner": true,
         "include-showcase-nav-bar": true,
         "wc_navigation_vertical": true,
         "include-bread-crumbs": true,
         "include-powered-by": true,
-        "display-all-vendor-products": true
-    },
-    "Properties": {
-        "phone": "111-9009002556666"
+        "display-all-vendor-products": true,
+        "enable-reporting": true
     },
     "Announcement": {
         "top_webcollage_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/top_webcollage_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Channel Extra Product Announcement"
+            "include-landing-page-announcement-1": {
+                "display": false,
+                "name": "Display announcement"
+            },
+            "landing-page-announcement-1-link": {
+                "value": "",
+                "name": "Announcement URL",
+                "description": "Enter the URL of the page which users reach when they click on the announcement image. This should be an absolute URL (starting with http://)."
+            },
+            "landing-page-announcement-1-image": {
+                "value": "resources/top_webcollage_announcement.jpg",
+                "name": "Announcement image",
+                "description": "Enter the path of different image into the announcement area. The image should have a width of 540 pixels."
+            },
+            "landing-page-announcement-1-alt": {
+                "value": "",
+                "name": "Title",
+                "description": "Text that appears when hovering over the image, or when the image is not shown."
+            },
+            "display-landing-page-announcement-1-in-popup": {
+                "display": false,
+                "name": "Display announcement in a popup window",
+                "description": "When users click on the announcement, they reach the announcement page above. Check this option to open the announcement page in a separate window, leaving the original window open."
+            },
+            "landing-page-announcement-1-popup-width": {
+                "value": "",
+                "name": "Width of popup window",
+                "description": "The width of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific width."
+            },
+            "landing-page-announcement-1-popup-height": {
+                "value": "",
+                "name": "Height of popup window",
+                "description": "The height of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific height."
+            },
+            "landing-page-announcement-1-code": {
+                "value": "Landing Page Channel Announcement",
+                "name": "Announcement Title for Reporting Purposes",
+                "description": "The code that will appear as the announcement code in showcase reports."
+            }
         },
         "top_channel_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/top_channel_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Top Channel Announcement"
+            "include-landing-page-announcement-5": {
+                "display": false,
+                "name": "Display announcement"
+            },
+            "landing-page-announcement-5-link": {
+                "value": "",
+                "name": "Announcement URL",
+                "description": "Enter the URL of the page which users reach when they click on the announcement image. This should be an absolute URL (starting with http://)."
+            },
+            "landing-page-announcement-5-image": {
+                "value": "resources/top_channel_announcement.jpg",
+                "name": "Announcement image",
+                "description": "Enter the path of different image into the announcement area. The image should have a width of 540 pixels."
+            },
+            "landing-page-announcement-5-alt": {
+                "value": "",
+                "name": "Title",
+                "description": "Text that appears when hovering over the image, or when the image is not shown."
+            },
+            "display-landing-page-announcement-5-in-popup": {
+                "display": false,
+                "name": "Display announcement in a popup window",
+                "description": "When users click on the announcement, they reach the announcement page above. Check this option to open the announcement page in a separate window, leaving the original window open."
+            },
+            "landing-page-announcement-5-popup-width": {
+                "value": "",
+                "name": "Width of popup window",
+                "description": "The width of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific width."
+            },
+            "landing-page-announcement-5-popup-height": {
+                "value": "",
+                "name": "Height of popup window",
+                "description": "The height of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific height."
+            },
+            "landing-page-announcement-5-code": {
+                "value": "Landing Page Top Channel Announcement",
+                "name": "Announcement Title for Reporting Purposes",
+                "description": "The code that will appear as the announcement code in showcase reports."
+            }
         },
         "channel_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/channel_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Channel Announcement"
+            "include-landing-page-announcement-2": {
+                "display": false,
+                "name": "Display announcement"
+            },
+            "landing-page-announcement-2-link": {
+                "value": "",
+                "name": "Announcement URL",
+                "description": "Enter the URL of the page which users reach when they click on the announcement image. This should be an absolute URL (starting with http://)."
+            },
+            "landing-page-announcement-2-image": {
+                "value": "resources/channel_announcement.jpg",
+                "name": "Announcement image",
+                "description": "Enter the path of different image into the announcement area. The image should have a width of 540 pixels."
+            },
+            "landing-page-announcement-2-alt": {
+                "value": "",
+                "name": "Title",
+                "description": "Text that appears when hovering over the image, or when the image is not shown."
+            },
+            "display-landing-page-announcement-2-in-popup": {
+                "display": false,
+                "name": "Display announcement in a popup window",
+                "description": "When users click on the announcement, they reach the announcement page above. Check this option to open the announcement page in a separate window, leaving the original window open."
+            },
+            "landing-page-announcement-2-popup-width": {
+                "value": "",
+                "name": "Width of popup window",
+                "description": "The width of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific width."
+            },
+            "landing-page-announcement-2-popup-height": {
+                "value": "",
+                "name": "Height of popup window",
+                "description": "The height of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific height."
+            },
+            "landing-page-announcement-2-code": {
+                "value": "Landing Page Channel Announcement",
+                "name": "Announcement Title for Reporting Purposes",
+                "description": "Landing Page Channel Announcement"
+            }
         },
         "bottom_bhannel_announcement_for_missing_products": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/bottom_bhannel_announcement_for_missing_products.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Channel Extra Product Announcement"
+            "include-landing-page-announcement-3": {
+                "display": false,
+                "name": "Display announcement"
+            },
+            "landing-page-announcement-3-link": {
+                "value": "",
+                "name": "Announcement URL",
+                "description": "Enter the URL of the page which users reach when they click on the announcement image. This should be an absolute URL (starting with http://)."
+            },
+            "landing-page-announcement-3-image": {
+                "value": "resources/bottom_bhannel_announcement_for_missing_products.jpg",
+                "name": "Announcement image",
+                "description": "Enter the path of different image into the announcement area. The image should have a width of 540 pixels."
+            },
+            "landing-page-announcement-3-alt": {
+                "value": "",
+                "name": "Title",
+                "description": "Text that appears when hovering over the image, or when the image is not shown."
+            },
+            "display-landing-page-announcement-3-in-popup": {
+                "display": false,
+                "name": "Display announcement in a popup window",
+                "description": "When users click on the announcement, they reach the announcement page above. Check this option to open the announcement page in a separate window, leaving the original window open."
+            },
+            "landing-page-announcement-3-popup-width": {
+                "value": "",
+                "name": "Width of popup window",
+                "description": "The width of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific width."
+            },
+            "landing-page-announcement-3-popup-height": {
+                "value": "",
+                "name": "Height of popup window",
+                "description": "The height of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific height."
+            },
+            "landing-page-announcement-3-code": {
+                "value": "Landing Page Channel Announcement",
+                "name": "Announcement Title for Reporting Purposes",
+                "description": "Landing Page Channel Extra Product Announcement"
+            }
         },
         "bottom_manufacturer_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/bottom_manufacturer_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Manufacturer Announcement"
+            "include-landing-page-announcement-4": {
+                "display": false,
+                "name": "Display announcement"
+            },
+            "landing-page-announcement-4-link": {
+                "value": "",
+                "name": "Announcement URL",
+                "description": "Enter the URL of the page which users reach when they click on the announcement image. This should be an absolute URL (starting with http://)."
+            },
+            "landing-page-announcement-4-image": {
+                "value": "resources/bottom_manufacturer_announcement.jpg",
+                "name": "Announcement image",
+                "description": "Enter the path of different image into the announcement area. The image should have a width of 540 pixels."
+            },
+            "landing-page-announcement-4-alt": {
+                "value": "",
+                "name": "Title",
+                "description": "Text that appears when hovering over the image, or when the image is not shown."
+            },
+            "display-landing-page-announcement-4-in-popup": {
+                "display": false,
+                "name": "Display announcement in a popup window",
+                "description": "When users click on the announcement, they reach the announcement page above. Check this option to open the announcement page in a separate window, leaving the original window open."
+            },
+            "landing-page-announcement-4-popup-width": {
+                "value": "",
+                "name": "Width of popup window",
+                "description": "The width of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific width."
+            },
+            "landing-page-announcement-4-popup-height": {
+                "value": "",
+                "name": "Height of popup window",
+                "description": "The height of the newly opened window, in pixels, if the above option is selected. Enter a value if you would like the window to open in a specific height."
+            },
+            "landing-page-announcement-4-code": {
+                "value": "Landing Page Channel Announcement",
+                "name": "Announcement Title for Reporting Purposes",
+                "description": "Landing Page Manufacturer Announcement"
+            }
         }
     },
+	
     "mosaic_configurations": {
         "menuOrientation": "left-to-right",
         "animation": true,
