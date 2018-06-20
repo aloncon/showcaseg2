@@ -4,65 +4,9 @@ cbContext0({
     "partner": "quill",
     "landing_entry_point": "landingpage-default",
     "Sections": {
-        "include-showcase-banner": true,
-        "include-showcase-nav-bar": true,
-        "wc_navigation_vertical": false,
-        "include-bread-crumbs": true,
-        "include-powered-by": true,
         "display-all-vendor-products": false,
-        "page3": true
+        "include-landing-page-announcement-1": true,
+        "include-landing-page-announcement-5": true
     },
-    "Properties": {},
-    "Announcement": {
-        "top_webcollage_announcement": {
-            "display": true,
-            "link": "https://en.wikipedia.org/wiki/Studio_Ghibli",
-            "title": "top_webcollage_Announcement",
-            "path": "resources/top_webcollage_announcement.jpg",
-            "popup": true,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Channel Extra Product Announcement"
-        },
-        "top_channel_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/top_channel_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Top Channel Announcement"
-        },
-        "channel_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/channel_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Channel Announcement"
-        },
-        "bottom_bhannel_announcement_for_missing_products": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/bottom_bhannel_announcement_for_missing_products.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Channel Extra Product Announcement"
-        },
-        "bottom_manufacturer_announcement": {
-            "display": false,
-            "link": "",
-            "title": "",
-            "path": "resources/bottom_manufacturer_announcement.jpg",
-            "popup": false,
-            "width": "",
-            "height": "",
-            "reporting_title": "Landing Page Manufacturer Announcement"
-        }
-    }
+    "Properties": {}
 })
