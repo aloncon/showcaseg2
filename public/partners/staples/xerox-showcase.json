@@ -115,6 +115,6 @@ cbContext0({
         "tooltipType": "none",
         "sectionOrder": [],
         "maxButtonsAllowed": null,
-        "menuSize": "medium"
+        "menuSize": "small"
     }
 })

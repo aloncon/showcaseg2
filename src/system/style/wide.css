@@ -1,67 +1,154 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct {
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct {
   border-bottom: 2px solid #f2f2f2;
   width: 100%;
-  padding-top: 0.5%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .bt-row,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .bt-row {
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .bt-row,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .bt-row,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .bt-row {
   padding-top: 1%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcMosaicWideList,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcMosaicWideList {
-  margin-top: 0.5%;
-  margin-left: 2.5%;
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcMosaicWideList,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcMosaicWideList,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcMosaicWideList {
   width: 100%;
-  height: 40px;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing {
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing {
   width: 45%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListImg,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg {
-  width: 15%;
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListImg,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListImg {
+  width: 155px;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListImg img,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg img {
-  position: relative;
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg img,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListImg img,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListImg img {
   display: block;
-  left: 25%;
-  top: 0;
+  margin: auto;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc {
-  width: 68%;
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListDesc,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListDesc {
+  width: 60%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc h4,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4 {
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListDesc h4,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListDesc h4 {
   position: relative;
   top: 0;
-  padding-left: 7%;
+  padding-left: 4%;
   padding-right: 2%;
   margin-top: 0%;
-  margin-bottom: 1%;
+  margin-bottom: 0%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc h4 a,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4 a {
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListDesc h4 a {
   text-decoration: none;
   color: black;
 }
-#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc h4.wcOnlyTitle,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc h4.wcOnlyTitle {
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton {
-  width: 15%;
-}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton a,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton a {
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton a,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListButton a,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListButton a {
+  font-size: 80%;
   display: block;
-  margin-top: 45%;
+  margin-top: 60%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct {
+  border-bottom: 2px solid #f2f2f2;
+  width: 100%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .row-narrow,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .row-narrow,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .row-narrow,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .row-narrow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding-bottom: 2.5%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcMosaicWideList,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcMosaicWideList,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcMosaicWideList,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcMosaicWideList {
+  width: 100%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcPlaceHolderImageProductListing,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcPlaceHolderImageProductListing,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcPlaceHolderImageProductListing,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcPlaceHolderImageProductListing {
+  width: 100%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListImg,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListImg,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListImg,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListImg {
+  width: 100%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListImg img,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListImg img,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListImg img,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListImg img {
+  display: block;
+  margin: auto;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListDesc,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListDesc,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListDesc,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListDesc {
+  width: 100%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListDesc h4,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListDesc h4,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListDesc h4,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListDesc h4 {
+  text-align: center;
+  position: relative;
+  top: 0;
+  padding-left: 4%;
+  padding-right: 2%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListDesc h4 a {
+  text-decoration: none;
+  color: black;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListDesc .narrowDescription,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListDesc .narrowDescription,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListDesc .narrowDescription,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListDesc .narrowDescription {
+  width: 70%;
+  margin: auto;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListButton a,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListButton a,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListButton a,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListButton a {
+  font-size: 80%;
+  display: block;
+  text-align: center;
 }
 /* ***dev end: please add your styles above only!!!*** */

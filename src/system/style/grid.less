@@ -5,13 +5,13 @@
   @keyframes openPopover {
     from {
       opacity: 0;
-      top:-500px;
-      box-shadow: none;
+      // top: 150px;
+      // box-shadow: none;
     }
     to {
       opacity: 1;
-      top: -235px;
-      box-shadow: 3px 3px 5px 6px #ccc;
+      // top: 45px;
+      // box-shadow: 3px 3px 5px 6px #ccc;
     }
   }
 
@@ -47,13 +47,12 @@
   #wc_showcase_root .wcGridList .wcOpenPopover {
     position: absolute;
     background: #f9f9f9;
-    width: 250px;
-    height: 280px;
+    width: 220px;
     border-radius: 5px;
-    // border: 1px solid #ccc;
-    // box-shadow: 3px 3px 5px 6px #ccc;
-    top: -235px;
-    left: -5px;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    top: 45px;
+    left: -20px;
     z-index: 999999 !important;
 
     div {
@@ -73,20 +72,67 @@
       padding: 0px 15px 0px 0px;
     }
 
-    // &:before {
-    //   content: '';
-    //   position: absolute;
-    //   left: 50px;
-    //   top: -6px;
-    //   width: 15px;
-    //   height: 15px;
-    //   -webkit-transform: rotate(45deg);
-    //   -ms-transform: rotate(45deg);
-    //   transform: rotate(45deg);
-    //   background: #f9f9f9;
-    //   border-left: 1px solid #ccc;
-    //   border-top: 1px solid #ccc;
-    // }
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50px;
+      top: -6px;
+      width: 15px;
+      height: 15px;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      background: #f9f9f9;
+      border-left: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
+
+    animation: openPopover 0.5s 1;
+  }
+
+  #wc_showcase_root .wcGridList .wcOpenPopoverTop {
+    position: absolute;
+    background: #f9f9f9;
+    width: 220px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px 1px #ccc;
+    bottom: 55px;
+    left: 0px;
+    z-index: 999999 !important;
+
+    div {
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      padding: 1px 10px;
+      background: #a7adba;
+      h3 {
+        font-size: 90%;
+        // display: none;
+        padding:10px 2px 0px 2px;
+        text-align: center;
+        color: white;
+      }
+    }
+
+    p {
+      padding: 0px 15px 0px 0px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 50px;
+      bottom: -8px;
+      width: 15px;
+      height: 15px;
+      -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+      transform: rotate(225deg);
+      background: #f9f9f9;
+      border-left: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+    }
 
     animation: openPopover 0.5s 1;
   }
@@ -100,7 +146,7 @@
     flex-wrap: wrap;
 
     .wcCard {
-      overflow: hidden;
+      // overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -124,13 +170,14 @@
       }
 
       .wcCardImgTop {
+        // display: block;
+        height: 200px !important;
         img {
           display: block;
           margin: auto;
         }
       }
       .wcCardBlock {
-        height: 100%;
         margin-top: 0%;
         position: relative;
         bottom: 0;

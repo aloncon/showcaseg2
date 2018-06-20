@@ -14,6 +14,7 @@ class initMosaicProductListing{
             return configObj ? {
                 containerSelector       : ".wcMosaic",
                 cpiAttribute            : "product-data-number",
+                wcpcAttribute           : "product-data-number",
                 layout                  : configObj.layout ? configObj.layout : "one-button",
                 buttonPosition          : configObj.buttonPosition ? configObj.buttonPosition : "left-top",
                 buttonType              : configObj.buttonType ? configObj.buttonType : "hotspot",
@@ -29,6 +30,7 @@ class initMosaicProductListing{
             } : {
                 containerSelector       : ".wcMosaic",
                 cpiAttribute            : "product-data-number",
+                wcpcAttribute           : "product-data-number",
                 layout                  : "one-button",
                 buttonPosition          : "left-top",
                 menuSize                : "small"
@@ -45,6 +47,7 @@ class initMosaicProductListing{
                 this.isWcpc = false
                 console.log("loadProductContentForProductListingByCpi")
             }else{
+
                 window.Webcollage.loadProductContentForProductListingByWcpc(moduleInfo.default.siteName,moduleInfo.default.moduleName,'live',config)
                 this.isWcpc = true
                 console.log("loadProductContentForProductListingByWcpc")

@@ -14,16 +14,16 @@ class MosaicTesting extends React.Component {
                     {/* <Mosaic wcpc={1377023287175}/> */}
                     <div>
 
-                        <h3>Mosaic Tiles</h3>
-                        <p>wcpc = 1491851608414</p>
-                        <MosaicTiles wcpc={1491851608414}>
+                        {/* <h3>Mosaic Tiles</h3>
+                        <p>wcpc = 1422975800759</p>
+                        <MosaicTiles wcpc={1422975800759}>
                         <button> MosaicTesting button </button>
-                        </MosaicTiles>
+                        </MosaicTiles> */}
 
-                        <p>wcpc = 1377023287175</p>
+                        {/* <p>wcpc = 1377023287175</p>
                         <MosaicTiles wcpc={1377023287175}>
                         <button> MosaicTesting button </button>
-                        </MosaicTiles>
+                        </MosaicTiles> */}
                         
                         
                     </div>

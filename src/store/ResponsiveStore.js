@@ -66,6 +66,14 @@ const RootStore = () => {
       if (this.wcContainerWidth < 1200) return 'lg';
       return 'xl';
     },
+    get wcContainerSizeForFlexListing(){
+      if (this.wcContainerWidth < 720) return 'wide';
+      else return 'grid';
+    },
+    get wcContainerSizeForWideClassName(){
+      if (this.wcContainerWidth < 590) return 'narrow';
+      else return 'wide';
+    }
     /* get rootSize() {
       if (this.rootWidth < 576) return 'sm';
       if (this.rootWidth < 768) return 'md';

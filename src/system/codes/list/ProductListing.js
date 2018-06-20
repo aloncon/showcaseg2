@@ -10,13 +10,14 @@ import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
 import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
 import '../../style/productlisting.css';
 
-const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id ,responsiveStore}) => {
+const ProductListingObserver = observer(({ store: { data, changeDisplay, setType }, orderNumber, settings, id , hideProductImages ,responsiveStore : { wcContainerSizeForFlexListing } }) => {
     const content = data;
     let type = content.type;
     const isDisplay = content.isDisplay;
-    const sizeResponsive = responsiveStore.wcContainerSize;
-    if(((sizeResponsive === 'sm' || sizeResponsive === 'xs')) && type === 'wide')
-        type = 'grid'
+    const typeBySizeResponsive = wcContainerSizeForFlexListing;
+
+    if(type === 'flex' || type === undefined)
+        type = typeBySizeResponsive;
     const change = changeDisplay;
     const { isSubCategory } = settings;
 
@@ -26,12 +27,12 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                         onClick={change}>
                             <WcImg src={imgButtonOpenClose} alt="Open/Close Button"/>
                 </button>
-    let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}{buttonOpenClose}</h2> : null
+    let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}</h2> : null
 
     if(settings.reporting===undefined){
         settings.reporting=true;
     }
-
+    hideProductImages = hideProductImages === true ? true : false; 
   // Choosing the type of the listing ( currently between wide/grid/carousel)
     switch (content.products.length > 0 && type) {
         case "wide":
@@ -39,7 +40,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                         <div className="wcListBackground">
                             {_isSubCategory}
                         </div>
-                        {isDisplay && <WideList data={content.products}  reporting={settings.reporting} />}
+                        {isDisplay && <WideList data={content.products} hideProductImages={hideProductImages} reporting={settings.reporting} />}
                     </div>
         case "grid":
             return <div>
@@ -61,12 +62,12 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
 class ProductListing extends React.Component {
 
     render() {
-        const { ids, type = "wide", isSubCategory, vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth, reporting } = this.props;
+        const { ids, type, isSubCategory, hideProductImages = false,vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth, reporting } = this.props;
 
         const settings = { ids, type, isSubCategory , vertical, carosulId, slidesToShow, infinite, responsive, responsiveWidth, carouselWidth, carouselHeight, productWidth, productHeight, ImageHeight, ImageWidth, reporting };
 
         return  <div>
-                    {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} responsiveStore={ResponsiveStore}/>)}
+                    {settings.ids.map((id, i) => <ProductListingObserver key={i} store={Store(id, type)} orderNumber={i} settings={settings} id={id} responsiveStore={ResponsiveStore} hideProductImages={hideProductImages}/>)}
                 </div>
     }
 

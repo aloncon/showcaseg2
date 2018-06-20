@@ -224,7 +224,7 @@ const Wcca = observer (class extends Component {
                                                         { product.vendorProductName &&
                                                         <div className="wcCarouselProductTitle"  onClick={() => WcReports("product-listing-carousel-click",product.wcpc)}>
                                                             {/* <br/> */}
-                                                            <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName}>
+                                                            <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} unlink={true}>
                                                             {/* <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} onClick={() => WcReports("p2b",product.wcpc)}> */}
                                                             {/* <ActionLink wcpc={product.wcpc} type="p2b"  title={product.vendorProductName} onClick={WcReports("p2b",product.wcpc)}> */}
                                                                 {Number(product.vendorProductName.length) > 80 ? product.vendorProductName.trim().substring(0, 80).concat('...') : product.vendorProductName}

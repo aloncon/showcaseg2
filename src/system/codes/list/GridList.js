@@ -10,9 +10,9 @@ import '../../style/grid.css';
 
 const placeholderPic = require('../../resources/placeholder.png');
 let openPopList = [];
-
-const popOverGridStore = index => {
-  openPopList.push({ index: index });
+let openPopOverClassName = 'wcOpenPopover'
+const popOverGridStore = ({popIndex , index}) => {
+  openPopList.push({ popIndex: popIndex , index : index });
   const store = observable({
     open: false,
     get isOpen() {
@@ -33,40 +33,45 @@ class AllPopover {
     this.map = new Map();
     this.prev = null;
   }
-  setNewPop(index) {
-    if (!this.map.has(index)) this.map.set(index, { pop: new popOverGridStore(index), isOpen: false });
+  setNewPop(popIndex) {
+    if (!this.map.has(popIndex)) this.map.set(popIndex, { pop: new popOverGridStore(popIndex), isOpen: false });
   }
-  getPop(index) {
-    if (!this.map.has(index)) this.setNewPop(index);
-    return this.map.get(index).pop;
+  getPop(popIndex) {
+    if (!this.map.has(popIndex)) this.setNewPop(popIndex);
+    return this.map.get(popIndex).pop;
   }
-  openPop(index) {
-    if (this.prev !== null && this.prev !== index) {
+  openPop(popIndex,index) {
+    if((window.innerHeight - document.getElementsByClassName("wcGridCardFooter")[index].getBoundingClientRect().top) < 180 )
+      openPopOverClassName = 'wcOpenPopoverTop'
+    else  openPopOverClassName = 'wcOpenPopover'
+
+    if (this.prev !== null && this.prev !== popIndex) {
       this.map.get(this.prev).pop.setOpen(false);
       this.map.get(this.prev).isOpen = false;
     }
 
-    if (this.map.has(index)) {
-      let temp = this.map.get(index);
+    if (this.map.has(popIndex)) {
+      let temp = this.map.get(popIndex);
       temp.isOpen = !temp.isOpen;
       temp.pop.setOpen(temp.isOpen);
+      
     }
-    this.prev = index;
+    this.prev = popIndex;
   }
 }
 
 const allPopovers = new AllPopover();
 
-const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
+const ObservPopover = observer(({ store, index,popIndex ,title, text, wcpc }) => {
   let isOpen = store && store.isOpen;
-  let classIsOpen = isOpen ? 'wcOpenPopover' : 'wcClosePopover';
+  let classIsOpen = isOpen ? openPopOverClassName : 'wcClosePopover';
   return store ? (
     <div>
       <button
         type="button"
         className="bt-btn bt-btn-primary bt-btn-sm"
         onClick={() => {
-          allPopovers.openPop(index);
+          allPopovers.openPop(popIndex , index);
         }}
       >
         See more
@@ -75,7 +80,7 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
         <WcImg
           src={require('../../resources/icons/svg/icon-close_.svg')}
           onClick={() => {
-            allPopovers.openPop(index);
+            allPopovers.openPop(popIndex , index);
           }}
           className="wcCloseButtonPopover"
           alt="Grid Button"
@@ -92,7 +97,7 @@ const ObservPopover = observer(({ store, index, title, text, wcpc }) => {
   ) : null;
 });
 
-const GridListProduct = ({ product, caption }) => {
+const GridListProduct = ({ product, caption , index }) => {
   return (
     <div className="wcCard">
      
@@ -104,7 +109,7 @@ const GridListProduct = ({ product, caption }) => {
             <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} /> 
             : 
             <WcImgValid 
-              mobile={'/static/_wc/product-images/ver/200/' + product.wcpc + '.jpg.200px.jpg'}  
+              mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}  
               desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'} 
               src={'/static' + product.listImage} />
             }
@@ -122,7 +127,7 @@ const GridListProduct = ({ product, caption }) => {
       </div>
       <div className="wcGridCardFooter">
         {product.listDescription && (
-          <ObservPopover store={allPopovers.getPop(product.wcpc + caption)} index={product.wcpc + caption} wcpc={product.wcpc} title={product.vendorProductName} text={product.listDescription} />
+          <ObservPopover store={allPopovers.getPop(product.wcpc + caption)} index={index} popIndex={product.wcpc + caption} wcpc={product.wcpc} title={product.vendorProductName} text={product.listDescription} />
         )}
         <div onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
           <ActionLink wcpc={product.wcpc} type="p2b">
@@ -172,10 +177,10 @@ class GridList extends React.Component {
           // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
           if (typeof item.cpi === 'string' || item.cpi === 0) {
             reporting && WcReports('product-listing-grid-view-product', item.wcpc);
-            return <GridListProduct key={i} product={item} caption={caption} />;
+            return <GridListProduct key={i} index={i} product={item} caption={caption} />;
           } else {
             reporting && WcReports('product-listing-grid-view-family-product-wcpc', item.wcpc);
-            return <GridListFamilyProduct key={i} product={item} caption={caption} />;
+            return <GridListFamilyProduct key={i} index={i} product={item} caption={caption} />;
           }
         })}
       </div>

@@ -21,13 +21,14 @@ class CategoryList extends React.Component{
         }
         
         render(){
-            const { ids , isSubCategory } = this.props
-            let subCategory = isSubCategory === undefined ? true : isSubCategory
+            const { ids , isSubCategory , displayChangeView , hideProductImages} = this.props;
+            let subCategory = isSubCategory === undefined ? true : isSubCategory;
+            let changView = displayChangeView === true ? true : false;
             return(
                 <div>
-                    <ChangeView type={this.type} callBack={this.handleChangeTypeView} ids={ids}/>  
+                    { changView && <ChangeView type={this.type} callBack={this.handleChangeTypeView} ids={ids}/> }
                     <div style={{clear:"both"}}/>                
-                    <ProductListing ids={ids}  type={this.type} isSubCategory={subCategory} reporting={this.props.reporting}/>
+                    <ProductListing ids={ids}  type={this.type} isSubCategory={subCategory} reporting={this.props.reporting} hideProductImages={hideProductImages}/>
                 </div>
             )
         }
