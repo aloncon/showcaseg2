@@ -1,5 +1,11 @@
 
-
+/**
+ * Smooth Scrolling
+ * @param {HTMLElement} destination The destination element to scroll to.
+ * @param {Number} duration Scrolling duration. **DEFAULT**: 200.
+ * @param {String} easing Animation type.  **DEFAULT**: linear.
+ * @param {Function} callback Callback function when finish scrolling.
+ */
 const scrollIt = function scrollIt(destination, duration = 200, easing = 'linear', callback) {
   const easings = {
     linear(t) {

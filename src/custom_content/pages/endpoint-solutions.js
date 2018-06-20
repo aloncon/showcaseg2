@@ -10,8 +10,8 @@ class EndpointSolution extends React.Component {
 
     render() {
         return (
-            <div className="sos">
-                
+            <div className="sss">
+
                 <ShouldDisplay ids={CATEGORY_IDS}>
                     <div>
                         <h2>Testing Area 2</h2>

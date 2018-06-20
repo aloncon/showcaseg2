@@ -14,6 +14,7 @@
   width: 45%;
   margin: 2%;
   margin-bottom: 0.5em;
+  height: 350px;
 }
 #wc-showcase-root #wc_showcase_root.app-size-sm .wcGridList .wcCard .wcGridCardFooter {
   font-size: 100%;
@@ -26,6 +27,7 @@
   width: 100%;
   margin: 0%;
   margin-bottom: 2.5%;
+  height: 200px;
   box-shadow: 2px 2px 5px 0 #756a6a66;
 }
 #wc-showcase-root #wc_showcase_root.app-size-xs .wcGridList .wcOpenPopover {

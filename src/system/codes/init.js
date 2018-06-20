@@ -40,8 +40,8 @@ function getSiteIdFromScriptSrc(script){
     }
     else{
         //  site = 'cdw';
-         site = 'staples';
-        //  site = 'quill';
+        //  site = 'staples';
+         site = 'quill';
         // site = 'allassortment';
     }
 
