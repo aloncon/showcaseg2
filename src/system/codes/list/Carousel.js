@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { observer } from 'mobx-react';
 import {WcReports} from '../WcEvents';
-import { WcImg } from '../WcResource';
+import { WcImg, WcPlaceHolderImage } from '../WcResource';
 import'../../style/carousel.css';
 import ActionLink from '../ActionLink';
 
@@ -209,7 +209,12 @@ const Wcca = observer (class extends Component {
                                                     <div className={!isVertical ? 'wcCarouselProductBrowse' :'wcCarouselProductBrowseVertical'} style={isVertical ? {height: productHeightVertical ,width:productWidth} : {width:productWidth}} >
                                                         <div className="wcCarouselProductImage" style={!isVertical ? {height:ImageHeight ,width:ImageWidth ,display:'block',position: 'relative'} : {height:ImageHeight ,width:ImageWidth}}>
                                                             <a href={product.link}>
-                                                               <WcImg src={product.listImage ? ("/static"+product.listImage) : placeholderPic } alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                            {product.listImage ? (
+                                                                 <WcImg src={`/static${product.listImage}`} alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                            ) : (
+                                                                <WcPlaceHolderImage  alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                            )
+                                                            }
                                                             </a>
                                                         </div>
                                                         { (product.cpi !== 0) &&
