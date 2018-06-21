@@ -38,6 +38,14 @@
   max-width: 1000px;
   background-color: #fff;
 }
+#wc-showcase-root #wc_showcase_root hr.wcHrShowcaseApp {
+  background-color: #bebebe;
+  color: #bebebe;
+  border: 0px;
+  height: 1px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 #wc-showcase-root .wcContainer {
   background-color: #fff;
   text-align: left;

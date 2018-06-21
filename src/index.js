@@ -53,7 +53,7 @@ const MainComp = observer(({  rootResponsiveStore }) => {
               <ShowcaseHeader />
               <ModuleGenerateNavigationContent />
               <GenerateRoutes />
-              <hr />
+              <hr className="wcHrShowcaseApp"/>
               <ShowcaseFooter />
             </div>
           </MainContainer>
