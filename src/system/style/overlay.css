@@ -31,8 +31,8 @@
 #wc-showcase-root #video-view .wcOverlayVideo .wcCloseVideo {
   z-index: 1;
   position: absolute;
-  right: -15px;
-  top: -15px;
+  right: -10px;
+  top: -10px;
   cursor: pointer;
   width: 30px;
   height: 30px;

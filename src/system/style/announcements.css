@@ -11,7 +11,6 @@
       justify-content: space-around;
   -ms-flex-align: center;
       align-items: center;
-  background-color: green;
   background-size: 900px 240px;
 }
 #wc-showcase-root .wcVideoSlideContainer .wcVideoSlideText {
@@ -227,6 +226,9 @@
 }
 #wc-showcase-root .wcAnnounceUl.wcAnnouncePlay:focus {
   background-position: 90% 50%;
+}
+#wc-showcase-root #wc_showcase_root .wcAnnouncementSlick {
+  margin: 0 auto;
 }
 #wc-showcase-root #wc_showcase_root .wcAnnouncementSlick .slick-prev {
   width: 20px;

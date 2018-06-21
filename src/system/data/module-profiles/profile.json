@@ -12,6 +12,7 @@
         "display-all-vendor-products": true,
         "enable-reporting": true
     },
+
     "Announcement": {
         "top_webcollage_announcement": {
             "include-landing-page-announcement-1": {

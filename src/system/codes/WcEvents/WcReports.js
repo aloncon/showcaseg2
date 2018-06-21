@@ -1,5 +1,5 @@
 import WcShowcase from '../moduleInfo';
-import WcMixPanel from './WcMixPanel'
+// import WcMixPanel from './WcMixPanel'
 
 let     reporterRoot = "http://rel.webcollage.net/apps/el";
 let     enableReportingToDsplyDotCom = true;
