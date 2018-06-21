@@ -1,15 +1,34 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root {
-   .app-size-lg,
-   .app-size-md,
-   .app-size-sm,
-   .app-size-xs {
-      #wcWideList {
-         .wcWideProduct {
-           
-            border-bottom: 2px solid #f2f2f2;
-            width: 100%;
-            // padding-top: 0.5%;
+  .app-size-lg,
+  .app-size-md,
+  .app-size-sm,
+  .app-size-xs {
+    #wcWideList {
+      .wcWideProduct.wcOnlyTitleDescWidth {
+        border: none;
+        .wcWideListDesc {
+          // width: 100%;
+          h4 {
+            a {
+              border-bottom: 2px solid #f2f2f2;
+              padding-bottom: 3px;
+              line-height: 2em;
+            }
+          }
+        }
+        .wcWideListButton {
+          a {
+            // margin-top: 0;
+            line-height: normal;
+          }
+        }
+      }
+
+      .wcWideProduct {
+        border-bottom: 2px solid #f2f2f2;
+        width: 100%;
+        // padding-top: 0.5%;
 
         .bt-row {
           padding-top: 1%;
@@ -24,132 +43,105 @@
             display: block;
             left: 25%;
             top: 0;
+            margin: auto;
           }
         }
 
-            .wcMosaicWideList {
-               width: 100%;
-            }
-            .wcPlaceHolderImageProductListing {
-               width: 45%;
-             }
-            .wcWideListImg {
-               width: 155px;
-               img {
-                  // position: relative;
-                  // display: block;
-                  // // width: 45%;
-                  // left: 25%;
-                  // top: 0;
-                  display: block;
-                  
-                  margin: auto;
-               }
-            }
-
-            .wcWideListDesc {
-               width: 60%;
-               h4 {
-                  position: relative;
-                  top: 0;
-                  padding-left: 4%;
-                  padding-right: 2%;
-                  margin-top: 0%;
-                  margin-bottom: 0%;
-
-                  a {
-                     text-decoration: none;
-                     color: black;
-                  }
-               }
-               h4.wcOnlyTitle {
-                  // margin: 0;
-                  // padding-top: 0;
-                  // padding-bottom: 0;
-               }
-            }
-
-            .wcWideListButton {
-               a {
-                  font-size: 80%;
-                  display: block;
-                  margin-top: 60%;
-               }
-            }
-         }
-
-         .wcNarrowProduct {
-           
-          border-bottom: 2px solid #f2f2f2;
+        .wcMosaicWideList {
           width: 100%;
-          // padding-top: 0.5%;
+        }
 
-          .row-narrow {
-            display: flex;
-            flex-direction: column; 
-            padding-bottom: 2.5%;
+        .wcWideListDesc {
+          width: 60%;
+          h4 {
+            position: relative;
+            top: 0;
+            padding-left: 4%;
+            padding-right: 2%;
+            margin-top: 0%;
+            margin-bottom: 0%;
+
+            a {
+              text-decoration: none;
+              color: black;
+            }
           }
+        }
 
-          .wcMosaicWideList {
-             width: 100%;
+        .wcWideListButton {
+          a {
+            font-size: 80%;
+            display: block;
+            // margin-top: 60%;
+            line-height: 100px;
           }
-          .wcPlaceHolderImageProductListing {
-             width: 100%;
-           }
-          .wcWideListImg {
-            width: 100%;
-             img {
-                // position: relative;
-                // display: block;
-                // // width: 45%;
-                // left: 25%;
-                // top: 0;
-                display: block;
-                
-                margin: auto;
-             }
+        }
+      }
+
+      .wcNarrowProduct {
+        border-bottom: 2px solid #f2f2f2;
+        width: 100%;
+        // padding-top: 0.5%;
+
+        .row-narrow {
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 2.5%;
+        }
+
+        .wcMosaicWideList {
+          width: 100%;
+        }
+        .wcPlaceHolderImageProductListing {
+          width: 100%;
+        }
+        .wcWideListImg {
+          width: 100%;
+          img {
+            // position: relative;
+            // display: block;
+            // // width: 45%;
+            // left: 25%;
+            // top: 0;
+            display: block;
+
+            margin: auto;
           }
+        }
 
-          .wcWideListDesc {
-            
-             width: 100%;
-             h4 {
-              text-align: center;
-                position: relative;
-                top: 0;
-                padding-left: 4%;
-                padding-right: 2%;
-                margin-top: 0%;
-                margin-bottom: 0%;
+        .wcWideListDesc {
+          width: 100%;
+          h4 {
+            text-align: center;
+            position: relative;
+            top: 0;
+            padding-left: 4%;
+            padding-right: 2%;
+            margin-top: 0%;
+            margin-bottom: 0%;
 
-                a {
-                   text-decoration: none;
-                   color: black;
-                }
-             }
-             .narrowDescription{
-               width:70%;
-               margin: auto;
-
-             }
-             h4.wcOnlyTitle {
-                // margin: 0;
-                // padding-top: 0;
-                // padding-bottom: 0;
-             }
+            a {
+              text-decoration: none;
+              color: black;
+            }
           }
-
-          .wcWideListButton {
-             a {
-                font-size: 80%;
-                display: block;
-                // margin-top: 45%;
-                text-align: center;
-             }
+          .narrowDescription {
+            width: 70%;
+            margin: auto;
           }
-       }
+        }
+
+        .wcWideListButton {
+          a {
+            font-size: 80%;
+            display: block;
+            // margin-top: 45%;
+            text-align: center;
+          }
+        }
       }
     }
   }
+}
 
 /* ***dev end: please add your styles above only!!!*** */

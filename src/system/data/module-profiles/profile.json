@@ -220,7 +220,7 @@
             }
         }
     },
-	
+
     "mosaic_configurations": {
         "menuOrientation": "left-to-right",
         "animation": true,

@@ -147,6 +147,9 @@
   display: block;
   margin: auto;
 }
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop img.wcPlaceHolderImageProductListing {
+  width: 45%;
+}
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock {
   margin-top: 0%;
   position: relative;

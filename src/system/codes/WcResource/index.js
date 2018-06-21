@@ -1,4 +1,4 @@
-import WcImg from './WcImg';
+import WcImg,{ WcImgValid, WcPlaceHolderImage } from './WcImg';
 import WcLink from './WcLink';
 import WcCssLink from './WcCssLink';
 import WcIframe from './WcIframe';
@@ -8,5 +8,5 @@ import absolutizeSrc from './absolutizeSrc';
 import wcGoToURL from './wcGoToURL';
 
 export {
-  WcImg, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc , wcGoToURL
+  WcImg, WcImgValid, WcPlaceHolderImage, WcLink, WcCssLink, WcIframe, WcPlayer , WcOverlayVideo , absolutizeSrc , wcGoToURL
 }

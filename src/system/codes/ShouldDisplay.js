@@ -160,10 +160,6 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
             return section;
         }
 
-        if(section){
-            return section;
-        }
-
         else{
             return (null);
         }

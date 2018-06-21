@@ -1,18 +1,17 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import WcImg , { WcImgValid } from '../WcResource/WcImg';
+import { WcImg, WcImgValid, WcPlaceHolderImage } from '../WcResource';
 import { Mosaic } from '../Mosaic';
 import ActionLink from '../ActionLink';
 import { NormalizeListDescription } from '../NormalizeListDescription';
 import { WcReports } from '../WcEvents';
 import '../../style/grid.css';
 
-const placeholderPic = require('../../resources/placeholder.png');
 let openPopList = [];
-let openPopOverClassName = 'wcOpenPopover'
-const popOverGridStore = ({popIndex , index}) => {
-  openPopList.push({ popIndex: popIndex , index : index });
+let openPopOverClassName = 'wcOpenPopover';
+const popOverGridStore = ({ popIndex, index }) => {
+  openPopList.push({ popIndex: popIndex, index: index });
   const store = observable({
     open: false,
     get isOpen() {
@@ -54,7 +53,6 @@ class AllPopover {
       let temp = this.map.get(popIndex);
       temp.isOpen = !temp.isOpen;
       temp.pop.setOpen(temp.isOpen);
-      
     }
     this.prev = popIndex;
   }
@@ -62,7 +60,7 @@ class AllPopover {
 
 const allPopovers = new AllPopover();
 
-const ObservPopover = observer(({ store, index,popIndex ,title, text, wcpc }) => {
+const ObservPopover = observer(({ store, index, popIndex, title, text, wcpc }) => {
   let isOpen = store && store.isOpen;
   let classIsOpen = isOpen ? openPopOverClassName : 'wcClosePopover';
   return store ? (
@@ -71,7 +69,7 @@ const ObservPopover = observer(({ store, index,popIndex ,title, text, wcpc }) =>
         type="button"
         className="bt-btn bt-btn-primary bt-btn-sm"
         onClick={() => {
-          allPopovers.openPop(popIndex , index);
+          allPopovers.openPop(popIndex, index);
         }}
       >
         See more
@@ -80,7 +78,7 @@ const ObservPopover = observer(({ store, index,popIndex ,title, text, wcpc }) =>
         <WcImg
           src={require('../../resources/icons/svg/icon-close_.svg')}
           onClick={() => {
-            allPopovers.openPop(popIndex , index);
+            allPopovers.openPop(popIndex, index);
           }}
           className="wcCloseButtonPopover"
           alt="Grid Button"
@@ -97,28 +95,26 @@ const ObservPopover = observer(({ store, index,popIndex ,title, text, wcpc }) =>
   ) : null;
 });
 
-const GridListProduct = ({ product, caption , index }) => {
+const GridListProduct = ({ product, caption, index }) => {
   return (
     <div className="wcCard">
-     
-      <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
-       <Mosaic wcpc={product.wcpc} />
-       <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
-        
-          {product.listImage === undefined ? 
-            <WcImg className="wcPlaceHolderImageProductListing" src={placeholderPic} alt={product.vendorProductName} /> 
-            : 
-            <WcImgValid 
-              mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}  
-              desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'} 
-              src={'/static' + product.listImage} />
-            }
-          </ActionLink>
-        </div>
-      
+      <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-grid-click-product', product.wcpc)}>
+        <Mosaic wcpc={product.wcpc} />
+        <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
+          {product.listImage === undefined ? (
+            <WcPlaceHolderImage className="wcPlaceHolderImageProductListing" alt={product.vendorProductName} />
+          ) : (
+            <WcImgValid
+              mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
+              desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
+              src={'/static' + product.listImage}
+            />
+          )}
+        </ActionLink>
+      </div>
 
       <div className="wcCardBlock">
-        <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
+        <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-grid-click-product', product.wcpc)}>
           <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
             {product.vendorProductName}
           </ActionLink>
@@ -127,9 +123,16 @@ const GridListProduct = ({ product, caption , index }) => {
       </div>
       <div className="wcGridCardFooter">
         {product.listDescription && (
-          <ObservPopover store={allPopovers.getPop(product.wcpc + caption)} index={index} popIndex={product.wcpc + caption} wcpc={product.wcpc} title={product.vendorProductName} text={product.listDescription} />
+          <ObservPopover
+            store={allPopovers.getPop(product.wcpc + caption)}
+            index={index}
+            popIndex={product.wcpc + caption}
+            wcpc={product.wcpc}
+            title={product.vendorProductName}
+            text={product.listDescription}
+          />
         )}
-        <div onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
+        <div onClick={() => WcReports('product-listing-grid-click-product', product.wcpc)}>
           <ActionLink wcpc={product.wcpc} type="p2b">
             Proceed to buy
           </ActionLink>
@@ -139,33 +142,59 @@ const GridListProduct = ({ product, caption , index }) => {
   );
 };
 
-const GridListFamilyProduct = ({ product }) => {
-  const { vendorCleanProductName } = product;
+const GridListFamilyProduct = ({ product, caption, index }) => {
+  const { vendorProductName, listImage, listDescription, wcpc: productWcpc } = product;
 
-  return product.cpi.map((childProduct, childProductIndex) => (
-    <div key={childProductIndex} className="wcCard">
-      <Mosaic cpi={childProduct.cpi} />
-      <div className="wcCardBlock">
-        <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-grid-family-product-cpi', product.wcpc)}>
-          {childProductIndex === 0 ? (
-            <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-              {vendorCleanProductName}
-            </ActionLink>
-          ) : (
-            <ActionLink cpi={childProduct.cpi} type="p2b" unlink={true}>
-              {childProduct.channelProductName}
-            </ActionLink>
+  return product.cpi.map((childProduct, childProductIndex) => {
+    const familyName = childProductIndex === 0 ? vendorProductName : childProduct.channelProductName;
+    const { cpi: childProductCpi } = childProduct;
+
+    const FamilyActionLink = ({ text, unlink }) => (
+      <ActionLink cpi={childProductCpi} type="p2b" unlink={unlink}>
+        {text}
+      </ActionLink>
+    );
+
+    return (
+      <div key={childProductIndex} className="wcCard">
+        <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-grid-family-product-cpi', childProductCpi)}>
+          <Mosaic cpi={childProductCpi} />
+          <ActionLink cpi={childProductCpi} type="p2b" unlink={true}>
+            {listImage === undefined ? (
+              <WcPlaceHolderImage className="wcPlaceHolderImageProductListing" alt={familyName} />
+            ) : (
+              <WcImgValid
+                mobile={'/static/_wc/product-images/ver/150/' + productWcpc + '.jpg.150px.jpg'}
+                desktop={'/static/_wc/product-images/ver/150/' + productWcpc + '.jpg.150px.jpg'}
+                src={'/static' + listImage}
+              />
+            )}
+          </ActionLink>
+        </div>
+
+        <div className="wcCardBlock">
+          <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-grid-family-product-cpi', childProductCpi)}>
+            <FamilyActionLink text={familyName} unlink={true} />
+          </h4>
+        </div>
+        <div className="wcGridCardFooter">
+          {listDescription && (
+            <ObservPopover
+              store={allPopovers.getPop(childProductCpi + caption)}
+              index={childProductIndex}
+              popIndex={childProductCpi + caption}
+              wcpc={childProductCpi}
+              title={familyName}
+              text={listDescription}
+            />
           )}
-        </h4>
+          <div onClick={() => WcReports('product-listing-grid-family-click-product', childProductCpi)}>
+            <FamilyActionLink text='Proceed to buy' />
+          </div>
+        </div>
       </div>
-      <div className="wcGridCardFooter" onClick={() => WcReports('product-listing-grid-family-product-cpi', product.wcpc)}>
-        <ActionLink cpi={childProduct.cpi} type="p2b">
-          Proceed to buy
-        </ActionLink>
-      </div>
-      {WcReports('product-listing-grid-view-family-product-cpi', childProduct.cpi)}
-    </div>
-  ));
+    );
+  });
 };
 class GridList extends React.Component {
   render() {

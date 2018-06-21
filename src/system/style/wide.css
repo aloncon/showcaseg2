@@ -1,4 +1,24 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth {
+  border: none;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a {
+  border-bottom: 2px solid #f2f2f2;
+  padding-bottom: 3px;
+  line-height: 2em;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a {
+  line-height: normal;
+}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct,
@@ -32,31 +52,13 @@
   display: block;
   left: 25%;
   top: 0;
+  margin: auto;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcMosaicWideList,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcMosaicWideList,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcMosaicWideList,
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcMosaicWideList {
   width: 100%;
-}
-#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
-#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing,
-#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcPlaceHolderImageProductListing {
-  width: 45%;
-}
-#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListImg,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg,
-#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListImg,
-#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListImg {
-  width: 155px;
-}
-#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListImg img,
-#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg img,
-#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListImg img,
-#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListImg img {
-  display: block;
-  margin: auto;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListDesc,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListDesc,
@@ -88,7 +90,7 @@
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListButton a {
   font-size: 80%;
   display: block;
-  margin-top: 60%;
+  line-height: 100px;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct,
 #wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct,

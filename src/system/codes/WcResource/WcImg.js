@@ -5,7 +5,7 @@ import React from 'react';
 import absolutizeSrc from './absolutizeSrc';
 import { observer } from 'mobx-react';
 import ResponsiveStore from '../../../store/ResponsiveStore';
-
+const placeholderPic = require('../../resources/placeholder.png');
 
 const WcImg = ({ ...props}) => {
   props.src = absolutizeSrc(props.src);
@@ -19,7 +19,7 @@ const WcImgValidResponsive = observer(({responsiveStore : { wcContainerSize } , 
       this.state = { errorSrc : false };
       this.srcDefault = src;
     }
-  
+
     setDefault(e){
       this.setState({ errorSrc : true });
       this.image = <WcImg src={src}/>;
@@ -33,17 +33,23 @@ const WcImgValidResponsive = observer(({responsiveStore : { wcContainerSize } , 
         case 'md' : this.image = <WcImg src={desktop} onError={(e) => {this.setDefault(e)}}/>; break;
         case 'sm' : this.image = <WcImg src={desktop} onError={(e) => {this.setDefault(e)}}/>; break;
         case 'xs' : this.image = <WcImg src={mobile} onError={(e) => {this.setDefault(e)}}/>; break;
-        default : this.image = <WcImg src={src}/>; break;           
+        default : this.image = <WcImg src={src}/>; break;
       }
       return(this.image)
     }
-  
+
   }
   return <WcImgValidResponsive/>
-}) 
+})
 
-export const WcImgValid = ({mobile = 200 , desktop = 300 , src , fileName }) => (
-  <WcImgValidResponsive mobile = { mobile }  desktop = { desktop }  src = { src }  responsiveStore = { ResponsiveStore }/>
+export const WcImgValid = ({mobile = 200 , desktop = 300 , src , fileName, alt }) => (
+  <WcImgValidResponsive mobile = { mobile }  desktop = { desktop }  src = { src }  responsiveStore = { ResponsiveStore } alt={alt}/>
 )
+
+
+export const WcPlaceHolderImage = ({...props}) => {
+  props.src = placeholderPic;
+  return <WcImg {...props}/>
+}
 
 export default WcImg;
