@@ -53,6 +53,7 @@ const RootStore = () => {
     wcRootWidth: 540,
     wcContainerWidth: 540,
     get wcRootSize() {
+      if (this.wcRootWidth < 326) return 'xxs';
       if (this.wcRootWidth < 408) return 'xs';
       if (this.wcRootWidth < 575) return 'sm';
       if (this.wcRootWidth < 767) return 'md';
@@ -60,6 +61,7 @@ const RootStore = () => {
       return 'xl';
     },
     get wcContainerSize() {
+      if (this.wcContainerWidth < 326) return 'xxs';
       if (this.wcContainerWidth < 408) return 'xs';
       if (this.wcContainerWidth < 575) return 'sm';
       if (this.wcContainerWidth < 767) return 'md';

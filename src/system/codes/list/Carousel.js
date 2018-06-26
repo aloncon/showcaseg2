@@ -210,9 +210,9 @@ const Wcca = observer (class extends Component {
                                                         <div className="wcCarouselProductImage" style={!isVertical ? {height:ImageHeight ,width:ImageWidth ,display:'block',position: 'relative'} : {height:ImageHeight ,width:ImageWidth}}>
                                                             <a href={product.link}>
                                                             {product.listImage ? (
-                                                                 <WcImg src={`/static${product.listImage}`} alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                                 <WcPlaceHolderImage  alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
                                                             ) : (
-                                                                <WcPlaceHolderImage  alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
+                                                                <WcImg src={`/static${product.listImage}`} alt={product.vendorProductName} style={!isVertical ? {maxWidth:'100%', maxHeight:'100%', bottom: 0}: {}} />
                                                             )
                                                             }
                                                             </a>

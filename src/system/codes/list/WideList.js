@@ -33,9 +33,11 @@ const classNameGenerateWideNarrow = wcContainerSizeForWideClassName => {
 
 const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideClassName }, product, hideProductImages }) => {
   const { classProductName, rowName, descriptionClassName } = classNameGenerateWideNarrow(wcContainerSizeForWideClassName);
+  const {listDescription, listImage} = product;
+  const wcHaveTitleDescImage = listDescription ||  listImage || !hideProductImages ;
 
   return (
-    <div className={classProductName}>
+    <div className={`${classProductName}${wcHaveTitleDescImage ? '' : ' wcOnlyTitleDescWidthNormalProduct'}`}>
       <Mosaic wcpc={product.wcpc} />
       <div className={rowName}>
         {!hideProductImages && (

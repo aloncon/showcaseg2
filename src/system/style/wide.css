@@ -19,6 +19,12 @@
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a {
   line-height: normal;
 }
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidthNormalProduct .wcWideListButton a,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidthNormalProduct .wcWideListButton a,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidthNormalProduct .wcWideListButton a,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidthNormalProduct .wcWideListButton a {
+  line-height: normal;
+}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct,
