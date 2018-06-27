@@ -37,6 +37,7 @@
       border: 0px none black;
       width: auto;
       /* height: auto; */
+      line-height: normal;
     }
   #wc-reset img {
       background-color: transparent;
@@ -58,36 +59,42 @@
       font-size: 32px;
       font-weight: bold;
       text-transform: initial;
+      padding: initial;
     }
   #wc-reset h2, #wc-reset h2 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 24px;
       font-weight: bold;
       text-transform: initial;
+      padding: initial;
     }
   #wc-reset h3, #wc-reset h3 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 18px;
       font-weight: bold;
       text-transform: initial;
+      padding: initial;
     }
   #wc-reset h4, #wc-reset h4 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 16px;
       font-weight: bold;
       text-transform: initial;
+      padding: initial;
     }
   #wc-reset h5, #wc-reset h5 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 13px;
       font-weight: bold;
       text-transform: initial;
+      padding: initial;
     }
   #wc-reset h6, #wc-reset h6 * {
       font-family: Arial,Helvetica,sans-serif;
       font-size: 10px;
       font-weight: bold;
       text-transform: initial;
+      padding: initial;
     }
 
     /*** LINKS */
