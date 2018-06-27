@@ -279,7 +279,7 @@ const NavigationHorizontal = observer(
          this.updateDimensions(this.props.responsiveStore.wcContainerSize);
 
          return this.rootRoutes.length > 0 ? (
-            <nav className={`wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light${this.values.countRoutes < 6 ? ' notWrap' : ''}`}>
+            <nav className='wcHorizontalNav bt-navbar bt-navbar-inverse bt-navbar-expand-sm bt-navbar-light'>
                <MoreButtonCollapse callback={this.isCollapseCallback.bind(this)} />
                <div className={`bt-collapse bt-navbar-collapse ${this.state.collapse ? 'bt-show bt-collapsed' : ''}`}>
                   <NestedItems

@@ -4,8 +4,8 @@
 @color: rgba(0, 0, 0, 0.5);
 @color-hover: rgba(0, 0, 0, 0.801);
 @background-color-hover: #d6edff;
-@hamburger-toggler-color: #EF9300;
-@shadow-color: #FFD903;
+@hamburger-toggler-color: #ef9300;
+@shadow-color: #ffd903;
 .navItemHover() {
   background-color: @background-color-hover;
   color: @color-hover;
@@ -16,7 +16,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #wc-showcase-root {
-  div#wc_showcase_root.app-size-sm nav.wcHorizontalNav ,
+  div#wc_showcase_root.app-size-sm nav.wcHorizontalNav,
   div#wc_showcase_root.app-size-xs nav.wcHorizontalNav {
     flex-direction: column;
     button.bt-navbar-toggler.wcHamburgerToggler {
@@ -39,6 +39,8 @@
     justify-content: flex-end;
     padding-left: 0;
     .bt-dropdown-item {
+      white-space: pre-line;
+      line-height: 18.5px;
       padding: 0 10px;
       &:active {
         background-color: transparent;
@@ -128,13 +130,6 @@
       > .bt-dropdown-menu {
         display: block;
       }
-    }
-  }
-
-  #wc_showcase_root div.wcContainer.wcContainerSmallerVerticalNav nav.wcHorizontalNav:not(.notWrap) ul.bt-navbar-nav li.bt-dropdown-item {
-    white-space: normal;
-    a.bt-nav-link {
-      line-height: 18.5px;
     }
   }
 }
