@@ -93,18 +93,18 @@ class VideoGalleryClass extends React.Component{
   render() {
     return (
       <VideoGallery autoplay={false}>
-      <div 
-        id={0} 
-        videoTitle= "Video 1" 
-        videoPoster= {posterTest} 
+      <div
+        id={0}
+        videoTitle= "Video 1"
+        videoPoster= {posterTest}
         videoSrc= {videoTest}
-                    />   
-      <div 
-        id={0} 
+                    />
+      <div
+        id={0}
         videoTitle='Video 3'
-        videoPoster='http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem_Video-Still.jpg.w960.jpg' 
-        videoSrc='http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem.mp4.mp4full.mp4' 
-      />                      
+        videoPoster='http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem_Video-Still.jpg.w960.jpg'
+        videoSrc='http://media-itest1.webcollage.net/rlfp/wc/test/module/electroluxus/wcdevres/videogallery_landing/videos/LuxCare_WashSystem.mp4.mp4full.mp4'
+      />
     </VideoGallery>
     );
   }
@@ -114,30 +114,30 @@ class AnnouncementsClass extends React.Component{
   render() {
     return (
         <Announcements isDots={true} responsiveSize='sm'>
-               <div 
-                  id={0} 
+               <div
+                  id={0}
                   asset='Kaspersky_Magic_Quadrant_2016.pdf'
-                  type='asset' 
-                  title='KSV 25% Discount' 
+                  type='asset'
+                  title='KSV 25% Discount'
                   image='1.jpg'
-                  imageSmall='1-s.jpg' 
+                  imageSmall='1-s.jpg'
                   assortment='all'
                   startDate={false}
                   endDate={false}
               />
-               <div 
-                  id={1} 
-                  type='banner' 
-                  title='Q4_16_KSV_New_Customer' 
+               <div
+                  id={1}
+                  type='banner'
+                  title='Q4_16_KSV_New_Customer'
                   image='2.jpg'
-                  imageSmall='2-s.jpg' 
+                  imageSmall='2-s.jpg'
                   assortment='all'
                   startDate={false}
                   endDate={1522555201000}
               />
-              <div 
-                  id={6} 
-                  type='videoLink' 
+              <div
+                  id={6}
+                  type='videoLink'
                   image='announcementVideoBackground.jpg'
                   imageSmall='announcementVideoBackground.jpg'
                   bannerContent='<h2>Sale Sale Sale 2</h2><p>Sale Sale Sale</p><p>Sale Sale Sale</p>'
@@ -145,47 +145,47 @@ class AnnouncementsClass extends React.Component{
                   videoPoster='posterTest.jpg'
                   videoWidth='300px'
                   videoHeight='200px'
-                  videoTitle='video...'                  
+                  videoTitle='video...'
                   assortment='all'
                   startDate={false}
                   endDate={false}
-              />                             
-              <div 
-                  id={2} 
+              />
+              <div
+                  id={2}
                   asset='Q4_16_VSB_Customer_Provantage.pdf'
-                  type='asset' 
-                  title='Q4_16_VSB_Customer_Provantage' 
+                  type='asset'
+                  title='Q4_16_VSB_Customer_Provantage'
                   image='3.jpg'
-                  imageSmall='3-s.jpg' 
+                  imageSmall='3-s.jpg'
                   assortment='all'
                   startDate={false}
                   endDate={false}
               />
-              <div 
-                  id={3} 
+              <div
+                  id={3}
                   asset='Kaspersky_Magic_Quadrant_2016.pdf'
-                  type='asset' 
-                  title='KSV 25% Discount' 
+                  type='asset'
+                  title='KSV 25% Discount'
                   image='4.jpg'
-                  imageSmall='4-s.jpg' 
-                  assortment='all'
-                  startDate={false}
-                  endDate={false}
-              /> 
-              <div 
-                  id={4} 
-                  to='iframe'
-                  type='localLink' 
-                  title='Q4_16_KSV_New_Customer' 
-                  image='5.jpg'
-                  imageSmall='5-s.jpg' 
+                  imageSmall='4-s.jpg'
                   assortment='all'
                   startDate={false}
                   endDate={false}
               />
-              <div 
-                  id={5} 
-                  type='videoLink' 
+              <div
+                  id={4}
+                  to='iframe'
+                  type='localLink'
+                  title='Q4_16_KSV_New_Customer'
+                  image='5.jpg'
+                  imageSmall='5-s.jpg'
+                  assortment='all'
+                  startDate={false}
+                  endDate={false}
+              />
+              <div
+                  id={5}
+                  type='videoLink'
                   image='announcementVideoBackground.jpg'
                   imageSmall='announcementVideoBackground.jpg'
                   bannerContent='<h2>Sale Sale Sale 2</h2><p>Sale Sale Sale</p><p>Sale Sale Sale</p>'
@@ -193,12 +193,12 @@ class AnnouncementsClass extends React.Component{
                   videoPoster='posterTest.jpg'
                   videoWidth='300px'
                   videoHeight='200px'
-                  videoTitle='video...'                  
+                  videoTitle='video...'
                   assortment='all'
                   startDate={false}
                   endDate={false}
-              /> 
-          </Announcements> 
+              />
+          </Announcements>
     );
   }
 }
@@ -208,7 +208,7 @@ class ShowcaseBody extends React.Component {
     return (
       <div className="testingAreaGeneralDiv">
         <div>
-          <hr/> 
+          <hr/>
           <h2>Announcements:</h2>
             <AnnouncementsClass/>
 

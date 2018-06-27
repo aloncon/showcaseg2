@@ -41,8 +41,8 @@ function getSiteIdFromScriptSrc(script){
     else{
         //  site = 'cdw';
         //  site = 'staples';
-         site = 'quill';
-        // site = 'allassortment';
+        //  site = 'quill';
+        site = 'allassortment';
     }
 
     return site;
