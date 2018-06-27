@@ -1,21 +1,22 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="./manifest.json">
-    <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="shortcut icon" href="./favicon.ico">
 
-    <!-- Latest compiled and minified CSS -->
-    <!--
+  <!-- Latest compiled and minified CSS -->
+  <!--
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     -->
-    <!--
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,57 +25,65 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Webcollage Showcase: Standalone</title>
-    <script src="https://scontent.webcollage.net/api/v2/product-content"></script>
-    <script>
-        if (document.location.origin.indexOf("localhost")==-1){
-          document.write('<link rel="stylesheet" type="text/css" href="../static/css/main.css">');
-        }
-    </script>
+  <title>Webcollage Showcase: Standalone</title>
+  <script src="https://scontent.webcollage.net/api/v2/product-content"></script>
+  <script>
+    if (document.location.origin.indexOf("localhost") == -1) {
+      document.write('<link rel="stylesheet" type="text/css" href="../static/css/main.css">');
+    }
 
-    <script type="text/javascript">
-      var WebcollageShowcase = {};
+  </script>
 
-      function getUrlVars() {
-        var vars = {};
-        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-        function(m,key,value) {
+  <script type="text/javascript">
+    var WebcollageShowcase = {};
+
+    function getUrlVars() {
+      var vars = {};
+      var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+        function (m, key, value) {
           vars[key] = value;
         });
-        return vars;
-      }
+      return vars;
+    }
 
-      function initWebcollageVar() {
-        var params = getUrlVars();
+    // after the first reload the entry will have the suffix of the current page
+    // ex:`landingpage-default#/landingpage-default`
+    const fixEntry = entry => /(.*)#/.test(entry) ? entry.match(/(.*)#/)[1] : entry;
 
-        var baseUrl = location.href.replace(/standalone\/index.html.*/,"");
-        //location.protocol+ "//" + location.host;
+    function initWebcollageVar() {
+      var params = getUrlVars();
 
-        WebcollageShowcase.context  = params["ws-context"];
-        WebcollageShowcase.entry  = params["ws-entry"];
-        WebcollageShowcase.partnerId = params["ws-site"];
-        WebcollageShowcase.scriptSrc = baseUrl + "/static/js/bundle.js?site="+ WebcollageShowcase.partnerId;
-        WebcollageShowcase.srcBase   = baseUrl;
-        WebcollageShowcase.cssLink   = null;
-        console.log("WebcollageShowcase: ", WebcollageShowcase);
-       }
+      var baseUrl = location.href.replace(/standalone\/index.html.*/, "");
+      //location.protocol+ "//" + location.host;
 
-       initWebcollageVar()
-      </script>
+      WebcollageShowcase.context = params["ws-context"];
+      WebcollageShowcase.entry = fixEntry(params["ws-entry"]);
+      WebcollageShowcase.partnerId = params["ws-site"];
+      WebcollageShowcase.scriptSrc = baseUrl + "/static/js/bundle.js?site=" + WebcollageShowcase.partnerId;
+      WebcollageShowcase.srcBase = baseUrl;
+      WebcollageShowcase.cssLink = null;
 
-    </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+      console.log("WebcollageShowcase: ", WebcollageShowcase);
+    }
 
-    <span class="wcStandalone">
-      <!-- Standalone has to be located here -->
-        <div id="wc-showcase-root"></div>
-    </span>
+    initWebcollageVar()
 
-    <script id="wcmain" type="text/javascript" src="../static/js/bundle.js"></script>
+  </script>
 
-  </body>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+
+  <span class="wcStandalone">
+    <!-- Standalone has to be located here -->
+    <div id="wc-showcase-root"></div>
+  </span>
+
+  <script id="wcmain" type="text/javascript" src="../static/js/bundle.js"></script>
+
+</body>
 
 </html>
