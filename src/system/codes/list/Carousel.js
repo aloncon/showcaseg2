@@ -6,9 +6,6 @@ import { WcImg, WcPlaceHolderImage } from '../WcResource';
 import'../../style/carousel.css';
 import ActionLink from '../ActionLink';
 
-
-const placeholderPic = require('../../resources/placeholder_small.png')
-
 //arrows for horizonal carousel
 function SamplePrevArrow(props) {
   const {onClick,className} = props
