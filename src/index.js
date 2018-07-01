@@ -28,37 +28,42 @@ import './common/css/index.css'; // module global css
 import './common/css/header.css'; // module global header css
 //~~~~~~~
 
+import mixpanel from 'mixpanel-browser';
+import MixpanelProvider from 'react-mixpanel';
 
+mixpanel.init('d1faae8408d92bf4305a6f7c50fcdf60');
 //~~~~~~~
 
 //const css = require('./App.css');
 
-const MainComp = observer(({  rootResponsiveStore }) => {
+const MainComp = observer(({ rootResponsiveStore }) => {
   return (
-      <HashRouter>
-        <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
-          <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
-          <div>wcRootWidth: {rootResponsiveStore.wcRootWidth}</div>
-          <div>wcContainerWidth: {rootResponsiveStore.wcContainerWidth}</div>
-          <div className={`size-${rootResponsiveStore.wcContainerSize}`}>
-            wcRootSize: {rootResponsiveStore.wcRootSize}
-            <br />
-            wcContainerSize: {rootResponsiveStore.wcContainerSize}
-            <br />
-            <hr />
-          </div>
-          <MainContainer responsiveStore={rootResponsiveStore}>
-            <div   id="wc-reset">
-              {WcShowcase.isStandalone && <StandAlone />}
-              <ShowcaseHeader />
-              <ModuleGenerateNavigationContent />
-              <GenerateRoutes />
-              <hr className="wcHrShowcaseApp"/>
-              <ShowcaseFooter />
+    <MixpanelProvider mixpanel={mixpanel}>
+        <HashRouter>
+          <div id="wc_showcase_root" className={`app-size-${rootResponsiveStore.wcContainerSize} wcShowcaseRoot`}>
+            <WcCssLink href="./static/css/public.css" rel="stylesheet" type="text/css" />
+            <div>wcRootWidth: {rootResponsiveStore.wcRootWidth}</div>
+            <div>wcContainerWidth: {rootResponsiveStore.wcContainerWidth}</div>
+            <div className={`size-${rootResponsiveStore.wcContainerSize}`}>
+              wcRootSize: {rootResponsiveStore.wcRootSize}
+              <br />
+              wcContainerSize: {rootResponsiveStore.wcContainerSize}
+              <br />
+              <hr />
             </div>
-          </MainContainer>
-        </div>
-      </HashRouter>
+            <MainContainer responsiveStore={rootResponsiveStore}>
+            <div id="wc-reset">
+                {WcShowcase.isStandalone && <StandAlone />}
+                <ShowcaseHeader />
+                <ModuleGenerateNavigationContent />
+                <GenerateRoutes />
+              <hr className="wcHrShowcaseApp" />
+              <ShowcaseFooter />
+              </div>
+            </MainContainer>
+          </div>        
+        </HashRouter>
+      </MixpanelProvider>
   );
 });
 

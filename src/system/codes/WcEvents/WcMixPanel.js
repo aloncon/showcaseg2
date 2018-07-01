@@ -1,5 +1,5 @@
 import WcShowcase from '../moduleInfo';
-
+import mixpanel from 'mixpanel-browser';
 
 
 
@@ -21,7 +21,7 @@ const WcMixPanel = (message,reportCode) => {
 
         switch (message) {    
             case "brand-level-pageview":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Page Load Event"       : 'brand-level-pageview',
                     "Page Name:"            : reportCode,
                     "Module Id"             : moduleId, 
@@ -29,7 +29,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });
             case "promotion-view":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Announcment Event"     : 'promotion-view',
                     "Announcment Title"     : reportCode,
                     "Module Id"             : moduleId, 
@@ -37,7 +37,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });
             case "promotion-click":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Announcment Event"     : 'promotion-click',
                     "Announcment Title"     : reportCode,
                     "Module Id"             : moduleId, 
@@ -45,7 +45,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });            
             case "custom-action":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Announcment Event"     : 'custom-action',
                     "customActionCode"      : reportCode,
                     "Module Id"             : moduleId, 
@@ -53,7 +53,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });             
             case "video-view":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Video Event"           : 'video-view',
                     "Video Title"           : reportCode,
                     "Module Id"             : moduleId, 
@@ -61,7 +61,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });              
             case "video-click":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Video Event"           : 'video-click',
                     "Video Title"           : reportCode,
                     "Module Id"             : moduleId, 
@@ -69,7 +69,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-carousel-view":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Carousel',
                     "Product Wcpc"          : reportCode,
@@ -78,7 +78,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });              
             case "product-listing-carousel-click":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Carousel',
                     "Product Wcpc"          : reportCode,
@@ -87,7 +87,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-wide-view-product":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Wide',
                     "Product Wcpc"          : reportCode,
@@ -96,7 +96,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });                  
             case "product-listing-wide-view-family-product-wcpc":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Wide',
                     "Product Wcpc"          : reportCode,
@@ -105,7 +105,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-wide-view-family-product-cpi":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Wide',
                     "Product CPI"          : reportCode,
@@ -114,7 +114,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 }); 
             case "product-listing-wide-click-product":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Wide',
                     "Product Wcpc"          : reportCode,
@@ -123,7 +123,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });                  
             case "product-listing-wide-click-family-product-wcpc":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Wide',
                     "Product Wcpc"          : reportCode,
@@ -132,7 +132,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-wide-click-family-product-cpi":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Wide',
                     "Product CPI"          : reportCode,
@@ -141,7 +141,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-grid-view-product":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Grid',
                     "Product Wcpc"          : reportCode,
@@ -150,7 +150,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });                  
             case "product-listing-grid-view-family-product-wcpc":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Grid',
                     "Product Wcpc"          : reportCode,
@@ -159,7 +159,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-grid-view-family-product-cpi":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-view',
                     "Product Listing Type"  : 'Grid',
                     "Product CPI"          : reportCode,
@@ -168,7 +168,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 }); 
             case "product-listing-grid-click-product":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Grid',
                     "Product Wcpc"          : reportCode,
@@ -177,7 +177,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });                  
             case "product-listing-grid-click-family-product-wcpc":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Grid',
                     "Product Wcpc"          : reportCode,
@@ -186,7 +186,7 @@ const WcMixPanel = (message,reportCode) => {
                     "Showcase Page Title"   : showcasePageTitle,
                 });  
             case "product-listing-grid-click-family-product-cpi":
-                return window.mixpanel.track(message,{
+                return mixpanel.track(message,{
                     "Product Listing Event" : 'product-listing-click',
                     "Product Listing Type"  : 'Grid',
                     "Product CPI"          : reportCode,

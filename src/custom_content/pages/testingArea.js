@@ -211,8 +211,6 @@ class ShowcaseBody extends React.Component {
           <hr/>
           <h2>Announcements:</h2>
             <AnnouncementsClass/>
-
-            <br/>
           </div>
           <hr/>
           <div>

@@ -10,7 +10,7 @@
         "include-bread-crumbs": true,
         "include-powered-by": true,
         "display-all-vendor-products": true,
-        "enable-reporting": true
+        "enable-reporting": false
     },
 
     "Announcement": {

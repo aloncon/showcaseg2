@@ -50,7 +50,7 @@ const Wcan = observer(class Wcan extends React.Component {
             responsiveSize      :   (this.s.responsiveSize!=null        ? this.s.responsiveSize : 'sm'),    
             reporting           :   (this.s.reporting!=null             ? this.s.reporting : true),          
             sliderWidth         :   (this.s.sliderWidth                 ? this.s.sliderWidth : '100%'),
-            sliderHeight        :   (this.s.sliderHeight                ? this.s.sliderHeight : '240px'),
+            sliderHeight        :   (this.s.sliderHeight                ? this.s.sliderHeight : 'auto'),
             isDots              :   (this.s.isDots!=null                ? this.s.isDots : true),
             isArrows            :   (this.s.isArrows!=null              ? this.s.isArrows : true),    
             isAutoplay          :   false,
@@ -466,20 +466,23 @@ const Wcan = observer(class Wcan extends React.Component {
                 { showSlider &&
 
                                 
-                <div className="wcAnnouncementSlick" style={divStyle}>
+                <div className="wcAnnouncementSlick" >
                     <Slider ref={ (c) => this.slider = c } beforeChange={this.changeClass.bind(this)} {...settings}>
                         {this.state.slidesNew.map((slide, index) => (
-                            <div key={index}>
+                            <div key={index} style={divStyle}>
                                 { (slide[2] === 'videoLink') ?
                                     <div className="wcVideoSlideContainer" style={{backgroundImage: `url(${absolutizeSrc(require('../../custom_content/assets/announcements/banners/' + slide[res_settings.changeImgSrc]))})` ,  width: '100%',height:this.init.sliderHeight}}>
                                         <div className="wcVideoSlideText">
                                             <div dangerouslySetInnerHTML={{ __html: slide[7]}}></div>
                                         </div>                                  
-                                        <div className="wcVideoSlidePlayer" style={{width:slide[10],height:slide[11]}} title={slide[3]} id={`videoId${slide[0]}`} ref={this.setVideoRef}>
+                                        <div className="wcVideoSlidePlayer"  title={slide[3]} id={`videoId${slide[0]}`} ref={this.setVideoRef}>
+                                        {/* <div className="wcVideoSlidePlayer" style={{width:slide[10],height:slide[11]}} title={slide[3]} id={`videoId${slide[0]}`} ref={this.setVideoRef}> */}
                                             {/* TODO: CHECK IF NNED CHANGE IMAGE IS TRUE */}
-                                            <WcPlayer  src={require(`../../custom_content/assets/announcements/video/${slide[8]}`)} poster={require(`../../custom_content/assets/announcements/video/${slide[9]}`)}> 
-                                                <BigPlayButton position="center" />
-                                            </WcPlayer> 
+                                            <div style={{width:slide[10],height:slide[11]}}>
+                                                <WcPlayer  src={require(`../../custom_content/assets/announcements/video/${slide[8]}`)} poster={require(`../../custom_content/assets/announcements/video/${slide[9]}`)}> 
+                                                    <BigPlayButton position="center" />
+                                                </WcPlayer> 
+                                            </div>
                                         </div> 
                                     </div>                      
                                     : (slide[2] === 'localLink') ?
