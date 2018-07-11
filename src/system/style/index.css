@@ -77,4 +77,10 @@
 #wc-showcase-root .wcClear {
   clear: both;
 }
+#wc-showcase-root .video-react-current-time,
+#wc-showcase-root .video-react-time-control,
+#wc-showcase-root .video-react-control {
+  line-height: normal!important;
+  line-height: 3em!important;
+}
 /* ***dev end: please add your styles above only!!!*** */

@@ -18,7 +18,6 @@
   #wc-reset dt,
   #wc-reset dd,
   #wc-reset form,
-  #wc-reset div,
   #wc-reset blockquote,
   #wc-reset pre,
   #wc-reset address,
@@ -36,9 +35,12 @@
       /* background-color: transparent; */
       border: 0px none black;
       width: auto;
-      /* height: auto; */
+      height: auto;
       line-height: normal;
     }
+  #wc-reset div{
+    border: 0px none transparent;
+  }
   #wc-reset img {
       background-color: transparent;
       border: 0px none black;
