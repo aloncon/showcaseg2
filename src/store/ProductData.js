@@ -82,9 +82,10 @@ const ProductStore = id => {
       api
          .getListOfVerifyWcpcs(subWcpcs)
          .then(result => {
+             console.log("RESULT API 0",result)
              result.map(item => {
                  allWcpc.setId(item.wcpc, item.cpi);
-                 return null;
+                // return null;
                 });
                 return result;
             })
@@ -125,20 +126,31 @@ const ListingStore = (id, type) => {
       type: type,
       productsLength: 0,
       idListing: productStore,
-      productStore,
+      pagenationIndex : 0 ,
+      nextData(){
+        let items = store.idListing.products; //.map(item => { return item  });
+        let wcpcs = items.map(item => item.wcpc);
+        let obj = {
+            products: VendorData.products.filter(item => wcpcs.includes(item.wcpc)).map(item => {
+                let tempItem = items.find(itemTemp => itemTemp.wcpc === item.wcpc)
+                if(tempItem.cpi[0].cpi === "0") {
+                    tempItem.cpi[0].channelProductName = item.vendorProductName;
+                    tempItem.cpi[0].cpi = `0-${item.wcpc}`;
+                   }
+                
+               return Object.assign({ cpi: tempItem.cpi,cpi :  tempItem.cpi}, item);
+            }),
+            caption: store.idListing.caption,
+            isDisplay: store.isDisplay,
+            type: store.type,
+            productsLength: store.idListing.products.length,
+         }
+       return obj;  
+      },
       get data() {
-         let items = store.idListing.products; //.map(item => { return item  });
-         let wcpcs = items.map(item => item.wcpc);
+         
          return store.idListing.products
-            ? {
-                 products: VendorData.products.filter(item => wcpcs.includes(item.wcpc)).map(item => {
-                    return Object.assign({ cpi: items.find(itemTemp => itemTemp.wcpc === item.wcpc).cpi }, item);
-                 }),
-                 caption: store.idListing.caption,
-                 isDisplay: store.isDisplay,
-                 type: store.type,
-                 productsLength: store.idListing.products.length,
-              }
+            ? store.nextData()
             : null;
       },
       changeDisplay() {

@@ -56,33 +56,34 @@ class AllPopover {
     }
     this.prev = popIndex;
   }
+  closeAllPop(){
+    for(let item of this.map){
+      item[1].pop.setOpen(false);
+      item[1].isOpen = false;
+      console.log(item[1])
+    }
+  }
 }
 
 const allPopovers = new AllPopover();
 
-const ObservPopover = observer(({ store, index, popIndex, title, text, wcpc }) => {
+const ObservPopover = observer(({ store, index, popIndex, title, text, price, wcpc }) => {
+  
   let isOpen = store && store.isOpen;
   let classIsOpen = isOpen ? openPopOverClassName : 'wcClosePopover';
   return store ? (
     <div>
       <button
         type="button"
-        className="bt-btn bt-btn-primary bt-btn-sm"
+        className="bt-btn bt-btn-primary bt-btn-sm wcSeeMoreButton"
         onClick={() => {
           allPopovers.openPop(popIndex, index);
         }}
       >
         See more
       </button>
-      <div className={classIsOpen}>
-        <WcImg
-          src={require('../../resources/icons/svg/icon-close_.svg')}
-          onClick={() => {
-            allPopovers.openPop(popIndex, index);
-          }}
-          className="wcCloseButtonPopover"
-          alt="Grid Button"
-        />
+      <div className={classIsOpen + " WcPopOpenAttr"}>
+       
         <div>
           <h3>{title}</h3>
         </div>
@@ -90,66 +91,21 @@ const ObservPopover = observer(({ store, index, popIndex, title, text, wcpc }) =
         <p>
           <NormalizeListDescription>{text}</NormalizeListDescription>
         </p>
+        {price && <p className="wcProductPrice">Price:<br/>{price}</p>}
       </div>
     </div>
   ) : null;
 });
 
 const GridListProduct = ({ product, caption, index }) => {
-  return (
-    <div className="wcCard">
-      <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-grid-click-product', product.wcpc)}>
-        <Mosaic wcpc={product.wcpc} />
-        <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
-          {product.listImage === undefined ? (
-            <WcPlaceHolderImage className="wcPlaceHolderImageProductListing" alt={product.vendorProductName} />
-          ) : (
-            <WcImgValid
-              mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
-              desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
-              src={'/static' + product.listImage}
-            />
-          )}
-        </ActionLink>
-      </div>
-
-      <div className="wcCardBlock">
-        <h4 className="wcCardTitle" onClick={() => WcReports('product-listing-grid-click-product', product.wcpc)}>
-          <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
-            {product.vendorProductName}
-          </ActionLink>
-        </h4>
-        {/* <div className="wcClear" /> */}
-      </div>
-      <div className="wcGridCardFooter">
-        {product.listDescription && (
-          <ObservPopover
-            store={allPopovers.getPop(product.wcpc + caption)}
-            index={index}
-            popIndex={product.wcpc + caption}
-            wcpc={product.wcpc}
-            title={product.vendorProductName}
-            text={product.listDescription}
-          />
-        )}
-        <div onClick={() => WcReports('product-listing-grid-click-product', product.wcpc)}>
-          <ActionLink wcpc={product.wcpc} type="p2b">
-            Proceed to buy
-          </ActionLink>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const GridListFamilyProduct = ({ product, caption, index }) => {
   const { vendorProductName, listImage, listDescription, wcpc: productWcpc } = product;
-
+  console.log("product",product)
   return product.cpi.map((childProduct, childProductIndex) => {
-    const familyName = childProductIndex === 0 ? vendorProductName : childProduct.channelProductName;
+   
+    const familyName = childProductIndex === 0 && product.cpi.length > 1 ? vendorProductName : childProduct.channelProductName;
+    console.log("childProduct",childProduct)
     const { cpi: childProductCpi } = childProduct;
-
-    const FamilyActionLink = ({ text, unlink }) => (
+    const FamilyActionLink = ({ text, unlink = true }) => (
       <ActionLink cpi={childProductCpi} type="p2b" unlink={unlink}>
         {text}
       </ActionLink>
@@ -186,6 +142,7 @@ const GridListFamilyProduct = ({ product, caption, index }) => {
               wcpc={childProductCpi}
               title={familyName}
               text={listDescription}
+              price={childProduct.priceAsString}
             />
           )}
           <div onClick={() => WcReports('product-listing-grid-family-click-product', childProductCpi)}>
@@ -196,21 +153,27 @@ const GridListFamilyProduct = ({ product, caption, index }) => {
     );
   });
 };
+let fun1 = (e) =>{
+  
+  let checker = e.path.find( i => i.className && (i.className.indexOf("WcPopOpenAttr") > -1 || i.className.indexOf("wcSeeMoreButton") > -1))
+  console.log(checker,e)
+  if(checker === undefined) allPopovers.closeAllPop();
+}
 class GridList extends React.Component {
+  componentWillUnmount(){
+    window.removeEventListener("click",fun1);
+  }
+  componentDidMount(){
+    window.addEventListener("click",fun1)
+  }
   render() {
     const { caption, data, reporting } = this.props;
 
     return (
       <div className="wcGridList">
         {data.map((item, i) => {
-          // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
-          if (typeof item.cpi === 'string' || item.cpi === 0) {
-            reporting && WcReports('product-listing-grid-view-product', item.wcpc);
-            return <GridListProduct key={i} index={i} product={item} caption={caption} />;
-          } else {
             reporting && WcReports('product-listing-grid-view-family-product-wcpc', item.wcpc);
-            return <GridListFamilyProduct key={i} index={i} product={item} caption={caption} />;
-          }
+            return <GridListProduct key={i} index={i} product={item} caption={caption} />;
         })}
       </div>
     );

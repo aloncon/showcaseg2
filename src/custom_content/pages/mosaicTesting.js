@@ -5,7 +5,7 @@ import CategoryList from '../../system/codes/list/CategoryList';
 
 class MosaicTesting extends React.Component {
     render() {
-        const CATEGORY_IDS = ["Resize-Images-Test"];
+        const CATEGORY_IDS = ["test-product-data"];
 
         return(
             <div>
@@ -14,16 +14,16 @@ class MosaicTesting extends React.Component {
                     {/* <Mosaic wcpc={1377023287175}/> */}
                     <div>
 
-                        {/* <h3>Mosaic Tiles</h3>
+                        <h3>Mosaic Tiles</h3>
                         <p>wcpc = 1422975800759</p>
-                        <MosaicTiles wcpc={1422975800759}>
+                        <MosaicTiles wcpc={1422975800759} ifMosaicContentMissingDisplay>
                         <button> MosaicTesting button </button>
-                        </MosaicTiles> */}
+                        </MosaicTiles>
 
-                        {/* <p>wcpc = 1377023287175</p>
-                        <MosaicTiles wcpc={1377023287175}>
+                        <p>wcpc = 1422975800759</p>
+                        <MosaicTiles wcpc={1422975800759} ifMosaicContentMissingDisplay>
                         <button> MosaicTesting button </button>
-                        </MosaicTiles> */}
+                        </MosaicTiles>
                         
                         
                     </div>

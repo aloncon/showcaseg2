@@ -105,8 +105,7 @@ const Mosaic = ({wcpc, cpi, id}) => {
 const  overlayStyle = { position: "fixed",width:  "100%",height: "100%",top: 0,left: 0,zIndex: 966}
 const styleMosaicTilesOn = { width:500 , height:500 , position:"sticky" , left:"15%",top:"15%"}
 
-const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
-
+const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosaicContentMissingDisplay}) => {
     class MosaicTilesListener extends React.Component{
         constructor(props){
             super(props)
@@ -168,8 +167,8 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc}) => {
 
             const validMosiac = mosiacJson !== null ? true : false
             const tileClass = `WcMosaicTile-${wcpc}`
-            const childrenWithMosaicClick =  React.cloneElement(this.props.children, { onClick: this.openMosaicHandler.bind(this) })  
-            const children =  validMosiac && childrenWithMosaicClick     
+            const childrenWithMosaicClick =  React.cloneElement(this.props.children, validMosiac ? {onClick: this.openMosaicHandler.bind(this) } : null)  
+            const children =  (validMosiac || ifMosaicContentMissingDisplay === true) && childrenWithMosaicClick     
             return (
                 <Fragment>
                 {children}

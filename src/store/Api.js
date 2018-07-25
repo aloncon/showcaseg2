@@ -17,14 +17,16 @@ class Api {
    getListOfVerifyWcpcs = wcpcs => {
       const createCpisObject = partnerProductObject => {
          const array = [];
+         console.log("RESULT API",partnerProductObject)
          const keys = Object.keys(partnerProductObject.cpis);
          for (let i = 0; i < keys.length; i++) {
             array.push({
                cpi: keys[i],
                channelProductName: partnerProductObject.cpis[keys[i]].channelProductName,
+               priceAsString: partnerProductObject.cpis[keys[i]].priceAsString
             });
          }
-
+         console.log(array)
          return array;
       };
 
@@ -35,13 +37,13 @@ class Api {
          let apiKey = `moduleId=${this.module}&product-details=true`;
          let url = `https://sjson.webcollage.net/apps/json/${this.partner}/method/partner-products-data-by-wcpc?`;
 
-         const displayAllAssortment = this.partner === 'allassortment' ? true : false;
+         //const displayAllAssortment = this.partner === 'allassortment' ? true : false;
 
-         if (!(displayAllAssortment || this.shouldDisplay)) {
+         if (!(/*displayAllAssortment ||*/ this.shouldDisplay)) {
             let config = {
                param: 'callback',
                timeout: 15000,
-               prefix: '__jp',
+               prefix: 'jp',
             };
             let fixWcpcs = '';
             wcpcs.map(wcpc => (fixWcpcs += 'wcpc=' + wcpc + '&'));
@@ -56,10 +58,10 @@ class Api {
                      const products = keys.map(key => {
                         return {
                            wcpc: key,
-                           cpi: Object.keys(resultPartner[key].cpis).length > 1 ? createCpisObject(resultPartner[key]) : Object.keys(resultPartner[key].cpis)[0],
+                           cpi: createCpisObject(resultPartner[key])
                         };
                      });
-
+                     
                      resolve(products);
                   } else reject({ err: `message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}` });
                })
@@ -67,8 +69,14 @@ class Api {
                   reject(`ErrorMsg ${err}`);
                });
          } else {
+            let arr = [];
+            arr.push({
+                  cpi: "0",
+                  channelProductName: "",
+                  priceAsString: ""
+            })   
             let allWcpcs = wcpcs.map(item => {
-               return { wcpc: item, cpi: 0 };
+               return { wcpc: item, cpi: arr}
             });
             resolve(allWcpcs);
          }

@@ -39,9 +39,9 @@ function getSiteIdFromScriptSrc(script){
         console.log("dev-site: " + site);
     }
     else{
-        //  site = 'cdw';
+         site = 'cdw';
         //  site = 'staples';
-         site = 'quill';
+        //  site = 'quill';
         // site = 'allassortment';
     }
 

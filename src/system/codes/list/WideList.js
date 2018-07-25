@@ -34,51 +34,6 @@ const classNameGenerateWideNarrow = wcContainerSizeForWideClassName => {
 const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideClassName }, product, hideProductImages }) => {
   const { classProductName, rowName, descriptionClassName } = classNameGenerateWideNarrow(wcContainerSizeForWideClassName);
 
-  return (
-    <div className={classProductName}>
-      <Mosaic wcpc={product.wcpc} />
-      <div className={rowName}>
-        {!hideProductImages && (
-          <div className="wcWideListImg">
-            {product.listImage === undefined ? (
-              <WcPlaceHolderImage className="wcPlaceHolderImageProductListing" alt={product.vendorProductName} />
-            ) : (
-              <WcImgValid
-                mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
-                desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
-                src={'/static' + product.listImage}
-                alt={product.vendorProductName}
-              />
-            )}
-          </div>
-        )}
-        <div className="wcWideListDesc" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
-          <h4>
-            <ActionLink wcpc={product.wcpc} type="p2b" unlink={true}>
-              {product.vendorProductName}
-            </ActionLink>
-          </h4>
-          <div className={descriptionClassName}>
-            <p>
-              <NormalizeListDescription>{product.listDescription}</NormalizeListDescription>
-            </p>
-          </div>
-        </div>
-        <div className="wcWideListButton" onClick={() => WcReports('product-listing-wide-click-product', product.wcpc)}>
-          <span>
-            <ActionLink wcpc={product.wcpc} type="p2b">
-              Proceed To Buy
-            </ActionLink>
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-});
-
-const WideListFamilyProduct = observer(({ responsiveStore: { wcContainerSizeForWideClassName }, product, hideProductImages }) => {
-  const { classProductName, rowName, descriptionClassName } = classNameGenerateWideNarrow(wcContainerSizeForWideClassName);
-
   // family product configuration
   const { vendorProductName, listImage, listDescription } = product;
 
@@ -147,14 +102,9 @@ class WideList extends React.Component {
     let content = data ? (
       <div>
         {data.map((product, productIndex) => {
-          // if there a cpi, or the cpi is '0' which means that we are in allassortment mode
-          if (typeof product.cpi === 'string' || product.cpi === 0) {
-            reporting && WcReports('product-listing-wide-view-product', product.wcpc);
-            return <WideListProduct key={productIndex} responsiveStore={ResponsiveStore} product={product} hideProductImages={hideProductImages} />;
-          } else {
             reporting && WcReports('product-listing-wide-view-family-product-wcpc', product.wcpc);
-            return <WideListFamilyProduct key={productIndex} responsiveStore={ResponsiveStore} product={product} hideProductImages={hideProductImages} />;
-          }
+               return <WideListProduct key={productIndex} responsiveStore={ResponsiveStore} product={product} hideProductImages={hideProductImages} />;
+          
         })}
       </div>
     ) : null;

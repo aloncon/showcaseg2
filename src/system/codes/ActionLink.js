@@ -29,6 +29,7 @@ const Allassortment = ({ children, unlink , ...props}) => {
       ;
 
 const P2b = ({ children, siteName, cpi , ...props}) => {
+      console.log("children",children)
       delete props.history;
       delete props.match;
       delete props.staticContext;
@@ -56,8 +57,10 @@ const ActionLinkStatic = ({ cpi, type, unlink, children , ...props}) => {
       case 'p2b':
          return <P2b children={children} cpi={cpi} siteName={siteName} {...props }/>;
       default:
+            
          return <Allassortment children={children} unlink={unlink} {...props }/>;
    }
+   console.log("EEE")
 };
 
 /*
@@ -80,6 +83,7 @@ const ActionLink = ({ wcpc, type, children, unlink, location, cpi, ...props }) =
             return <ActionLinkObserver store={cpStore(wcpc)} type={type} children={children} unlink={unlink} {...props }/>;
          } else return null;
    }
+   
 };
 
 export default withRouter(ActionLink);
