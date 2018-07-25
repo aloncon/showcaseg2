@@ -48,10 +48,9 @@ function getSiteIdFromScriptSrc(script){
     return site;
 }
 
-function getModuleIdFromScriptSrc(script){
+function getModuleIdFromConfiguration(){
     let module;
-     module= configuration.moduleId;
-
+    module= configuration.moduleId;
 
     return module;
 }
@@ -94,10 +93,11 @@ export default function getModuleInfo () {
 
     let webcollageObj = window.WebcollageShowcase;
 
+    module = getModuleIdFromConfiguration();
+
     if(typeof webcollageObj !== 'undefined'){
         console.log("object from site page : " + webcollageObj);
         site = webcollageObj.partnerId;
-        module = webcollageObj.moduleId;
         script = webcollageObj.scriptSrc;
         srcBase = webcollageObj.srcBase;
         context = webcollageObj.context;
@@ -105,7 +105,6 @@ export default function getModuleInfo () {
     }else{
         console.log("script src from site page : " + script);
         site   = getSiteIdFromScriptSrc(script);
-        module = getModuleIdFromScriptSrc(script);
         context = getContextNameFromScriptSrc(script);
         entry = getEntryIdFromScriptSrc(script);
     }
