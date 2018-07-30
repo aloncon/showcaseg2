@@ -133,7 +133,7 @@ const ListingStore = (id, type) => {
       productsLength: 0,
       idListing: productStore,
       pagenationIndex : 0 ,
-      numberOfProducts : 3,
+      numberOfProducts : 9,
       perviousLengthListOfProducts : 0,
       dropMenuStatus : false,
       changeDropMenuStatus(){
