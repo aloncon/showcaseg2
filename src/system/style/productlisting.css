@@ -15,4 +15,39 @@
   font-size: 170%;
   margin-bottom: 2%;
 }
+#wc-showcase-root #wc_showcase_root .wcListBackground .wcPagination {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+#wc-showcase-root #wc_showcase_root .wcListBackground .wcPagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+#wc-showcase-root #wc_showcase_root .wcListBackground .wcPagination a:active {
+  background-color: #5175d8;
+  color: white;
+  border: 1px solid #5175d8;
+}
+#wc-showcase-root #wc_showcase_root .wcListBackground .wcPagination .bt-dropdown-toggle {
+  cursor: pointer;
+  display: block;
+  float: right;
+  margin-right: 7px;
+}
+#wc-showcase-root #wc_showcase_root .wcListBackground .wcPagination #paginationDropMenu {
+  position: absolute;
+  right: 0px;
+  top: 40px;
+}
+#wc-showcase-root #wc_showcase_root .wcListBackground .wcPagination #paginationDropMenu a {
+  background: white;
+  float: none;
+  display: block;
+}
 /* ***dev end: please add your styles above only!!!*** */

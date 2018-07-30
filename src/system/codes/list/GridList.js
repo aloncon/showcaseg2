@@ -146,7 +146,7 @@ const GridListProduct = ({ product, caption, index }) => {
             />
           )}
           <div onClick={() => WcReports('product-listing-grid-family-click-product', childProductCpi)}>
-            <FamilyActionLink text='Proceed to buy' />
+            <FamilyActionLink text='Proceed to buy' unlink={false}/>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+@var  : hidden;
 #wc-showcase-root {
     #wc_showcase_root .wcListBackground{
         color: black;
@@ -14,6 +15,42 @@
         h2{
             font-size: 170%;
             margin-bottom: 2%;
+        }
+
+        .wcPagination{
+            display: inline-block;
+            position: relative;
+            width:100%;
+            a{
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                transition: background-color .3s;
+                border: 1px solid #ddd;
+                cursor: pointer;
+                &:active{
+                    background-color: rgb(81, 117, 216);
+                    color: white;
+                    border: 1px solid rgb(81, 117, 216);
+                }
+            }
+            .bt-dropdown-toggle{
+                cursor: pointer;
+                display: block;
+                float: right;
+                margin-right: 7px;
+            }
+            #paginationDropMenu{
+                position: absolute;
+                right:0px;
+                top:40px;
+                a{
+                    background: white;
+                    float: none;
+                    display: block;
+                }
+            }
         }
     }
 

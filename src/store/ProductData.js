@@ -82,10 +82,8 @@ const ProductStore = id => {
       api
          .getListOfVerifyWcpcs(subWcpcs)
          .then(result => {
-             console.log("RESULT API 0",result)
              result.map(item => {
                  allWcpc.setId(item.wcpc, item.cpi);
-                // return null;
                 });
                 return result;
             })
@@ -118,6 +116,14 @@ class AllIdsStore {
 
 let allIdsStore = new AllIdsStore();
 
+let sum = (arr) => {
+    let sum = 0;
+    for(let index = 0 ; index < arr.length ; index++) {
+        sum+=arr[index];
+    }
+    return sum;
+}
+
 const ListingStore = (id, type) => {
    const productStore = allIdsStore.getId(id.toString());
 
@@ -127,30 +133,68 @@ const ListingStore = (id, type) => {
       productsLength: 0,
       idListing: productStore,
       pagenationIndex : 0 ,
-      nextData(){
-        let items = store.idListing.products; //.map(item => { return item  });
+      numberOfProducts : 3,
+      perviousLengthListOfProducts : 0,
+      dropMenuStatus : false,
+      changeDropMenuStatus(){
+        store.dropMenuStatus = !store.dropMenuStatus;
+      },
+      //computed method for display / hidde the drop menu options (currntly 9/12/24)
+      get dropMenu(){
+        return store.dropMenuStatus
+      },
+      get NumberOfPages(){
+        return store.idListing.products
+            ? sum(store.idListing.products.map( i => i.cpi.map( x => x).length)) / store.numberOfProducts
+            : null;
+      },
+      setNumberProductInPage(number){
+        store.numberOfProducts = number;
+        store.dropMenuStatus = false;
+        store.pagenationIndex = 0;
+      },
+      setPaginationIndex(index){
+        store.pagenationIndex = index;
+      },
+      // set the next index of the list
+      nextPagenationIndex(){ 
+            let numberOfProducts = sum(store.idListing.products.map( i => i.cpi.map( x => x).length));
+            parseInt(numberOfProducts / (store.numberOfProducts*(store.pagenationIndex+1))) > 0  && numberOfProducts != (store.numberOfProducts*(store.pagenationIndex+1))? store.pagenationIndex++ : store.pagenationIndex;
+      },
+      // set the previous index of the list
+      previousPagenationIndex(){
+        let numberOfProducts = sum(store.idListing.products.map( i => i.cpi.map( x => x).length));
+        parseInt(numberOfProducts/ (store.numberOfProducts*(store.pagenationIndex))) > 0 ? store.pagenationIndex-- : store.pagenationIndex;
+      },
+      nextData(pagenationIndex){
+        let items = store.idListing.products; 
         let wcpcs = items.map(item => item.wcpc);
+        let perviousLengthListOfProducts = 0;
         let obj = {
-            products: VendorData.products.filter(item => wcpcs.includes(item.wcpc)).map(item => {
+            products: VendorData.products.filter(item => wcpcs.includes(item.wcpc)).map((item , indexWcpc) => {
                 let tempItem = items.find(itemTemp => itemTemp.wcpc === item.wcpc)
                 if(tempItem.cpi[0].cpi === "0") {
                     tempItem.cpi[0].channelProductName = item.vendorProductName;
                     tempItem.cpi[0].cpi = `0-${item.wcpc}`;
                    }
-                
-               return Object.assign({ cpi: tempItem.cpi,cpi :  tempItem.cpi}, item);
+               // filterItems recives only the products are in the range of the current index of the pagiantion
+               // for example in case the display set on 9 products and the pagination index set to 1 -> products will be show are between 9 to 17 (index)    
+               // [0:{},1:{},2:{},3:{},4:{},5:{},6:{},7:{},8:{},9:{},10:{},11:{},12:{},13:{},14:{},15:{},16:{},17:{},18:{},19:{}] ({} = product)
+               //                                               |<------------------will be display--------------->|
+               let filterItems = tempItem.cpi.filter( (item,index) =>  index+(indexWcpc + perviousLengthListOfProducts) >= (store.pagenationIndex)*store.numberOfProducts &&  (index+indexWcpc + perviousLengthListOfProducts) < (store.pagenationIndex+1)*store.numberOfProducts);
+               perviousLengthListOfProducts +=  tempItem.cpi.length-1;
+               return Object.assign({cpi :  filterItems}, item);
             }),
             caption: store.idListing.caption,
             isDisplay: store.isDisplay,
             type: store.type,
             productsLength: store.idListing.products.length,
-         }
+         }  
        return obj;  
       },
       get data() {
-         
          return store.idListing.products
-            ? store.nextData()
+            ? store.nextData(store.pagenationIndex)
             : null;
       },
       changeDisplay() {
