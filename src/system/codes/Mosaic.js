@@ -107,6 +107,7 @@ const styleMosaicTilesOn = { width:500 , height:500 , position:"sticky" , left:"
 
 const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosaicContentMissingDisplay}) => {
     class MosaicTilesListener extends React.Component{
+        
         constructor(props){
             super(props)
             if(ShouldDisplay({ "wc_section": "display-all-vendor-products" }))
@@ -117,6 +118,7 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
                 mosiacJson : null,
                 openMosaic : false
             }
+            console.log("datadata",data);
         }
 
         componentDidMount(){
@@ -155,7 +157,7 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
 
         mosiacContent(){
             this.callMosiacContent = false
-            window.Webcollage.loadProductContent(moduleInfo.default.siteName, data.cpi, {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles", "tilesCallback": this.tilesCallback.bind(this)}});
+            window.Webcollage.loadProductContent(moduleInfo.default.siteName, data.cpi[0].cpi, {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles", "tilesCallback": this.tilesCallback.bind(this)}});
         }
         render(){
             const {data} = this.props

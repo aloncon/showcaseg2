@@ -20,8 +20,8 @@ class MosaicTesting extends React.Component {
                         <button> MosaicTesting button </button>
                         </MosaicTiles>
 
-                        <p>wcpc = 1422975800759</p>
-                        <MosaicTiles wcpc={1422975800759} ifMosaicContentMissingDisplay>
+                        <p>wcpc = 1491851608414</p>
+                        <MosaicTiles wcpc={1491851608414} >
                         <button> MosaicTesting button </button>
                         </MosaicTiles>
                         
