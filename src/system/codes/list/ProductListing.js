@@ -74,7 +74,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
-                            {pagination}
+                            {/* {pagination} */}
                         </div>
                         {isDisplay && <GridList data={content.products} caption={content.caption}  reporting={settings.reporting}/>}
                         {showMoreProducts}
