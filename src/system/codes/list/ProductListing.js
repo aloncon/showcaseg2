@@ -10,15 +10,15 @@ import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
 import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
 import '../../style/productlisting.css';
 
-const ProductListingObserver = observer(({ store: { data, changeDisplay, setType , nextPagenationIndex , previousPagenationIndex, setNumberProductInPage , NumberOfPages , setPaginationIndex , dropMenu , changeDropMenuStatus}, orderNumber, settings, id , hideProductImages ,responsiveStore : { wcContainerSizeForFlexListing } }) => {
+const ProductListingObserver = observer(({ store: { data, changeDisplay, setType , nextPagenationIndex , previousPagenationIndex, setNumberProductInPage , NumberOfPages , setPaginationIndex , dropMenu , changeDropMenuStatus, amountOfProductsForShowMore}, orderNumber, settings, id , hideProductImages ,responsiveStore : { wcContainerSizeForFlexListing } }) => {
     const content = data;
     const numberOfPages = NumberOfPages;
-    console.log("numberOfPages",numberOfPages)
-
+    const showMore = amountOfProductsForShowMore
     let numberOfPagesElement = [];
     for(let i = 0 ; i < numberOfPages ; i ++){
         numberOfPagesElement.push(<a onClick={()=>setPaginationIndex(i)}>{i+1}</a>)
     }
+
     let type = content.type;
     const isDisplay = content.isDisplay;
     const typeBySizeResponsive = wcContainerSizeForFlexListing;
@@ -47,6 +47,13 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                                     <a  onClick={()=>setNumberProductInPage(24)}>24</a>
                                 </div>}
                         </div>
+    let showMoreProducts=   showMore > 0 && <div style={{width:"100%"}}> 
+                                                <button style={{display:"block",margin:"10px auto",cursor:"pointer"}} 
+                                                        onClick={nextPagenationIndex}
+                                                        className="bt-btn bt-btn-secondary bt-btn-sm">
+                                                    Show {showMore} More
+                                                </button>  
+                                            </div>               
     if(settings.reporting===undefined){
         settings.reporting=true;
     }
@@ -59,9 +66,9 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
-                            {}
                         </div>
                         {isDisplay && <WideList data={content.products} hideProductImages={hideProductImages} reporting={settings.reporting} />}
+                        {showMoreProducts}
                     </div>
         case "grid":
             return <div>
@@ -70,6 +77,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
                             {pagination}
                         </div>
                         {isDisplay && <GridList data={content.products} caption={content.caption}  reporting={settings.reporting}/>}
+                        {showMoreProducts}
                     </div>
         case "carousel":
             return  <div>
