@@ -99,11 +99,9 @@ const ObservPopover = observer(({ store, index, popIndex, title, text, price, wc
 
 const GridListProduct = ({ product, caption, index }) => {
   const { vendorProductName, listImage, listDescription, wcpc: productWcpc } = product;
-  console.log("product",product)
   return product.cpi.map((childProduct, childProductIndex) => {
    
     const familyName = childProductIndex === 0 && product.cpi.length > 1 ? vendorProductName : childProduct.channelProductName;
-    console.log("childProduct",childProduct)
     const { cpi: childProductCpi } = childProduct;
     const FamilyActionLink = ({ text, unlink = true }) => (
       <ActionLink cpi={childProductCpi} type="p2b" unlink={unlink}>
@@ -114,7 +112,7 @@ const GridListProduct = ({ product, caption, index }) => {
     return (
       <div key={childProductIndex} className="wcCard">
         <div className="wcCardImgTop wc-img-fluid" onClick={() => WcReports('product-listing-grid-family-product-cpi', childProductCpi)}>
-          <Mosaic cpi={childProductCpi} />
+          <Mosaic cpi={childProductCpi} wcpc={productWcpc}/>
           <ActionLink cpi={childProductCpi} type="p2b" unlink={true}>
             {listImage === undefined ? (
               <WcPlaceHolderImage className="wcPlaceHolderImageProductListing" alt={familyName} />

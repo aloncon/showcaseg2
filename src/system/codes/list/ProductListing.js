@@ -10,7 +10,7 @@ import openIcon from '../../resources/icons/svg/icon-icon-plus-regular.svg';
 import closeIcon from '../../resources/icons/svg/icon-icon-minus-regular.svg';
 import '../../style/productlisting.css';
 
-const ProductListingObserver = observer(({ store: { data, changeDisplay, setType , nextPagenationIndex , previousPagenationIndex, setNumberProductInPage , NumberOfPages , setPaginationIndex , dropMenu , changeDropMenuStatus, amountOfProductsForShowMore}, orderNumber, settings, id , hideProductImages ,responsiveStore : { wcContainerSizeForFlexListing } }) => {
+const ProductListingObserver = observer(({ store: { data, changeDisplay, setType , nextPagenationIndex , previousPagenationIndex, setNumberProductInPage , NumberOfPages , setPaginationIndex , dropMenu , changeDropMenuStatus, amountOfProductsForShowMore, dispalyAmountOfProductsFromTotal,setMaxPagination}, orderNumber, settings, id , hideProductImages ,responsiveStore : { wcContainerSizeForFlexListing } }) => {
     const content = data;
     const numberOfPages = NumberOfPages;
     const showMore = amountOfProductsForShowMore
@@ -30,29 +30,37 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
 
     let imgButtonOpenClose = isDisplay ? closeIcon : openIcon;
     let _isSubCategory = isSubCategory ? <h2 id={id}>{content.caption}</h2> : null
-    let pagination = <div className="wcPagination">
-                            {numberOfPagesElement.length > 1 && 
-                            <div>
-                            <a onClick={previousPagenationIndex}>&laquo;</a>
-                            { numberOfPagesElement } 
-                            <a onClick={nextPagenationIndex}>&raquo;</a>
-                            </div>}
-                                <button type="button"  onClick={changeDropMenuStatus} className="bt-btn bt-btn-outline-secondary bt-dropdown-toggle bt-dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span className="bt-sr-only">Toggle Dropdown</span>
-                                </button>
-                                {dropMenu && 
-                                <div id="paginationDropMenu">
-                                    <a  onClick={()=>setNumberProductInPage(9)}>9</a>
-                                    <a  onClick={()=>setNumberProductInPage(12)}>12</a>
-                                    <a  onClick={()=>setNumberProductInPage(24)}>24</a>
-                                </div>}
-                        </div>
-    let showMoreProducts=   showMore > 0 && <div style={{width:"100%"}}> 
-                                                <button style={{display:"block",margin:"10px auto",cursor:"pointer"}} 
+    // let pagination = <div className="wcPagination">
+    //                         {numberOfPagesElement.length > 1 && 
+    //                         <div>
+    //                         <a onClick={previousPagenationIndex}>&laquo;</a>
+    //                         { numberOfPagesElement } 
+    //                         <a onClick={nextPagenationIndex}>&raquo;</a>
+    //                         </div>}
+    //                             <button type="button"  onClick={changeDropMenuStatus} className="bt-btn bt-btn-outline-secondary bt-dropdown-toggle bt-dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    //                             <span className="bt-sr-only">Toggle Dropdown</span>
+    //                             </button>
+    //                             {dropMenu && 
+    //                             <div id="paginationDropMenu">
+    //                                 <a  onClick={()=>setNumberProductInPage(9)}>9</a>
+    //                                 <a  onClick={()=>setNumberProductInPage(12)}>12</a>
+    //                                 <a  onClick={()=>setNumberProductInPage(24)}>24</a>
+    //                             </div>}
+    //                     </div>
+    let amountOfProducts = <p style={{fontSize:"12px",marginTop:12.5,color:"#999999"}}>{dispalyAmountOfProductsFromTotal}</p> 
+    let showAllButton =    <button style={{color:"#0066CC",cursor:"pointer",boxShadow:"none",border:"none",backgroundColor:"transparent"}}
+                                   onClick={setMaxPagination}>
+                                Show All {content.totalNumberOfProducts}
+                            </button>               
+    let showMoreProducts=   <div style={{display: "flex",flexFlow: "row wrap",marginTop:15,width:"55%"}}> 
+                                                {amountOfProducts}
+                                                {showMore > 0 && 
+                                                <button style={{margin:"auto",cursor:"pointer",width:"30%",borderRadius:"15px"}} 
                                                         onClick={nextPagenationIndex}
-                                                        className="bt-btn bt-btn-secondary bt-btn-sm">
+                                                        className="bt-btn bt-btn-outline-secondary bt-btn-sm">
                                                     Show {showMore} More
-                                                </button>  
+                                                </button>}  
+                                                {showMore > 0 && showAllButton}
                                             </div>               
     if(settings.reporting===undefined){
         settings.reporting=true;
@@ -74,7 +82,7 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
             return <div>
                         <div className="wcListBackground">
                             {_isSubCategory}
-                            {/* {pagination} */}
+                            {amountOfProducts}
                         </div>
                         {isDisplay && <GridList data={content.products} caption={content.caption}  reporting={settings.reporting}/>}
                         {showMoreProducts}

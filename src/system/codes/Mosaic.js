@@ -118,7 +118,6 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
                 mosiacJson : null,
                 openMosaic : false
             }
-            console.log("datadata",data);
         }
 
         componentDidMount(){
@@ -173,10 +172,10 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
             const children =  (validMosiac || ifMosaicContentMissingDisplay === true) && childrenWithMosaicClick     
             return (
                 <Fragment>
-                {children}
-                <div style={openMosaic ? overlayStyle : null}  onClick={this.closeMosaicHandler.bind(this)}>
-                 <div className={tileClass} style={openMosaic ? styleMosaicTilesOn : null}/>
-                </div>
+                    {children}
+                    <div style={openMosaic ? overlayStyle : null}  onClick={this.closeMosaicHandler.bind(this)}>
+                    <div className={tileClass} style={openMosaic ? styleMosaicTilesOn : null}/>
+                    </div>
                 </Fragment>
             )
         }

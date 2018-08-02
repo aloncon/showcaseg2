@@ -133,20 +133,29 @@ const ListingStore = (id, type) => {
       productsLength: 0,
       idListing: productStore,
       pagenationIndex : 0 ,
-      numberOfProducts : 6,
+      numberOfProducts : 3,
       perviousLengthListOfProducts : 0,
+      get dispalyAmountOfProductsFromTotal(){
+        let totalNumberOfProducts = store.nextData().totalNumberOfProducts;
+        let temp =  store.numberOfProducts*(store.pagenationIndex+1);
+        let strDisplay = totalNumberOfProducts - temp > 0 ? 
+                `Showing ${1}-${temp} of ${totalNumberOfProducts}` : 
+                `Showing 1-${totalNumberOfProducts} of ${totalNumberOfProducts}`
+        return strDisplay;        
+      },
+
       get amountOfProductsForShowMore(){ 
         let showMore = store.nextData().totalNumberOfProducts - store.numberOfProducts*(store.pagenationIndex+2)
         return showMore > 0 ? store.numberOfProducts : store.numberOfProducts + showMore
       },
-      dropMenuStatus : false,
-      changeDropMenuStatus(){
-        store.dropMenuStatus = !store.dropMenuStatus;
-      },
+    //   dropMenuStatus : false,
+    //   changeDropMenuStatus(){
+    //     store.dropMenuStatus = !store.dropMenuStatus;
+    //   },
       //computed method for display / hidde the drop menu options (currntly 9/12/24)
-      get dropMenu(){
-        return store.dropMenuStatus
-      },
+    //   get dropMenu(){
+    //     return store.dropMenuStatus
+    //   },
       get NumberOfPages(){
         return store.idListing.products
             ? sum(store.idListing.products.map( i => i.cpi.map( x => x).length)) / store.numberOfProducts
@@ -156,6 +165,11 @@ const ListingStore = (id, type) => {
         store.numberOfProducts = number;
         store.dropMenuStatus = false;
         store.pagenationIndex = 0;
+      },
+      setMaxPagination(){
+        let totalNumberOfProducts = store.nextData().totalNumberOfProducts;
+        let index = Math.ceil(totalNumberOfProducts/store.numberOfProducts);
+        store.setPaginationIndex(index);
       },
       setPaginationIndex(index){
         store.pagenationIndex = index;
