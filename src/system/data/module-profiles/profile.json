@@ -222,20 +222,20 @@
     },
 
     "mosaic_configurations": {
-        "menuOrientation": "left-to-right",
+        "menu_orientation": "left-to-right",
         "animation": true,
         "layout": "one-button",
-        "poweredByWebcollage": "none",
-        "defaultOverlayPosition": "",
-        "overlayType": "tooltip",
-        "buttonType": "hotspot",
-        "buttonText": "",
-        "buttonPosition": "top-left",
-        "scrollOverlayToView": false,
-        "tooltipType": "none",
-        "sectionOrder": [],
-        "maxButtonsAllowed": null,
-        "menuSize": "medium"
+        "powered_by_webcollage": "none",
+        "default_overlay_position": "",
+        "overlay_type": "tooltip",
+        "button_type": "hotspot",
+        "button_text": "",
+        "button_position": "top-left",
+        "scroll_overlay_to_view": false,
+        "tooltip_type": "none",
+        "section_order": [],
+        "max_buttons_allowed": null,
+        "menu_size": "medium"
     },
     "Others": {}
 }
