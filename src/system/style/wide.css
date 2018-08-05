@@ -9,15 +9,32 @@
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a,
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListDesc h4 a {
-  border-bottom: 2px solid #f2f2f2;
   padding-bottom: 3px;
   line-height: 2em;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton {
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 40%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a,
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton a {
   line-height: normal;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton .wcProductPrice,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton .wcProductPrice,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton .wcProductPrice,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct.wcOnlyTitleDescWidth .wcWideListButton .wcProductPrice {
+  position: static;
+  margin-right: 30px;
+  vertical-align: middle;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidthNormalProduct .wcWideListButton a,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidthNormalProduct .wcWideListButton a,

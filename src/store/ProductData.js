@@ -133,7 +133,7 @@ const ListingStore = (id, type) => {
       productsLength: 0,
       idListing: productStore,
       pagenationIndex : 0 ,
-      numberOfProducts : 3,
+      numberOfProducts : 12, //3
       perviousLengthListOfProducts : 0,
       get dispalyAmountOfProductsFromTotal(){
         let totalNumberOfProducts = store.nextData().totalNumberOfProducts;
@@ -239,7 +239,7 @@ export const ShouldDisplayStore = listingStores => {
    return observable({
       listingStores,
       get shouldDisplay() {
-         return listingStores.some(store => store.productStore && store.productStore.products.length > 0);
+         return listingStores.some(store => store.nextData().productsLength > 0);
       },
    });
 };
