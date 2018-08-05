@@ -1,7 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import { WcImg, WcImgValid, WcPlaceHolderImage } from '../WcResource';
+import { WcImgValid, WcPlaceHolderImage } from '../WcResource';
 import { Mosaic } from '../Mosaic';
 import ActionLink from '../ActionLink';
 import { NormalizeListDescription } from '../NormalizeListDescription';
@@ -60,7 +60,6 @@ class AllPopover {
     for(let item of this.map){
       item[1].pop.setOpen(false);
       item[1].isOpen = false;
-      console.log(item[1])
     }
   }
 }
@@ -68,7 +67,7 @@ class AllPopover {
 const allPopovers = new AllPopover();
 
 const ObservPopover = observer(({ store, index, popIndex, title, text, price, wcpc }) => {
-  
+
   let isOpen = store && store.isOpen;
   let classIsOpen = isOpen ? openPopOverClassName : 'wcClosePopover';
   return store ? (
@@ -83,7 +82,7 @@ const ObservPopover = observer(({ store, index, popIndex, title, text, price, wc
         See more
       </button>
       <div className={classIsOpen + " WcPopOpenAttr"}>
-       
+
         <div>
           <h3>{title}</h3>
         </div>
@@ -100,7 +99,6 @@ const ObservPopover = observer(({ store, index, popIndex, title, text, price, wc
 const GridListProduct = ({ product, caption, index }) => {
   const { vendorProductName, listImage, listDescription, wcpc: productWcpc } = product;
   return product.cpi.map((childProduct, childProductIndex) => {
-   console.log("childProduct",childProduct)
     const familyName = childProductIndex === 0 && product.cpi.length > 1 ? vendorProductName : childProduct.channelProductName;
     const { cpi: childProductCpi } = childProduct;
     const FamilyActionLink = ({ text, unlink = true }) => (
@@ -152,9 +150,8 @@ const GridListProduct = ({ product, caption, index }) => {
   });
 };
 let fun1 = (e) =>{
-  
+
   let checker = e.path.find( i => i.className && (i.className.indexOf("WcPopOpenAttr") > -1 || i.className.indexOf("wcSeeMoreButton") > -1))
-  console.log(checker,e)
   if(checker === undefined) allPopovers.closeAllPop();
 }
 class GridList extends React.Component {

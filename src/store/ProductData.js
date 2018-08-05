@@ -82,9 +82,9 @@ const ProductStore = id => {
       api
          .getListOfVerifyWcpcs(subWcpcs)
          .then(result => {
-             result.map(item => {
-                 allWcpc.setId(item.wcpc, item.cpi);
-                });
+             result.map(item =>
+                 allWcpc.setId(item.wcpc, item.cpi)
+                );
                 return result;
             })
             .then(result => {
@@ -138,13 +138,13 @@ const ListingStore = (id, type) => {
       get dispalyAmountOfProductsFromTotal(){
         let totalNumberOfProducts = store.nextData().totalNumberOfProducts;
         let temp =  store.numberOfProducts*(store.pagenationIndex+1);
-        let strDisplay = totalNumberOfProducts - temp > 0 ? 
-                `Showing ${1}-${temp} of ${totalNumberOfProducts}` : 
+        let strDisplay = totalNumberOfProducts - temp > 0 ?
+                `Showing ${1}-${temp} of ${totalNumberOfProducts}` :
                 `Showing 1-${totalNumberOfProducts} of ${totalNumberOfProducts}`
-        return strDisplay;        
+        return strDisplay;
       },
 
-      get amountOfProductsForShowMore(){ 
+      get amountOfProductsForShowMore(){
         let showMore = store.nextData().totalNumberOfProducts - store.numberOfProducts*(store.pagenationIndex+2)
         return showMore > 0 ? store.numberOfProducts : store.numberOfProducts + showMore
       },
@@ -175,18 +175,19 @@ const ListingStore = (id, type) => {
         store.pagenationIndex = index;
       },
       // set the next index of the list
-      nextPagenationIndex(){ 
+      /* eslint-disable no-unused-expressions */
+      nextPagenationIndex(){
             let numberOfProducts = sum(store.idListing.products.map( i => i.cpi.length));
-            console.log("numberOfProducts",numberOfProducts)
-            parseInt(numberOfProducts / (store.numberOfProducts*(store.pagenationIndex+1))) > 0  && numberOfProducts != (store.numberOfProducts*(store.pagenationIndex+1))? store.pagenationIndex++ : store.pagenationIndex;
+            parseInt(numberOfProducts / (store.numberOfProducts*(store.pagenationIndex+1)), 10) > 0  && numberOfProducts !== (store.numberOfProducts*(store.pagenationIndex+1))? store.pagenationIndex++ : store.pagenationIndex;
       },
       // set the previous index of the list
       previousPagenationIndex(){
         let numberOfProducts = sum(store.idListing.products.map( i => i.cpi.map( x => x).length));
-        parseInt(numberOfProducts/ (store.numberOfProducts*(store.pagenationIndex))) > 0 ? store.pagenationIndex-- : store.pagenationIndex;
+        parseInt(numberOfProducts/ (store.numberOfProducts*(store.pagenationIndex)), 10) > 0 ? store.pagenationIndex-- : store.pagenationIndex;
       },
+      /* eslint-enable no-unused-expressions */
       nextData(pagenationIndex){
-        let items = store.idListing.products; 
+        let items = store.idListing.products;
         let wcpcs = items.map(item => item.wcpc);
         let perviousLengthListOfProducts = 0;
         let totalNumberOfProducts = 0;
@@ -198,14 +199,13 @@ const ListingStore = (id, type) => {
                     tempItem.cpi[0].cpi = `0-${item.wcpc}`;
                    }
                // filterItems recives only the products are in the range of the current index of the pagiantion
-               // for example in case the display set on 9 products and the pagination index set to 1 -> products will be show are between 9 to 17 (index)    
+               // for example in case the display set on 9 products and the pagination index set to 1 -> products will be show are between 9 to 17 (index)
                // [0:{},1:{},2:{},3:{},4:{},5:{},6:{},7:{},8:{},9:{},10:{},11:{},12:{},13:{},14:{},15:{},16:{},17:{},18:{},19:{}] ({} = product)
                //                                               |<------------------will be display--------------->|
             //    let filterItems = tempItem.cpi.filter( (item,index) =>  index + indexWcpc + perviousLengthListOfProducts >= (store.pagenationIndex)*store.numberOfProducts &&  (index+indexWcpc + perviousLengthListOfProducts) < (store.pagenationIndex+1)*store.numberOfProducts);
                let filterItems = tempItem.cpi.filter( (item,index) =>  index + indexWcpc + perviousLengthListOfProducts < (store.pagenationIndex+1)*store.numberOfProducts);
                perviousLengthListOfProducts +=  tempItem.cpi.length-1;
                totalNumberOfProducts +=  tempItem.cpi.length;
-               console.log("perviousLengthListOfProducts",tempItem)
                return Object.assign({cpi :  filterItems}, item);
             }),
             caption: store.idListing.caption,
@@ -213,8 +213,8 @@ const ListingStore = (id, type) => {
             type: store.type,
             productsLength: store.idListing.products.length,
             totalNumberOfProducts : totalNumberOfProducts
-         }  
-       return obj;  
+         }
+       return obj;
       },
       get data() {
          return store.idListing.products

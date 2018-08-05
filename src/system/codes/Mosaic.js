@@ -45,12 +45,12 @@ class initMosaicProductListing{
             if(!ShouldDisplay({ "wc_section": "display-all-vendor-products" })){
                 window.Webcollage.loadProductContentForProductListing( moduleInfo.default.siteName, config)
                 this.isWcpc = false
-                console.log("loadProductContentForProductListingByCpi")
+                // console.log("loadProductContentForProductListingByCpi")
             }else{
 
                 window.Webcollage.loadProductContentForProductListingByWcpc(moduleInfo.default.siteName,moduleInfo.default.moduleName,'live',config)
                 this.isWcpc = true
-                console.log("loadProductContentForProductListingByWcpc")
+                // console.log("loadProductContentForProductListingByWcpc")
             }
             this.initMosaic = true
         }
@@ -107,7 +107,7 @@ const styleMosaicTilesOn = { width:500 , height:500 , position:"sticky" , left:"
 
 const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosaicContentMissingDisplay}) => {
     class MosaicTilesListener extends React.Component{
-        
+
         constructor(props){
             super(props)
             if(ShouldDisplay({ "wc_section": "display-all-vendor-products" }))
@@ -122,8 +122,7 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
 
         componentDidMount(){
             if(this.isWcpc){
-                console.log(" this.props.wcpc", wcpc)
-                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}}); 
+                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}});
             }
         }
 
@@ -168,8 +167,8 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
 
             const validMosiac = mosiacJson !== null ? true : false
             const tileClass = `WcMosaicTile-${wcpc}`
-            const childrenWithMosaicClick =  React.cloneElement(this.props.children, validMosiac ? {onClick: this.openMosaicHandler.bind(this) } : null)  
-            const children =  (validMosiac || ifMosaicContentMissingDisplay === true) && childrenWithMosaicClick     
+            const childrenWithMosaicClick =  React.cloneElement(this.props.children, validMosiac ? {onClick: this.openMosaicHandler.bind(this) } : null)
+            const children =  (validMosiac || ifMosaicContentMissingDisplay === true) && childrenWithMosaicClick
             return (
                 <Fragment>
                     {children}

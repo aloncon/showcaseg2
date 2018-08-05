@@ -39,7 +39,6 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
   const { vendorProductName, listImage, listDescription } = product;
 
   return product.cpi.map((childProduct, childProductIndex) => {
-    console.log("childProduct",childProduct)
     const familyName = childProductIndex === 0 ? vendorProductName : childProduct.channelProductName;
 
     const FamilyActionLink = ({ text, unlink }) => (
@@ -84,11 +83,11 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
               <h4 onClick={() => WcReports('product-listing-wide-family-product-cpi', childProduct.cpi)}>
                 <FamilyActionLink text={familyName} unlink={true} />
               </h4>
-              
+
             </div>
           )}
           <div className="wcWideListButton" onClick={() => WcReports('product-listing-wide-family-product-cpi', childProduct.cpi)}>
-          
+
             <div>
               {childProduct.priceAsString && <p className="wcProductPrice">Price:<br/>{childProduct.priceAsString}</p>}
             </div>
@@ -111,7 +110,7 @@ class WideList extends React.Component {
         {data.map((product, productIndex) => {
             reporting && WcReports('product-listing-wide-view-family-product-wcpc', product.wcpc);
                return <WideListProduct key={productIndex} responsiveStore={ResponsiveStore} product={product} hideProductImages={hideProductImages} />;
-          
+
         })}
       </div>
     ) : null;

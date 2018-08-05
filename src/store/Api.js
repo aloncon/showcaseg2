@@ -17,7 +17,6 @@ class Api {
    getListOfVerifyWcpcs = wcpcs => {
       const createCpisObject = partnerProductObject => {
          const array = [];
-         console.log("RESULT API",partnerProductObject)
          const keys = Object.keys(partnerProductObject.cpis);
          for (let i = 0; i < keys.length; i++) {
             array.push({
@@ -26,7 +25,6 @@ class Api {
                priceAsString: partnerProductObject.cpis[keys[i]].priceAsString
             });
          }
-         console.log(array)
          return array;
       };
 
@@ -61,7 +59,7 @@ class Api {
                            cpi: createCpisObject(resultPartner[key])
                         };
                      });
-                     
+
                      resolve(products);
                   } else reject({ err: `message: ${JSON.stringify(result.errors)} , wcpcs: ${wcpcs}` });
                })
@@ -74,7 +72,7 @@ class Api {
                   cpi: "0",
                   channelProductName: "",
                   priceAsString: ""
-            })   
+            })
             let allWcpcs = wcpcs.map(item => {
                return { wcpc: item, cpi: arr}
             });
