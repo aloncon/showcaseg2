@@ -100,7 +100,7 @@ const ObservPopover = observer(({ store, index, popIndex, title, text, price, wc
 const GridListProduct = ({ product, caption, index }) => {
   const { vendorProductName, listImage, listDescription, wcpc: productWcpc } = product;
   return product.cpi.map((childProduct, childProductIndex) => {
-   
+   console.log("childProduct",childProduct)
     const familyName = childProductIndex === 0 && product.cpi.length > 1 ? vendorProductName : childProduct.channelProductName;
     const { cpi: childProductCpi } = childProduct;
     const FamilyActionLink = ({ text, unlink = true }) => (

@@ -80,7 +80,7 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 2px 1px #ccc;
-  bottom: 55px;
+  bottom: 15px;
   left: 0px;
   z-index: 999999 !important;
   animation: openPopover 0.5s 1;
@@ -120,18 +120,16 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-pack: left;
+      justify-content: left;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard {
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  -ms-flex-pack: center;
-      justify-content: center;
-  height: 280px;
+  min-height: 330px;
   box-shadow: 2px 2px 5px 1px #756a6a66;
   padding: 5px;
-  width: 250px;
+  width: 32%;
   margin: 0.5%;
   border: 1px solid #d1d1d1;
   border-radius: 5px;
@@ -141,6 +139,12 @@
   height: 20px;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: center;
+      justify-content: center;
   height: 200px !important;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardImgTop img {
@@ -151,9 +155,13 @@
   width: 45%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock {
-  margin-top: 0%;
-  position: relative;
-  bottom: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-height: 26%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcCardBlock h4 {
   text-align: center;
@@ -164,19 +172,21 @@
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter {
   position: relative;
+  bottom: -10px;
   width: 100%;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter button {
   float: left;
   width: 40%;
+  font-size: 80%;
   cursor: pointer;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter a {
   padding-left: 1.5%;
   float: right;
+  font-size: 93%;
   line-height: 2.5em;
+  text-decoration: none;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter .wcCloseButtonPopover {
   width: 20px;

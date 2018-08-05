@@ -47,20 +47,21 @@ const ProductListingObserver = observer(({ store: { data, changeDisplay, setType
     //                                 <a  onClick={()=>setNumberProductInPage(24)}>24</a>
     //                             </div>}
     //                     </div>
-    let amountOfProducts = <p style={{fontSize:"12px",marginTop:12.5,color:"#999999"}}>{dispalyAmountOfProductsFromTotal}</p> 
-    let showAllButton =    <button style={{color:"#0066CC",cursor:"pointer",boxShadow:"none",border:"none",backgroundColor:"transparent"}}
+    let amountOfProducts = <p style={{fontSize:"12px",marginTop:12.5,color:"#999999", maxWidth:"30%"}}>{dispalyAmountOfProductsFromTotal}</p> 
+    let showAllButton =    <button style={{color:"#0066CC",cursor:"pointer",boxShadow:"none",border:"none",backgroundColor:"transparent" , maxWidth:"30%"}}
                                    onClick={setMaxPagination}>
                                 Show All {content.totalNumberOfProducts}
                             </button>               
-    let showMoreProducts=   <div style={{display: "flex",flexFlow: "row wrap",marginTop:15,width:"55%"}}> 
+    let showMoreProducts=   <div style={{display: "flex",flexFlow: "row wrap",marginTop:15,maxWidth:"75%"}}> 
                                                 {amountOfProducts}
                                                 {showMore > 0 && 
-                                                <button style={{margin:"auto",cursor:"pointer",width:"30%",borderRadius:"15px"}} 
+                                                <button style={{margin:"auto",cursor:"pointer",maxWidth:"30%",minPadding:"0 2.5%",borderRadius:"15px",fontSize:"80%"}} 
                                                         onClick={nextPagenationIndex}
                                                         className="bt-btn bt-btn-outline-secondary bt-btn-sm">
                                                     Show {showMore} More
                                                 </button>}  
                                                 {showMore > 0 && showAllButton}
+                                                <div style={{width:"300px"}}/>
                                             </div>               
     if(settings.reporting===undefined){
         settings.reporting=true;

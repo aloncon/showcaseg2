@@ -83,6 +83,7 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
               <h4 onClick={() => WcReports('product-listing-wide-family-product-cpi', childProduct.cpi)}>
                 <FamilyActionLink text={familyName} unlink={true} />
               </h4>
+              {childProduct.priceAsString && <p className="wcProductPrice">Price:<br/>{childProduct.priceAsString}</p>}
             </div>
           )}
           <div className="wcWideListButton" onClick={() => WcReports('product-listing-wide-family-product-cpi', childProduct.cpi)}>

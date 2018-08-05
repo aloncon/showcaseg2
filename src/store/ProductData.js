@@ -205,7 +205,7 @@ const ListingStore = (id, type) => {
                let filterItems = tempItem.cpi.filter( (item,index) =>  index + indexWcpc + perviousLengthListOfProducts < (store.pagenationIndex+1)*store.numberOfProducts);
                perviousLengthListOfProducts +=  tempItem.cpi.length-1;
                totalNumberOfProducts +=  tempItem.cpi.length;
-               console.log("perviousLengthListOfProducts",totalNumberOfProducts)
+               console.log("perviousLengthListOfProducts",tempItem)
                return Object.assign({cpi :  filterItems}, item);
             }),
             caption: store.idListing.caption,
