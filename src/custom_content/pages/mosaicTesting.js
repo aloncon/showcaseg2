@@ -33,7 +33,7 @@ class MosaicTesting extends React.Component {
                         <p>wcpc = 1377023287175</p>
                         <Mosaic wcpc={1377023287175}/>
                     </div> */}
-                    <CategoryList ids={CATEGORY_IDS} type="grid"/>
+                    <CategoryList ids={CATEGORY_IDS} type="flex"/>
                 </div>
 
             </div>

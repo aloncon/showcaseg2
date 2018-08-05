@@ -99,6 +99,22 @@
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
+  padding: 0 2.5%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton div,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton div,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListButton div,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListButton div {
+  position: relative;
+  height: 100%;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton div .wcProductPrice,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton div .wcProductPrice,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListButton div .wcProductPrice,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListButton div .wcProductPrice {
+  position: absolute;
+  top: -10px;
+  font-size: 90%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton a,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton a,
@@ -181,6 +197,13 @@
 #wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListDesc .narrowDescription {
   width: 70%;
   margin: auto;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListButton div .wcProductPrice,
+#wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListButton div .wcProductPrice,
+#wc-showcase-root .app-size-sm #wcWideList .wcNarrowProduct .wcWideListButton div .wcProductPrice,
+#wc-showcase-root .app-size-xs #wcWideList .wcNarrowProduct .wcWideListButton div .wcProductPrice {
+  text-align: center;
+  font-size: 90%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct .wcWideListButton a,
 #wc-showcase-root .app-size-md #wcWideList .wcNarrowProduct .wcWideListButton a,
