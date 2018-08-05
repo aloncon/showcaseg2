@@ -96,7 +96,7 @@ export default function getModuleInfo () {
     module = getModuleIdFromConfiguration();
 
     if(typeof webcollageObj !== 'undefined'){
-        console.log("object from site page : " + webcollageObj);
+        console.log("object from site page : ",  webcollageObj);
         site = webcollageObj.partnerId;
         script = webcollageObj.scriptSrc;
         srcBase = webcollageObj.srcBase;

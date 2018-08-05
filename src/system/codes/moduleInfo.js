@@ -1,5 +1,7 @@
 import getModuleInfo from './init.js'
 import mergeJson from './mergeJson';
+import ShouldDisplay from './ShouldDisplay.js';
+import configuration from './configuration.js';
 const moduleInfo =  getModuleInfo();
 
 const isStandalone = () => (window.location.href.indexOf('/standalone/') !== -1 ? true : false);
@@ -16,7 +18,20 @@ let WcShowcase = {
     entry: moduleInfo.entry,
     isStandalone: isStandalone(),
 }
-WcShowcase.isDev = WcShowcase.environmentId === "localhost" ? true : false; 
+WcShowcase.isDev = WcShowcase.environmentId === "localhost" ? true : false;
+WcShowcase.displayVerticalNavigation = size => {
+
+  const stringCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const viewPortElementCheck = document.querySelector('meta[name="viewport"]');
+  const smallSize = /xs|sm/;
+
+  const isMobile = (smallSize.test(size) || (stringCheck && viewPortElementCheck)) ? true : false;
+
+  return !isStandalone &&
+        ShouldDisplay({ wc_section: 'wc_navigation_vertical' }) &&
+        !isMobile(size) &&
+        configuration.staticRoutes.getRootRoutes().length > 0;
+}
 
 console.log('------------------------------------');
 console.log('Module Information:');

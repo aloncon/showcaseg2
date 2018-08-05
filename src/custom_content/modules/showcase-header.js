@@ -3,12 +3,14 @@ import { withRouter } from 'react-router';
 import Header from '../../system/codes/Header.js';
 import configuration from '../../system/codes/configuration';
 
+const { findRoute } = configuration.staticRoutes;
+
 
 class ShowcaseHeader extends React.Component {
       render() {
 
         const pathname = this.props.location.pathname;
-        const route = configuration.staticRoutes.getRoutes().find(element => element.path === pathname);
+        const route = findRoute(pathname);
         const pageName  = route ? route.title : '';
 
         let nameToShow = pageName ? pageName : configuration.headerDetails.headerTitle ? configuration.headerDetails.headerTitle : ' ';

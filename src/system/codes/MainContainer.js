@@ -2,10 +2,9 @@ import React from 'react';
 import { NavigationVertical } from './Navigation';
 import configuration from './configuration';
 import WcShowcase, { partnerDefPromise } from './moduleInfo';
-import ShouldDisplay from './ShouldDisplay';
 
 const { staticRoutes, moduleName } = configuration;
-const { isStandalone, entry } = WcShowcase;
+const {  entry, displayVerticalNavigation } = WcShowcase;
 
 /**
  * This is the App main container, it checks if there is a need to display the vertical navigation or not.
@@ -48,17 +47,8 @@ class MainContainer extends React.Component {
     return ' wcContainerSmallerVerticalNav';
   }
 
-  mobileCheck(size) {
-    const stringCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const viewPortElementCheck = document.querySelector('meta[name="viewport"]');
-    const smallSize = /xs|sm/;
-
-    return (smallSize.test(size) || (stringCheck && viewPortElementCheck)) ? true : false;
-  }
-
-
   setVariables(size) {
-    if (!isStandalone && ShouldDisplay({ wc_section: 'wc_navigation_vertical' }) && !this.mobileCheck(size)) {
+    if (displayVerticalNavigation(size)) {
       this.classNameWidth = this.getClassContainerSmaller();
       this.VerticalNavigation = <NavigationVertical routesConfiguration={staticRoutes} moduleName={moduleName} />;
     } else {

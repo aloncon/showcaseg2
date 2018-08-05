@@ -41,6 +41,7 @@ import WcShowcase from './moduleInfo';
  * functions inside staticRoutes:: =
  * setEntry
  * getRoutes
+ * findRoute
  * routesExcludeCheck
  * getPath
  * getChildren
@@ -159,6 +160,14 @@ configuration.staticRoutes.setEntry = (entry) => {
  */
 configuration.staticRoutes.getRoutes = () => {
   return landingEntryPoint;
+}
+
+/**
+ * @param {string} currentRoutePathname The current app pathname
+ * @return {object} Return specific route according to the `routePathname`
+ */
+configuration.staticRoutes.findRoute = currentRoutePathname => {
+  return configuration.staticRoutes.getRoutes().find(route => route.id === currentRoutePathname.replace(/^\/?.*\/(.*)/, '$1'));
 }
 
 /**
