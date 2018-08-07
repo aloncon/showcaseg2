@@ -28,21 +28,23 @@ const Allassortment = ({ children, unlink , ...props}) => {
 }
       ;
 
-const P2b = ({ children, siteName, cpi , ...props}) => {
+const P2b = ({ children, siteName, moduleName, cpi , ...props}) => {
       delete props.history;
       delete props.match;
       delete props.staticContext;
-      return <a href={`http://content.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cpi}`} {...props}>{children}</a>;
+      //https://scontent.webcollage.net/newegg/actions?action=p2b&channel-product-id=9SIA1CZ6YU0016&p2b-origin=showcase&p2b-context=kasperskybtob 
+      return <a href={`https://scontent.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cpi}&p2b-origin=showcase&p2b-context=${moduleName}`} {...props}>{children}</a>;
 };
 
 const ActionLinkObserver = observer(({ store: { data }, type, unlink, children, ...props }) => {
    let productId = data;
    const siteName = partner.default.siteName;
+   const moduleName = partner.default.moduleName;
 
    const allassortmentMode = init.allassortmentMode();
    switch (productId && !allassortmentMode && type) {
       case 'p2b':
-         return <P2b children={children} cpi={productId.cpi} siteName={siteName} {...props }  onClick={() => WcReports("p2b",productId.wcpc)} />;
+         return <P2b children={children} cpi={productId.cpi} siteName={siteName} moduleName={moduleName} {...props }  onClick={() => WcReports("p2b",productId.wcpc)} />;
       default:
          return <Allassortment children={children} unlink={unlink} {...props }/>;
    }
@@ -50,11 +52,12 @@ const ActionLinkObserver = observer(({ store: { data }, type, unlink, children, 
 
 const ActionLinkStatic = ({ cpi, type, unlink, children , ...props}) => {
    const siteName = partner.default.siteName;
+   const moduleName = partner.default.moduleName;
 
    const allassortmentMode = init.allassortmentMode();
    switch (cpi && !allassortmentMode && type) {
       case 'p2b':
-         return <P2b children={children} cpi={cpi} siteName={siteName} {...props }/>;
+         return <P2b children={children} cpi={cpi} siteName={siteName} moduleName={moduleName} {...props }/>;
       default:
 
          return <Allassortment children={children} unlink={unlink} {...props }/>;

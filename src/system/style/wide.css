@@ -47,6 +47,7 @@
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct,
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct {
   border: 1px solid #f2f2f2;
+  border-radius: 5px;
   margin: 5px 0;
   box-shadow: 2px 2px 5px gainsboro;
   width: 100%;

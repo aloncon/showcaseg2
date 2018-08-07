@@ -126,13 +126,17 @@
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard {
   -ms-flex-direction: column;
       flex-direction: column;
+  transition: 0.5s;
   min-height: 330px;
-  box-shadow: 2px 2px 5px 1px #756a6a66;
+  box-shadow: 2px 2px 5px 0px #756a6a66;
   padding: 5px;
   width: 32%;
   margin: 0.5%;
   border: 1px solid #d1d1d1;
   border-radius: 5px;
+}
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard:hover {
+  box-shadow: 8px 8px 10px 0px #756a6a66;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcMosaic {
   width: 100%;

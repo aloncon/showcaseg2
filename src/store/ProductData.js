@@ -224,8 +224,8 @@ const ListingStore = (id, type) => {
       changeDisplay() {
          store.isDisplay = !store.isDisplay;
       },
-      setType(_type) {
-         store.type = _type;
+      setType(type) {
+         store.type = type;
       },
       get shouldDisplay() {
          if (store.idListing.productsLength) return true;
