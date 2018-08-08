@@ -1,9 +1,15 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root .app-size-lg .wcWideProduct {
-  background: linear-gradient(left, white, white 75%, #f5f5f5 75%, #f5f5f5);
+  background: linear-gradient(to right, white, white 75%, #f5f5f5 75%, #f5f5f5);
+}
+#wc-showcase-root .app-size-lg .wcWideProduct.wcOnlyTitleDescWidth {
+  background: linear-gradient(to right, white, white 77.5%, #f5f5f5 77.5%, #f5f5f5);
 }
 #wc-showcase-root .app-size-md .wcWideProduct {
-  background: linear-gradient(left, white, white 80%, #f5f5f5 80%, #f5f5f5);
+  background: linear-gradient(to right, white, white 80%, #f5f5f5 80%, #f5f5f5);
+}
+#wc-showcase-root .app-size-md .wcWideProduct.wcOnlyTitleDescWidth {
+  background: linear-gradient(to right, white, white 75%, #f5f5f5 75%, #f5f5f5);
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,

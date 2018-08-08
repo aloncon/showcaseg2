@@ -74,7 +74,7 @@
   border-top: 1px solid #ccc;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard {
-  background: linear-gradient(top, white, white 82%, #f5f5f5 82%, #f5f5f5);
+  background: linear-gradient(to bottom, white, white 82%, #f5f5f5 82%, #f5f5f5);
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopoverTop {
   position: absolute;
