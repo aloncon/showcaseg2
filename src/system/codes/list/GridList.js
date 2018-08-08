@@ -74,7 +74,7 @@ const ObservPopover = observer(({ store, index, popIndex, title, text, price, wc
     <div>
       <button
         type="button"
-        className="bt-btn bt-btn-primary bt-btn-sm wcSeeMoreButton"
+        className="bt-btn bt-btn-outline-primary bt-btn-sm wcSeeMoreButton"
         onClick={() => {
           allPopovers.openPop(popIndex, index);
         }}
@@ -145,7 +145,7 @@ const GridListProduct = ({ product, caption, index }) => {
             <FamilyActionLink text='Proceed to buy' unlink={false}/>
           </div>
         </div>
-      </div>
+        </div>
     );
   });
 };

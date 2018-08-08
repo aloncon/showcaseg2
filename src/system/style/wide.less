@@ -1,5 +1,15 @@
 /* ***dev start: please add your styles bellow only!!!*** */
 #wc-showcase-root {
+  .app-size-lg{
+    .wcWideProduct{
+      background: linear-gradient(left, white, white 75%, rgb(245, 245, 245) 75%, rgb(245, 245, 245));
+    }
+  }
+  .app-size-md{
+    .wcWideProduct{
+      background: linear-gradient(left, white, white 80%, rgb(245, 245, 245) 80%, rgb(245, 245, 245));
+    }
+  }
   .app-size-lg,
   .app-size-md,
   .app-size-sm,
@@ -44,7 +54,10 @@
         margin: 5px 0;
         box-shadow: 2px 2px 5px gainsboro;
         width: 100%;
-        
+        transition-duration: 0.25s;
+        &:hover{
+          box-shadow: 6px 6px 8px gainsboro;
+        }
         .bt-row {
           padding-top: 1%;
         }
@@ -52,7 +65,7 @@
           width: 45%;
         }
         .wcWideListImg {
-          width: 160px;
+          width: 25%;
           img {
             display: block;
             max-height: 100%;
@@ -92,13 +105,13 @@
             .wcProductPrice{
               position: absolute;
               top: -10px;
-              font-size: 90%;
+              font-size: 80%;
             }
           }
           a {
             display: block;
             text-decoration: none;
-            text-align: center;
+            // text-align: center;
             font-size: 80%;
           }
         }

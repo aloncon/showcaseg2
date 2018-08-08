@@ -49,6 +49,7 @@
   #wc_showcase_root .wcGridList .wcOpenPopover {
     position: absolute;
     background: #f9f9f9;
+
     width: 220px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -62,6 +63,7 @@
       border-top-right-radius: 5px;
       padding: 1px 10px;
       background: #a7adba;
+      
       h3 {
         font-size: 90%;
         display: none;
@@ -91,10 +93,13 @@
 
     animation: openPopover 0.5s 1;
   }
-
+  #wc_showcase_root .wcGridList .wcCard{
+    background: linear-gradient(top, white, white 82%, rgb(245, 245, 245) 82%, rgb(245, 245, 245));
+  }
   #wc_showcase_root .wcGridList .wcOpenPopoverTop {
     position: absolute;
     background: #f9f9f9;
+    
     width: 220px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -152,13 +157,13 @@
 
     .wcCard {
       &:hover{
-        box-shadow: 8px 8px 10px 0px #756a6a66;
+        box-shadow: 7px 7px 8px 0px #756a6a66;
       }
       flex-direction: column;
       // overflow: hidden;
       // display: flex;
       // min-height: 15%;
-      transition: 0.5s;
+      transition: 0.25s;
       min-height: 330px;
       box-shadow: 2px 2px 5px 0px #756a6a66;
 
@@ -207,7 +212,7 @@
       .wcGridCardFooter {
         // bottom: 2%;
         position: relative;
-        bottom: -10px;
+        // bottom: -10px;
         width: 100%;
         button {
           float: left;

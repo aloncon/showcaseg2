@@ -1,4 +1,10 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root .app-size-lg .wcWideProduct {
+  background: linear-gradient(left, white, white 75%, #f5f5f5 75%, #f5f5f5);
+}
+#wc-showcase-root .app-size-md .wcWideProduct {
+  background: linear-gradient(left, white, white 80%, #f5f5f5 80%, #f5f5f5);
+}
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct.wcOnlyTitleDescWidth,
@@ -51,6 +57,13 @@
   margin: 5px 0;
   box-shadow: 2px 2px 5px gainsboro;
   width: 100%;
+  transition-duration: 0.25s;
+}
+#wc-showcase-root .app-size-lg #wcWideList .wcWideProduct:hover,
+#wc-showcase-root .app-size-md #wcWideList .wcWideProduct:hover,
+#wc-showcase-root .app-size-sm #wcWideList .wcWideProduct:hover,
+#wc-showcase-root .app-size-xs #wcWideList .wcWideProduct:hover {
+  box-shadow: 6px 6px 8px gainsboro;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .bt-row,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .bt-row,
@@ -68,7 +81,7 @@
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg,
 #wc-showcase-root .app-size-sm #wcWideList .wcWideProduct .wcWideListImg,
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListImg {
-  width: 160px;
+  width: 25%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListImg img,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListImg img,
@@ -133,7 +146,7 @@
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListButton div .wcProductPrice {
   position: absolute;
   top: -10px;
-  font-size: 90%;
+  font-size: 80%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcWideProduct .wcWideListButton a,
 #wc-showcase-root .app-size-md #wcWideList .wcWideProduct .wcWideListButton a,
@@ -141,7 +154,6 @@
 #wc-showcase-root .app-size-xs #wcWideList .wcWideProduct .wcWideListButton a {
   display: block;
   text-decoration: none;
-  text-align: center;
   font-size: 80%;
 }
 #wc-showcase-root .app-size-lg #wcWideList .wcNarrowProduct,

@@ -32,7 +32,6 @@ const P2b = ({ children, siteName, moduleName, cpi , ...props}) => {
       delete props.history;
       delete props.match;
       delete props.staticContext;
-      //https://scontent.webcollage.net/newegg/actions?action=p2b&channel-product-id=9SIA1CZ6YU0016&p2b-origin=showcase&p2b-context=kasperskybtob 
       return <a href={`https://scontent.webcollage.net/${siteName}/actions?action=p2b&channel-product-id=${cpi}&p2b-origin=showcase&p2b-context=${moduleName}`} {...props}>{children}</a>;
 };
 

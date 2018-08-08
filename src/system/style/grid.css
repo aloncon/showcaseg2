@@ -73,6 +73,9 @@
   border-left: 1px solid #ccc;
   border-top: 1px solid #ccc;
 }
+#wc-showcase-root #wc_showcase_root .wcGridList .wcCard {
+  background: linear-gradient(top, white, white 82%, #f5f5f5 82%, #f5f5f5);
+}
 #wc-showcase-root #wc_showcase_root .wcGridList .wcOpenPopoverTop {
   position: absolute;
   background: #f9f9f9;
@@ -126,7 +129,7 @@
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard {
   -ms-flex-direction: column;
       flex-direction: column;
-  transition: 0.5s;
+  transition: 0.25s;
   min-height: 330px;
   box-shadow: 2px 2px 5px 0px #756a6a66;
   padding: 5px;
@@ -136,7 +139,7 @@
   border-radius: 5px;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard:hover {
-  box-shadow: 8px 8px 10px 0px #756a6a66;
+  box-shadow: 7px 7px 8px 0px #756a6a66;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcMosaic {
   width: 100%;
@@ -176,7 +179,6 @@
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter {
   position: relative;
-  bottom: -10px;
   width: 100%;
 }
 #wc-showcase-root #wc_showcase_root .wcGridList .wcCard .wcGridCardFooter button {
