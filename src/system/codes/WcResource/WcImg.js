@@ -27,7 +27,7 @@ const WcImgValidResponsive = observer(({responsiveStore : { wcContainerSize } , 
 
     render(){
       const { errorSrc } = this.state;
-
+      console.log(desktop,errorSrc,src)
       switch(!errorSrc && wcContainerSize){
         case 'lg' : this.image = <WcImg src={desktop} onError={(e) => {this.setDefault(e)}}/>; break;
         case 'md' : this.image = <WcImg src={desktop} onError={(e) => {this.setDefault(e)}}/>; break;

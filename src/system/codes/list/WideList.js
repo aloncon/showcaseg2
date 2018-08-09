@@ -59,8 +59,8 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
                 <WcPlaceHolderImage className="wcPlaceHolderImageProductListing" alt={familyName} />
               ) : (
                 <WcImgValid
-                  mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
-                  desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '.jpg.150px.jpg'}
+                  mobile={'/static/_wc/product-images/ver/150/' + product.wcpc + '75px.jpg.150px.jpg'}
+                  desktop={'/static/_wc/product-images/ver/150/' + product.wcpc + '75px.jpg.150px.jpg'}
                   src={'/static' + product.listImage}
                   alt={familyName}
                 />
