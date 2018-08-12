@@ -149,6 +149,7 @@
     /*** LISTS */
   #wc-reset ul li {
       margin-left: 0;
+      margin-bottom: 0;
       padding-left: 0;
       list-style-type: disc;
       list-style-position: inside;
