@@ -67,6 +67,8 @@
           box-shadow: 6px 6px 8px gainsboro;
         }
         .bt-row {
+          max-height:200px;
+
           padding-top: 1%;
         }
         .wcPlaceHolderImageProductListing {
@@ -109,10 +111,9 @@
           padding: 0 2.5%;
           div{
             position: relative;
-            height: 100%;
             .wcProductPrice{
               position: absolute;
-              top: -10px;
+              top: -60px;
               font-size: 80%;
             }
           }
@@ -120,15 +121,22 @@
             display: block;
             text-decoration: none;
             // text-align: center;
-            font-size: 80%;
+            font-size: 90%;
           }
         }
       }
 
       .wcNarrowProduct {
-        border-bottom: 2px solid #f2f2f2;
+        border: 2px solid #f2f2f2;
+        border-radius: 5px;
         width: 100%;
-
+        margin-bottom:2%;
+        transition: 0.3s;
+        box-shadow: 2px 2px 5px 0 rgb(195, 194, 194);
+        background: linear-gradient(to bottom, white, white 77.5%, rgb(245, 245, 245) 77.5%, rgb(245, 245, 245));
+        &:hover{
+          box-shadow: 6px 6px 8px 0 rgb(195, 194, 194);
+        }
         .row-narrow {
           display: flex;
           flex-direction: column;
@@ -169,6 +177,14 @@
           .narrowDescription {
             width: 70%;
             margin: auto;
+              ul{
+                margin-bottom: 15px;
+                  li{
+                    padding: none;
+                    margin: none;
+                    // height: 12px;
+                }
+            }
           }
         }
 
@@ -180,6 +196,7 @@
             }
           }
           a {
+            text-decoration: none;
             font-size: 80%;
             display: block;
             text-align: center;

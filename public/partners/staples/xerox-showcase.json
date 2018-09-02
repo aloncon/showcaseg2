@@ -4,7 +4,7 @@ cbContext0({
     "partner": "staples",
     "landing_entry_point": "landingpage-default",
     "Sections": {
-        "display-all-vendor-products": false,
+        "display-all-vendor-products": true,
         "include-landing-page-announcement-1": true,
         "include-landing-page-announcement-5": true
     },
