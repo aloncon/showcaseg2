@@ -14,7 +14,7 @@ class ShowcaseBody extends React.Component {
   render() {
     return (
       <div className="wcShowcaseBody">
-        <ShouldDisplay wc_section="custom-listing_scanners && display-all-vendor-products || !(first && second) ">
+        <ShouldDisplay wc_section="custom-listing_scanners && display_all_vendor_products || !(first && second) ">
         <h1>Showcase App Staples</h1>
         </ShouldDisplay>
       </div>

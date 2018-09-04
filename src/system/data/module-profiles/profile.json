@@ -9,7 +9,7 @@
         "wc_navigation_vertical": true,
         "include-bread-crumbs": true,
         "include-powered-by": true,
-        "display-all-vendor-products": true,
+        "display_all_vendor_products": true,
         "enable-reporting": false
     },
 

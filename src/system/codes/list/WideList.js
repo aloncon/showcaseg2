@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import ShouldDisplay from '../ShouldDisplay';
 import ActionLink from '../ActionLink';
 import { Mosaic } from '../Mosaic';
 import { WcImgValid, WcPlaceHolderImage } from '../WcResource';
@@ -8,7 +9,7 @@ import ResponsiveStore from '../../../store/ResponsiveStore';
 import { WcReports } from '../WcEvents';
 import '../../style/wide.css';
 
-const classNameGenerateWideNarrow = wcContainerSizeForWideClassName => {
+const classNameGenerateWideNarrow = (wcContainerSizeForWideClassName, displayAllProducts) => {
   // styling configuration
   let classProductName = '';
   let rowName = '';
@@ -28,11 +29,15 @@ const classNameGenerateWideNarrow = wcContainerSizeForWideClassName => {
       break;
   }
 
+  if (displayAllProducts) {
+    classProductName += ' wcWideProductDisplayAllProducts';
+  }
+
   return { classProductName, rowName, descriptionClassName };
 };
 
-const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideClassName }, product, hideProductImages }) => {
-  const { classProductName, rowName, descriptionClassName } = classNameGenerateWideNarrow(wcContainerSizeForWideClassName);
+const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideClassName }, product, hideProductImages, displayAllProducts }) => {
+  const { classProductName, rowName, descriptionClassName } = classNameGenerateWideNarrow(wcContainerSizeForWideClassName, displayAllProducts);
 
 
   // family product configuration
@@ -41,7 +46,7 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
   return product.cpi.map((childProduct, childProductIndex) => {
     const familyName = childProductIndex === 0 ? vendorProductName : childProduct.channelProductName;
 
-    const FamilyActionLink = ({ text, unlink }) => (
+    const ActionLinkWrapper = ({ text, unlink }) => (
       <ActionLink cpi={childProduct.cpi} type="p2b" unlink={unlink}>
         {text}
       </ActionLink>
@@ -70,7 +75,7 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
           {listDescription ? (
             <div className="wcWideListDesc" onClick={() => WcReports('product-listing-wide-family-product-cpi', childProduct.cpi)}>
               <h4>
-                <FamilyActionLink text={familyName} unlink={true} />
+                <ActionLinkWrapper text={familyName} unlink={true} />
               </h4>
               <div className={descriptionClassName}>
                 <p>
@@ -81,7 +86,7 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
           ) : (
             <div className="wcWideListDesc">
               <h4 onClick={() => WcReports('product-listing-wide-family-product-cpi', childProduct.cpi)}>
-                <FamilyActionLink text={familyName} unlink={true} />
+                <ActionLinkWrapper text={familyName} unlink={true} />
               </h4>
 
             </div>
@@ -92,7 +97,7 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
               {childProduct.priceAsString && <p className="wcProductPrice">Price:<br/>{childProduct.priceAsString}</p>}
             </div>
             <span>
-              <FamilyActionLink text="Proceed To Buy" />
+              <ActionLinkWrapper text="Proceed To Buy" />
             </span>
           </div>
         </div>
@@ -102,6 +107,11 @@ const WideListProduct = observer(({ responsiveStore: { wcContainerSizeForWideCla
 });
 
 class WideList extends React.Component {
+
+  componentWillMount() {
+    this.displayAllProducts = ShouldDisplay({ wc_section: 'display_all_vendor_products' });
+  }
+
   render() {
     const { data, reporting, hideProductImages } = this.props;
 
@@ -109,7 +119,7 @@ class WideList extends React.Component {
       <div>
         {data.map((product, productIndex) => {
             reporting && WcReports('product-listing-wide-view-family-product-wcpc', product.wcpc);
-               return <WideListProduct key={productIndex} responsiveStore={ResponsiveStore} product={product} hideProductImages={hideProductImages} />;
+               return <WideListProduct key={productIndex} responsiveStore={ResponsiveStore} product={product} hideProductImages={hideProductImages} displayAllProducts={this.displayAllProducts} />;
 
         })}
       </div>

@@ -6,7 +6,7 @@ import ShouldDisplay from '../../system/codes/ShouldDisplay'
 class Externaliframe extends React.Component {
     render() {
         return <div>
-        <ShouldDisplay wc_section="custom-listing_scanners,display-all-vendor-products">
+        <ShouldDisplay wc_section="custom-listing_scanners,display_all_vendor_products">
         <h1>Showcase App</h1>
         </ShouldDisplay>
 

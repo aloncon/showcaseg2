@@ -42,7 +42,7 @@ class initMosaicProductListing{
         let config = this.setConfig(getNosaicConfiguration())
 
         if(this.initMosaic === false){
-            if(!ShouldDisplay({ "wc_section": "display-all-vendor-products" })){
+            if(!ShouldDisplay({ "wc_section": "display_all_vendor_products" })){
                 window.Webcollage.loadProductContentForProductListing( moduleInfo.default.siteName, config)
                 this.isWcpc = false
                 // console.log("loadProductContentForProductListingByCpi")
@@ -110,7 +110,7 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
 
         constructor(props){
             super(props)
-            if(ShouldDisplay({ "wc_section": "display-all-vendor-products" }))
+            if(ShouldDisplay({ "wc_section": "display_all_vendor_products" }))
                  this.isWcpc = true
             else this.isWcpc = false
             this.callMosiacContent = true

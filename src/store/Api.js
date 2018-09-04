@@ -31,7 +31,7 @@ class Api {
       return new Promise((resolve, reject) => {
          this.partner = moduleInfo.default.siteName;
          this.module = moduleInfo.default.moduleName;
-         this.shouldDisplay = ShouldDisplay({ wc_section: 'display-all-vendor-products' });
+         this.shouldDisplay = ShouldDisplay({ wc_section: 'display_all_vendor_products' });
          let apiKey = `moduleId=${this.module}&product-details=true`;
          let url = `https://sjson.webcollage.net/apps/json/${this.partner}/method/partner-products-data-by-wcpc?`;
 
