@@ -8,7 +8,7 @@ cbContext0({
 			"wc_navigation_vertical" : true,
 			"include-bread-crumbs": true,
 			"include-powered-by": false,
-			"display-all-vendor-products" : false,
+			"display_all_vendor_products" : false,
 			"box1":true
 		},
 		"Properties":{

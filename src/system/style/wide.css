@@ -1,4 +1,7 @@
 /* ***dev start: please add your styles bellow only!!!*** */
+#wc-showcase-root .wcWideProductDisplayAllProducts {
+  background: white !important;
+}
 #wc-showcase-root .app-size-lg .wcWideProduct {
   background: linear-gradient(to right, white, white 75%, #f5f5f5 75%, #f5f5f5);
 }

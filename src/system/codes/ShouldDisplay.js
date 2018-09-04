@@ -40,8 +40,8 @@ const findOthersProperty = (wc_property, others) =>{
     }
 }
 
-const checkSection = (wc_section) =>{    
-    if(wc_section.match("include-showcase-banner|include-showcase-nav-bar|wc_navigation_vertical|include-bread-crumbs|include-powered-by|display-all-vendor-products|IN2Ecosystem|enable-reporting")){
+const checkSection = (wc_section) =>{
+    if(wc_section.match("include-showcase-banner|include-showcase-nav-bar|wc_navigation_vertical|include-bread-crumbs|include-powered-by|display_all_vendor_products|IN2Ecosystem|enable-reporting")){
         return (partnerDef.Sections[wc_section] !== undefined) ? partnerDef.Sections[wc_section] : profile["Look_and_Feel"][wc_section]
     }
     if(partnerDef.Sections[wc_section] === undefined && findOthersSection(wc_section, profile.Others) === undefined){
@@ -51,14 +51,14 @@ const checkSection = (wc_section) =>{
 }
 
 const announcementProperties = (wc_property, parent) =>{
-    
+
     if(partnerDef.Properties[wc_property] === undefined && profile.Announcement[parent][wc_property] === undefined){
         return undefined;
     }
     return (partnerDef.Properties[wc_property] !== undefined) ? partnerDef.Properties[wc_property] : profile.Announcement[parent][wc_property].value
 }
 const announcementSection = (wc_section, parent) =>{
-    
+
     if(partnerDef.Sections[wc_section] === undefined && profile.Announcement[parent][wc_section] === undefined){
         return undefined;
     }
@@ -87,7 +87,7 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
     }
     else if(wc_announcement){
 
-       
+
         const site       = WcShowcase.siteName;
         const moduleName = WcShowcase.moduleName;
         const showcasePrefix = WcShowcase.showcasePrefix;
@@ -100,15 +100,15 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
         }
         const content = announcementSection(wc_announcement, parent);
         const index = wc_announcement.replace(/.*-/,"")
-        const link = announcementProperties("landing-page-announcement-"+index+"-link", parent) 
+        const link = announcementProperties("landing-page-announcement-"+index+"-link", parent)
         const path = announcementProperties("landing-page-announcement-"+index+"-image", parent)
         const title = announcementProperties("landing-page-announcement-"+index+"-alt", parent)
         const popup = announcementProperties("landing-page-announcement-"+index+"-in-popup", parent)
         const reporting = announcementProperties("landing-page-announcement-"+index+"-code", parent)
-        
+
         let   pathFull  = "https://scontent.webcollage.net/showcase-partner-center/resources/"+ moduleName +"/" + site+"/"+ path;
-        
-        if(showcasePrefix.indexOf("localhost") !== -1 || 
+
+        if(showcasePrefix.indexOf("localhost") !== -1 ||
             showcasePrefix.match(/media-itest\d\.webcollage\.net.*/) != null ){
             pathFull = showcasePrefix + "/partners/" + site + "/" + path
         }
@@ -123,10 +123,10 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
                 if(content.height.length > 0){
                     WcOpenAs["WcHeight"] = content.height
                 }
-                
+
             }
             return (
-                link.length > 0 ? 
+                link.length > 0 ?
                 <WcLink href={link} WcOpenAs={WcOpenAs} style={{textAlign : 'center'}}>
                     <img src={pathFull} alt={title} title={title}/>
                 </WcLink>:<img src={pathFull} alt={title} title={title}/>
@@ -149,11 +149,11 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
 
 
         if(wc_property !== "" && ((section && wc_property) || (!wc_section && wc_property))){
-            const property = (partnerDef.Properties[wc_property] !== undefined)?partnerDef.Properties[wc_property]:findOthersProperty(wc_property , profile.Others) 
+            const property = (partnerDef.Properties[wc_property] !== undefined)?partnerDef.Properties[wc_property]:findOthersProperty(wc_property , profile.Others)
             if(children){
                 return (<span>{property}</span>);
             }
-            else return property; 
+            else return property;
         }
 
         if(section){
@@ -170,6 +170,3 @@ export default ({wc_section, children, ids, wc_property , wc_entryObj, wc_exitOb
 export const getNosaicConfiguration = () =>{
     return partnerDef ? partnerDef.mosaic_configurations : null;
 }
-
-
-

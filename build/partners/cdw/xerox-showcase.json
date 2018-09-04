@@ -4,7 +4,7 @@ cbContext0({
     "partner": "cdw",
     "landing_entry_point": "landingpage-default",
     "Sections": {
-        "display-all-vendor-products": false,
+        "display_all_vendor_products": false,
         "include-landing-page-announcement-1": true,
         "include-landing-page-announcement-5": true
     },
