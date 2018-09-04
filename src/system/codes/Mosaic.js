@@ -121,10 +121,18 @@ const MosaicTilesListener = observer(({store : {data} , children , wcpc , ifMosa
         }
 
         componentDidMount(){
-            if(this.isWcpc){
-                window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}});
+                    window.onload = ()=>{
+                        window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}});
+                    }
+                
+                    if (document.readyState === "complete") {
+                        // The page is fully loaded
+                        window.Webcollage.loadProductContentByWcpc(moduleInfo.default.siteName, wcpc, moduleInfo.default.moduleName, "live", {"mosaic-board":{"containerSelector": `.WcMosaicTile-${wcpc}`, layout: "tiles","tilesCallback" :this.tilesCallback.bind(this)}});
+                      }
+                
+               
             }
-        }
+        
 
         componentWillUnmount(){
            if(window.Webcollage.terminateMosaic)
